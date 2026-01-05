@@ -125,8 +125,8 @@ body.dark-mode .story-label { color: #ccc; }
 
 /* --- CONTAINER & CARDS --- */
 .container { max-width: var(--container-width); width: 95%; margin: 0 auto; padding: 20px; }
-.character-cards { display: grid; grid-template-columns: 1fr 240px 1fr; gap: 50px; margin-bottom: 60px; align-items: start; }
-@media (max-width: 1024px) { .character-cards { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto 60px; gap: 20px; } }
+.character-cards { display: grid; grid-template-columns: 1fr 240px 1fr; gap: 50px; margin-bottom: 40px; align-items: start; }
+@media (max-width: 1024px) { .character-cards { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto 40px; gap: 20px; } }
 
 .character-card {
     background: rgba(255, 255, 255, 0.9);
@@ -146,15 +146,30 @@ body.dark-mode .character-card { background: rgba(255, 255, 255, 0.03); border: 
 .character-card.kuroo { border-top: 6px solid var(--primary-kuroo); }
 .character-card.cindy { border-top: 6px solid var(--primary-cindy); }
 
-.more-btn {
-    margin-top: auto; padding: 12px; border-radius: 30px; border: 2px solid; background: transparent; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-align: center; font-family: inherit; letter-spacing: 0.5px;
+/* --- NEW: VIDEO DIVIDER STYLES --- */
+.video-divider-container {
+    width: 100%;
+    max-width: var(--container-width);
+    height: 800px;
+    margin: 40px auto;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background: #000;
+    border: 1px solid rgba(0,0,0,0.05);
 }
-.character-card.kuroo .more-btn { border-color: var(--primary-kuroo); color: var(--primary-kuroo); }
-.character-card.kuroo .more-btn:hover { background-color: var(--primary-kuroo); color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-.character-card.cindy .more-btn { border-color: var(--primary-cindy); color: var(--primary-cindy); }
-.character-card.cindy .more-btn:hover { background-color: var(--primary-cindy); color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(180, 167, 214, 0.4); }
-body.dark-mode .character-card.kuroo .more-btn { border-color: #fff; color: #fff; }
-body.dark-mode .character-card.kuroo .more-btn:hover { background-color: #fff; color: #333; }
+
+.divider-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    .video-divider-container {
+        height: 250px;
+    }
+}
 
 /* --- PERSONALITY & FLIP CARDS --- */
 .personality-box { margin-top: 15px; padding-top: 15px; border-top: 2px dashed rgba(0,0,0,0.05); width: 100%; margin-bottom: 20px; }
@@ -334,8 +349,17 @@ body.dark-mode .inner-monologue { border-color: #555; color: #aaa; }
 /* --- TIMELINE SECTION --- */
 .timeline { position: relative; padding-left: 40px; }
 .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 2px; }
-.timeline-event { position: relative; margin-bottom: 60px; opacity: 0; transform: translateX(-30px); transition: all 0.6s ease; }
-.timeline-event.visible { opacity: 1; transform: translateX(0); }
+/* .timeline-event { position: relative; margin-bottom: 60px; opacity: 0; transform: translateX(-30px); transition: all 0.6s ease; } */
+.timeline-event { 
+    position: relative; 
+    margin-bottom: 60px; 
+    transition: all 0.6s ease; 
+}
+/* .timeline-event.visible { 
+    opacity: 1; 
+    transform: translateX(0); 
+} */
+/* .timeline-event.visible { opacity: 1; transform: translateX(0); } */
 .timeline-event::before { content: '♥'; position: absolute; left: -43px; top: 0; width: 30px; height: 30px; background: white; border: 3px solid var(--accent-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 0; padding-top: 2px; font-size: 0.9rem; color: var(--accent-pink); z-index: 1; box-shadow: 0 0 0 5px rgba(255,255,255,0.5); }
 body.dark-mode .timeline-event::before { background: #1a1a2e; box-shadow: 0 0 0 5px rgba(26,26,46,0.5); }
 .event-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); }
@@ -417,3 +441,68 @@ body.dark-mode .back-button { border-color: #444; color: #aaa; }
 body.dark-mode .back-button:hover { background: #333; color: white; }
 .progress-text { font-weight: 600; color: var(--primary-cindy); align-self: center; }
 .story-content { max-width: 800px; margin: 0 auto; }
+
+
+/* ... Keep your existing CSS ... */
+
+/* Ensure Tabs logic works */
+.tab-section {
+    display: none;
+    opacity: 0;
+}
+.tab-section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Fixed Modal Styles */
+.modal {
+    display: none; /* Default hidden */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex; /* Show when active */
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-out;
+}
+
+body.dark-mode .modal-content {
+    background: #1a1a2e;
+    color: white;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Dialogue Bubbles inside Modal */
+.story-bubble { display: flex; margin-bottom: 20px; gap: 15px; }
+.story-bubble.right { flex-direction: row-reverse; }
+.story-avatar { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+.story-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.story-bubble-content { 
+    background: #f0f2f5; 
+    padding: 15px; 
+    border-radius: 15px; 
+    max-width: 70%; 
+}
+.story-bubble.right .story-bubble-content { background: #B4A7D6; color: white; }
