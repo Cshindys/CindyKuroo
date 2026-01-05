@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>黒尾鉄朗 × シンディ</title>
+    <title>黒尾鉄朗 × シンディ | 我們的專屬空間</title>
+    
     <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -11,11 +12,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="切換深色模式">
         <span id="darkModeIcon">🌙</span>
     </button>
 
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button class="scroll-to-top" id="scrollTopBtn" onclick="scrollToTop()" aria-label="回到頂部">
         ↑
     </button>
 
@@ -24,7 +25,7 @@
             <div class="story-item" onclick="scrollToId('kuroo-card')">
                 <div class="story-ring">
                     <div class="story-img-container">
-                        <img src="img/Kuroo_profile.JPEG" alt="Kuroo">
+                        <img src="img/Kuroo_profile.JPEG" alt="黒尾">
                     </div>
                 </div>
                 <div class="story-label">黒尾鉄朗</div>
@@ -33,7 +34,7 @@
             <div class="story-item" onclick="scrollToId('cindy-card')">
                 <div class="story-ring">
                     <div class="story-img-container">
-                        <img src="img/Cindy_profile.JPG" alt="Cindy">
+                        <img src="img/Cindy_profile.JPG" alt="シンディ">
                     </div>
                 </div>
                 <div class="story-label">シンディ</div>
@@ -42,7 +43,7 @@
             <div class="story-item" onclick="scrollToId('relationship-zone')">
                 <div class="story-ring">
                     <div class="story-img-container">
-                        <img src="img/KurooAQQ(Transparent).png" alt="Love">
+                        <img src="img/HeartBeat.png" alt="關係">
                     </div>
                 </div>
                 <div class="story-label">關係</div>
@@ -51,7 +52,7 @@
             <div class="story-item" onclick="switchTabAndScroll('interview-zone')">
                 <div class="story-ring">
                     <div class="story-img-container">
-                        <img src="img/HeartBeat.png" alt="Interview">
+                        <img src="img/Mic.png" alt="訪談">
                     </div>
                 </div>
                 <div class="story-label">甜蜜訪談室</div>
@@ -60,7 +61,7 @@
             <div class="story-item" onclick="switchTabAndScroll('storybook-zone')">
                 <div class="story-ring">
                     <div class="story-img-container">
-                        <img src="img/Mic.png" alt="Storybook">
+                        <img src="img/Book.png" alt="故事書">
                     </div>
                 </div>
                 <div class="story-label">我們的故事書</div>
@@ -69,7 +70,7 @@
              <div class="story-item" onclick="switchTabAndScroll('timeline-zone')">
                 <div class="story-ring">
                     <div class="story-img-container">
-                        <img src="img/BOOK.png" alt="Events">
+                        <img src="img/Magnifier.png" alt="事件">
                     </div>
                 </div>
                 <div class="story-label">事件簿</div>
@@ -98,11 +99,9 @@
                             <div class="info-row"><div class="info-label">生日</div><div class="info-value">11月17日</div></div>
                             <div class="info-row"><div class="info-label">身高</div><div class="info-value">183cm</div></div>
                         </div>
-
                         <div class="description-box">
-                            音駒高校排球部主將，擁有出色的領導能力和戰術頭腦。性格沉穩冷靜，在場上總能做出最佳判斷。對排球充滿熱情，是隊伍的精神支柱。
+                            音駒高校排球部主將，擁有出色的領導能力和戰術頭腦。性格沉穩冷靜，在場上總能做出最佳判斷。
                         </div>
-
                         <div class="personality-box">
                             <div class="personality-title">個性 Personality</div>
                             <div class="personality-grid">
@@ -112,10 +111,8 @@
                                 <span class="p-tag">溫柔體貼</span>
                             </div>
                         </div>
-
-                        <button class="more-btn">More ➜</button>
+                        <button class="more-btn">Click to Flip ➜</button>
                     </div>
-
                     <div class="character-card flip-card-back kuroo-back">
                         <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
                         <div class="card-quote">
@@ -131,9 +128,8 @@
                         <div class="chat-bubble">「よろしくね...」</div>
                         <img src="img/KurooAQQ(Transparent).png" alt="Kuroo Mascot" class="mascot-img">
                     </div>
-
                     <div class="mascot-wrapper right-side">
-                        <div class="chat-bubble">「はい！黒尾さん〜」</div>
+                        <div class="chat-bubble">「はい！黑尾さん〜」</div>
                         <img src="img/CindyAQQ(Transparent).png" alt="Cindy Mascot" class="mascot-img">
                     </div>
                 </div>
@@ -149,7 +145,6 @@
                             <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
                         </div>
                     </div>
-
                     <div class="music-track cindy-track">
                         <div class="play-btn">▶</div>
                         <div class="track-info">
@@ -167,7 +162,6 @@
                         <div class="single-heart kuroo-heart"></div>
                         <div class="color-code">#333333</div>
                     </div>
-
                     <div class="color-wrapper">
                         <div class="single-heart cindy-heart"></div>
                         <div class="color-code">#B4A7D6</div>
@@ -175,10 +169,9 @@
                 </div>
 
                 <div class="bottom-couple-container">
-                    <img src="img/C&KQQ.png" alt="Kuroo and Cindy Chibi" class="bottom-couple-img">
-                    <div class="bottom-quote">ずっとそばに会いたい</div>
+                    <img src="img/C&KQQ.png" alt="Chibi" class="bottom-couple-img">
+                    <div class="bottom-quote">ずっとそばにいたい</div>
                 </div>
-
             </div>
 
             <div class="flip-card-container" onclick="this.classList.toggle('flipped')">
@@ -190,15 +183,13 @@
                         <div class="character-name">シンディ💜</div>
                         <div class="character-info">
                             <div class="info-row"><div class="info-label">年級</div><div class="info-value">音駒高校二年三班</div></div>
-                            <div class="info-row"><div class="info-label">部活</div><div class="info-value">園藝社 🪴（社員）</div></div>
+                            <div class="info-row"><div class="info-label">部活</div><div class="info-value">園藝社 🪴</div></div>
                             <div class="info-row"><div class="info-label">生日</div><div class="info-value">10月22日</div></div>
                             <div class="info-row"><div class="info-label">身高</div><div class="info-value">160 cm</div></div>
                         </div>
-
                         <div class="description-box">
-                            シンデイ，高中二年級的內向少女，安靜羞澀而心思細膩。為了更靠近黑尾前輩，她加入園藝社——中庭花圃(正與男子排球部的第一體育館相鄰)，偶爾能遠遠望見他練習的身影。
+                            為了更靠近黑尾前輩，她加入了與第一體育館相鄰的園藝社，默默注視著那個閃耀的身影。
                         </div>
-
                         <div class="personality-box">
                             <div class="personality-title">個性 Personality</div>
                             <div class="personality-grid">
@@ -208,10 +199,8 @@
                                 <span class="p-tag">堅定專一</span>
                             </div>
                         </div>
-
-                        <button class="more-btn">More ➜</button>
+                        <button class="more-btn">Click to Flip ➜</button>
                     </div>
-
                     <div class="character-card flip-card-back cindy-back">
                         <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
                          <div class="card-quote">
@@ -220,7 +209,13 @@
                     </div>
                 </div>
             </div>
-            
+        </div>
+
+        <div class="video-divider-container">
+            <video class="divider-video" autoplay muted loop playsinline>
+                <source src="img/Kuroo Cindy.mp4" type="video/mp4">
+                您的瀏覽器不支援影片播放。
+            </video>
         </div>
 
         <div class="relationship-section" id="relationship-zone">
@@ -228,14 +223,13 @@
                 <div class="heart-title">黒尾對シンディ初印象</div>
                 <div class="heart-subtitle">關注與好奇</div>
                 <div class="heart-description">
-                    儘管未曾點破，但他知道有位低年級學妹在偷偷關注他，當時或許只是覺得有趣。隨著時間推移，那份「小心翼翼的愛意」漸漸印在他心中，終於明白——原來，自己早就在不知不覺間喜歡上了她。
+                    他知道有位低年級學妹在偷偷關注他，當時或許只是覺得有趣。隨著時間推移，那份「小心翼翼的愛意」漸漸印在他心中。
                 </div>
             </div>
 
             <div class="graph-container">
                 <div class="axis-y"></div>
                 <div class="axis-x"></div>
-
                 <div class="axis-label label-top">後知後覺</div>
                 <div class="axis-label label-bottom">一見鍾情</div>
                 <div class="axis-label label-left">無意識</div>
@@ -244,7 +238,6 @@
                 <div class="graph-icon pos-kuroo" title="黑尾：後知後覺 / 無意識">
                     <img src="img/KurooAQQ(Transparent).png" alt="Kuroo">
                 </div>
-
                 <div class="graph-icon pos-cindy" title="Cindy：一見鍾情">
                     <img src="img/CindyAQQ(Transparent).png" alt="Cindy">
                 </div>
@@ -254,7 +247,7 @@
                 <div class="heart-title">シンディ對黒尾初印象</div>
                 <div class="heart-subtitle">崇拜與迷惘</div>
                 <div class="heart-description">
-                    初次見面時，她便被黒尾的排球英姿深深吸引。之後看著作為音駒高校隊員比賽的他在場上揮灑汗水，她想要靠近，卻又不知道該如何開口，只能默默地在一旁支持著。
+                    初次見面時，她便被黒尾的排球英姿深深吸引。想要靠近，卻又不知道該如何開口，只能默默地支持著。
                 </div>
             </div>
         </div>
@@ -272,51 +265,31 @@
         </div>
 
         <div class="tab-content-wrapper">
-            
             <div class="interview-section tab-section active" id="interview-zone">
+                <!-- 訪談內容保留 -->
+                <!-- ... 你的內容 ... -->
+                <!-- 確保本區有 .tab-section 與 id 為 interview-zone -->
                 <div class="interview-title">甜蜜訪談室 · Sweet Interview</div>
-
                 <div class="interview-scene">
-                    <div class="host-box">
-                        <span class="host-icon">🎤</span>
-                        <span>主持人 : 請問シンデイ，妳對黑尾學長的第一印象是？</span>
-                    </div>
-
-                    <div class="narrative-action">
-                        *聽到這個問題，シンデイ的腦海裡，立刻浮現出四年前的那個畫面——夕陽西下的排球館，汗水淋漓的少年在球網前高高躍起...*
-                    </div>
-
+                    <div class="host-box"><span class="host-icon">🎤</span><span>主持人 : 請問シンデイ，妳對黑尾學長的第一印象是？</span></div>
+                    <div class="narrative-action">*聽到這個問題，シンデイ立刻浮現出夕陽西下、在球網前高高躍起的少年...*</div>
                     <div class="dialogue-wrapper">
                         <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png" alt="Cindy"></div>
-                        <div class="dialogue-bubble cindy-style">
-                            「是、是個...非常、非常帥氣...而且很有活力的學長！在排球場上的時候...學長簡直像變了一個人...」
-                        </div>
+                        <div class="dialogue-bubble cindy-style">「是、是個...非常帥氣...而且很有活力的學長！」</div>
                     </div>
-
-                    <div class="inner-monologue">
-                        <span class="inner-label">黑尾內心獨白 (OS)</span>
-                        「噗嗤，這小傢伙。我還以為她會說出什麼肉麻的話呢。不過『很有活力』嗎...分數不錯。」
-                    </div>
+                    <div class="inner-monologue"><span class="inner-label">黑尾內心獨白 (OS)</span>「噗嗤，很有活力嗎...分數不錯。」</div>
                 </div>
-
                 <div class="interview-scene">
-                    <div class="host-box">
-                        <span class="host-icon">🎤</span>
-                        <span>主持人 (OS): 那麼黑尾君，你對シンデイ的第一印象呢？</span>
-                    </div>
-
+                    <div class="host-box"><span class="host-icon">🎤</span><span>主持人 : 那麼黑尾君，你對シンデイ的第一印象呢？</span></div>
                     <div class="dialogue-wrapper right">
                         <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
-                        <div class="dialogue-bubble kuroo-style">
-                            「第一印象啊……大概就是『很安靜』吧。像一隻想要靠近，卻又害怕受傷的小貓。」
-                        </div>
+                        <div class="dialogue-bubble kuroo-style">「第一印象啊……大概就是『很安靜』吧。像一隻害怕受傷的小貓。」</div>
                     </div>
                 </div>
-
                 <div class="interview-scene">
                     <div class="host-box">
                         <span class="host-icon">🎤</span>
-                        <span>主持人 (OS): 最後一個問題，兩位未來的夢想是什麼呢？</span>
+                        <span>主持人 : 最後一個問題，兩位未來的夢想是什麼呢？</span>
                     </div>
                     <div class="dialogue-wrapper right">
                         <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
@@ -332,95 +305,75 @@
                     </div>
                 </div>
             </div>
-
             <div class="storybook-section tab-section" id="storybook-zone">
+                <!-- 故事書區 -->
                 <div class="interview-title">我們的故事書 · Our Storybook</div>
-                
                 <div id="chapters-grid-view">
                     <div class="chapters-grid" id="chapters-container">
-                        </div>
+                    </div>
                 </div>
-
                 <div id="story-reader-view" class="story-viewer" style="display: none;">
                     <button class="back-button" onclick="closeChapterReader()">← 返回章節列表</button>
-                    
                     <div class="story-header">
                         <h2 class="story-chapter-title" id="reader-title"></h2>
                         <div class="story-date" id="reader-date"></div>
                     </div>
-
-                    <div class="story-content" id="reader-content">
-                        </div>
-
+                    <div class="story-content" id="reader-content"></div>
                     <div class="story-navigation">
                         <button class="story-nav-btn" id="reader-prev-btn" onclick="navigateChapter(-1)">← 上一章</button>
-                        <div class="progress-text" id="reader-progress">1 / 5</div>
+                        <div class="progress-text" id="reader-progress">1 / 3</div>
                         <button class="story-nav-btn" id="reader-next-btn" onclick="navigateChapter(1)">下一章 →</button>
                     </div>
                 </div>
             </div>
-
             <div class="timeline-section tab-section" id="timeline-zone">
-                <div class="timeline-title">
-                    秘密事件簿 · Secret Diary
-                </div>
+                <div class="timeline-title">秘密事件簿 · Secret Diary</div>
                 <div class="timeline">
-                    
-                    <div class="timeline-event">
-                        <div class="event-card" onclick="openStoryModal('event1')">
+                    <div class="timeline-event" data-event="event1">
+                        <div class="event-card">
                             <div class="event-header">
-                                <div class="event-id">事件編號：CND-KTR-001</div>
+                                <div class="event-id">CND-KTR-001</div>
                                 <div class="event-time">記錄時間：未知</div>
                             </div>
                             <div class="event-title">🖤「愛的暗殺事件🌱」</div>
-                            <div class="event-description">
-                                シンデイ領養了一盆據說「絕對不會死」的多肉植物——仙人掌。出於對新生命的過度關愛，她堅持每日早、午、晚三次為其澆水，導致...
-                            </div>
+                            <div class="event-description">シンデイ領養了一盆據說「絕對不會死」的仙人掌。出於對新生命的過度關愛，她每天瘋狂澆水...</div>
                             <button class="read-story-btn">Read Full Story ➜</button>
                         </div>
                     </div>
-
-                    <div class="timeline-event">
-                        <div class="event-card" onclick="openStoryModal('event2')">
+                    <div class="timeline-event" data-event="event2">
+                        <div class="event-card">
                             <div class="event-header">
-                                <div class="event-id">事件編號：CND-KTR-002</div>
+                                <div class="event-id">CND-KTR-002</div>
                                 <div class="event-time">記錄時間：午休時間</div>
                             </div>
                             <div class="event-title">🖤「圖書館書本空襲事件📕」</div>
-                            <div class="event-description">
-                                シンデイ在圖書館尋找資料，因身高不足，踮起腳尖取書時重心不穩。一本厚重的精裝書精準地砸中了她自己的頭頂，而黑尾就在對面...
-                            </div>
+                            <div class="event-description">因身高不足取書時重心不穩。一本厚重的精裝書精準地砸中了她自己的頭頂...</div>
                             <button class="read-story-btn">Read Full Story ➜</button>
                         </div>
                     </div>
-
-                    <div class="timeline-event">
-                        <div class="event-card" onclick="openStoryModal('event3')">
+                    <div class="timeline-event" data-event="event3">
+                        <div class="event-card">
                             <div class="event-header">
-                                <div class="event-id">事件編號：CND-KTR-003</div>
+                                <div class="event-id">CND-KTR-003</div>
                                 <div class="event-time">記錄時間：黑尾生日</div>
                             </div>
                             <div class="event-title">🖤「左腳的愛過於沉重🦶🏻」</div>
-                            <div class="event-description">
-                                生日當天，黑尾打開禮盒，發現裡面靜靜地躺著兩個——包裝、設計、型號完全一致的「左腳專用護膝」。
-                            </div>
+                            <div class="event-description">生日當天，黑尾打開禮盒，發現裡面靜靜地躺著兩個「左腳專用護膝」。</div>
                             <button class="read-story-btn">Read Full Story ➜</button>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div> 
     </div>
 
     <div class="modal" id="eventModal">
         <div class="modal-content story-modal-content">
             <div class="modal-close" onclick="closeModal()">×</div>
-            <div id="modalBody"></div>
+            <div id="modalBody">
+            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
