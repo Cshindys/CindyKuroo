@@ -224,7 +224,7 @@ body.dark-mode .character-card {
 body.dark-mode .character-card.kuroo .more-btn { border-color: #fff; color: #fff; }
 body.dark-mode .character-card.kuroo .more-btn:hover { background-color: #fff; color: #333; }
 
-/* --- PERSONALITY SECTION (FIXED & IMPROVED) --- */
+/* --- PERSONALITY SECTION --- */
 .personality-box {
     margin-top: 15px;
     padding-top: 15px;
@@ -237,43 +237,35 @@ body.dark-mode .personality-box { border-top-color: rgba(255,255,255,0.1); }
 .personality-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #8E44AD; /* Purple tone */
+    color: #8E44AD; 
     margin-bottom: 12px;
 }
 body.dark-mode .personality-title { color: var(--primary-cindy); }
 
 .personality-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columns */
-    gap: 12px; /* Increased gap for better spacing */
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
 }
 
-/* This is the key class that was missing/broken */
 .p-tag {
-    display: inline-block; /* Ensures padding works */
     background: #F3E5F5; 
     color: #6A1B9A; 
-    padding: 8px 12px; /* Increased side padding */
-    border-radius: 20px; /* Fully rounded pills */
-    font-size: 0.95rem; /* Slightly larger text */
+    padding: 8px 5px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Better shadow */
-    transition: transform 0.2s, background-color 0.2s;
-    width: 100%; /* Fill the grid cell */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
 }
 
-/* Specific colors for Kuroo */
 .character-card.kuroo .p-tag {
     background: #eeeeee;
     color: #333;
 }
 
-.p-tag:hover { 
-    transform: translateY(-2px); 
-    filter: brightness(0.95); /* Slight dim on hover */
-}
-
+.p-tag:hover { transform: translateY(-2px); }
 body.dark-mode .character-card.cindy .p-tag { background: rgba(180, 167, 214, 0.2); color: #E8B4D9; }
 body.dark-mode .character-card.kuroo .p-tag { background: #444; color: #fff; }
 
