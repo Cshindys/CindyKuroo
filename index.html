@@ -43,13 +43,13 @@
             <div class="story-item" onclick="scrollToId('relationship-zone')">
                 <div class="story-ring">
                     <div class="story-img-container">
-                      <img src="img/KurooQQ(Transparent).png" alt="Love">
+                        <img src="img/KurooQQ.png" alt="Love">
                     </div>
                 </div>
                 <div class="story-label">關係</div>
             </div>
 
-            <div class="story-item" onclick="scrollToId('interview-zone')">
+            <div class="story-item" onclick="switchView('interview'); scrollToId('content-display-area');">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/C&KQQ.png" alt="Interview">
@@ -58,7 +58,7 @@
                 <div class="story-label">甜蜜訪談室</div>
             </div>
 
-             <div class="story-item" onclick="scrollToId('timeline-zone')">
+            <div class="story-item" onclick="switchView('timeline'); scrollToId('content-display-area');">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/CindyAQQ(Transparent).png" alt="Events">
@@ -76,7 +76,6 @@
     <div class="container">
         
         <div class="character-cards">
-            
             <div class="flip-card-container" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
                     <div class="character-card kuroo flip-card-front" id="kuroo-card">
@@ -191,13 +190,6 @@
             
         </div>
 
-        <div class="love-arrow-divider">
-            <div class="arrow-line"></div>
-            <div class="heart-stream-item delay-1"><div class="single-heart"></div></div>
-            <div class="heart-stream-item delay-2"><div class="single-heart"></div></div>
-            <div class="heart-stream-item delay-3"><div class="single-heart"></div></div>
-        </div>
-
         <div class="relationship-section" id="relationship-zone">
             <div class="heart-section left">
                 <div class="heart-title">黒尾對シンディ初印象</div>
@@ -234,281 +226,287 @@
             </div>
         </div>
         
-
-        <div class="interview-section" id="interview-zone">
-            <div class="interview-title">甜蜜訪談室 · Sweet Interview</div>
-
-            
-            <div class="interview-scene">
-                <div class="host-box">
-                    <span class="host-icon">🎤</span>
-                    <span>主持人 (OS): 好了，那麼我們的第一個問題是—— 請問シンデイ，妳對黑尾學長的第一印象是？</span>
-                </div>
-
-                <div class="narrative-action">
-                    *聽到這個問題，シンデイ的臉頰瞬間爆紅，低下了頭，眼睛盯著筆記本上的空白頁，似乎想從那裡找到答案。她的十指無意識地交纏著，心跳開始加速。*<br>
-                    *她的腦海裡，立刻浮現出四年前的那個畫面——夕陽西下的排球館，汗水淋漓的少年在球網前高高躍起，那矯健的身姿和自信的笑容，像一道光，瞬間照亮了她的整個世界。從那以後，她的視線就再也無法從他身上移開。*
-                </div>
-
-                <div class="dialogue-wrapper">
-                    <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
-                    <div class="dialogue-bubble cindy-style">
-                        「我、我對學長的第一印象……」
-                    </div>
-                </div>
-
-                <div class="narrative-action">
-                    *シンデイ的聲音小得像蚊子，細不可聞。她抬起眼，小心翼翼地看了一眼對面的黑尾，卻只見他笑吟吟地看著自己，那雙貓眼裡寫滿了「我就知道會這樣」的戲謔。*<br>
-                    *「糟糕，學長一定知道我那時候都在偷看他……要怎麼回答才能顯得自然一點，不會太笨呢……」*
-                </div>
-
-                <div class="dialogue-wrapper">
-                    <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
-                    <div class="dialogue-bubble cindy-style">
-                        「是、是個……非常、非常帥氣……而且很有活力的學長！」
-                    </div>
-                </div>
-
-                <div class="narrative-action">
-                    *她一股腦地把腦海中浮現出的形容詞都吐了出來，語氣急促，臉上的熱度也持續升高。*
-                </div>
-
-                <div class="dialogue-wrapper">
-                    <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
-                    <div class="dialogue-bubble cindy-style">
-                        「在排球場上的時候……學長簡直、簡直像變了一個人……不對！我是說、我是說學長本來就很帥氣了，只是在排球場上更、更有魅力了……」
-                    </div>
-                </div>
-
-                <div class="narrative-action">
-                    *她越說越亂，最後索性用手捂住了臉，恨不得鑽到桌子底下。黑尾看著她這副慌亂得語無倫次的可愛模樣，唇角的笑意更深了。他輕輕搖了搖頭，沒有打斷她，只是眼底的寵溺幾乎要溢出來了。*
-                </div>
-
-                <div class="inner-monologue">
-                    <span class="inner-label">黑尾內心獨白 (OS)</span>
-                    「噗嗤，這小傢伙。我還以為她會說出什麼驚天動地、肉麻到讓我起雞皮疙瘩的告白呢。結果還是這麼容易害羞。不過『很帥氣、很有活力、更有魅力』嗎……看來我在她心裡的分數一直很高啊。嗯，不錯不錯。」
-                </div>
-            </div>
-
-            <div class="interview-scene">
-                <div class="host-box">
-                    <span class="host-icon">🎤</span>
-                    <span>主持人 (OS): 咳咳，看來シンデイ真的很害羞呢。那麼輪到黑尾君了，你對シンデイ的第一印象又是什麼呢？</span>
-                </div>
-
-                <div class="narrative-action">
-                    *黑尾稍微調整了一下坐姿，單手托著下巴，眼神變得深邃起來。他並沒有馬上回答，而是先看了一眼旁邊還在試圖給臉頰降溫的シンデイ。*
-                </div>
-
-                <div class="dialogue-wrapper right">
-                    <div class="char-avatar-small"><img src="img/KurooQQ.png" alt="Kuroo"></div>
-                    <div class="dialogue-bubble kuroo-style">
-                        「第一印象啊……大概就是『很安靜』吧。」
-                    </div>
-                </div>
-
-                <div class="dialogue-wrapper right">
-                    <div class="char-avatar-small"><img src="img/KurooQQ.png" alt="Kuroo"></div>
-                    <div class="dialogue-bubble kuroo-style">
-                        「像一隻想要靠近，卻又害怕受傷的小貓。明明眼神裡充滿了好奇，卻總是躲在角落裡偷偷觀察。」
-                    </div>
-                </div>
-
-                <div class="narrative-action">
-                    *シンデイ驚訝地抬起頭，正好對上黑尾溫柔的目光。*
-                </div>
-
-                <div class="inner-monologue">
-                    <span class="inner-label">黑尾內心獨白 (OS)</span>
-                    「其實那時候我就注意到體育館窗邊有個小腦袋一直在晃動了。只是那時候覺得如果戳破她的話，她大概會嚇得再也不敢來了吧。能忍住不去逗她，我那時候的定力還真是好啊。」
-                </div>
-            </div>
-
-            <div class="interview-scene">
-                <div class="host-box">
-                    <span class="host-icon">🎤</span>
-                    <span>主持人 (OS): 原來兩位都在默默關注對方呢！下一個問題，シンデイ為什麼選擇加入園藝社呢？</span>
-                </div>
-
-                <div class="dialogue-wrapper">
-                    <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
-                    <div class="dialogue-bubble cindy-style">
-                        「因為……我覺得能親手培育出花朵很有趣。而且……園藝需要耐心，這是我想要培養的能力。」
-                    </div>
-                </div>
-
-                <div class="narrative-action">
-                    *她回答得很認真，但眼神卻不自覺地飄向了別處。*
-                </div>
-
-                <div class="inner-monologue">
-                    <span class="inner-label">シンデイ內心獨白 (OS)</span>
-                    「其實……是因為園藝社的花圃就在第一體育館旁邊，在那裡澆水的話，抬起頭就能看到正在練習的學長……這個理由絕對不能說出來！」
-                </div>
-
-                <div class="inner-monologue">
-                    <span class="inner-label">黑尾內心獨白 (OS)</span>
-                    「呵，這傢伙以為我不知道嗎？每次練習休息的時候往窗外看，總能看到她在跟那些花花草草說話。那個角度，確實是觀賞排球部練習的特等席啊。」
-                </div>
-            </div>
-
-            <div class="interview-scene">
-                <div class="host-box">
-                    <span class="host-icon">🎤</span>
-                    <span>主持人 (OS): 最後一個問題，兩位未來的夢想是什麼呢？</span>
-                </div>
-
-                <div class="dialogue-wrapper right">
-                    <div class="char-avatar-small"><img src="img/KurooQQ.png" alt="Kuroo"></div>
-                    <div class="dialogue-bubble kuroo-style">
-                        「短期目標當然是帶領音駒拿下全國冠軍。長期的話……希望能繼續從事排球相關的工作，把這份熱情傳遞給更多人。」
-                    </div>
-                </div>
-
-                <div class="narrative-action">
-                    *シンデイ看著談論夢想時閃閃發光的黑尾，眼裡滿是崇拜。*
-                </div>
-
-                <div class="dialogue-wrapper">
-                    <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
-                    <div class="dialogue-bubble cindy-style">
-                        「我希望能開一家溫馨的花店，讓客人感到放鬆……如果可以的話，也想一直支持著學長的夢想。」
-                    </div>
-                </div>
-
-                <div class="narrative-action">
-                    *說完這句話，兩人相視一笑，空氣中彷彿充滿了粉紅色的泡泡。*
-                </div>
-            </div>
-
+        <div class="filter-wrapper" id="content-display-area">
+            <button class="filter-btn active" id="btn-interview" onclick="switchView('interview')">甜蜜訪談室</button>
+            <button class="filter-btn" id="btn-timeline" onclick="switchView('timeline')">事件簿</button>
         </div>
 
-        <div class="timeline-section" id="timeline-zone">
-            <div class="timeline-title">
-                事件簿
-                <svg class="magnifier-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
+        <div id="view-interview" class="view-section active">
+            <div class="interview-section" id="interview-zone">
+                <div class="interview-title">甜蜜訪談室 · Sweet Interview</div>
+
+                <div class="interview-scene">
+                    <div class="host-box">
+                        <span class="host-icon">🎤</span>
+                        <span>主持人 (OS): 好了，那麼我們的第一個問題是—— 請問シンデイ，妳對黑尾學長的第一印象是？</span>
+                    </div>
+
+                    <div class="narrative-action">
+                        *聽到這個問題，シンデイ的臉頰瞬間爆紅，低下了頭，眼睛盯著筆記本上的空白頁，似乎想從那裡找到答案。她的十指無意識地交纏著，心跳開始加速。*<br>
+                        *她的腦海裡，立刻浮現出四年前的那個畫面——夕陽西下的排球館，汗水淋漓的少年在球網前高高躍起，那矯健的身姿和自信的笑容，像一道光，瞬間照亮了她的整個世界。從那以後，她的視線就再也無法從他身上移開。*
+                    </div>
+
+                    <div class="dialogue-wrapper">
+                        <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
+                        <div class="dialogue-bubble cindy-style">
+                            「我、我對學長的第一印象……」
+                        </div>
+                    </div>
+
+                    <div class="narrative-action">
+                        *シンデイ的聲音小得像蚊子，細不可聞。她抬起眼，小心翼翼地看了一眼對面的黑尾，卻只見他笑吟吟地看著自己，那雙貓眼裡寫滿了「我就知道會這樣」的戲謔。*<br>
+                        *「糟糕，學長一定知道我那時候都在偷看他……要怎麼回答才能顯得自然一點，不會太笨呢……」*
+                    </div>
+
+                    <div class="dialogue-wrapper">
+                        <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
+                        <div class="dialogue-bubble cindy-style">
+                            「是、是個……非常、非常帥氣……而且很有活力的學長！」
+                        </div>
+                    </div>
+
+                    <div class="narrative-action">
+                        *她一股腦地把腦海中浮現出的形容詞都吐了出來，語氣急促，臉上的熱度也持續升高。*
+                    </div>
+
+                    <div class="dialogue-wrapper">
+                        <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
+                        <div class="dialogue-bubble cindy-style">
+                            「在排球場上的時候……學長簡直、簡直像變了一個人……不對！我是說、我是說學長本來就很帥氣了，只是在排球場上更、更有魅力了……」
+                        </div>
+                    </div>
+
+                    <div class="narrative-action">
+                        *她越說越亂，最後索性用手捂住了臉，恨不得鑽到桌子底下。黑尾看著她這副慌亂得語無倫次的可愛模樣，唇角的笑意更深了。他輕輕搖了搖頭，沒有打斷她，只是眼底的寵溺幾乎要溢出來了。*
+                    </div>
+
+                    <div class="inner-monologue">
+                        <span class="inner-label">黑尾內心獨白 (OS)</span>
+                        「噗嗤，這小傢伙。我還以為她會說出什麼驚天動地、肉麻到讓我起雞皮疙瘩的告白呢。結果還是這麼容易害羞。不過『很帥氣、很有活力、更有魅力』嗎……看來我在她心裡的分數一直很高啊。嗯，不錯不錯。」
+                    </div>
+                </div>
+
+                <div class="interview-scene">
+                    <div class="host-box">
+                        <span class="host-icon">🎤</span>
+                        <span>主持人 (OS): 咳咳，看來シンデイ真的很害羞呢。那麼輪到黑尾君了，你對シンデイ的第一印象又是什麼呢？</span>
+                    </div>
+
+                    <div class="narrative-action">
+                        *黑尾稍微調整了一下坐姿，單手托著下巴，眼神變得深邃起來。他並沒有馬上回答，而是先看了一眼旁邊還在試圖給臉頰降溫的シンデイ。*
+                    </div>
+
+                    <div class="dialogue-wrapper right">
+                        <div class="char-avatar-small"><img src="img/KurooQQ.png" alt="Kuroo"></div>
+                        <div class="dialogue-bubble kuroo-style">
+                            「第一印象啊……大概就是『很安靜』吧。」
+                        </div>
+                    </div>
+
+                    <div class="dialogue-wrapper right">
+                        <div class="char-avatar-small"><img src="img/KurooQQ.png" alt="Kuroo"></div>
+                        <div class="dialogue-bubble kuroo-style">
+                            「像一隻想要靠近，卻又害怕受傷的小貓。明明眼神裡充滿了好奇，卻總是躲在角落裡偷偷觀察。」
+                        </div>
+                    </div>
+
+                    <div class="narrative-action">
+                        *シンデイ驚訝地抬起頭，正好對上黑尾溫柔的目光。*
+                    </div>
+
+                    <div class="inner-monologue">
+                        <span class="inner-label">黑尾內心獨白 (OS)</span>
+                        「其實那時候我就注意到體育館窗邊有個小腦袋一直在晃動了。只是那時候覺得如果戳破她的話，她大概會嚇得再也不敢來了吧。能忍住不去逗她，我那時候的定力還真是好啊。」
+                    </div>
+                </div>
+
+                <div class="interview-scene">
+                    <div class="host-box">
+                        <span class="host-icon">🎤</span>
+                        <span>主持人 (OS): 原來兩位都在默默關注對方呢！下一個問題，シンデイ為什麼選擇加入園藝社呢？</span>
+                    </div>
+
+                    <div class="dialogue-wrapper">
+                        <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
+                        <div class="dialogue-bubble cindy-style">
+                            「因為……我覺得能親手培育出花朵很有趣。而且……園藝需要耐心，這是我想要培養的能力。」
+                        </div>
+                    </div>
+
+                    <div class="narrative-action">
+                        *她回答得很認真，但眼神卻不自覺地飄向了別處。*
+                    </div>
+
+                    <div class="inner-monologue">
+                        <span class="inner-label">シンデイ內心獨白 (OS)</span>
+                        「其實……是因為園藝社的花圃就在第一體育館旁邊，在那裡澆水的話，抬起頭就能看到正在練習的學長……這個理由絕對不能說出來！」
+                    </div>
+
+                    <div class="inner-monologue">
+                        <span class="inner-label">黑尾內心獨白 (OS)</span>
+                        「呵，這傢伙以為我不知道嗎？每次練習休息的時候往窗外看，總能看到她在跟那些花花草草說話。那個角度，確實是觀賞排球部練習的特等席啊。」
+                    </div>
+                </div>
+
+                <div class="interview-scene">
+                    <div class="host-box">
+                        <span class="host-icon">🎤</span>
+                        <span>主持人 (OS): 最後一個問題，兩位未來的夢想是什麼呢？</span>
+                    </div>
+
+                    <div class="dialogue-wrapper right">
+                        <div class="char-avatar-small"><img src="img/KurooQQ.png" alt="Kuroo"></div>
+                        <div class="dialogue-bubble kuroo-style">
+                            「短期目標當然是帶領音駒拿下全國冠軍。長期的話……希望能繼續從事排球相關的工作，把這份熱情傳遞給更多人。」
+                        </div>
+                    </div>
+
+                    <div class="narrative-action">
+                        *シンデイ看著談論夢想時閃閃發光的黑尾，眼裡滿是崇拜。*
+                    </div>
+
+                    <div class="dialogue-wrapper">
+                        <div class="char-avatar-small"><img src="img/CindyAQQ(Transparent).png" alt="Cindy"></div>
+                        <div class="dialogue-bubble cindy-style">
+                            「我希望能開一家溫馨的花店，讓客人感到放鬆……如果可以的話，也想一直支持著學長的夢想。」
+                        </div>
+                    </div>
+
+                    <div class="narrative-action">
+                        *說完這句話，兩人相視一笑，空氣中彷彿充滿了粉紅色的泡泡。*
+                    </div>
+                </div>
             </div>
-            <div class="timeline">
-                
-                <div class="timeline-event">
-                    <div class="event-card" onclick="openModal('event1')">
-                        <div class="event-header">
-                            <div class="event-id">事件編號：CND-KTR-001</div>
-                            <div class="event-time">記錄時間：未知</div>
-                        </div>
-                        <div class="event-title">🖤「愛的暗殺事件🌱」</div>
-                        
-                        <div class="event-description">
-                            シンデイ領養了一盆據說「絕對不會死」的多肉植物——仙人掌，一種理論上放置不管也能存活的植物。出於對新生命的過度關愛，她認為生長在沙漠的仙人掌一定很缺水，
-                            <strong>因此堅持每日早、午、晚三次為其澆水。</strong>一週後，該仙人掌因根部腐爛而宣告枯萎。此事件成為園藝學會傳說中的「愛的暗殺事件」。
-                        </div>
+        </div>
 
-                        <div class="conversation-preview">
-                            <div class="conversation kuroo">
-                                <div class="conversation-avatar">
-                                    <img src="img/KurooQQ.png" alt="KurooQQ" />
-                                </div>
-                                <div class="conversation-content">
-                                    <div class="conversation-name">黒尾</div>
-                                    <div class="conversation-text">あれあれ...身為園藝學會的成員，居然能親手將生命力最頑強的仙人掌給『處決』掉...</div>
-                                </div>
-                            </div>
-                            <div class="conversation cindy">
-                                <div class="conversation-avatar">
-                                    <img src="img/CindyAQQ(Transparent).png" alt="CindyQQ" />
-                                </div>
-                                <div class="conversation-content">
-                                    <div class="conversation-name">シンディ</div>
-                                    <div class="conversation-text">我...我不是故意的！我只是...怕它口渴...</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="read-story-btn">Read Full Story & Chat ➜</button>
-                    </div>
+        <div id="view-timeline" class="view-section" style="display: none;">
+            <div class="timeline-section" id="timeline-zone">
+                <div class="timeline-title">
+                    事件簿
+                    <svg class="magnifier-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
                 </div>
+                <div class="timeline">
+                    
+                    <div class="timeline-event">
+                        <div class="event-card" onclick="openModal('event1')">
+                            <div class="event-header">
+                                <div class="event-id">事件編號：CND-KTR-001</div>
+                                <div class="event-time">記錄時間：未知</div>
+                            </div>
+                            <div class="event-title">🖤「愛的暗殺事件🌱」</div>
+                            
+                            <div class="event-description">
+                                シンデイ領養了一盆據說「絕對不會死」的多肉植物——仙人掌，一種理論上放置不管也能存活的植物。出於對新生命的過度關愛，她認為生長在沙漠的仙人掌一定很缺水，
+                                <strong>因此堅持每日早、午、晚三次為其澆水。</strong>一週後，該仙人掌因根部腐爛而宣告枯萎。此事件成為園藝學會傳說中的「愛的暗殺事件」。
+                            </div>
 
-                <div class="timeline-event">
-                    <div class="event-card" onclick="openModal('event2')">
-                        <div class="event-header">
-                            <div class="event-id">事件編號：CND-KTR-002</div>
-                            <div class="event-time">記錄時間：午休時間</div>
-                        </div>
-                        <div class="event-title">🖤「圖書館書本空襲事件📕」</div>
-                        
-                        <div class="event-description">
-                            シンデイ在圖書館尋找資料。當她試圖從高層書架上取下一本厚重的精裝圖鑑時，因身高不足，踮起腳尖時重心不穩。
-                            <strong>她非但沒有拿到目標書籍，反而導致旁邊另外三本硬殼書因連鎖反應而滑落，其中一本精準地砸中了她自己的頭頂。</strong>
-                        </div>
-
-                        <div class="conversation-preview">
-                            <div class="conversation kuroo">
-                                <div class="conversation-avatar">
-                                    <img src="img/KurooQQ.png" alt="KurooQQ" />
+                            <div class="conversation-preview">
+                                <div class="conversation kuroo">
+                                    <div class="conversation-avatar">
+                                        <img src="img/KurooQQ.png" alt="KurooQQ" />
+                                    </div>
+                                    <div class="conversation-content">
+                                        <div class="conversation-name">黒尾</div>
+                                        <div class="conversation-text">あれあれ...身為園藝學會的成員，居然能親手將生命力最頑強的仙人掌給『處決』掉...</div>
+                                    </div>
                                 </div>
-                                <div class="conversation-content">
-                                    <div class="conversation-name">黒尾</div>
-                                    <div class="conversation-text">妳說妳，明明知道自己搆不著，為什麼不叫人幫忙？我不是就坐在妳對面嗎？</div>
+                                <div class="conversation cindy">
+                                    <div class="conversation-avatar">
+                                        <img src="img/CindyAQQ(Transparent).png" alt="CindyQQ" />
+                                    </div>
+                                    <div class="conversation-content">
+                                        <div class="conversation-name">シンディ</div>
+                                        <div class="conversation-text">我...我不是故意的！我只是...怕它口渴...</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="conversation cindy">
-                                <div class="conversation-avatar">
-                                    <img src="img/CindyAQQ(Transparent).png" alt="CindyQQ" />
-                                </div>
-                                <div class="conversation-content">
-                                    <div class="conversation-name">シンディ</div>
-                                    <div class="conversation-text">我看到黒尾さん在很專心地看書，不想打擾你嘛...</div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <button class="read-story-btn">Read Full Story & Chat ➜</button>
+                            <button class="read-story-btn">Read Full Story & Chat ➜</button>
+                        </div>
                     </div>
-                </div>
 
+                    <div class="timeline-event">
+                        <div class="event-card" onclick="openModal('event2')">
+                            <div class="event-header">
+                                <div class="event-id">事件編號：CND-KTR-002</div>
+                                <div class="event-time">記錄時間：午休時間</div>
+                            </div>
+                            <div class="event-title">🖤「圖書館書本空襲事件📕」</div>
+                            
+                            <div class="event-description">
+                                シンデイ在圖書館尋找資料。當她試圖從高層書架上取下一本厚重的精裝圖鑑時，因身高不足，踮起腳尖時重心不穩。
+                                <strong>她非但沒有拿到目標書籍，反而導致旁邊另外三本硬殼書因連鎖反應而滑落，其中一本精準地砸中了她自己的頭頂。</strong>
+                            </div>
 
-                <div class="timeline-event">
-                    <div class="event-card" onclick="openModal('event3')">
-                        <div class="event-header">
-                            <div class="event-id">事件編號：CND-KTR-003</div>
-                            <div class="event-time">記錄時間：黑尾生日</div>
-                        </div>
-                        <div class="event-title">🖤「左腳的愛過於沉重🦶🏻」</div>
-                        
-                        <div class="event-description">
-                            在黑尾生日前夕...シンデイ經過長時間的觀察與資料搜集，她將目標鎖定在一款新發售的、據說能有效緩解肌肉疲勞的專業運動護膝上。
-                            <br>在生日當天，她懷著無比激動的心情，將一個包裝精美的禮物盒遞給了黑尾。然而，當黑尾打開禮盒後，卻發現裡面靜靜地躺著...
-                            <strong>兩個——包裝、設計、型號完全一致的——左腳專用護膝</strong>
-                        </div>
-
-                        <div class="conversation-preview">
-                            <div class="conversation kuroo">
-                                <div class="conversation-avatar">
-                                    <img src="img/KurooQQ.png" alt="KurooQQ" />
+                            <div class="conversation-preview">
+                                <div class="conversation kuroo">
+                                    <div class="conversation-avatar">
+                                        <img src="img/KurooQQ.png" alt="KurooQQ" />
+                                    </div>
+                                    <div class="conversation-content">
+                                        <div class="conversation-name">黒尾</div>
+                                        <div class="conversation-text">妳說妳，明明知道自己搆不著，為什麼不叫人幫忙？我不是就坐在妳對面嗎？</div>
+                                    </div>
                                 </div>
-                                <div class="conversation-content">
-                                    <div class="conversation-name">黒尾</div>
-                                    <div class="conversation-text">我當時腦子裡只有一個想法：『妳是覺得我的右腳不配得到愛嗎？』</div>
+                                <div class="conversation cindy">
+                                    <div class="conversation-avatar">
+                                        <img src="img/CindyAQQ(Transparent).png" alt="CindyQQ" />
+                                    </div>
+                                    <div class="conversation-content">
+                                        <div class="conversation-name">シンディ</div>
+                                        <div class="conversation-text">我看到黒尾さん在很專心地看書，不想打擾你嘛...</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="conversation cindy">
-                                <div class="conversation-avatar">
-                                    <img src="img/CindyAQQ(Transparent).png" alt="CindyQQ" />
-                                </div>
-                                <div class="conversation-content">
-                                    <div class="conversation-name">シンディ</div>
-                                    <div class="conversation-text">我、我真的不是故意的！包裝盒幾乎一模一樣！</div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <button class="read-story-btn">Read Full Story & Chat ➜</button>
+                            <button class="read-story-btn">Read Full Story & Chat ➜</button>
+                        </div>
                     </div>
-                </div>
 
+
+                    <div class="timeline-event">
+                        <div class="event-card" onclick="openModal('event3')">
+                            <div class="event-header">
+                                <div class="event-id">事件編號：CND-KTR-003</div>
+                                <div class="event-time">記錄時間：黑尾生日</div>
+                            </div>
+                            <div class="event-title">🖤「左腳的愛過於沉重🦶🏻」</div>
+                            
+                            <div class="event-description">
+                                在黑尾生日前夕...シンデイ經過長時間的觀察與資料搜集，她將目標鎖定在一款新發售的、據說能有效緩解肌肉疲勞的專業運動護膝上。
+                                <br>在生日當天，她懷著無比激動的心情，將一個包裝精美的禮物盒遞給了黑尾。然而，當黑尾打開禮盒後，卻發現裡面靜靜地躺著...
+                                <strong>兩個——包裝、設計、型號完全一致的——左腳專用護膝</strong>
+                            </div>
+
+                            <div class="conversation-preview">
+                                <div class="conversation kuroo">
+                                    <div class="conversation-avatar">
+                                        <img src="img/KurooQQ.png" alt="KurooQQ" />
+                                    </div>
+                                    <div class="conversation-content">
+                                        <div class="conversation-name">黒尾</div>
+                                        <div class="conversation-text">我當時腦子裡只有一個想法：『妳是覺得我的右腳不配得到愛嗎？』</div>
+                                    </div>
+                                </div>
+                                <div class="conversation cindy">
+                                    <div class="conversation-avatar">
+                                        <img src="img/CindyAQQ(Transparent).png" alt="CindyQQ" />
+                                    </div>
+                                    <div class="conversation-content">
+                                        <div class="conversation-name">シンディ</div>
+                                        <div class="conversation-text">我、我真的不是故意的！包裝盒幾乎一模一樣！</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="read-story-btn">Read Full Story & Chat ➜</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
