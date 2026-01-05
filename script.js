@@ -38,9 +38,10 @@ function openModal(eventId) {
 
     let conversationsHTML = '';
     event.conversations.forEach(conv => {
+        // FIXED: Use relative paths like in HTML, instead of absolute local paths
         const avatarSrc = conv.type === 'kuroo' 
-            ? '/Users/cindy/Desktop/Design✨/KurooCin Web/KurooQQ.png' 
-            : '/Users/cindy/Desktop/Design✨/KurooCin Web/CindyAQQ(Transparent).png';
+            ? 'img/KurooQQ.png' 
+            : 'img/CindyAQQ(Transparent).png';
             
         conversationsHTML += `
             <div class="conversation ${conv.type}">
@@ -72,6 +73,42 @@ function openModal(eventId) {
 
 function closeModal() {
     document.getElementById('eventModal').classList.remove('active');
+}
+
+// NEW FUNCTION: Switches between Interview and Timeline views
+function switchView(viewName) {
+    // 1. Get Elements
+    const interviewSection = document.getElementById('view-interview');
+    const timelineSection = document.getElementById('view-timeline');
+    const btnInterview = document.getElementById('btn-interview');
+    const btnTimeline = document.getElementById('btn-timeline');
+
+    // 2. Reset everything (Hide all, remove active class)
+    if(interviewSection) {
+        interviewSection.style.display = 'none';
+        interviewSection.classList.remove('active');
+    }
+    if(timelineSection) {
+        timelineSection.style.display = 'none';
+        timelineSection.classList.remove('active');
+    }
+    if(btnInterview) btnInterview.classList.remove('active');
+    if(btnTimeline) btnTimeline.classList.remove('active');
+
+    // 3. Activate selected view
+    if (viewName === 'interview') {
+        if(interviewSection) {
+            interviewSection.style.display = 'block';
+            setTimeout(() => interviewSection.classList.add('active'), 10); // Small delay for animation trigger
+        }
+        if(btnInterview) btnInterview.classList.add('active');
+    } else if (viewName === 'timeline') {
+        if(timelineSection) {
+            timelineSection.style.display = 'block';
+            setTimeout(() => timelineSection.classList.add('active'), 10);
+        }
+        if(btnTimeline) btnTimeline.classList.add('active');
+    }
 }
 
 window.onclick = function(event) {
