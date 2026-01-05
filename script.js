@@ -1,4 +1,3 @@
-// script.js 完整修正版
 /* --- 1. TIMELINE DATA --- */
 const storyDatabase = [
     {
@@ -105,7 +104,7 @@ const chapterDatabase = [
     }
 ];
 
-/* --- 3. TAB LOGIC --- */
+/* --- 3. TAB LOGIC (Bottom Filter) --- */
 function toggleTab(tabId) {
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
@@ -118,7 +117,12 @@ function toggleTab(tabId) {
         setTimeout(() => selectedSection.classList.add('active'), 10);
     }
 
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        if(btn.parentElement.id === 'filter-bar-anchor') {
+            btn.classList.remove('active');
+        }
+    });
+
     if (tabId === 'interview-zone') document.getElementById('btn-interview').classList.add('active');
     else if (tabId === 'storybook-zone') document.getElementById('btn-storybook').classList.add('active');
     else if (tabId === 'timeline-zone') document.getElementById('btn-timeline').classList.add('active');
@@ -135,16 +139,44 @@ function switchTabAndScroll(tabId) {
     }
 }
 
+/* --- 3.1 NEW TOP TAB LOGIC (Video vs Relationship) --- */
+function switchTopTab(tabId) {
+    document.querySelectorAll('.top-tab-content').forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none';
+    });
+
+    const selectedSection = document.getElementById(tabId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+        setTimeout(() => selectedSection.classList.add('active'), 10);
+    }
+
+    document.getElementById('btn-top-video').classList.remove('active');
+    document.getElementById('btn-top-relationship').classList.remove('active');
+
+    if(tabId === 'top-tab-video') document.getElementById('btn-top-video').classList.add('active');
+    if(tabId === 'top-tab-relationship') document.getElementById('btn-top-relationship').classList.add('active');
+}
+
+function switchTopTabAndScroll(tabId) {
+    switchTopTab(tabId);
+    const element = document.getElementById('top-filter-anchor');
+    if (element) {
+        const offset = 150; 
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+}
+
 /* --- 4. TIMELINE STORY MODAL LOGIC --- */
 let currentTimelineIndex = 0;
 
-// 事件卡點擊綁定事件，處理事件冒泡
 function bindTimelineEvents() {
-    // 事件代理實現，避免多次重複渲染
     const timeline = document.querySelector('.timeline');
     if (!timeline) return;
     timeline.addEventListener('click', function(e) {
-        // Bubble up to .timeline-event or its child
         let eventCard = e.target;
         while (eventCard && !eventCard.classList.contains('timeline-event')) {
             eventCard = eventCard.parentElement;
@@ -156,7 +188,6 @@ function bindTimelineEvents() {
             e.stopPropagation();
             return;
         }
-        // Button only (inside .event-card), fallback for children
         let closest = e.target.closest('.event-card');
         if (closest && closest.parentElement.classList.contains('timeline-event')) {
             const evt = closest.parentElement.dataset.event;
@@ -167,7 +198,6 @@ function bindTimelineEvents() {
                 return;
             }
         }
-        // Button click fallback
         if (e.target && e.target.classList && e.target.classList.contains('read-story-btn')) {
             let p = e.target;
             while (p && !p.classList.contains('timeline-event')) p = p.parentElement;
@@ -257,7 +287,6 @@ function openChapterReader(index) {
     renderChapterContent(index);
     document.getElementById('chapters-grid-view').style.display = 'none';
     document.getElementById('story-reader-view').style.display = 'block';
-    // 導航按鈕狀態
     document.getElementById('reader-prev-btn').disabled = (index === 0);
     document.getElementById('reader-next-btn').disabled = (index === chapterDatabase.length - 1);
 }
@@ -315,19 +344,16 @@ function scrollToId(elementId) {
     }
 }
 
-/* --- 7. Show/Hide scroll to top btn and Modal close with ESC --- */
 document.addEventListener('DOMContentLoaded', () => {
     initStorybook();
     bindTimelineEvents();
 
-    // scroll-to-top btn
     let scrollBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 400) scrollBtn.classList.add('visible');
         else scrollBtn.classList.remove('visible');
     });
 
-    // esc close modal
     document.addEventListener('keydown', function(e){
         if (e.key === "Escape" && document.getElementById('eventModal').classList.contains('active')) {
             closeModal();
