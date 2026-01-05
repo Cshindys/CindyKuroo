@@ -40,7 +40,7 @@
                 <div class="story-label">シンディ</div>
             </div>
 
-            <div class="story-item" onclick="scrollToId('relationship-zone')">
+            <div class="story-item" onclick="switchTopTabAndScroll('top-tab-relationship')">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/HeartBeat.png" alt="關係">
@@ -86,8 +86,8 @@
         
         <div class="character-cards">
             
-            <div class="flip-card-container" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
+            <div class="flip-card-container" id="kuroo-container">
+                <div class="flip-card-inner" onclick="this.parentElement.classList.toggle('flipped')">
                     <div class="character-card kuroo flip-card-front" id="kuroo-card">
                         <div class="avatar">
                             <img src="img/Kuroo_profile.JPEG" alt="Kuroo Profile" />
@@ -111,7 +111,6 @@
                                 <span class="p-tag">溫柔體貼</span>
                             </div>
                         </div>
-                        <button class="more-btn">Click to Flip ➜</button>
                     </div>
                     <div class="character-card flip-card-back kuroo-back">
                         <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
@@ -120,6 +119,10 @@
                         </div>
                     </div>
                 </div>
+                <button class="more-btn kuroo-btn" onclick="document.getElementById('kuroo-container').classList.toggle('flipped')">
+                    <span class="btn-text">Read More</span>
+                    <span class="btn-icon-flip">↻</span>
+                </button>
             </div>
 
             <div class="center-chat-zone">
@@ -174,8 +177,8 @@
                 </div>
             </div>
 
-            <div class="flip-card-container" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
+            <div class="flip-card-container" id="cindy-container">
+                <div class="flip-card-inner" onclick="this.parentElement.classList.toggle('flipped')">
                     <div class="character-card cindy flip-card-front" id="cindy-card">
                         <div class="avatar">
                             <img src="img/Cindy_profile.JPG" alt="Cindy Profile" />
@@ -199,7 +202,6 @@
                                 <span class="p-tag">堅定專一</span>
                             </div>
                         </div>
-                        <button class="more-btn">Click to Flip ➜</button>
                     </div>
                     <div class="character-card flip-card-back cindy-back">
                         <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
@@ -208,46 +210,63 @@
                         </div>
                     </div>
                 </div>
+                <button class="more-btn cindy-btn" onclick="document.getElementById('cindy-container').classList.toggle('flipped')">
+                    <span class="btn-text">Read More</span>
+                    <span class="btn-icon-flip">↻</span>
+                </button>
             </div>
         </div>
 
-        <div class="video-divider-container">
-            <video class="divider-video" autoplay muted loop playsinline>
-                <source src="img/Kuroo Cindy.mp4" type="video/mp4">
-                您的瀏覽器不支援影片播放。
-            </video>
+        <div class="filter-bar-container" id="top-filter-anchor" style="margin-bottom: 30px; margin-top: 10px;">
+            <button class="filter-btn active" onclick="switchTopTab('top-tab-video')" id="btn-top-video">
+                <span class="btn-icon">🎬</span> 獨家影片
+            </button>
+            <button class="filter-btn" onclick="switchTopTab('top-tab-relationship')" id="btn-top-relationship">
+                <span class="btn-icon">💞</span> 初印象
+            </button>
         </div>
 
-        <div class="relationship-section" id="relationship-zone">
-            <div class="heart-section left">
-                <div class="heart-title">黒尾對シンディ初印象</div>
-                <div class="heart-subtitle">關注與好奇</div>
-                <div class="heart-description">
-                    他知道有位低年級學妹在偷偷關注他，當時或許只是覺得有趣。隨著時間推移，那份「小心翼翼的愛意」漸漸印在他心中。
-                </div>
+        <div id="top-tab-video" class="top-tab-content active">
+            <div class="video-divider-container">
+                <video class="divider-video" autoplay muted loop playsinline>
+                    <source src="img/Kuroo Cindy.mp4" type="video/mp4">
+                    您的瀏覽器不支援影片播放。
+                </video>
             </div>
+        </div>
 
-            <div class="graph-container">
-                <div class="axis-y"></div>
-                <div class="axis-x"></div>
-                <div class="axis-label label-top">後知後覺</div>
-                <div class="axis-label label-bottom">一見鍾情</div>
-                <div class="axis-label label-left">無意識</div>
-                <div class="axis-label label-right">嘗試拉近關係</div>
-
-                <div class="graph-icon pos-kuroo" title="黑尾：後知後覺 / 無意識">
-                    <img src="img/KurooAQQ(Transparent).png" alt="Kuroo">
+        <div id="top-tab-relationship" class="top-tab-content">
+            <div class="relationship-section" id="relationship-zone">
+                <div class="heart-section left">
+                    <div class="heart-title">黒尾對シンディ初印象</div>
+                    <div class="heart-subtitle">關注與好奇</div>
+                    <div class="heart-description">
+                        他知道有位低年級學妹在偷偷關注他，當時或許只是覺得有趣。隨著時間推移，那份「小心翼翼的愛意」漸漸印在他心中。
+                    </div>
                 </div>
-                <div class="graph-icon pos-cindy" title="Cindy：一見鍾情">
-                    <img src="img/CindyAQQ(Transparent).png" alt="Cindy">
-                </div>
-            </div>
 
-            <div class="heart-section right">
-                <div class="heart-title">シンディ對黒尾初印象</div>
-                <div class="heart-subtitle">崇拜與迷惘</div>
-                <div class="heart-description">
-                    初次見面時，她便被黒尾的排球英姿深深吸引。想要靠近，卻又不知道該如何開口，只能默默地支持著。
+                <div class="graph-container">
+                    <div class="axis-y"></div>
+                    <div class="axis-x"></div>
+                    <div class="axis-label label-top">後知後覺</div>
+                    <div class="axis-label label-bottom">一見鍾情</div>
+                    <div class="axis-label label-left">無意識</div>
+                    <div class="axis-label label-right">嘗試拉近關係</div>
+
+                    <div class="graph-icon pos-kuroo" title="黑尾：後知後覺 / 無意識">
+                        <img src="img/KurooAQQ(Transparent).png" alt="Kuroo">
+                    </div>
+                    <div class="graph-icon pos-cindy" title="Cindy：一見鍾情">
+                        <img src="img/CindyAQQ(Transparent).png" alt="Cindy">
+                    </div>
+                </div>
+
+                <div class="heart-section right">
+                    <div class="heart-title">シンディ對黒尾初印象</div>
+                    <div class="heart-subtitle">崇拜與迷惘</div>
+                    <div class="heart-description">
+                        初次見面時，她便被黒尾的排球英姿深深吸引。想要靠近，卻又不知道該如何開口，只能默默地支持著。
+                    </div>
                 </div>
             </div>
         </div>
@@ -266,9 +285,6 @@
 
         <div class="tab-content-wrapper">
             <div class="interview-section tab-section active" id="interview-zone">
-                <!-- 訪談內容保留 -->
-                <!-- ... 你的內容 ... -->
-                <!-- 確保本區有 .tab-section 與 id 為 interview-zone -->
                 <div class="interview-title">甜蜜訪談室 · Sweet Interview</div>
                 <div class="interview-scene">
                     <div class="host-box"><span class="host-icon">🎤</span><span>主持人 : 請問シンデイ，妳對黑尾學長的第一印象是？</span></div>
@@ -306,7 +322,6 @@
                 </div>
             </div>
             <div class="storybook-section tab-section" id="storybook-zone">
-                <!-- 故事書區 -->
                 <div class="interview-title">我們的故事書 · Our Storybook</div>
                 <div id="chapters-grid-view">
                     <div class="chapters-grid" id="chapters-container">
