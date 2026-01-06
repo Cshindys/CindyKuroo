@@ -84,147 +84,131 @@
 
     <div class="container">
         
-        <div class="character-cards">
+        <div class="character-pair-container">
             
-            <div class="flip-card-container" id="kuroo-container">
-                <div class="flip-card-inner">
-                    <div class="character-card kuroo flip-card-front" id="kuroo-card">
-                        <div class="avatar">
-                            <img src="img/Kuroo_profile.JPEG" alt="Kuroo Profile" />
-                        </div>
-                        <div class="character-name">黒尾鉄朗 🐈‍⬛</div>
-                        <div class="character-info">
-                            <div class="info-row"><div class="info-label">年級</div><div class="info-value">音駒高校三年五班</div></div>
-                            <div class="info-row"><div class="info-label">部活</div><div class="info-value">男子排球部 🏐（主將）</div></div>
-                            <div class="info-row"><div class="info-label">生日</div><div class="info-value">11月17日</div></div>
-                            <div class="info-row"><div class="info-label">身高</div><div class="info-value">183cm</div></div>
-                        </div>
-                        <div class="description-box">
-                            音駒高校排球部主將，擁有出色的領導能力和戰術頭腦。性格沉穩冷靜，在場上總能做出最佳判斷。
-                        </div>
-                        <div class="personality-box">
-                            <div class="personality-title">個性 Personality</div>
-                            <div class="personality-grid">
-                                <span class="p-tag">沉穩冷靜</span>
-                                <span class="p-tag">戰術頭腦</span>
-                                <span class="p-tag">挑釁高手</span>
-                                <span class="p-tag">溫柔體貼</span>
+            <div class="character-column">
+                <div class="flip-card-container" id="kuroo-container">
+                    <div class="flip-card-inner">
+                        <div class="character-card kuroo flip-card-front" id="kuroo-card">
+                            <div class="avatar">
+                                <img src="img/Kuroo_profile.JPEG" alt="Kuroo Profile" />
                             </div>
+                            <div class="character-name">黒尾鉄朗 🐈‍⬛</div>
+                            <div class="character-info">
+                                <div class="info-row"><div class="info-label">年級</div><div class="info-value">音駒高校三年五班</div></div>
+                                <div class="info-row"><div class="info-label">部活</div><div class="info-value">男子排球部 🏐（主將）</div></div>
+                                <div class="info-row"><div class="info-label">生日</div><div class="info-value">11月17日</div></div>
+                                <div class="info-row"><div class="info-label">身高</div><div class="info-value">183cm</div></div>
+                            </div>
+                            <div class="description-box">
+                                音駒高校排球部主將，擁有出色的領導能力和戰術頭腦。性格沉穩冷靜，在場上總能做出最佳判斷。
+                            </div>
+                            <div class="personality-box">
+                                <div class="personality-title">個性 Personality</div>
+                                <div class="personality-grid">
+                                    <span class="p-tag">沉穩冷靜</span>
+                                    <span class="p-tag">戰術頭腦</span>
+                                    <span class="p-tag">挑釁高手</span>
+                                    <span class="p-tag">溫柔體貼</span>
+                                </div>
+                            </div>
+                            <button class="more-btn kuroo-btn" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
+                                <span class="btn-text">Read More</span>
+                                <span class="btn-icon-flip">↻</span>
+                            </button>
                         </div>
-                        
-                        <button class="more-btn kuroo-btn" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
-                            <span class="btn-text">Read More</span>
-                            <span class="btn-icon-flip">↻</span>
-                        </button>
-                    </div>
-
-                    <div class="character-card flip-card-back kuroo-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
-                        <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
-                        <div class="card-quote">
-                            「俺達は血液だ 滞り無く流れろ <br>酸素を回せ “脳”が正常に働くために」
+                        <div class="character-card flip-card-back kuroo-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
+                            <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
+                            <div class="card-quote">
+                                「俺達は血液だ 滞り無く流れろ <br>酸素を回せ “脳”が正常に働くために」
+                            </div>
+                            <button class="more-btn kuroo-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
+                                <span class="btn-text">Go Back</span>
+                                <span class="btn-icon-flip">↻</span>
+                            </button>
                         </div>
-                        <button class="more-btn kuroo-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
-                            <span class="btn-text">Go Back</span>
-                            <span class="btn-icon-flip">↻</span>
-                        </button>
                     </div>
+                </div>
+                
+                <div class="mascot-row">
+                    <img src="img/KurooAQQ(Transparent).png" alt="Kuroo Mascot" class="mascot-img-small">
+                    <div class="single-heart kuroo-heart"></div>
                 </div>
             </div>
 
-            <div class="center-chat-zone">
-                <div class="cats-row">
-                    <div class="mascot-wrapper left-side">
-                        <div class="chat-bubble">「よろしくね...」</div>
-                        <img src="img/KurooAQQ(Transparent).png" alt="Kuroo Mascot" class="mascot-img">
-                    </div>
-                    <div class="mascot-wrapper right-side">
-                        <div class="chat-bubble">「はい！黑尾さん〜」</div>
-                        <img src="img/CindyAQQ(Transparent).png" alt="Cindy Mascot" class="mascot-img">
+            <div class="character-column">
+                <div class="flip-card-container" id="cindy-container">
+                    <div class="flip-card-inner">
+                        <div class="character-card cindy flip-card-front" id="cindy-card">
+                            <div class="avatar">
+                                <img src="img/Cindy_profile.JPG" alt="Cindy Profile" />
+                            </div>
+                            <div class="character-name">シンディ💜</div>
+                            <div class="character-info">
+                                <div class="info-row"><div class="info-label">年級</div><div class="info-value">音駒高校二年三班</div></div>
+                                <div class="info-row"><div class="info-label">部活</div><div class="info-value">園藝社 🪴</div></div>
+                                <div class="info-row"><div class="info-label">生日</div><div class="info-value">10月22日</div></div>
+                                <div class="info-row"><div class="info-label">身高</div><div class="info-value">160 cm</div></div>
+                            </div>
+                            <div class="description-box">
+                                為了更靠近黑尾前輩，她加入了與第一體育館相鄰的園藝社，默默注視著那個閃耀的身影。
+                            </div>
+                            <div class="personality-box">
+                                <div class="personality-title">個性 Personality</div>
+                                <div class="personality-grid">
+                                    <span class="p-tag">內向害羞</span>
+                                    <span class="p-tag">心思細膩</span>
+                                    <span class="p-tag">默默耕耘</span>
+                                    <span class="p-tag">堅定專一</span>
+                                </div>
+                            </div>
+                            <button class="more-btn cindy-btn" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
+                                <span class="btn-text">Read More</span>
+                                <span class="btn-icon-flip">↻</span>
+                            </button>
+                        </div>
+                        <div class="character-card flip-card-back cindy-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
+                            <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
+                             <div class="card-quote">
+                                「いつか、先輩の隣に堂々と<br>立てるようになりたいです。」
+                            </div>
+                            <button class="more-btn cindy-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
+                                <span class="btn-text">Go Back</span>
+                                <span class="btn-icon-flip">↻</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="music-mood-layer">
-                    <div class="music-track kuroo-track">
-                        <div class="play-btn">▶</div>
-                        <div class="track-info">
-                            <div class="track-title">Theme: Tactician's Silence</div>
-                            <div class="track-artist">Nekoma High</div>
-                        </div>
-                        <div class="waveform">
-                            <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                        </div>
-                    </div>
-                    <div class="music-track cindy-track">
-                        <div class="play-btn">▶</div>
-                        <div class="track-info">
-                            <div class="track-title">Theme: Blooming Shyly</div>
-                            <div class="track-artist">Garden Club</div>
-                        </div>
-                        <div class="waveform">
-                            <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="color-heart-container">
-                    <div class="color-wrapper">
-                        <div class="single-heart kuroo-heart"></div>
-                        <div class="color-code">#333333</div>
-                    </div>
-                    <div class="color-wrapper">
-                        <div class="single-heart cindy-heart"></div>
-                        <div class="color-code">#B4A7D6</div>
-                    </div>
-                </div>
-
-                <div class="bottom-couple-container">
-                    <img src="img/C&KQQ.png" alt="Chibi" class="bottom-couple-img">
-                    <div class="bottom-quote">ずっとそばにいたい</div>
+                <div class="mascot-row">
+                    <img src="img/CindyAQQ(Transparent).png" alt="Cindy Mascot" class="mascot-img-small">
+                    <div class="single-heart cindy-heart"></div>
                 </div>
             </div>
+        </div>
 
-            <div class="flip-card-container" id="cindy-container">
-                <div class="flip-card-inner">
-                    <div class="character-card cindy flip-card-front" id="cindy-card">
-                        <div class="avatar">
-                            <img src="img/Cindy_profile.JPG" alt="Cindy Profile" />
-                        </div>
-                        <div class="character-name">シンディ💜</div>
-                        <div class="character-info">
-                            <div class="info-row"><div class="info-label">年級</div><div class="info-value">音駒高校二年三班</div></div>
-                            <div class="info-row"><div class="info-label">部活</div><div class="info-value">園藝社 🪴</div></div>
-                            <div class="info-row"><div class="info-label">生日</div><div class="info-value">10月22日</div></div>
-                            <div class="info-row"><div class="info-label">身高</div><div class="info-value">160 cm</div></div>
-                        </div>
-                        <div class="description-box">
-                            為了更靠近黑尾前輩，她加入了與第一體育館相鄰的園藝社，默默注視著那個閃耀的身影。
-                        </div>
-                        <div class="personality-box">
-                            <div class="personality-title">個性 Personality</div>
-                            <div class="personality-grid">
-                                <span class="p-tag">內向害羞</span>
-                                <span class="p-tag">心思細膩</span>
-                                <span class="p-tag">默默耕耘</span>
-                                <span class="p-tag">堅定專一</span>
-                            </div>
-                        </div>
+        <div class="bottom-shared-zone">
+            <div class="bottom-couple-container">
+                <img src="img/C&KQQ.png" alt="Chibi" class="bottom-couple-img">
+                <div class="bottom-quote">ずっとそばにいたい</div>
+            </div>
 
-                        <button class="more-btn cindy-btn" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
-                            <span class="btn-text">Read More</span>
-                            <span class="btn-icon-flip">↻</span>
-                        </button>
+            <div class="music-mood-layer">
+                <div class="music-track kuroo-track">
+                    <div class="play-btn">▶</div>
+                    <div class="track-info">
+                        <div class="track-title">Theme: Tactician's Silence</div>
+                        <div class="track-artist">Nekoma High</div>
                     </div>
-
-                    <div class="character-card flip-card-back cindy-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
-                        <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
-                         <div class="card-quote">
-                            「いつか、先輩の隣に堂々と<br>立てるようになりたいです。」
-                        </div>
-                        <button class="more-btn cindy-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
-                            <span class="btn-text">Go Back</span>
-                            <span class="btn-icon-flip">↻</span>
-                        </button>
+                    <div class="waveform"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+                </div>
+                <div class="music-track cindy-track">
+                    <div class="play-btn">▶</div>
+                    <div class="track-info">
+                        <div class="track-title">Theme: Blooming Shyly</div>
+                        <div class="track-artist">Garden Club</div>
                     </div>
+                    <div class="waveform"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
                 </div>
             </div>
         </div>
