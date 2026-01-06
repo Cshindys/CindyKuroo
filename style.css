@@ -211,7 +211,10 @@ body.dark-mode .description-box { background: linear-gradient(135deg, rgba(255, 
 
 /* --- BUTTON STYLES --- */
 .more-btn {
-    margin: 20px auto 0;
+    margin-top: auto; /* Pushes button to bottom of flex container */
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -226,7 +229,7 @@ body.dark-mode .description-box { background: linear-gradient(135deg, rgba(255, 
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     color: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    position: relative;
+    position: relative; /* Now relative to card content */
     overflow: hidden;
     z-index: 10;
     width: fit-content;
@@ -499,9 +502,8 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
         padding: 10px;
     }
 
-    /* Stack cards vertically for tablets */
     .character-cards {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* Stack vertically */
         max-width: 650px;
         margin: 0 auto 40px;
         gap: 30px;
@@ -546,7 +548,7 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
         min-width: unset;
         width: 95%;
         border-radius: 20px;
-        flex-direction: column;
+        flex-direction: column; /* Stack buttons on mobile or scroll */
         gap: 10px;
         padding: 10px;
         margin: 30px auto;
@@ -600,26 +602,22 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
 
     /* Shrink internal card elements to fit side-by-side */
     .flip-card-front, .flip-card-back { padding: 15px 10px; }
-    
     .avatar { 
         width: 80px; 
         height: 80px; 
         margin-bottom: 10px;
         border-width: 3px;
     }
-    
     .character-name { 
         font-size: 1.2rem; 
         margin-bottom: 10px; 
     }
-    
     .info-row { 
         flex-direction: column; 
         align-items: center; 
         padding: 4px;
         margin-bottom: 5px;
     }
-    
     .info-label { 
         margin-right: 0; 
         margin-bottom: 2px; 
@@ -627,7 +625,6 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
         padding: 3px 8px;
         min-width: unset;
     }
-    
     .info-value { font-size: 0.8rem; text-align: center; }
     
     .description-box { 
@@ -646,7 +643,7 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
     .more-btn { 
         padding: 8px 15px; 
         font-size: 0.85rem; 
-        margin-top: 10px;
+        margin-top: auto; /* Ensures it sits at bottom inside card */
     }
     
     /* Flip Back Side Adjustments */
