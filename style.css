@@ -5,7 +5,7 @@
     --primary-kuroo: #333333;
     --primary-cindy: #B4A7D6;
     --accent-pink: #E8B4D9;
-    --gold-accent: #B084CC; /* Added for Storybook corners */
+    --gold-accent: #B084CC; /* Storybook corners */
     --bg-light: linear-gradient(135deg, #FFF5F7 0%, #F0E6F6 100%);
     --bg-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -560,7 +560,8 @@ body.dark-mode .storybook-container-inner {
 .corner-br { bottom: 0; right: 0; border-bottom: 4px solid var(--gold-accent); border-right: 4px solid var(--gold-accent); border-radius: 0 0 20px 0; }
 
 .serif-title {
-    font-family: 'Noto Serif TC', serif;
+    /* CHANGED: Removed serif font to match rest of site */
+    font-family: inherit; 
     color: var(--gold-accent);
 }
 .deco-star {
@@ -608,7 +609,8 @@ body.dark-mode .chapter-card::before {
 .chapter-card:hover { transform: translateY(-8px); border-color: var(--accent-pink); box-shadow: 0 15px 30px rgba(180, 167, 214, 0.25); }
 
 .chapter-number { font-size: 0.9rem; color: var(--gold-accent); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
-.chapter-title { font-size: 1.5rem; font-weight: 700; color: #555; margin-bottom: 10px; font-family: 'Noto Serif TC', serif; position: relative; z-index: 2; }
+/* CHANGED: Removed serif font from chapter title */
+.chapter-title { font-size: 1.5rem; font-weight: 700; color: #555; margin-bottom: 10px; font-family: inherit; position: relative; z-index: 2; }
 body.dark-mode .chapter-title { color: #fff; }
 .chapter-desc { font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; position: relative; z-index: 2; }
 body.dark-mode .chapter-desc { color: #aaa; }
@@ -637,7 +639,8 @@ body.dark-mode .story-paper {
 }
 
 .serif-text p {
-    font-family: 'Noto Serif TC', serif;
+    /* CHANGED: Removed serif font from paragraph text */
+    font-family: inherit;
     font-size: 1.1rem;
     line-height: 2;
     color: #333;
