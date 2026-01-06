@@ -58,7 +58,10 @@ body.dark-mode .stories-wrapper {
     gap: 25px; 
     padding: 5px 20px;
     justify-content: center;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
 }
+.stories-container::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
 
 .story-item {
     display: flex;
@@ -126,7 +129,7 @@ body.dark-mode .story-label { color: #ccc; }
 /* --- CONTAINER & CARDS --- */
 .container { max-width: var(--container-width); width: 95%; margin: 0 auto; padding: 20px; }
 .character-cards { display: grid; grid-template-columns: 1fr 240px 1fr; gap: 50px; margin-bottom: 40px; align-items: start; }
-@media (max-width: 1024px) { .character-cards { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto 40px; gap: 20px; } }
+/* Moved specific breakpoint logic to the end of file for clarity */
 
 .character-card {
     background: rgba(255, 255, 255, 0.9);
@@ -163,12 +166,6 @@ body.dark-mode .character-card { background: rgba(255, 255, 255, 0.03); border: 
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-@media (max-width: 1024px) {
-    .video-divider-container {
-        height: 250px;
-    }
 }
 
 /* --- PERSONALITY & FLIP CARDS --- */
@@ -213,7 +210,7 @@ body.dark-mode .info-value { color: #ccc; }
 .description-box { background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%); padding: 20px; border-radius: 15px; margin-top: 20px; font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 20px; }
 body.dark-mode .description-box { background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); color: #aaa; }
 
-/* --- UPDATED: MORE BUTTON STYLES --- */
+/* --- BUTTON STYLES --- */
 .more-btn {
     margin: 20px auto 0;
     display: flex;
@@ -254,7 +251,6 @@ body.dark-mode .description-box { background: linear-gradient(135deg, rgba(255, 
     transform: rotate(180deg);
 }
 
-/* Character Specific Colors for Button */
 .kuroo-btn {
     background: linear-gradient(135deg, var(--primary-kuroo) 0%, #555 100%);
 }
@@ -330,7 +326,6 @@ body.dark-mode .color-code { color: #ccc; background: rgba(0,0,0,0.3); border-co
 body.dark-mode .bottom-quote { background: linear-gradient(135deg, #ccc 0%, var(--primary-cindy) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 .relationship-section { display: grid; grid-template-columns: 1fr 350px 1fr; gap: 30px; align-items: center; margin: 40px 0 60px 0; }
-@media (max-width: 1024px) { .relationship-section { grid-template-columns: 1fr; } }
 .heart-section { background: white; border-radius: 20px; padding: 30px; box-shadow: var(--card-shadow); position: relative; transition: all 0.3s ease; text-align: center; }
 body.dark-mode .heart-section { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); }
 .heart-section:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); }
@@ -431,9 +426,9 @@ body.dark-mode .event-description { color: #ccc; }
 .read-story-btn { margin-top: 15px; padding: 10px 24px; background: transparent; border: 2px solid var(--accent-pink); color: var(--accent-pink); border-radius: 25px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; width: fit-content; display: inline-block; }
 .read-story-btn:hover { background: var(--accent-pink); color: white; box-shadow: 0 5px 15px rgba(232, 180, 217, 0.4); transform: translateY(-2px); }
 
-/* --- COMMON MODAL STYLES (Used for Event Timeline + Storybook Reader) --- */
+/* --- COMMON MODAL STYLES --- */
 .story-modal-content { max-width: 800px; width: 95%; max-height: 90vh; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
-#modalBody { padding: 40px; overflow-y: auto; flex: 1; }
+#modalBody { padding: 40px; overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; }
 .story-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
 .story-chapter-title { font-size: 2rem; font-weight: 700; color: var(--primary-kuroo); margin-bottom: 10px; }
 body.dark-mode .story-chapter-title { color: #fff; }
@@ -473,7 +468,7 @@ body.dark-mode .dark-mode-toggle { background: rgba(255, 255, 255, 0.1); border:
 .scroll-to-top { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); opacity: 0; transition: all 0.3s ease; z-index: 998; font-size: 1.5rem; }
 .scroll-to-top.visible { opacity: 1; }
 
-/* --- NEW: STORYBOOK GRID STYLES --- */
+/* --- STORYBOOK GRID STYLES --- */
 .chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10px; }
 .chapter-card { background: white; border: 2px solid #f0f0f0; border-radius: 20px; padding: 30px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; box-shadow: var(--card-shadow); }
 body.dark-mode .chapter-card { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
@@ -496,64 +491,120 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
 .progress-text { font-weight: 600; color: var(--primary-cindy); align-self: center; }
 .story-content { max-width: 800px; margin: 0 auto; }
 
-/* Ensure Tabs logic works */
-.tab-section {
-    display: none;
-    opacity: 0;
-}
-.tab-section.active {
-    display: block;
-    opacity: 1;
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet & Smaller Laptops */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .character-cards {
+        grid-template-columns: 1fr; /* Stack vertically */
+        max-width: 650px;
+        margin: 0 auto 40px;
+        gap: 30px;
+    }
+
+    /* Reorder: Kuroo -> Cindy -> Center Content */
+    .character-cards > .flip-card-container#kuroo-container { order: 1; }
+    .character-cards > .flip-card-container#cindy-container { order: 2; }
+    .character-cards > .center-chat-zone { order: 3; }
+
+    .video-divider-container {
+        height: 350px;
+        margin: 20px auto;
+    }
+
+    .relationship-section {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Fixed Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    /* Title Adjustments */
+    .title-section { padding-top: 20px; }
+    .title-section h1 { font-size: 2rem; }
+
+    /* Top Stories Nav */
+    .stories-container { gap: 15px; padding: 5px 10px; }
+    .story-ring { width: 55px; height: 55px; }
+    .story-label { font-size: 0.75rem; }
+
+    /* Filter Buttons */
+    .filter-bar-container {
+        min-width: unset;
+        width: 95%;
+        border-radius: 20px;
+        flex-direction: column; /* Stack buttons on mobile or scroll */
+        gap: 10px;
+        padding: 10px;
+        margin: 30px auto;
+    }
+    
+    .filter-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        justify-content: flex-start;
+    }
+
+    /* Modals */
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        max-height: 90vh;
+    }
+    #modalBody { padding: 10px 0; }
+    .story-bubble { flex-direction: column; gap: 5px; }
+    .story-bubble.right { flex-direction: column; align-items: flex-end; }
+    .story-bubble-content { max-width: 100%; }
+    .story-avatar { width: 40px; height: 40px; }
+
+    /* Character Cards */
+    .flip-card-container { min-height: 520px; }
+    .avatar { width: 120px; height: 120px; }
+    .character-name { font-size: 1.6rem; }
+    
+    /* Center Zone */
+    .mascot-img { max-width: 90px; }
+    .chat-bubble { font-size: 0.75rem; top: -30px; }
+    
+    /* Video */
+    .video-divider-container { height: 200px; border-radius: 15px; }
+
+    /* Relationship Graph */
+    .graph-container { height: 300px; padding: 10px; }
+    .axis-label { font-size: 0.7rem; padding: 4px 8px; }
+    .graph-icon { width: 50px; height: 50px; }
+
+    /* Timeline */
+    .timeline { padding-left: 20px; }
+    .timeline-event::before { left: -28px; width: 20px; height: 20px; top: 5px; }
+    .event-card { padding: 20px; }
+    .event-title { font-size: 1.2rem; }
+
+    /* Interview */
+    .interview-title, .timeline-title { font-size: 1.6rem; margin-bottom: 40px; }
+    .interview-scene { padding: 20px; }
+    .dialogue-wrapper { gap: 10px; }
+    .char-avatar-small { width: 40px; height: 40px; }
+    .dialogue-bubble { font-size: 0.95rem; }
+
+    /* Story Reader */
+    .story-viewer { padding: 20px; }
+    .story-paragraph { text-indent: 0; font-size: 1rem; }
 }
 
-.modal.active {
-    display: flex;
+/* Very Small Screens */
+@media screen and (max-width: 480px) {
+    .filter-btn { font-size: 1rem; padding: 10px; }
+    .cats-row { flex-direction: column; gap: 40px; align-items: center; }
+    .mascot-wrapper { width: 100%; }
+    .mascot-wrapper.left-side { align-items: center; }
+    .mascot-wrapper.right-side { align-items: center; }
+    .mascot-wrapper.left-side .chat-bubble { right: auto; }
+    .mascot-wrapper.right-side .chat-bubble { left: auto; }
 }
-
-.modal-content {
-    background: white;
-    width: 90%;
-    max-width: 800px;
-    max-height: 85vh;
-    border-radius: 20px;
-    padding: 40px;
-    position: relative;
-    overflow-y: auto;
-    animation: slideUp 0.3s ease-out;
-}
-
-body.dark-mode .modal-content {
-    background: #1a1a2e;
-    color: white;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Dialogue Bubbles inside Modal */
-.story-bubble { display: flex; margin-bottom: 20px; gap: 15px; }
-.story-bubble.right { flex-direction: row-reverse; }
-.story-avatar { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-.story-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.story-bubble-content { 
-    background: #f0f2f5; 
-    padding: 15px; 
-    border-radius: 15px; 
-    max-width: 70%; 
-}
-.story-bubble.right .story-bubble-content { background: #B4A7D6; color: white; }
