@@ -120,7 +120,7 @@ const storyChapters = [
     {
         id: 2,
         title: "第二章：借物賽跑",
-        desc: "運動會的借物賽跑，黑尾抽到的題目竟然是...",
+        desc: "運動會的借物賽跑，黑尾選手抽到的題目竟然是...",
         date: "Summer, 2023",
         content: `
             <p>夏日的陽光炙烤著操場，運動會的氣氛熱烈到了極點。</p>
@@ -176,28 +176,92 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary Data
+// Gardening Diary Data (Updated with Content for Popups)
 const gardenEntries = [
     {
+        id: 'g1',
         title: "繡球花盛開",
         date: "6月 15日",
         weather: "🌧️",
         status: "開花",
-        preview: "今天下了一整天的雨，但是紫色的繡球花開得非常漂亮。就像學長的髮色一樣...不對，學長是黑髮啦！我是說氣質！"
+        preview: "今天下了一整天的雨，但是紫色的繡球花開得非常漂亮。就像學長的髮色一樣...不對，學長是黑髮啦！我是說氣質！",
+        content: `
+            <div class="story-paragraph">
+                梅雨季節到了，園藝社角落的繡球花終於盛開了。我特地調整了土壤的酸鹼度，才種出了這種夢幻的紫色。
+            </div>
+            <div class="story-paragraph">
+                今天整理花圃時，黑尾學長剛好為了躲雨跑進了溫室走廊。
+            </div>
+            <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    喔？這顏色挺不錯的嘛。跟妳的髮夾顏色很像。
+                </div>
+            </div>
+            <div class="story-paragraph">
+                只是一句隨口的話，卻讓我開心了一整天。連這煩人的雨聲聽起來都變得悅耳了。
+            </div>
+        `
     },
     {
+        id: 'g2',
         title: "貓草種植計畫",
         date: "5月 20日",
         weather: "☀️",
         status: "發芽",
-        preview: "為了吸引附近的貓咪（絕對不是為了吸引像貓的學長），開始在社團角落種植貓草。希望能順利長大。"
+        preview: "為了吸引附近的貓咪（絕對不是為了吸引像貓的學長），開始在社團角落種植貓草。希望能順利長大。",
+        content: `
+            <div class="story-paragraph">
+                聽說音駒這附近有很多流浪貓，所以我決定在園藝社不起眼的角落種一點貓草。
+            </div>
+            <div class="story-paragraph">
+                今天去澆水的時候，發現貓草旁邊蹲著一個巨大的身影...是黑尾學長。他正拿著一根狗尾巴草逗弄著聞訊而來的野貓。
+            </div>
+            <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    這草種得不錯啊，很有吸引力。連我都想過來趴著了。
+                </div>
+            </div>
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">Cindy</span>
+                    學、學長想趴著也可以喔！（大驚慌）
+                </div>
+            </div>
+        `
     },
     {
+        id: 'g3',
         title: "向日葵",
         date: "8月 1日",
         weather: "☀️",
         status: "生長中",
-        preview: "向日葵總是看著太陽。我也想成為能一直注視著學長的人。今天的陽光好刺眼啊。"
+        preview: "向日葵總是看著太陽。我也想成為能一直注視著學長的人。今天的陽光好刺眼啊。",
+        content: `
+            <div class="story-paragraph">
+                向日葵長得好高啊，已經快要超過我的身高了。它們總是堅定地追逐著太陽，這種直率的特質真讓人羨慕。
+            </div>
+            <div class="story-paragraph">
+                如果我也能像向日葵一樣，光明正大地一直看著學長就好了。
+            </div>
+            <div class="story-paragraph">
+                正想著，黑尾學長突然從向日葵花田的另一端探出頭來，因為身高優勢，他輕輕鬆鬆就俯視著我。
+            </div>
+             <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    躲在這裡幹嘛？小心中暑喔，小不點。
+                </div>
+            </div>
+            <div class="story-paragraph">
+                ...果然，無論是太陽還是學長，都好耀眼。
+            </div>
+        `
     }
 ];
 
@@ -327,18 +391,30 @@ function updateDarkModeIcon() {
 }
 
 /* --- MODAL FUNCTIONS --- */
+
+// Original function for Events
 function openModal(eventId) {
     const data = eventStories[eventId];
     if (!data) return;
 
+    fillModalContent(data.title, data.date, data.content, "~ End of Memory ~");
+}
+
+// New function for Garden Entries
+function openGardenModal(entryData) {
+    fillModalContent(entryData.title, entryData.date, entryData.content, "~ Garden Log End ~");
+}
+
+// Helper to fill modal DOM
+function fillModalContent(title, date, content, footerText) {
     const modalBody = document.getElementById('modalBody');
     modalBody.innerHTML = `
         <div class="story-header">
-            <h2 class="story-chapter-title">${data.title}</h2>
-            <div class="story-date">${data.date}</div>
+            <h2 class="story-chapter-title">${title}</h2>
+            <div class="story-date">${date}</div>
         </div>
-        ${data.content}
-        <div class="story-timestamp">~ End of Memory ~</div>
+        ${content}
+        <div class="story-timestamp">${footerText}</div>
     `;
 
     document.getElementById('eventModal').classList.add('active');
@@ -423,6 +499,10 @@ function renderGardenEntries() {
     gardenEntries.forEach(entry => {
         const card = document.createElement('div');
         card.className = 'garden-card';
+        
+        // Add Click listener to open modal with garden data
+        card.onclick = () => openGardenModal(entry);
+
         card.innerHTML = `
             <div class="garden-header">
                 <span class="garden-date">${entry.date}</span>
