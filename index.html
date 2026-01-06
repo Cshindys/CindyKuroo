@@ -87,7 +87,7 @@
         <div class="character-cards">
             
             <div class="flip-card-container" id="kuroo-container">
-                <div class="flip-card-inner" onclick="this.parentElement.classList.toggle('flipped')">
+                <div class="flip-card-inner">
                     <div class="character-card kuroo flip-card-front" id="kuroo-card">
                         <div class="avatar">
                             <img src="img/Kuroo_profile.JPEG" alt="Kuroo Profile" />
@@ -111,18 +111,24 @@
                                 <span class="p-tag">溫柔體貼</span>
                             </div>
                         </div>
+                        
+                        <button class="more-btn kuroo-btn" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
+                            <span class="btn-text">Read More</span>
+                            <span class="btn-icon-flip">↻</span>
+                        </button>
                     </div>
-                    <div class="character-card flip-card-back kuroo-back">
+
+                    <div class="character-card flip-card-back kuroo-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
                         <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
                         <div class="card-quote">
                             「俺達は血液だ 滞り無く流れろ <br>酸素を回せ “脳”が正常に働くために」
                         </div>
+                        <button class="more-btn kuroo-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
+                            <span class="btn-text">Go Back</span>
+                            <span class="btn-icon-flip">↻</span>
+                        </button>
                     </div>
                 </div>
-                <button class="more-btn kuroo-btn" onclick="document.getElementById('kuroo-container').classList.toggle('flipped')">
-                    <span class="btn-text">Read More</span>
-                    <span class="btn-icon-flip">↻</span>
-                </button>
             </div>
 
             <div class="center-chat-zone">
@@ -178,7 +184,7 @@
             </div>
 
             <div class="flip-card-container" id="cindy-container">
-                <div class="flip-card-inner" onclick="this.parentElement.classList.toggle('flipped')">
+                <div class="flip-card-inner">
                     <div class="character-card cindy flip-card-front" id="cindy-card">
                         <div class="avatar">
                             <img src="img/Cindy_profile.JPG" alt="Cindy Profile" />
@@ -202,18 +208,24 @@
                                 <span class="p-tag">堅定專一</span>
                             </div>
                         </div>
+
+                        <button class="more-btn cindy-btn" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
+                            <span class="btn-text">Read More</span>
+                            <span class="btn-icon-flip">↻</span>
+                        </button>
                     </div>
-                    <div class="character-card flip-card-back cindy-back">
+
+                    <div class="character-card flip-card-back cindy-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
                         <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
                          <div class="card-quote">
                             「いつか、先輩の隣に堂々と<br>立てるようになりたいです。」
                         </div>
+                        <button class="more-btn cindy-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
+                            <span class="btn-text">Go Back</span>
+                            <span class="btn-icon-flip">↻</span>
+                        </button>
                     </div>
                 </div>
-                <button class="more-btn cindy-btn" onclick="document.getElementById('cindy-container').classList.toggle('flipped')">
-                    <span class="btn-text">Read More</span>
-                    <span class="btn-icon-flip">↻</span>
-                </button>
             </div>
         </div>
 
