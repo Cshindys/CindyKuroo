@@ -329,6 +329,8 @@ let currentChapterIndex = 0;
 
 function renderChapters() {
     const container = document.getElementById('chapters-container');
+    if (!container) return;
+    
     container.innerHTML = '';
 
     storyChapters.forEach((chapter, index) => {
@@ -352,14 +354,19 @@ function openChapter(index) {
     
     document.getElementById('chapters-grid-view').style.display = 'none';
     document.getElementById('story-reader-view').style.display = 'block';
-    // Scroll to top of reader
-    scrollToId('storybook-zone');
+    
+    // Scroll to the book container
+    const section = document.getElementById('storybook-zone');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function closeChapterReader() {
     document.getElementById('story-reader-view').style.display = 'none';
     document.getElementById('chapters-grid-view').style.display = 'block';
-    scrollToId('storybook-zone');
+    
+    // Scroll back to title
+    const section = document.getElementById('storybook-zone');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function navigateChapter(direction) {
@@ -367,7 +374,9 @@ function navigateChapter(direction) {
     if (newIndex >= 0 && newIndex < storyChapters.length) {
         currentChapterIndex = newIndex;
         updateReaderContent();
-        scrollToId('storybook-zone');
+        
+        // Scroll to top of the paper reader
+        document.getElementById('story-reader-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
@@ -386,7 +395,15 @@ function updateReaderContent() {
 /* --- GARDEN DIARY RENDER --- */
 function renderGardenEntries() {
     const container = document.getElementById('garden-container');
+    // Safety check to ensure container exists before trying to modify it
+    if (!container) return;
+
     container.innerHTML = '';
+
+    if (gardenEntries.length === 0) {
+        container.innerHTML = '<div style="text-align:center; color:#999;">目前沒有日記...</div>';
+        return;
+    }
 
     gardenEntries.forEach(entry => {
         const card = document.createElement('div');
@@ -399,7 +416,7 @@ function renderGardenEntries() {
             <div class="garden-title">${entry.title}</div>
             <div class="garden-preview">${entry.preview}</div>
             <div class="garden-status">
-                <span class="status-dot"></span> 狀態：${entry.status}
+                🌱 狀態：${entry.status}
             </div>
         `;
         container.appendChild(card);
