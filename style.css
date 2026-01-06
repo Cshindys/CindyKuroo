@@ -415,8 +415,76 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
 .top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
 .top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
 
+/* --- PHOTO ALBUM SECTION (New) --- */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 10px;
+}
+
+.photo-item {
+    background: white;
+    padding: 15px 15px 50px 15px; /* Bottom padding for Polaroid look */
+    box-shadow: var(--card-shadow);
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.photo-item:nth-child(even) {
+    transform: rotate(2deg);
+    margin-top: 20px;
+}
+
+.photo-item:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .photo-item {
+    background: #2a2a40;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.photo-frame {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background: #f0f0f0;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-caption {
+    font-family: 'Zen Kurenaido', sans-serif;
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+}
+
+body.dark-mode .photo-caption {
+    color: #ccc;
+}
+
 /* --- INTERVIEW SECTION --- */
-.interview-section, .timeline-section, .storybook-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
+.interview-section, .timeline-section, .storybook-section, .photo-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
 .interview-title, .timeline-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #555; margin: 0 auto 60px auto; letter-spacing: 1px; position: relative; width: fit-content; display: flex; align-items: center; justify-content: center; gap: 15px; }
 body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
 .interview-title::after, .timeline-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 3px; }
@@ -666,6 +734,12 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
     .graph-container { height: 300px; padding: 10px; }
     .axis-label { font-size: 0.7rem; padding: 4px 8px; }
     .graph-icon { width: 50px; height: 50px; }
+    
+    /* Photo Gallery */
+    .photo-gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+    .photo-item { padding: 10px 10px 35px 10px; }
+    .photo-frame { height: 180px; }
+    .photo-caption { font-size: 0.9rem; bottom: 8px; }
 
     /* Timeline */
     .timeline { padding-left: 20px; }
