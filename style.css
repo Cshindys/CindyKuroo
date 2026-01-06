@@ -510,8 +510,35 @@ body.dark-mode .photo-caption {
     color: #ccc;
 }
 
+/* --- GARDENING DIARY SECTION (New) --- */
+.garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
+.garden-card {
+    background: white;
+    border: 1px solid #e0f2f1;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 128, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+body.dark-mode .garden-card { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+.garden-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 128, 0, 0.15); border-color: #81C784; }
+.garden-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #A5D6A7, #81C784); }
+.garden-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px dashed #e0e0e0; padding-bottom: 10px; }
+.garden-date { font-weight: 700; color: #388E3C; font-size: 0.9rem; background: #E8F5E9; padding: 4px 10px; border-radius: 15px; }
+.garden-weather { font-size: 1.2rem; }
+.garden-title { font-size: 1.2rem; font-weight: 700; color: #333; margin-bottom: 10px; }
+body.dark-mode .garden-title { color: white; }
+.garden-preview { font-size: 0.9rem; color: #666; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 15px; }
+body.dark-mode .garden-preview { color: #aaa; }
+.garden-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #555; }
+body.dark-mode .garden-status { color: #ccc; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; display: inline-block; }
+
 /* --- INTERVIEW SECTION --- */
-.interview-section, .timeline-section, .storybook-section, .photo-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
+.interview-section, .timeline-section, .storybook-section, .photo-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
 .interview-title, .timeline-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #555; margin: 0 auto 60px auto; letter-spacing: 1px; position: relative; width: fit-content; display: flex; align-items: center; justify-content: center; gap: 15px; }
 body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
 .interview-title::after, .timeline-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 3px; }
