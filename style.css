@@ -148,7 +148,7 @@ body.dark-mode .story-label { color: #ccc; }
     align-items: center;
 }
 
-/* Mascot Row (Cat + Heart) */
+/* Mascot Row (Cat + Heart + QQ) */
 .mascot-row {
     display: flex;
     align-items: center;
@@ -160,6 +160,13 @@ body.dark-mode .story-label { color: #ccc; }
 
 .mascot-img-small {
     width: 90px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.chibi-side-img {
+    width: 85px; /* Sized similarly to mascot */
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
@@ -650,6 +657,7 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
     }
     
     .mascot-img-small { width: 70px; }
+    .chibi-side-img { width: 60px; }
     
     /* Video */
     .video-divider-container { height: 200px; border-radius: 15px; }
