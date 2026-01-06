@@ -107,7 +107,13 @@ const storyChapters = [
             <p>四月的風帶著櫻花的香氣，輕輕吹過音駒高校的校園。</p>
             <p>Cindy 手裡緊緊抓著澆水壺，躲在體育館側門的縫隙旁。這已經是她這個禮拜第五次「不小心」路過這裡了。</p>
             <p>球鞋摩擦地板的聲音，充滿力量的擊球聲，還有那個總是帶著玩世不恭笑容的黑髮少年。</p>
-            <p>「喂！研磨！跑起來啊！」黑尾鉄朗的聲音宏亮而有力。</p>
+            <div class="dialogue-wrapper right">
+                <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
+                <div class="dialogue-bubble kuroo-style">
+                    「喂！研磨！跑起來啊！我們可是血液！」
+                </div>
+            </div>
+            <p>黑尾鉄朗的聲音宏亮而有力。</p>
             <p>Cindy 看得出神，手中的水壺稍微傾斜，一小股水流悄悄灑在了地板上。</p>
         `
     },
@@ -121,8 +127,19 @@ const storyChapters = [
             <p>「借物賽跑！三年級組，黑尾選手抽到了題目！」廣播裡傳來興奮的聲音。</p>
             <p>黑尾看了一眼手中的紙條，眉頭微微一挑，隨即目光掃向人群。他的視線穿過重重人海，最後定格在正拿著毛巾幫園藝社搬東西的 Cindy 身上。</p>
             <p>他大步流星地跑過去，在 Cindy 還沒反應過來時，一把抓住了她的手腕。</p>
-            <p>「學、學長？！」Cindy 嚇得差點把毛巾掉在地上。</p>
-            <p>「借我一下！」黑尾笑著，拉著她向終點跑去。</p>
+            <div class="dialogue-wrapper">
+                <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png" alt="Cindy"></div>
+                <div class="dialogue-bubble cindy-style">
+                    「學、學長？！」
+                </div>
+            </div>
+            <div class="dialogue-wrapper right">
+                <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
+                <div class="dialogue-bubble kuroo-style">
+                    「借我一下！」
+                </div>
+            </div>
+            <p>黑尾笑著，拉著她向終點跑去。</p>
             <p>到了裁判面前，黑尾展示了手中的紙條，上面寫著三個字：『可愛的後輩』。</p>
         `
     },
@@ -134,12 +151,27 @@ const storyChapters = [
         content: `
             <p>畢業典禮結束後，校園裡充滿了離別的感傷與祝福。</p>
             <p>Cindy 站在櫻花樹下，手裡捏著一封沒送出去的信。她聽說很多女生都去向黑尾學長要鈕扣了，自己大概...沒有機會了吧。</p>
-            <p>「在這種地方發什麼呆？」熟悉的聲音從頭頂傳來。</p>
-            <p>Cindy 猛地抬頭，看見黑尾手裡拿著畢業證書，制服外套敞開著。</p>
-            <p>「學長...恭喜畢業。」她小聲說道。</p>
+            <div class="dialogue-wrapper right">
+                <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
+                <div class="dialogue-bubble kuroo-style">
+                    「在這種地方發什麼呆？」
+                </div>
+            </div>
+            <p>熟悉的聲音從頭頂傳來。Cindy 猛地抬頭，看見黑尾手裡拿著畢業證書，制服外套敞開著。</p>
+            <div class="dialogue-wrapper">
+                <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png" alt="Cindy"></div>
+                <div class="dialogue-bubble cindy-style">
+                    「學長...恭喜畢業。」
+                </div>
+            </div>
             <p>黑尾抓了抓頭髮，突然伸手扯下了自己制服上的第二顆鈕扣，隨手拋給了 Cindy。</p>
             <p>Cindy 手忙腳亂地接住：「誒？這是...？」</p>
-            <p>「幫我保管一下。」黑尾轉過身，背對著她揮了揮手，「要是弄丟了，我可是會找妳算帳的喔。」</p>
+            <div class="dialogue-wrapper right">
+                <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
+                <div class="dialogue-bubble kuroo-style">
+                    「幫我保管一下。要是弄丟了，我可是會找妳算帳的喔。」
+                </div>
+            </div>
         `
     }
 ];
@@ -329,8 +361,6 @@ let currentChapterIndex = 0;
 
 function renderChapters() {
     const container = document.getElementById('chapters-container');
-    if (!container) return;
-    
     container.innerHTML = '';
 
     storyChapters.forEach((chapter, index) => {
@@ -354,19 +384,14 @@ function openChapter(index) {
     
     document.getElementById('chapters-grid-view').style.display = 'none';
     document.getElementById('story-reader-view').style.display = 'block';
-    
-    // Scroll to the book container
-    const section = document.getElementById('storybook-zone');
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Scroll to top of reader zone
+    scrollToId('storybook-zone');
 }
 
 function closeChapterReader() {
     document.getElementById('story-reader-view').style.display = 'none';
     document.getElementById('chapters-grid-view').style.display = 'block';
-    
-    // Scroll back to title
-    const section = document.getElementById('storybook-zone');
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToId('storybook-zone');
 }
 
 function navigateChapter(direction) {
@@ -374,9 +399,7 @@ function navigateChapter(direction) {
     if (newIndex >= 0 && newIndex < storyChapters.length) {
         currentChapterIndex = newIndex;
         updateReaderContent();
-        
-        // Scroll to top of the paper reader
-        document.getElementById('story-reader-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        scrollToId('storybook-zone');
     }
 }
 
@@ -395,15 +418,7 @@ function updateReaderContent() {
 /* --- GARDEN DIARY RENDER --- */
 function renderGardenEntries() {
     const container = document.getElementById('garden-container');
-    // Safety check to ensure container exists before trying to modify it
-    if (!container) return;
-
     container.innerHTML = '';
-
-    if (gardenEntries.length === 0) {
-        container.innerHTML = '<div style="text-align:center; color:#999;">目前沒有日記...</div>';
-        return;
-    }
 
     gardenEntries.forEach(entry => {
         const card = document.createElement('div');
@@ -416,7 +431,7 @@ function renderGardenEntries() {
             <div class="garden-title">${entry.title}</div>
             <div class="garden-preview">${entry.preview}</div>
             <div class="garden-status">
-                🌱 狀態：${entry.status}
+                <span class="status-dot"></span> 狀態：${entry.status}
             </div>
         `;
         container.appendChild(card);
