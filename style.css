@@ -129,7 +129,6 @@ body.dark-mode .story-label { color: #ccc; }
 /* --- CONTAINER & CARDS --- */
 .container { max-width: var(--container-width); width: 95%; margin: 0 auto; padding: 20px; }
 .character-cards { display: grid; grid-template-columns: 1fr 240px 1fr; gap: 50px; margin-bottom: 40px; align-items: start; }
-/* Moved specific breakpoint logic to the end of file for clarity */
 
 .character-card {
     background: rgba(255, 255, 255, 0.9);
@@ -500,8 +499,9 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
         padding: 10px;
     }
 
+    /* Stack cards vertically for tablets */
     .character-cards {
-        grid-template-columns: 1fr; /* Stack vertically */
+        grid-template-columns: 1fr; 
         max-width: 650px;
         margin: 0 auto 40px;
         gap: 30px;
@@ -524,6 +524,14 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
 
 /* Mobile Devices */
 @media screen and (max-width: 768px) {
+    
+    /* --- ZOOM FIX: Scale down body --- */
+    body {
+        zoom: 0.85; /* Works for Chrome/Safari */
+        -moz-transform: scale(0.85); /* Firefox */
+        -moz-transform-origin: 0 0;
+    }
+    
     /* Title Adjustments */
     .title-section { padding-top: 20px; }
     .title-section h1 { font-size: 2rem; }
@@ -538,7 +546,7 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
         min-width: unset;
         width: 95%;
         border-radius: 20px;
-        flex-direction: column; /* Stack buttons on mobile or scroll */
+        flex-direction: column;
         gap: 10px;
         padding: 10px;
         margin: 30px auto;
@@ -563,14 +571,91 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
     .story-bubble-content { max-width: 100%; }
     .story-avatar { width: 40px; height: 40px; }
 
-    /* Character Cards */
-    .flip-card-container { min-height: 520px; }
-    .avatar { width: 120px; height: 120px; }
-    .character-name { font-size: 1.6rem; }
+    /* --- SIDE-BY-SIDE MOBILE CARDS ADJUSTMENTS --- */
+    /* Force Grid to place cards side-by-side using named areas */
+    .character-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) !important; /* Force 2 columns */
+        grid-template-rows: auto auto; /* Two rows: cards then chat */
+        gap: 12px; /* Tighter gap */
+        margin: 0 auto 20px;
+        max-width: 100%;
+        
+        /* Define areas layout */
+        grid-template-areas: 
+            "left right"
+            "bottom bottom";
+    }
+
+    /* Assign elements to grid areas */
+    .flip-card-container#kuroo-container { grid-area: left; }
+    .flip-card-container#cindy-container { grid-area: right; }
+    .center-chat-zone { grid-area: bottom; }
+
+    /* Reset order property since we use grid-area */
+    .character-cards > * { order: unset !important; }
+
+    /* Reduce container height for mobile flip cards */
+    .flip-card-container { min-height: 450px; }
+
+    /* Shrink internal card elements to fit side-by-side */
+    .flip-card-front, .flip-card-back { padding: 15px 10px; }
     
+    .avatar { 
+        width: 80px; 
+        height: 80px; 
+        margin-bottom: 10px;
+        border-width: 3px;
+    }
+    
+    .character-name { 
+        font-size: 1.2rem; 
+        margin-bottom: 10px; 
+    }
+    
+    .info-row { 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 4px;
+        margin-bottom: 5px;
+    }
+    
+    .info-label { 
+        margin-right: 0; 
+        margin-bottom: 2px; 
+        font-size: 0.7rem; 
+        padding: 3px 8px;
+        min-width: unset;
+    }
+    
+    .info-value { font-size: 0.8rem; text-align: center; }
+    
+    .description-box { 
+        font-size: 0.8rem; 
+        padding: 10px; 
+        margin-top: 10px; 
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+    
+    .personality-box { margin-top: 10px; padding-top: 10px; }
+    .personality-title { font-size: 0.9rem; margin-bottom: 8px; }
+    .personality-grid { gap: 5px; }
+    .p-tag { font-size: 0.7rem; padding: 4px; }
+    
+    .more-btn { 
+        padding: 8px 15px; 
+        font-size: 0.85rem; 
+        margin-top: 10px;
+    }
+    
+    /* Flip Back Side Adjustments */
+    .card-quote { font-size: 1rem; margin-top: 15px; }
+    .student-id-img { max-height: 150px; }
+
     /* Center Zone */
-    .mascot-img { max-width: 90px; }
-    .chat-bubble { font-size: 0.75rem; top: -30px; }
+    .mascot-img { max-width: 80px; }
+    .chat-bubble { font-size: 0.7rem; top: -30px; }
     
     /* Video */
     .video-divider-container { height: 200px; border-radius: 15px; }
@@ -601,6 +686,11 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
 /* Very Small Screens */
 @media screen and (max-width: 480px) {
     .filter-btn { font-size: 1rem; padding: 10px; }
+    
+    /* Ensure cards don't break on tiny screens */
+    .character-name { font-size: 1.1rem; }
+    .info-value { font-size: 0.75rem; }
+    
     .cats-row { flex-direction: column; gap: 40px; align-items: center; }
     .mascot-wrapper { width: 100%; }
     .mascot-wrapper.left-side { align-items: center; }
