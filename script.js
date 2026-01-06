@@ -126,6 +126,7 @@ function toggleTab(tabId) {
     if (tabId === 'interview-zone') document.getElementById('btn-interview').classList.add('active');
     else if (tabId === 'storybook-zone') document.getElementById('btn-storybook').classList.add('active');
     else if (tabId === 'timeline-zone') document.getElementById('btn-timeline').classList.add('active');
+    else if (tabId === 'photo-zone') document.getElementById('btn-photo').classList.add('active');
 }
 
 /* HELPER: Get dynamic offset based on screen size */
