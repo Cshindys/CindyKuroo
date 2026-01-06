@@ -6,7 +6,7 @@
     <title>黒尾鉄朗 × シンディ | 我們的專屬空間</title>
     
     <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Zen+Kurenaido&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
@@ -180,10 +180,7 @@
         <div class="bottom-shared-zone">
             <div class="couple-mascot-row">
                 <div class="mascot-side left">
-                    <div class="heart-wrapper">
-                        <div class="single-heart cindy-heart"></div>
-                        <div class="color-label">#B4A7D6</div>
-                    </div>
+                    <div class="single-heart cindy-heart"></div>
                     <img src="img/CindyAQQ(Transparent).png" alt="Cindy Cat" class="mascot-img-bottom">
                 </div>
 
@@ -194,10 +191,7 @@
 
                 <div class="mascot-side right">
                     <img src="img/KurooAQQ(Transparent).png" alt="Kuroo Cat" class="mascot-img-bottom">
-                    <div class="heart-wrapper">
-                        <div class="single-heart kuroo-heart"></div>
-                        <div class="color-label">#333333</div>
-                    </div>
+                    <div class="single-heart kuroo-heart"></div>
                 </div>
             </div>
 
@@ -336,15 +330,24 @@
                 <div class="interview-title">我們的故事書 · Our Storybook</div>
                 <div id="chapters-grid-view">
                     <div class="chapters-grid" id="chapters-container">
-                    </div>
+                        </div>
                 </div>
                 <div id="story-reader-view" class="story-viewer" style="display: none;">
-                    <button class="back-button" onclick="closeChapterReader()">← 返回章節列表</button>
-                    <div class="story-header">
-                        <h2 class="story-chapter-title" id="reader-title"></h2>
-                        <div class="story-date" id="reader-date"></div>
+                    <button class="back-button" onclick="closeChapterReader()">
+                        <span class="icon">⟵</span> 返回書架
+                    </button>
+                    <div class="story-paper">
+                        <div class="story-header-paper">
+                            <div class="chapter-number-paper">Chapter</div>
+                            <h2 class="story-chapter-title-paper" id="reader-title"></h2>
+                            <div class="story-date-paper" id="reader-date"></div>
+                        </div>
+                        <div class="story-content-paper" id="reader-content">
+                            </div>
+                        <div class="story-footer-paper">
+                            <span>- 音駒高校回憶錄 -</span>
+                        </div>
                     </div>
-                    <div class="story-content" id="reader-content"></div>
                     <div class="story-navigation">
                         <button class="story-nav-btn" id="reader-prev-btn" onclick="navigateChapter(-1)">← 上一章</button>
                         <div class="progress-text" id="reader-progress">1 / 3</div>
