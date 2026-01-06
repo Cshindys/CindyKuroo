@@ -58,10 +58,10 @@ body.dark-mode .stories-wrapper {
     gap: 25px; 
     padding: 5px 20px;
     justify-content: center;
-    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
-    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
 }
-.stories-container::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+.stories-container::-webkit-scrollbar { display: none; } 
 
 .story-item {
     display: flex;
@@ -129,10 +129,10 @@ body.dark-mode .story-label { color: #ccc; }
 /* --- MAIN CONTAINER --- */
 .container { max-width: var(--container-width); width: 95%; margin: 0 auto; padding: 20px; }
 
-/* --- NEW 2-COLUMN LAYOUT STRUCTURE (Replaces old grid) --- */
+/* --- NEW 2-COLUMN LAYOUT STRUCTURE --- */
 .character-pair-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Force 2 columns */
+    grid-template-columns: 1fr 1fr; 
     gap: 30px;
     align-items: start;
     margin-bottom: 40px;
@@ -144,40 +144,63 @@ body.dark-mode .story-label { color: #ccc; }
 .character-column {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between card and mascot */
+    gap: 15px; 
     align-items: center;
 }
 
-/* Mascot Row (Cat + Heart + QQ) */
-.mascot-row {
+/* --- REFINED HEART STYLES --- */
+.heart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.heart-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.single-heart { 
+    position: relative; 
+    width: 18px; /* Reduced from 26px to 18px */
+    height: 18px; 
+    transform: rotate(-45deg); 
+    animation: heartbeat-rotated 1.5s infinite; 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    animation: float 3s ease-in-out infinite;
-}
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
-
-.mascot-img-small {
-    width: 90px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
-.chibi-side-img {
-    width: 85px; /* Sized similarly to mascot */
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+.single-heart::before, .single-heart::after { 
+    content: ""; 
+    position: absolute; 
+    width: 18px; /* Match main size */
+    height: 18px; 
+    border-radius: 50%; 
+    background: inherit; 
+    z-index: -1; 
 }
+.single-heart::before { top: -9px; left: 0; } /* Half of 18px */
+.single-heart::after { top: 0; left: 9px; }
 
-/* Heart Styles */
-.single-heart { position: relative; width: 35px; height: 35px; transform: rotate(-45deg); animation: heartbeat-rotated 1.5s infinite; }
-@keyframes heartbeat-rotated { 0%, 100% { transform: rotate(-45deg) scale(1); } 50% { transform: rotate(-45deg) scale(1.15); } }
-.single-heart::before, .single-heart::after { content: ""; position: absolute; width: 35px; height: 35px; border-radius: 50%; background: inherit; }
-.single-heart::before { top: -17.5px; left: 0; }
-.single-heart::after { top: 0; left: 17.5px; }
+.color-label {
+    margin-top: 15px;
+    font-size: 10px;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+body.dark-mode .color-label { color: #aaa; }
+
+/* Margins to separate hearts from cats */
+.mascot-side.left .heart-wrapper { margin-right: 25px; }
+.mascot-side.right .heart-wrapper { margin-left: 25px; }
+
+@keyframes heartbeat-rotated { 0%, 100% { transform: rotate(-45deg) scale(1); } 50% { transform: rotate(-45deg) scale(1.1); } }
+
 .kuroo-heart { background-color: var(--primary-kuroo); }
 body.dark-mode .kuroo-heart { background-color: #555; }
 .cindy-heart { background-color: var(--primary-cindy); animation-delay: 0.2s; }
@@ -189,7 +212,7 @@ body.dark-mode .kuroo-heart { background-color: #555; }
     align-items: center;
     gap: 20px;
     margin: 40px auto;
-    max-width: 1000px; /* MATCHED TO CARDS */
+    max-width: 1000px; 
     width: 95%;
 }
 
@@ -206,11 +229,10 @@ body.dark-mode .kuroo-heart { background-color: #555; }
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Space between heart and cat */
 }
 
 .mascot-img-bottom {
-    width: 110px; /* Adjust size */
+    width: 110px; 
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
@@ -439,11 +461,11 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
 .tab-section.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- NEW: TOP TAB SECTION (For Video/Relationship) --- */
+/* --- NEW: TOP TAB SECTION --- */
 .top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
 .top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
 
-/* --- PHOTO ALBUM SECTION (New) --- */
+/* --- PHOTO ALBUM SECTION --- */
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -453,7 +475,7 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
 
 .photo-item {
     background: white;
-    padding: 15px 15px 50px 15px; /* Bottom padding for Polaroid look */
+    padding: 15px 15px 50px 15px; 
     box-shadow: var(--card-shadow);
     transform: rotate(-2deg);
     transition: all 0.3s ease;
@@ -463,55 +485,19 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-.photo-item:nth-child(even) {
-    transform: rotate(2deg);
-    margin-top: 20px;
-}
+.photo-item:nth-child(even) { transform: rotate(2deg); margin-top: 20px; }
 
-.photo-item:hover {
-    transform: scale(1.05) rotate(0deg);
-    z-index: 10;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
+.photo-item:hover { transform: scale(1.05) rotate(0deg); z-index: 10; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
 
-body.dark-mode .photo-item {
-    background: #2a2a40;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
+body.dark-mode .photo-item { background: #2a2a40; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-.photo-frame {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    margin-bottom: 15px;
-    background: #f0f0f0;
-}
+.photo-frame { width: 100%; height: 300px; overflow: hidden; margin-bottom: 15px; background: #f0f0f0; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+.photo-caption { font-family: 'Zen Kurenaido', sans-serif; text-align: center; color: #666; font-size: 1.1rem; font-weight: 600; position: absolute; bottom: 15px; left: 0; width: 100%; }
+body.dark-mode .photo-caption { color: #ccc; }
 
-.photo-caption {
-    font-family: 'Zen Kurenaido', sans-serif;
-    text-align: center;
-    color: #666;
-    font-size: 1.1rem;
-    font-weight: 600;
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-}
-
-body.dark-mode .photo-caption {
-    color: #ccc;
-}
-
-/* --- GARDENING DIARY SECTION (New) --- */
+/* --- GARDENING DIARY SECTION --- */
 .garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
 .garden-card {
     background: white;
@@ -565,11 +551,7 @@ body.dark-mode .inner-monologue { border-color: #555; color: #aaa; }
 /* --- TIMELINE SECTION --- */
 .timeline { position: relative; padding-left: 40px; }
 .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 2px; }
-.timeline-event { 
-    position: relative; 
-    margin-bottom: 60px; 
-    transition: all 0.6s ease; 
-}
+.timeline-event { position: relative; margin-bottom: 60px; transition: all 0.6s ease; }
 .timeline-event::before { content: '♥'; position: absolute; left: -43px; top: 0; width: 30px; height: 30px; background: white; border: 3px solid var(--accent-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 0; padding-top: 2px; font-size: 0.9rem; color: var(--accent-pink); z-index: 1; box-shadow: 0 0 0 5px rgba(255,255,255,0.5); }
 body.dark-mode .timeline-event::before { background: #1a1a2e; box-shadow: 0 0 0 5px rgba(26,26,46,0.5); }
 .event-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); }
@@ -642,7 +624,7 @@ body.dark-mode .chapter-title { color: white; }
 body.dark-mode .chapter-desc { color: #aaa; }
 .chapter-date { font-size: 0.85rem; color: #999; font-style: italic; display: flex; align-items: center; gap: 5px; }
 
-/* Story Reader View Specifics */
+/* Story Reader View */
 .story-viewer { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--card-shadow); animation: fadeIn 0.5s ease; border: 1px solid rgba(0,0,0,0.05); }
 body.dark-mode .story-viewer { background: #1a1a2e; border: 1px solid rgba(255,255,255,0.1); }
 .back-button { margin-bottom: 20px; padding: 8px 16px; border-radius: 20px; border: 1px solid #ddd; background: transparent; color: #666; cursor: pointer; font-weight: 600; transition: all 0.2s; }
@@ -653,189 +635,35 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
 .story-content { max-width: 800px; margin: 0 auto; }
 
 /* --- RESPONSIVE MEDIA QUERIES --- */
-
-/* Tablet & Smaller Laptops */
 @media screen and (max-width: 1024px) {
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .video-divider-container {
-        height: 350px;
-        margin: 20px auto;
-    }
-
-    .relationship-section {
-        grid-template-columns: 1fr;
-    }
+    .container { width: 100%; padding: 10px; }
+    .video-divider-container { height: 350px; margin: 20px auto; }
+    .relationship-section { grid-template-columns: 1fr; }
 }
 
-/* Mobile Devices */
 @media screen and (max-width: 768px) {
-    
-    /* --- ZOOM FIX: Scale down body --- */
-    body {
-        zoom: 0.85; /* Works for Chrome/Safari */
-        -moz-transform: scale(0.85); /* Firefox */
-        -moz-transform-origin: 0 0;
-    }
-    
-    /* Title Adjustments */
+    body { zoom: 0.85; -moz-transform: scale(0.85); -moz-transform-origin: 0 0; }
     .title-section { padding-top: 20px; }
     .title-section h1 { font-size: 2rem; }
-
-    /* Top Stories Nav */
     .stories-container { gap: 15px; padding: 5px 10px; }
     .story-ring { width: 55px; height: 55px; }
     .story-label { font-size: 0.75rem; }
-
-    /* Filter Buttons */
-    .filter-bar-container {
-        min-width: unset;
-        width: 95%;
-        border-radius: 20px;
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-        margin: 30px auto;
-    }
-    
-    .filter-btn {
-        width: 100%;
-        padding: 12px 20px;
-        font-size: 1.1rem;
-        justify-content: flex-start;
-    }
-
-    /* Modals */
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-        max-height: 90vh;
-    }
-    #modalBody { padding: 10px 0; }
-    .story-bubble { flex-direction: column; gap: 5px; }
-    .story-bubble.right { flex-direction: column; align-items: flex-end; }
-    .story-bubble-content { max-width: 100%; }
-    .story-avatar { width: 40px; height: 40px; }
-
-    /* --- SIDE-BY-SIDE MOBILE CARDS ADJUSTMENTS --- */
-    .character-pair-container {
-        gap: 12px;
-        margin-bottom: 20px;
-    }
-
-    /* Reduce container height for mobile flip cards */
+    .filter-bar-container { min-width: unset; width: 95%; border-radius: 20px; flex-direction: column; gap: 10px; padding: 10px; margin: 30px auto; }
+    .filter-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; justify-content: flex-start; }
+    .modal-content { width: 95%; padding: 20px; max-height: 90vh; }
+    .character-pair-container { gap: 12px; margin-bottom: 20px; }
     .flip-card-container { min-height: 480px; }
-
-    /* Shrink internal card elements */
-    .flip-card-front, .flip-card-back { padding: 15px 10px; }
+    .avatar { width: 80px; height: 80px; }
+    .character-name { font-size: 1.2rem; }
+    .p-tag { font-size: 0.7rem; }
+    .couple-mascot-row { gap: 5px; transform: scale(0.9); }
+    .mascot-img-bottom { width: 60px; }
     
-    .avatar { 
-        width: 80px; 
-        height: 80px; 
-        margin-bottom: 10px;
-        border-width: 3px;
-    }
-    
-    .character-name { 
-        font-size: 1.2rem; 
-        margin-bottom: 10px; 
-    }
-    
-    .info-row { 
-        flex-direction: column; 
-        align-items: center; 
-        padding: 4px;
-        margin-bottom: 5px;
-    }
-    
-    .info-label { 
-        margin-right: 0; 
-        margin-bottom: 2px; 
-        font-size: 0.7rem; 
-        padding: 3px 8px;
-        min-width: unset;
-    }
-    
-    .info-value { font-size: 0.8rem; text-align: center; }
-    
-    .description-box { 
-        font-size: 0.8rem; 
-        padding: 10px; 
-        margin-top: 10px; 
-        margin-bottom: 10px;
-        line-height: 1.4;
-    }
-    
-    .personality-box { margin-top: 10px; padding-top: 10px; }
-    .personality-title { font-size: 0.9rem; margin-bottom: 8px; }
-    .personality-grid { gap: 5px; }
-    .p-tag { font-size: 0.7rem; padding: 4px; }
-    
-    .more-btn { 
-        padding: 8px 15px; 
-        font-size: 0.85rem; 
-    }
-    
-    .mascot-img-small { width: 70px; }
-    .chibi-side-img { width: 60px; }
-    
-    /* Video */
-    .video-divider-container { height: 200px; border-radius: 15px; }
-
-    /* Relationship Graph */
-    .graph-container { height: 300px; padding: 10px; }
-    .axis-label { font-size: 0.7rem; padding: 4px 8px; }
-    .graph-icon { width: 50px; height: 50px; }
-    
-    /* Photo Gallery */
-    .photo-gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
-    .photo-item { padding: 10px 10px 35px 10px; }
-    .photo-frame { height: 180px; }
-    .photo-caption { font-size: 0.9rem; bottom: 8px; }
-
-    /* Timeline */
-    .timeline { padding-left: 20px; }
-    .timeline-event::before { left: -28px; width: 20px; height: 20px; top: 5px; }
-    .event-card { padding: 20px; }
-    .event-title { font-size: 1.2rem; }
-
-    /* Interview */
-    .interview-title, .timeline-title { font-size: 1.6rem; margin-bottom: 40px; }
-    .interview-scene { padding: 20px; }
-    .dialogue-wrapper { gap: 10px; }
-    .char-avatar-small { width: 40px; height: 40px; }
-    .dialogue-bubble { font-size: 0.95rem; }
-
-    /* Story Reader */
-    .story-viewer { padding: 20px; }
-    .story-paragraph { text-indent: 0; font-size: 1rem; }
-    
-    /* Mascot Row on Mobile - Force one line or tight wrap */
-    .couple-mascot-row {
-        gap: 5px;
-        transform: scale(0.9);
-    }
-    .mascot-img-bottom {
-        width: 50px;
-    }
-    .mascot-side .single-heart {
-        width: 25px; height: 25px;
-    }
-    .mascot-side .single-heart::before, .mascot-side .single-heart::after {
-        width: 25px; height: 25px;
-    }
-    .mascot-side .single-heart::before { top: -12.5px; }
-    .mascot-side .single-heart::after { left: 12.5px; }
-}
-
-/* Very Small Screens */
-@media screen and (max-width: 480px) {
-    .filter-btn { font-size: 1rem; padding: 10px; }
-    
-    /* Ensure cards don't break on tiny screens */
-    .character-name { font-size: 1.1rem; }
-    .info-value { font-size: 0.75rem; }
+    /* Responsive Adjustments for new hearts */
+    .single-heart { width: 14px; height: 14px; } /* Even smaller on mobile */
+    .single-heart::before { width: 14px; height: 14px; top: -7px; }
+    .single-heart::after { width: 14px; height: 14px; left: 7px; }
+    .color-label { font-size: 8px; margin-top: 10px; }
+    .mascot-side.left .heart-wrapper { margin-right: 15px; }
+    .mascot-side.right .heart-wrapper { margin-left: 15px; }
 }
