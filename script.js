@@ -128,11 +128,16 @@ function toggleTab(tabId) {
     else if (tabId === 'timeline-zone') document.getElementById('btn-timeline').classList.add('active');
 }
 
+/* HELPER: Get dynamic offset based on screen size */
+function getScrollOffset() {
+    return window.innerWidth < 768 ? 80 : 150;
+}
+
 function switchTabAndScroll(tabId) {
     toggleTab(tabId);
     const element = document.getElementById('filter-bar-anchor');
     if (element) {
-        const offset = 150; 
+        const offset = getScrollOffset(); 
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -163,7 +168,7 @@ function switchTopTabAndScroll(tabId) {
     switchTopTab(tabId);
     const element = document.getElementById('top-filter-anchor');
     if (element) {
-        const offset = 150; 
+        const offset = getScrollOffset(); 
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -337,7 +342,7 @@ function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 function scrollToId(elementId) {
     const element = document.getElementById(elementId);
     if (element) {
-        const offset = 140; 
+        const offset = getScrollOffset(); 
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
