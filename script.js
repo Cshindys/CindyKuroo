@@ -104,7 +104,55 @@ const chapterDatabase = [
     }
 ];
 
-/* --- 3. TAB LOGIC (Bottom Filter) --- */
+/* --- 3. GARDEN DIARY DATA (New) --- */
+const gardenDatabase = [
+    {
+        id: 'garden1',
+        title: 'Observation Log #001: 播種之日',
+        date: 'Day 1',
+        weather: '☀️ 晴朗',
+        status: '播種',
+        description: '今天在園藝社的角落種下了向日葵的種子。希望它們能像太陽一樣，給某人帶來溫暖。',
+        content: [
+            { type: 'paragraph', text: '今天在園藝社的角落種下了向日葵的種子。因為向日葵的花語是「眼中只有你」。' },
+            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '一定要快快長大哦，小種子們。' },
+            { type: 'paragraph', text: '雖然不知道能不能順利開花，但我會每天都來看你們的。' }
+        ]
+    },
+    {
+        id: 'garden2',
+        title: 'Observation Log #012: 意外的訪客',
+        date: 'Day 12',
+        weather: '☁️ 多雲',
+        status: '發芽',
+        description: '今天去澆水的時候，發現泥土已經濕潤了。難道是有好心的小精靈幫忙澆水了嗎？',
+        content: [
+            { type: 'paragraph', text: '放學後急忙趕去花圃，卻發現泥土是深色的，顯然剛被澆過水。' },
+            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '咦？有人幫忙澆水了嗎？' },
+            { type: 'paragraph', text: '正疑惑時，看到體育館門口，黑尾學長正拿著空水瓶在擦汗，眼神似乎往這邊瞟了一下。' },
+            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '（內心OS）只是路過順手而已...別想太多。' }
+        ]
+    },
+    {
+        id: 'garden3',
+        title: 'Observation Log #045: 盛開的約定',
+        date: 'Day 45',
+        weather: '🌤️ 晴轉陰',
+        status: '開花',
+        description: '終於開花了！金黃色的花瓣在風中搖曳。黑尾學長說，這顏色很像音駒的隊服呢。',
+        content: [
+            { type: 'paragraph', text: '向日葵終於盛開了，金黃色的花盤追逐著太陽。' },
+            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '喲，開得很精神嘛。這顏色跟我們的隊服挺像的。' },
+            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '是、是嗎！那以後比賽的時候，我可以帶一朵去加油嗎？' },
+            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '哈哈，只要別把花盆也帶去就行，那可是兇器啊。' },
+            { type: 'paragraph', text: '兩人相視而笑，夏日的微風輕輕吹過。' }
+        ]
+    }
+];
+
+/* --- 4. FUNCTIONS --- */
+
+/* TAB LOGIC */
 function toggleTab(tabId) {
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
@@ -127,9 +175,9 @@ function toggleTab(tabId) {
     else if (tabId === 'storybook-zone') document.getElementById('btn-storybook').classList.add('active');
     else if (tabId === 'timeline-zone') document.getElementById('btn-timeline').classList.add('active');
     else if (tabId === 'photo-zone') document.getElementById('btn-photo').classList.add('active');
+    else if (tabId === 'garden-zone') document.getElementById('btn-garden').classList.add('active');
 }
 
-/* HELPER: Get dynamic offset based on screen size */
 function getScrollOffset() {
     return window.innerWidth < 768 ? 80 : 150;
 }
@@ -145,7 +193,6 @@ function switchTabAndScroll(tabId) {
     }
 }
 
-/* --- 3.1 NEW TOP TAB LOGIC (Video vs Relationship) --- */
 function switchTopTab(tabId) {
     document.querySelectorAll('.top-tab-content').forEach(section => {
         section.classList.remove('active');
@@ -176,57 +223,65 @@ function switchTopTabAndScroll(tabId) {
     }
 }
 
-/* --- 4. TIMELINE STORY MODAL LOGIC --- */
+/* TIMELINE & STORY MODAL LOGIC */
 let currentTimelineIndex = 0;
+// We need to know if we are opening a Timeline story or a Garden story to handle Next/Prev correctly
+let activeDatabase = storyDatabase; 
 
 function bindTimelineEvents() {
     const timeline = document.querySelector('.timeline');
-    if (!timeline) return;
-    timeline.addEventListener('click', function(e) {
-        let eventCard = e.target;
-        while (eventCard && !eventCard.classList.contains('timeline-event')) {
-            eventCard = eventCard.parentElement;
-            if (!eventCard) break;
-        }
-        if (eventCard && eventCard.dataset && eventCard.dataset.event) {
-            openStoryModal(eventCard.dataset.event);
-            e.preventDefault();
-            e.stopPropagation();
+    if (timeline) {
+        timeline.addEventListener('click', function(e) {
+            handleEventClick(e, 'timeline-event');
+        });
+    }
+}
+
+function handleEventClick(e, className) {
+    let target = e.target;
+    // Check if clicked button
+    if (target.classList.contains('read-story-btn')) {
+        let p = target;
+        while (p && !p.classList.contains(className)) p = p.parentElement;
+        if (p && p.dataset && p.dataset.event) {
+            openStoryModal(p.dataset.event);
+            e.preventDefault(); e.stopPropagation();
             return;
         }
-        let closest = e.target.closest('.event-card');
-        if (closest && closest.parentElement.classList.contains('timeline-event')) {
-            const evt = closest.parentElement.dataset.event;
-            if (evt) {
-                openStoryModal(evt);
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-        }
-        if (e.target && e.target.classList && e.target.classList.contains('read-story-btn')) {
-            let p = e.target;
-            while (p && !p.classList.contains('timeline-event')) p = p.parentElement;
-            if (p && p.dataset && p.dataset.event) {
-                openStoryModal(p.dataset.event);
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-        }
-    });
+    }
+    // Check if clicked card
+    let card = target.closest('.' + className);
+    if (card && card.dataset && card.dataset.event) {
+        openStoryModal(card.dataset.event);
+        e.preventDefault(); e.stopPropagation();
+        return;
+    }
 }
 
 function openStoryModal(eventId) {
-    currentTimelineIndex = storyDatabase.findIndex(story => story.id === eventId);
-    if(currentTimelineIndex === -1) return;
+    // Try finding in storyDatabase first
+    let index = storyDatabase.findIndex(story => story.id === eventId);
+    if (index !== -1) {
+        activeDatabase = storyDatabase;
+        currentTimelineIndex = index;
+    } else {
+        // Try finding in gardenDatabase
+        index = gardenDatabase.findIndex(story => story.id === eventId);
+        if (index !== -1) {
+            activeDatabase = gardenDatabase;
+            currentTimelineIndex = index;
+        } else {
+            return; // Not found
+        }
+    }
+    
     renderStoryModal(currentTimelineIndex);
     document.getElementById('eventModal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function renderStoryModal(index) {
-    const story = storyDatabase[index];
+    const story = activeDatabase[index];
     const modalBody = document.getElementById('modalBody');
     let contentHTML = '';
     
@@ -248,13 +303,13 @@ function renderStoryModal(index) {
         <div class="story-content-container">${contentHTML}</div>
         <div class="story-navigation">
             <button class="story-nav-btn" onclick="navigateTimeline(-1)" ${index === 0 ? 'disabled' : ''}>← Previous</button>
-            <button class="story-nav-btn" onclick="navigateTimeline(1)" ${index === storyDatabase.length - 1 ? 'disabled' : ''}>Next →</button>
+            <button class="story-nav-btn" onclick="navigateTimeline(1)" ${index === activeDatabase.length - 1 ? 'disabled' : ''}>Next →</button>
         </div>`;
 }
 
 function navigateTimeline(direction) {
     const newIndex = currentTimelineIndex + direction;
-    if(newIndex >= 0 && newIndex < storyDatabase.length) {
+    if(newIndex >= 0 && newIndex < activeDatabase.length) {
         currentTimelineIndex = newIndex;
         renderStoryModal(newIndex);
         document.getElementById('modalBody').scrollTop = 0;
@@ -332,7 +387,32 @@ function navigateChapter(offset) {
     openChapterReader(idx);
 }
 
-/* --- 6. UTILITIES --- */
+/* --- 6. GARDEN DIARY RENDER LOGIC --- */
+function initGardenDiary() {
+    const container = document.getElementById('garden-container');
+    if(!container) return;
+    container.innerHTML = '';
+
+    gardenDatabase.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'garden-card';
+        card.onclick = () => openStoryModal(item.id); // Re-use the modal system
+        card.innerHTML = `
+            <div class="garden-header">
+                <span class="garden-date">${item.date}</span>
+                <span class="garden-weather">${item.weather}</span>
+            </div>
+            <div class="garden-title">${item.title}</div>
+            <div class="garden-preview">${item.description}</div>
+            <div class="garden-status">
+                <span class="status-dot"></span> 狀態：${item.status}
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+/* --- 7. UTILITIES --- */
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     document.getElementById('darkModeIcon').textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
@@ -352,6 +432,7 @@ function scrollToId(elementId) {
 
 document.addEventListener('DOMContentLoaded', () => {
     initStorybook();
+    initGardenDiary(); // Load garden cards
     bindTimelineEvents();
 
     let scrollBtn = document.getElementById('scrollTopBtn');
