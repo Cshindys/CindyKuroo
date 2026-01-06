@@ -1,449 +1,639 @@
-/* --- 1. TIMELINE DATA --- */
-const storyDatabase = [
-    {
-        id: 'event1',
-        title: '🖤「愛的暗殺事件🌱」',
-        date: '記錄時間：未知',
-        description: 'シンデイ領養了一盆據說「絕對不會死」的多肉植物——仙人掌，一種理論上放置不管也能存活的植物。出於對新生命的過度關愛，她認為生長在沙漠的仙人掌一定很缺水，因此堅持每日早、午、晚三次為其澆水。一週後，該仙人掌因根部腐爛而宣告枯萎。此事件成為園藝學會傳說中的「愛的暗殺事件」。',
-        content: [
-            { type: 'paragraph', text: '那天是個陽光明媚的午後，シンデイ抱著一盆小小的仙人掌走進了園藝社。她的眼神充滿了母愛，彷彿懷裡抱著的是全世界最珍貴的寶物。' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '你看！這是新成員「刺刺君」！店員說它生命力超強，絕對養不死！' },
-            { type: 'paragraph', text: '然而，僅僅過了一週...' },
-            { type: 'timestamp', text: '一週後的某個黃昏' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: 'あれあれ...身為園藝學會的成員，居然能親手將生命力最頑強的仙人掌給『處決』掉，這可不是一般人能辦到的才能啊～' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '我...我不是故意的！我只是...怕它口渴。而且我看《園藝新手指南》中上說植物需要陽光 and 水，我就想給它多一點...再多一點的關心嘛！' },
-            { type: 'paragraph', text: '黑尾看著那盆已經軟趴趴的仙人掌，無奈地嘆了口氣，嘴角卻掛著掩飾不住的笑意。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '這大概就是傳說中「沉重的愛」吧？連仙人掌都承受不住了呢。' }
-        ]
-    },
-    {
-        id: 'event2',
-        title: '🖤「圖書館書本空襲事件📕」',
-        date: '記錄時間：午休時間',
-        description: 'シンデイ在圖書館尋找資料。當她試圖從高層書架上取下一本厚重的精裝圖鑑時，因身高不足導致滑落，其中一本精準地砸中了她自己的頭頂。',
-        content: [
-            { type: 'paragraph', text: '圖書館裡靜悄悄的，只有翻書的聲音。シンデイ踮起腳尖，試圖夠到書架最上層那本厚重的植物圖鑑。' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '再一點點...就差一點點...' },
-            { type: 'paragraph', text: '就在指尖碰到書脊的一瞬間，重心不穩，整排書像骨牌一樣滑落下來。' },
-            { type: 'timestamp', text: '砰！' },
-            { type: 'paragraph', text: '一聲悶響，一本精裝書精準地砸在了她的頭頂。她痛得立刻蹲了下去，抱著頭眼淚汪汪。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '啊，那次啊。我在看書看得正入神，就聽到『咚』的一聲悶響。一看就發現某個小貓正抱著頭，蹲在地上。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '妳說妳，明明知道自己搆不著，為什麼不叫人幫忙？我不是就坐在妳對面嗎？' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '嗚...我看到黒尾さん在很專心地看書，不想打擾你嘛...' },
-            { type: 'paragraph', text: '黑尾嘆了口氣，走過來輕輕揉了揉她被砸中的地方，眼神裡滿是無奈與寵溺。' }
-        ]
-    },
-    {
-        id: 'event3',
-        title: '🖤「左腳的愛過於沉重」',
-        date: '記錄時間：黑尾生日(11月17日)',
-        description: '在生日當天，シンデイ送給黑尾兩個護膝。然而，當黑尾打開禮盒後，卻發現裡面靜靜地躺著兩個——包裝、設計、型號完全一致的「左腳專用護膝」。',
-        content: [
-            { type: 'paragraph', text: '這是黑尾的生日。為了這一天，シンデイ準備了很久，特意挑選了據說能有效緩解肌肉疲勞的專業運動護膝。' },
-            { type: 'timestamp', text: '部活結束後' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '黑尾學長！生日快樂！這是我挑選的禮物，希望你能喜歡！' },
-            { type: 'paragraph', text: '黑尾接過包裝精美的盒子，滿懷期待地打開。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '哦？是護膝啊，正好舊的快壞了...嗯？' },
-            { type: 'paragraph', text: '他拿起其中一個，上面標著「L (Left)」。他笑著點點頭。然後他拿起了另一個...' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '...上面還是個『L』。我是要進化成有兩條左腿的生物嗎？' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '誒？！怎、怎麼會！我明明是從貨架上拿的一對啊！' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '我、我真的不是故意的！包裝盒幾乎一模一樣！對不起！！' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '我當時腦子裡只有一個想法：『妳是覺得我的右腳不配得到愛嗎？』' },
-            { type: 'paragraph', text: '雖然嘴上這麼說，但黑尾還是把兩個左腳護膝都收好了。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '放心，另一個...就當作備用吧。這份「沉重」的愛，我收下了。' }
-        ]
-    }
-];
+/* --- RESET & BASIC STYLES --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* --- 2. STORYBOOK CHAPTER DATA --- */
-const chapterDatabase = [
-    {
-        title: 'Chapter 1: 體育館的初遇',
-        date: '2023年4月15日',
-        description: '那是一個春天的午後，在排球館的門口，我們的故事開始了...一顆滾落的排球，連結了兩個世界。',
-        content: [
-            { type: 'paragraph', text: '那是一個春天的午後，陽光透過體育館的高窗灑在木地板上。シンデイ正抱著一疊園藝社的文件經過體育館，突然一顆排球滾到了她的腳邊。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '不好意思！能幫忙把球撿過來嗎？' },
-            { type: 'paragraph', text: 'シンデイ抬起頭，看到一個身材高大的男生正站在球網對面，臉上掛著漫不經心的笑容，那是音駒的主將——黑尾鐵朗。' },
-            { type: 'dialogue', speaker: 'シン迪', side: 'right', text: '啊...好、好的！' },
-            { type: 'paragraph', text: '她慌慌張張地撿起球，因為緊張，扔回去的姿勢顯得有些笨拙。黑尾輕鬆地單手接住了球。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '謝啦，園藝社的小貓咪。下次路過要小心流彈哦。' },
-            { type: 'timestamp', text: '下午 4:30 PM' },
-            { type: 'paragraph', text: '虽然只是简短的对话，但那個稱呼和那個笑容，讓她的心跳漏了一拍。從那天起，體育館成了她最在意的風景。' }
-        ]
-    },
-    {
-        title: 'Chapter 2: 櫻花樹下的便當',
-        date: '2023年5月2日',
-        description: '第一次鼓起勇氣送出的便當，在盛開的櫻花樹下，藏著少女羞澀的心意。',
-        content: [
-            { type: 'paragraph', text: '校園裡的櫻花盛開得正好。シンデイ早起了一個小時，做了一份特製的便當，裡面有黑尾學長喜歡的鹽烤秋刀魚。' },
-            { type: 'dialogue', speaker: 'シン迪', side: 'right', text: '那個...黑尾學長！如果你不介意的話...' },
-            { type: 'paragraph', text: '在午休的天台，她雙手遞出便當盒，指節因為用力而發白。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '哦？這是給我的？看起來很豐盛啊。' },
-            { type: 'paragraph', text: '黑尾有些驚訝，但隨即露出了溫柔的笑容接過了便當。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '剛好肚子餓了。謝啦，我會懷著感激的心情全部吃光的. ' },
-            { type: 'timestamp', text: '午休時間 12:45 PM' },
-            { type: 'paragraph', text: '風吹過，花瓣落在兩人的肩膀上。看著他大口吃飯的樣子，シンデイ覺得早起的疲憊全都煙消雲散了。' }
-        ]
-    },
-    {
-        title: 'Chapter 3: 雨中的溫暖',
-        date: '2023年6月15日',
-        description: '突如其來的梅雨季，讓人措手不及。但在同撐一把傘的距離裡，心跳的聲音卻格外清晰。',
-        content: [
-            { type: 'paragraph', text: '放學時，天空突然下起了傾盆大雨。シンデイ站在昇降口，懊惱地發現自己忘了帶傘。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '喲，這位小姐是被雨困住了嗎？' },
-            { type: 'paragraph', text: '熟悉的聲音在頭頂響起，一把黑色的雨傘遮住了漫天的雨幕。' },
-            { type: 'dialogue', speaker: 'シン迪', side: 'right', text: '黑尾學長...可是這樣你會淋濕的。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '我是血液嘛，流動起來就不會冷了。走吧，送妳到車站。' },
-            { type: 'paragraph', text: '雨聲嘩啦啦地響著，但傘下的世界卻很安靜。黑尾刻意將傘向她那邊傾斜，自己的半個肩膀卻濕透了。' },
-            { type: 'timestamp', text: '下午 6:00 PM' },
-            { type: 'paragraph', text: '這一刻，シンデイ希望這場雨永遠不要停。' }
-        ]
-    }
-];
-
-/* --- 3. GARDEN DIARY DATA (New) --- */
-const gardenDatabase = [
-    {
-        id: 'garden1',
-        title: 'Observation Log #001: 播種之日',
-        date: 'Day 1',
-        weather: '☀️ 晴朗',
-        status: '播種',
-        description: '今天在園藝社的角落種下了向日葵的種子。希望它們能像太陽一樣，給某人帶來溫暖。',
-        content: [
-            { type: 'paragraph', text: '今天在園藝社的角落種下了向日葵的種子。因為向日葵的花語是「眼中只有你」。' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '一定要快快長大哦，小種子們。' },
-            { type: 'paragraph', text: '雖然不知道能不能順利開花，但我會每天都來看你們的。' }
-        ]
-    },
-    {
-        id: 'garden2',
-        title: 'Observation Log #012: 意外的訪客',
-        date: 'Day 12',
-        weather: '☁️ 多雲',
-        status: '發芽',
-        description: '今天去澆水的時候，發現泥土已經濕潤了。難道是有好心的小精靈幫忙澆水了嗎？',
-        content: [
-            { type: 'paragraph', text: '放學後急忙趕去花圃，卻發現泥土是深色的，顯然剛被澆過水。' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '咦？有人幫忙澆水了嗎？' },
-            { type: 'paragraph', text: '正疑惑時，看到體育館門口，黑尾學長正拿著空水瓶在擦汗，眼神似乎往這邊瞟了一下。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '（內心OS）只是路過順手而已...別想太多。' }
-        ]
-    },
-    {
-        id: 'garden3',
-        title: 'Observation Log #045: 盛開的約定',
-        date: 'Day 45',
-        weather: '🌤️ 晴轉陰',
-        status: '開花',
-        description: '終於開花了！金黃色的花瓣在風中搖曳。黑尾學長說，這顏色很像音駒的隊服呢。',
-        content: [
-            { type: 'paragraph', text: '向日葵終於盛開了，金黃色的花盤追逐著太陽。' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '喲，開得很精神嘛。這顏色跟我們的隊服挺像的。' },
-            { type: 'dialogue', speaker: 'シンディ', side: 'right', text: '是、是嗎！那以後比賽的時候，我可以帶一朵去加油嗎？' },
-            { type: 'dialogue', speaker: '黒尾', side: 'left', text: '哈哈，只要別把花盆也帶去就行，那可是兇器啊。' },
-            { type: 'paragraph', text: '兩人相視而笑，夏日的微風輕輕吹過。' }
-        ]
-    }
-];
-
-/* --- 4. FUNCTIONS --- */
-
-/* TAB LOGIC */
-function toggleTab(tabId) {
-    document.querySelectorAll('.tab-section').forEach(section => {
-        section.classList.remove('active');
-        section.style.display = 'none';
-    });
-
-    const selectedSection = document.getElementById(tabId);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-        setTimeout(() => selectedSection.classList.add('active'), 10);
-    }
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        if(btn.parentElement.id === 'filter-bar-anchor') {
-            btn.classList.remove('active');
-        }
-    });
-
-    if (tabId === 'interview-zone') document.getElementById('btn-interview').classList.add('active');
-    else if (tabId === 'storybook-zone') document.getElementById('btn-storybook').classList.add('active');
-    else if (tabId === 'timeline-zone') document.getElementById('btn-timeline').classList.add('active');
-    else if (tabId === 'photo-zone') document.getElementById('btn-photo').classList.add('active');
-    else if (tabId === 'garden-zone') document.getElementById('btn-garden').classList.add('active');
+:root {
+    --primary-kuroo: #333333;
+    --primary-cindy: #B4A7D6;
+    --accent-pink: #E8B4D9;
+    --bg-light: linear-gradient(135deg, #FFF5F7 0%, #F0E6F6 100%);
+    --bg-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+    --container-width: 1450px; 
 }
 
-function getScrollOffset() {
-    return window.innerWidth < 768 ? 80 : 150;
+body {
+    font-family: 'Noto Sans JP', 'Noto Sans TC', 'Poppins', sans-serif;
+    background: var(--bg-light);
+    color: #4a4a4a;
+    transition: background 0.3s ease;
+    font-size: 15px; 
+    line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden;
 }
 
-function switchTabAndScroll(tabId) {
-    toggleTab(tabId);
-    const element = document.getElementById('filter-bar-anchor');
-    if (element) {
-        const offset = getScrollOffset(); 
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    }
+body.dark-mode {
+    background: var(--bg-dark);
+    color: #e0e0e0;
 }
 
-function switchTopTab(tabId) {
-    document.querySelectorAll('.top-tab-content').forEach(section => {
-        section.classList.remove('active');
-        section.style.display = 'none';
-    });
-
-    const selectedSection = document.getElementById(tabId);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-        setTimeout(() => selectedSection.classList.add('active'), 10);
-    }
-
-    document.getElementById('btn-top-video').classList.remove('active');
-    document.getElementById('btn-top-relationship').classList.remove('active');
-
-    if(tabId === 'top-tab-video') document.getElementById('btn-top-video').classList.add('active');
-    if(tabId === 'top-tab-relationship') document.getElementById('btn-top-relationship').classList.add('active');
+/* --- TOP STORIES SECTION --- */
+.stories-wrapper {
+    position: sticky; 
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
 }
 
-function switchTopTabAndScroll(tabId) {
-    switchTopTab(tabId);
-    const element = document.getElementById('top-filter-anchor');
-    if (element) {
-        const offset = getScrollOffset(); 
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    }
+body.dark-mode .stories-wrapper {
+    background: rgba(26, 26, 46, 0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-/* TIMELINE & STORY MODAL LOGIC */
-let currentTimelineIndex = 0;
-// We need to know if we are opening a Timeline story or a Garden story to handle Next/Prev correctly
-let activeDatabase = storyDatabase; 
+.stories-container {
+    max-width: var(--container-width);
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 25px; 
+    padding: 5px 20px;
+    justify-content: center;
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+}
+.stories-container::-webkit-scrollbar { display: none; } 
 
-function bindTimelineEvents() {
-    const timeline = document.querySelector('.timeline');
-    if (timeline) {
-        timeline.addEventListener('click', function(e) {
-            handleEventClick(e, 'timeline-event');
-        });
-    }
+.story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
 }
 
-function handleEventClick(e, className) {
-    let target = e.target;
-    // Check if clicked button
-    if (target.classList.contains('read-story-btn')) {
-        let p = target;
-        while (p && !p.classList.contains(className)) p = p.parentElement;
-        if (p && p.dataset && p.dataset.event) {
-            openStoryModal(p.dataset.event);
-            e.preventDefault(); e.stopPropagation();
-            return;
-        }
-    }
-    // Check if clicked card
-    let card = target.closest('.' + className);
-    if (card && card.dataset && card.dataset.event) {
-        openStoryModal(card.dataset.event);
-        e.preventDefault(); e.stopPropagation();
-        return;
-    }
+.story-item:hover { transform: translateY(-3px); }
+.story-item:active { transform: scale(0.95); }
+
+.story-ring {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(45deg, var(--accent-pink), var(--primary-cindy), #4A90E2);
+    position: relative;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-function openStoryModal(eventId) {
-    // Try finding in storyDatabase first
-    let index = storyDatabase.findIndex(story => story.id === eventId);
-    if (index !== -1) {
-        activeDatabase = storyDatabase;
-        currentTimelineIndex = index;
-    } else {
-        // Try finding in gardenDatabase
-        index = gardenDatabase.findIndex(story => story.id === eventId);
-        if (index !== -1) {
-            activeDatabase = gardenDatabase;
-            currentTimelineIndex = index;
-        } else {
-            return; // Not found
-        }
-    }
-    
-    renderStoryModal(currentTimelineIndex);
-    document.getElementById('eventModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+.story-ring::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px; right: 3px; bottom: 3px;
+    background: #FFF5F7;
+    border-radius: 50%;
+    z-index: 1;
 }
 
-function renderStoryModal(index) {
-    const story = activeDatabase[index];
-    const modalBody = document.getElementById('modalBody');
-    let contentHTML = '';
-    
-    story.content.forEach(item => {
-        if(item.type === 'paragraph') contentHTML += `<p class="story-paragraph">${item.text}</p>`;
-        else if (item.type === 'timestamp') contentHTML += `<div class="story-timestamp">--- ${item.text} ---</div>`;
-        else if (item.type === 'dialogue') {
-            const avatar = item.speaker.includes('黒尾') ? 'img/KurooQQ(Transparent).png' : 'img/CindyQQ(Transparent).png';
-            contentHTML += `
-                <div class="story-bubble ${item.side === 'left' ? 'left' : 'right'}">
-                    <div class="story-avatar"><img src="${avatar}" alt="${item.speaker}"></div>
-                    <div class="story-bubble-content"><span class="sb-speaker">${item.speaker}</span>${item.text}</div>
-                </div>`;
-        }
-    });
+body.dark-mode .story-ring::after { background: #1a1a2e; }
 
-    modalBody.innerHTML = `
-        <div class="story-header"><h2 class="story-chapter-title">${story.title}</h2><div class="story-date">${story.date}</div></div>
-        <div class="story-content-container">${contentHTML}</div>
-        <div class="story-navigation">
-            <button class="story-nav-btn" onclick="navigateTimeline(-1)" ${index === 0 ? 'disabled' : ''}>← Previous</button>
-            <button class="story-nav-btn" onclick="navigateTimeline(1)" ${index === activeDatabase.length - 1 ? 'disabled' : ''}>Next →</button>
-        </div>`;
+.story-img-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    border: 2px solid transparent;
 }
 
-function navigateTimeline(direction) {
-    const newIndex = currentTimelineIndex + direction;
-    if(newIndex >= 0 && newIndex < activeDatabase.length) {
-        currentTimelineIndex = newIndex;
-        renderStoryModal(newIndex);
-        document.getElementById('modalBody').scrollTop = 0;
-    }
+.story-img-container img { width: 100%; height: 100%; object-fit: cover; }
+.story-label { font-size: 0.85rem; font-weight: 600; color: #666; letter-spacing: 0.5px; }
+body.dark-mode .story-label { color: #ccc; }
+
+/* --- TITLE SECTION --- */
+.title-section { text-align: center; padding: 40px 20px 10px; position: relative; }
+.title-section h1 {
+    font-size: 3rem; 
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    animation: titleFloat 3s ease-in-out infinite;
+}
+@keyframes titleFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+
+/* --- MAIN CONTAINER --- */
+.container { max-width: var(--container-width); width: 95%; margin: 0 auto; padding: 20px; }
+
+/* --- NEW 2-COLUMN LAYOUT STRUCTURE --- */
+.character-pair-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-function closeModal() {
-    document.getElementById('eventModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
+.character-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    align-items: center;
 }
 
-/* --- 5. STORYBOOK READER LOGIC --- */
-let currentChapterIndex = 0;
-
-function initStorybook() {
-    const container = document.getElementById('chapters-container');
-    if(!container) return;
-    container.innerHTML = '';
-
-    chapterDatabase.forEach((chapter, index) => {
-        const card = document.createElement('div');
-        card.className = 'chapter-card';
-        card.onclick = () => openChapterReader(index);
-        card.innerHTML = `
-            <div class="chapter-number">Chapter ${index + 1}</div>
-            <div class="chapter-title">${chapter.title}</div>
-            <div class="chapter-desc">${chapter.description}</div>
-            <div class="chapter-date">📅 ${chapter.date}</div>
-        `;
-        container.appendChild(card);
-    });
+/* --- REFINED HEART STYLES --- */
+.single-heart { 
+    position: relative; 
+    width: 26px; 
+    height: 26px; 
+    transform: rotate(-45deg); 
+    animation: heartbeat-rotated 1.5s infinite; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fira Code', monospace;
+    font-size: 7px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-function openChapterReader(index) {
-    currentChapterIndex = index;
-    renderChapterContent(index);
-    document.getElementById('chapters-grid-view').style.display = 'none';
-    document.getElementById('story-reader-view').style.display = 'block';
-    document.getElementById('reader-prev-btn').disabled = (index === 0);
-    document.getElementById('reader-next-btn').disabled = (index === chapterDatabase.length - 1);
+/* Spacer for hearts */
+.mascot-side.left .single-heart { margin-right: 15px; }
+.mascot-side.right .single-heart { margin-left: 15px; }
+
+@keyframes heartbeat-rotated { 0%, 100% { transform: rotate(-45deg) scale(1); } 50% { transform: rotate(-45deg) scale(1.1); } }
+
+.single-heart::before, .single-heart::after { content: ""; position: absolute; width: 26px; height: 26px; border-radius: 50%; background: inherit; z-index: -1; }
+.single-heart::before { top: -13px; left: 0; }
+.single-heart::after { top: 0; left: 13px; }
+
+.kuroo-heart { background-color: var(--primary-kuroo); }
+body.dark-mode .kuroo-heart { background-color: #555; }
+.cindy-heart { background-color: var(--primary-cindy); animation-delay: 0.2s; }
+
+/* Shared Bottom Zone (Couple + Music) */
+.bottom-shared-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 1000px; 
+    width: 95%;
 }
 
-function closeChapterReader() {
-    document.getElementById('story-reader-view').style.display = 'none';
-    document.getElementById('chapters-grid-view').style.display = 'block';
+.couple-mascot-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-function renderChapterContent(index) {
-    const chapter = chapterDatabase[index];
-    document.getElementById('reader-title').textContent = chapter.title;
-    document.getElementById('reader-date').textContent = chapter.date;
-    document.getElementById('reader-progress').textContent = `${index + 1} / ${chapterDatabase.length}`;
-    
-    let contentHTML = '';
-    chapter.content.forEach(item => {
-        if(item.type === 'paragraph') contentHTML += `<p class="story-paragraph">${item.text}</p>`;
-        else if (item.type === 'dialogue') {
-            const avatar = item.speaker.includes('黒尾') ? 'img/KurooQQ(Transparent).png' : 'img/CindyQQ(Transparent).png';
-            contentHTML += `
-                <div class="story-bubble ${item.side}">
-                    <div class="story-avatar"><img src="${avatar}" alt="${item.speaker}"></div>
-                    <div class="story-bubble-content"><span class="sb-speaker">${item.speaker}</span>${item.text}</div>
-                </div>`;
-        } else if (item.type === 'timestamp') {
-            contentHTML += `<div class="story-timestamp">--- ${item.text} ---</div>`;
-        }
-    });
-    document.getElementById('reader-content').innerHTML = contentHTML;
+.mascot-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-function navigateChapter(offset) {
-    let idx = currentChapterIndex + offset;
-    if (idx < 0) idx = 0;
-    if (idx >= chapterDatabase.length) idx = chapterDatabase.length - 1;
-    openChapterReader(idx);
+.mascot-img-bottom {
+    width: 110px; 
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    animation: float 3s ease-in-out infinite;
 }
 
-/* --- 6. GARDEN DIARY RENDER LOGIC --- */
-function initGardenDiary() {
-    const container = document.getElementById('garden-container');
-    if(!container) return;
-    container.innerHTML = '';
+.mascot-side.left .mascot-img-bottom { animation-delay: 0s; }
+.mascot-side.right .mascot-img-bottom { animation-delay: 1.5s; }
 
-    gardenDatabase.forEach((item) => {
-        const card = document.createElement('div');
-        card.className = 'garden-card';
-        card.onclick = () => openStoryModal(item.id); // Re-use the modal system
-        card.innerHTML = `
-            <div class="garden-header">
-                <span class="garden-date">${item.date}</span>
-                <span class="garden-weather">${item.weather}</span>
-            </div>
-            <div class="garden-title">${item.title}</div>
-            <div class="garden-preview">${item.description}</div>
-            <div class="garden-status">
-                <span class="status-dot"></span> 狀態：${item.status}
-            </div>
-        `;
-        container.appendChild(card);
-    });
+.bottom-couple-container { display: flex; flex-direction: column; align-items: center; text-align: center; width: auto; }
+.bottom-couple-img { width: 180px; height: auto; filter: drop-shadow(0 6px 15px rgba(0,0,0,0.15)); margin-bottom: 15px; transition: transform 0.3s; }
+.bottom-couple-img:hover { transform: scale(1.05) rotate(2deg); }
+.bottom-quote { font-family: 'Zen Kurenaido', sans-serif; font-size: 1.4rem; color: #555; font-weight: 600; letter-spacing: 1px; background: linear-gradient(135deg, var(--primary-kuroo) 0%, var(--primary-cindy) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+body.dark-mode .bottom-quote { background: linear-gradient(135deg, #ccc 0%, var(--primary-cindy) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* --- CARD STYLES --- */
+.character-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px; 
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid rgba(255,255,255,0.6);
+    width: 100%;
+}
+body.dark-mode .character-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); }
+.character-card.kuroo { border-top: 6px solid var(--primary-kuroo); }
+.character-card.cindy { border-top: 6px solid var(--primary-cindy); }
+
+/* --- VIDEO DIVIDER --- */
+.video-divider-container {
+    width: 100%;
+    max-width: var(--container-width);
+    height: 800px;
+    margin: 40px auto;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background: #000;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* --- 7. UTILITIES --- */
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    document.getElementById('darkModeIcon').textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+.divider-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+/* --- PERSONALITY & FLIP CARDS --- */
+.personality-box { margin-top: 15px; padding-top: 15px; border-top: 2px dashed rgba(0,0,0,0.05); width: 100%; margin-bottom: 20px; }
+body.dark-mode .personality-box { border-top-color: rgba(255,255,255,0.1); }
+.personality-title { font-size: 1.1rem; font-weight: 700; color: #8E44AD; margin-bottom: 12px; }
+body.dark-mode .personality-title { color: var(--primary-cindy); }
+.personality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.p-tag { background: #F3E5F5; color: #6A1B9A; padding: 8px 5px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s; }
+.character-card.kuroo .p-tag { background: #eeeeee; color: #333; }
+.p-tag:hover { transform: translateY(-2px); }
+body.dark-mode .character-card.cindy .p-tag { background: rgba(180, 167, 214, 0.2); color: #E8B4D9; }
+body.dark-mode .character-card.kuroo .p-tag { background: #444; color: #fff; }
 
-function scrollToId(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        const offset = getScrollOffset(); 
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    }
+.flip-card-container { background-color: transparent; perspective: 2000px; cursor: pointer; height: 100%; min-height: 580px; width: 100%; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; will-change: transform; }
+.flip-card-container.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; box-shadow: var(--card-shadow); top: 0; left: 0; display: flex; flex-direction: column; }
+.flip-card-front { position: relative; z-index: 2; background: white; transform: rotateY(0deg) translateZ(1px); padding: 30px; }
+body.dark-mode .flip-card-front { background: #16213e; }
+.flip-card-back { transform: rotateY(180deg) translateZ(0px); background-color: white; align-items: center; justify-content: center; padding: 30px; z-index: 1; }
+.flip-card-back.kuroo-back { border-top: 6px solid var(--primary-kuroo); }
+.flip-card-back.cindy-back { border-top: 6px solid var(--primary-cindy); }
+body.dark-mode .flip-card-back { background: #1a1a2e; border: 1px solid rgba(255, 255, 255, 0.1); }
+.card-quote { margin-top: 25px; font-family: 'Zen Kurenaido', sans-serif; font-size: 1.3rem; line-height: 1.6; color: #555; position: relative; padding: 0 15px; font-style: italic; }
+body.dark-mode .card-quote { color: #ccc; }
+.card-quote::before { content: '“'; font-size: 2.5rem; color: #eee; position: absolute; top: -20px; left: -10px; font-family: serif; }
+.card-quote::after { content: '”'; font-size: 2.5rem; color: #eee; position: absolute; bottom: -25px; right: -10px; font-family: serif; }
+.student-id-img { width: 100%; height: auto; max-height: 250px; object-fit: contain; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+.flip-card-container:hover .flip-card-front { transform: rotateY(0deg) translateZ(1px) translateY(-5px); box-shadow: var(--card-shadow-hover); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+.avatar { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px; border: 5px solid var(--accent-pink); overflow: hidden; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.character-name { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 20px; color: #333; letter-spacing: -0.5px; }
+body.dark-mode .character-name { color: #fff; }
+.info-row { display: flex; align-items: center; margin-bottom: 10px; padding: 8px; border-radius: 8px; transition: background 0.2s ease; }
+.info-row:hover { background: rgba(232, 180, 217, 0.1); }
+.info-label { background: var(--primary-kuroo); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; min-width: 80px; text-align: center; margin-right: 15px; font-weight: 500; }
+.character-card.cindy .info-label { background: var(--primary-cindy); }
+.info-value { font-size: 1rem; color: #555; font-weight: 500; }
+body.dark-mode .info-value { color: #ccc; }
+.description-box { background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%); padding: 20px; border-radius: 15px; margin-top: 20px; font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 20px; }
+body.dark-mode .description-box { background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); color: #aaa; }
+
+/* --- BUTTON STYLES --- */
+.more-btn {
+    margin-top: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    width: fit-content;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    initStorybook();
-    initGardenDiary(); // Load garden cards
-    bindTimelineEvents();
+.more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-    let scrollBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 400) scrollBtn.classList.add('visible');
-        else scrollBtn.classList.remove('visible');
-    });
+.more-btn:active {
+    transform: scale(0.95);
+}
 
-    document.addEventListener('keydown', function(e){
-        if (e.key === "Escape" && document.getElementById('eventModal').classList.contains('active')) {
-            closeModal();
-        }
-    });
-});
+.more-btn .btn-icon-flip {
+    font-size: 1.2rem;
+    transition: transform 0.5s ease;
+}
+
+.more-btn:hover .btn-icon-flip {
+    transform: rotate(180deg);
+}
+
+.kuroo-btn {
+    background: linear-gradient(135deg, var(--primary-kuroo) 0%, #555 100%);
+}
+.kuroo-btn:hover {
+    box-shadow: 0 8px 20px rgba(51, 51, 51, 0.3);
+}
+
+.cindy-btn {
+    background: linear-gradient(135deg, var(--primary-cindy) 0%, var(--accent-pink) 100%);
+}
+.cindy-btn:hover {
+    box-shadow: 0 8px 20px rgba(232, 180, 217, 0.4);
+}
+
+/* --- MUSIC SECTION --- */
+.music-mood-layer { width: 100%; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); border-radius: 20px; padding: 15px; border: 1px solid rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+body.dark-mode .music-mood-layer { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255,255,255,0.1); }
+.music-track { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 12px; transition: transform 0.2s; cursor: pointer; }
+.music-track:hover { transform: scale(1.02); background: rgba(255,255,255,0.5); }
+body.dark-mode .music-track:hover { background: rgba(255,255,255,0.05); }
+.play-btn { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white; flex-shrink: 0; }
+.track-info { display: flex; flex-direction: column; flex: 1; }
+.track-title { font-size: 0.9rem; font-weight: 700; color: #444; }
+.track-artist { font-size: 0.75rem; color: #888; margin-top: 2px; }
+body.dark-mode .track-title { color: #ddd; }
+body.dark-mode .track-artist { color: #aaa; }
+.waveform { height: 20px; width: 40px; display: flex; align-items: center; gap: 3px; }
+.bar { width: 4px; background: #999; border-radius: 2px; animation: wave 1s ease-in-out infinite; }
+.bar:nth-child(2) { animation-delay: 0.1s; height: 60%; }
+.bar:nth-child(3) { animation-delay: 0.2s; height: 80%; }
+.bar:nth-child(4) { animation-delay: 0.3s; height: 50%; }
+@keyframes wave { 0%, 100% { height: 40%; } 50% { height: 100%; } }
+.kuroo-track .play-btn { background: var(--primary-kuroo); }
+body.dark-mode .kuroo-track .play-btn { background: #555; border: 1px solid #fff; }
+.kuroo-track .bar { background: var(--primary-kuroo); }
+body.dark-mode .kuroo-track .bar { background: #888; }
+.cindy-track .play-btn { background: var(--primary-cindy); }
+.cindy-track .bar { background: var(--primary-cindy); }
+
+/* --- HEART & GRAPH SECTION --- */
+.relationship-section { display: grid; grid-template-columns: 1fr 350px 1fr; gap: 30px; align-items: center; margin: 40px 0 60px 0; }
+.heart-section { background: white; border-radius: 20px; padding: 30px; box-shadow: var(--card-shadow); position: relative; transition: all 0.3s ease; text-align: center; }
+body.dark-mode .heart-section { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); }
+.heart-section:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); }
+.heart-section::before { content: '♥'; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-size: 3.5rem; animation: heartbeat 1.5s ease-in-out infinite; }
+.heart-section.left::before { color: var(--primary-kuroo); }
+.heart-section.right::before { color: var(--primary-cindy); }
+@keyframes heartbeat { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.2); } }
+.heart-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: #333; }
+body.dark-mode .heart-title { color: #fff; }
+.heart-subtitle { font-size: 1.1rem; color: var(--accent-pink); margin-bottom: 20px; font-weight: 500; }
+.heart-description { font-size: 0.95rem; line-height: 1.6; color: #666; text-align: left; }
+body.dark-mode .heart-description { color: #ccc; }
+
+.graph-container { width: 100%; height: 350px; background: white; border-radius: 20px; box-shadow: var(--card-shadow); position: relative; padding: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.05); }
+body.dark-mode .graph-container { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); }
+.axis-y { position: absolute; left: 50%; top: 30px; bottom: 30px; width: 2px; background-color: #ddd; transform: translateX(-50%); border-radius: 2px; }
+.axis-x { position: absolute; top: 50%; left: 30px; right: 30px; height: 2px; background-color: #ddd; transform: translateY(-50%); border-radius: 2px; }
+.axis-y::before { content: ''; position: absolute; top: -5px; left: -5px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 10px solid #ddd; }
+.axis-x::after { content: ''; position: absolute; right: -5px; top: -5px; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 10px solid #ddd; }
+.axis-label { position: absolute; font-size: 0.9rem; font-weight: 700; color: #555; background: rgba(255,255,255,0.9); padding: 6px 12px; border-radius: 15px; white-space: nowrap; font-family: "Noto Sans TC", sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2; }
+body.dark-mode .axis-label { background: rgba(0,0,0,0.6); color: #ddd; }
+.label-top { top: 5px; left: 50%; transform: translateX(-50%); }
+.label-bottom { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.label-left { top: 50%; left: 5px; transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: upright; }
+.label-right { top: 50%; right: 5px; transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: upright; }
+.graph-icon { position: absolute; width: 70px; height: 70px; z-index: 5; transition: transform 0.3s; cursor: pointer; }
+.graph-icon:hover { transform: scale(1.2); z-index: 10; }
+.graph-icon img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); }
+.pos-kuroo { top: 20%; left: 20%; }
+.pos-cindy { bottom: 20%; left: 65%; transform: translateX(-50%); }
+
+/* --- FILTER BAR & TABS --- */
+.filter-bar-container { display: flex; justify-content: center; align-items: center; gap: 20px; margin: 60px auto 50px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); padding: 12px; border-radius: 60px; box-shadow: 0 15px 35px rgba(0,0,0,0.1), inset 0 0 0 2px rgba(255,255,255,0.8); width: fit-content; min-width: 400px; position: relative; z-index: 100; }
+body.dark-mode .filter-bar-container { background: rgba(30, 30, 50, 0.7); box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 1px solid rgba(255, 255, 255, 0.1); }
+.filter-btn { flex: 1; border: none; background: transparent; padding: 16px 40px; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; color: #888; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; justify-content: center; align-items: center; gap: 12px; position: relative; white-space: nowrap; }
+.btn-icon { font-size: 1.4rem; transition: transform 0.3s ease; }
+.filter-btn.active { background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); color: white; box-shadow: 0 8px 25px rgba(232, 180, 217, 0.6); transform: scale(1.05); }
+.filter-btn:hover:not(.active) { background: rgba(0,0,0,0.04); color: #555; transform: translateY(-2px); }
+.filter-btn:hover .btn-icon { transform: scale(1.2) rotate(-10deg); }
+body.dark-mode .filter-btn { color: #aaa; }
+body.dark-mode .filter-btn:hover:not(.active) { background: rgba(255,255,255,0.1); color: #fff; }
+body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(180, 167, 214, 0.4); }
+
+.tab-section { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+.tab-section.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
+@keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- NEW: TOP TAB SECTION --- */
+.top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+.top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
+
+/* --- PHOTO ALBUM SECTION --- */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 10px;
+}
+
+.photo-item {
+    background: white;
+    padding: 15px 15px 50px 15px; 
+    box-shadow: var(--card-shadow);
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.photo-item:nth-child(even) { transform: rotate(2deg); margin-top: 20px; }
+
+.photo-item:hover { transform: scale(1.05) rotate(0deg); z-index: 10; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+
+body.dark-mode .photo-item { background: #2a2a40; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+.photo-frame { width: 100%; height: 300px; overflow: hidden; margin-bottom: 15px; background: #f0f0f0; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+
+.photo-caption { font-family: 'Zen Kurenaido', sans-serif; text-align: center; color: #666; font-size: 1.1rem; font-weight: 600; position: absolute; bottom: 15px; left: 0; width: 100%; }
+body.dark-mode .photo-caption { color: #ccc; }
+
+/* --- GARDENING DIARY SECTION --- */
+.garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
+.garden-card {
+    background: white;
+    border: 1px solid #e0f2f1;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 128, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+body.dark-mode .garden-card { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+.garden-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 128, 0, 0.15); border-color: #81C784; }
+.garden-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #A5D6A7, #81C784); }
+.garden-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px dashed #e0e0e0; padding-bottom: 10px; }
+.garden-date { font-weight: 700; color: #388E3C; font-size: 0.9rem; background: #E8F5E9; padding: 4px 10px; border-radius: 15px; }
+.garden-weather { font-size: 1.2rem; }
+.garden-title { font-size: 1.2rem; font-weight: 700; color: #333; margin-bottom: 10px; }
+body.dark-mode .garden-title { color: white; }
+.garden-preview { font-size: 0.9rem; color: #666; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 15px; }
+body.dark-mode .garden-preview { color: #aaa; }
+.garden-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #555; }
+body.dark-mode .garden-status { color: #ccc; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; display: inline-block; }
+
+/* --- INTERVIEW SECTION --- */
+.interview-section, .timeline-section, .storybook-section, .photo-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
+.interview-title, .timeline-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #555; margin: 0 auto 60px auto; letter-spacing: 1px; position: relative; width: fit-content; display: flex; align-items: center; justify-content: center; gap: 15px; }
+body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
+.interview-title::after, .timeline-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 3px; }
+.interview-scene { background: white; border-radius: 20px; padding: 30px; box-shadow: var(--card-shadow); margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.03); }
+body.dark-mode .interview-scene { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); }
+.host-box { background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); padding: 15px 20px; border-radius: 12px; margin-bottom: 25px; font-weight: 600; color: #486581; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; }
+body.dark-mode .host-box { background: linear-gradient(135deg, #243b53 0%, #102a43 100%); color: #bcccdc; }
+.narrative-action { color: #888; font-style: italic; font-size: 0.9rem; margin: 10px 0 10px 15px; border-left: 3px solid #eee; padding-left: 12px; }
+body.dark-mode .narrative-action { color: #aaa; border-left-color: #444; }
+.dialogue-wrapper { display: flex; align-items: flex-start; gap: 15px; margin: 15px 0; }
+.dialogue-wrapper.right { flex-direction: row-reverse; }
+.char-avatar-small { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+.char-avatar-small img { width: 100%; height: 100%; object-fit: contain; }
+.dialogue-bubble { background: #f8f9fa; padding: 12px 18px; border-radius: 15px; font-size: 1rem; color: #444; max-width: 85%; position: relative; }
+.dialogue-bubble.cindy-style { background: #F3E5F5; color: #4A148C; border-radius: 15px 15px 15px 4px; }
+.dialogue-bubble.kuroo-style { background: #333; color: white; border-radius: 15px 15px 4px 15px; }
+body.dark-mode .dialogue-bubble.cindy-style { background: rgba(180, 167, 214, 0.2); color: #E8B4D9; }
+body.dark-mode .dialogue-bubble.kuroo-style { background: #555; color: white; }
+.inner-monologue { background: transparent; border: 2px dashed #ccc; padding: 15px; border-radius: 12px; margin: 20px 0 10px 40px; color: #666; font-size: 0.9rem; position: relative; }
+body.dark-mode .inner-monologue { border-color: #555; color: #aaa; }
+.inner-label { font-weight: bold; font-size: 0.8rem; color: #999; text-transform: uppercase; margin-bottom: 5px; display: block; }
+
+/* --- TIMELINE SECTION --- */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 2px; }
+.timeline-event { position: relative; margin-bottom: 60px; transition: all 0.6s ease; }
+.timeline-event::before { content: '♥'; position: absolute; left: -43px; top: 0; width: 30px; height: 30px; background: white; border: 3px solid var(--accent-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 0; padding-top: 2px; font-size: 0.9rem; color: var(--accent-pink); z-index: 1; box-shadow: 0 0 0 5px rgba(255,255,255,0.5); }
+body.dark-mode .timeline-event::before { background: #1a1a2e; box-shadow: 0 0 0 5px rgba(26,26,46,0.5); }
+.event-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); }
+body.dark-mode .event-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); }
+.event-card:hover { transform: translateX(5px) translateY(-2px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+.event-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0; }
+body.dark-mode .event-header { border-bottom-color: rgba(255, 255, 255, 0.1); }
+.event-id { font-weight: 600; color: var(--accent-pink); font-size: 0.9rem; }
+.event-time { font-size: 0.85rem; color: #888; background: #f5f5f5; padding: 6px 14px; border-radius: 15px; }
+body.dark-mode .event-time { background: rgba(255, 255, 255, 0.05); color: #aaa; }
+.event-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #333; }
+body.dark-mode .event-title { color: #fff; }
+.event-description { margin-bottom: 20px; line-height: 1.6; color: #555; font-size: 1rem; }
+body.dark-mode .event-description { color: #ccc; }
+.read-story-btn { margin-top: 15px; padding: 10px 24px; background: transparent; border: 2px solid var(--accent-pink); color: var(--accent-pink); border-radius: 25px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; width: fit-content; display: inline-block; }
+.read-story-btn:hover { background: var(--accent-pink); color: white; box-shadow: 0 5px 15px rgba(232, 180, 217, 0.4); transform: translateY(-2px); }
+
+/* --- COMMON MODAL STYLES --- */
+.story-modal-content { max-width: 800px; width: 95%; max-height: 90vh; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+#modalBody { padding: 40px; overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; }
+.story-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+.story-chapter-title { font-size: 2rem; font-weight: 700; color: var(--primary-kuroo); margin-bottom: 10px; }
+body.dark-mode .story-chapter-title { color: #fff; }
+.story-date { color: #888; font-size: 1rem; font-style: italic; }
+.story-paragraph { margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; color: #444; text-indent: 2em; }
+body.dark-mode .story-paragraph { color: #ccc; }
+.story-timestamp { text-align: center; color: var(--accent-pink); font-size: 0.9rem; margin: 25px 0; font-style: italic; font-weight: 600; }
+
+.story-bubble { display: flex; margin-bottom: 20px; align-items: flex-start; gap: 15px; }
+.story-bubble.left { justify-content: flex-start; flex-direction: row; }
+.story-bubble.right { justify-content: flex-end; flex-direction: row-reverse; }
+.story-avatar { width: 50px; height: 50px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.story-avatar img { width: 100%; height: 100%; object-fit: contain; }
+.story-bubble-content { max-width: 70%; padding: 15px 20px; border-radius: 18px; position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.story-bubble.left .story-bubble-content { background: #f0f2f5; color: #333; border-bottom-left-radius: 4px; }
+.story-bubble.right .story-bubble-content { background: #F3E5F5; color: #4A148C; border-bottom-right-radius: 4px; }
+.sb-speaker { font-size: 0.8rem; font-weight: 700; margin-bottom: 4px; display: block; }
+.story-bubble.left .sb-speaker { color: var(--primary-kuroo); }
+.story-bubble.right .sb-speaker { color: var(--primary-cindy); text-align: right; }
+
+.story-navigation { display: flex; justify-content: space-between; padding-top: 20px; margin-top: 30px; border-top: 2px solid #f0f0f0; }
+.story-nav-btn { padding: 10px 20px; border-radius: 25px; border: 1px solid #ddd; background: white; cursor: pointer; font-weight: 600; color: #555; transition: all 0.2s; }
+.story-nav-btn:hover:not(:disabled) { background: var(--bg-light); border-color: var(--accent-pink); color: var(--primary-kuroo); }
+.story-nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal.active { display: flex; }
+.modal-content { background: white; border-radius: 20px; padding: 40px; max-width: 700px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; animation: slideUp 0.3s ease; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+body.dark-mode .modal-content { background: #1a1a2e; border: 2px solid rgba(255, 255, 255, 0.1); }
+@keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-close { position: absolute; top: 15px; right: 15px; font-size: 2rem; cursor: pointer; color: #999; transition: all 0.3s ease; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+.modal-close:hover { color: var(--accent-pink); background: rgba(232, 180, 217, 0.1); transform: rotate(90deg); }
+
+.dark-mode-toggle { position: fixed; top: 20px; right: 20px; z-index: 2000; background: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; font-size: 1.5rem; }
+body.dark-mode .dark-mode-toggle { background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); }
+.scroll-to-top { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); opacity: 0; transition: all 0.3s ease; z-index: 998; font-size: 1.5rem; }
+.scroll-to-top.visible { opacity: 1; }
+
+/* --- STORYBOOK GRID STYLES --- */
+.chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10px; }
+.chapter-card { background: white; border: 2px solid #f0f0f0; border-radius: 20px; padding: 30px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; box-shadow: var(--card-shadow); }
+body.dark-mode .chapter-card { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+.chapter-card:hover { transform: translateY(-8px); border-color: var(--primary-cindy); box-shadow: 0 15px 30px rgba(180, 167, 214, 0.25); }
+.chapter-card::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(180deg, var(--accent-pink), var(--primary-cindy)); }
+.chapter-number { font-size: 0.85rem; color: var(--primary-cindy); font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.chapter-title { font-size: 1.4rem; font-weight: 700; color: #333; margin-bottom: 15px; font-family: 'Noto Sans TC', serif; }
+body.dark-mode .chapter-title { color: white; }
+.chapter-desc { font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+body.dark-mode .chapter-desc { color: #aaa; }
+.chapter-date { font-size: 0.85rem; color: #999; font-style: italic; display: flex; align-items: center; gap: 5px; }
+
+/* Story Reader View */
+.story-viewer { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--card-shadow); animation: fadeIn 0.5s ease; border: 1px solid rgba(0,0,0,0.05); }
+body.dark-mode .story-viewer { background: #1a1a2e; border: 1px solid rgba(255,255,255,0.1); }
+.back-button { margin-bottom: 20px; padding: 8px 16px; border-radius: 20px; border: 1px solid #ddd; background: transparent; color: #666; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+.back-button:hover { background: #f0f0f0; transform: translateX(-5px); color: var(--primary-kuroo); }
+body.dark-mode .back-button { border-color: #444; color: #aaa; }
+body.dark-mode .back-button:hover { background: #333; color: white; }
+.progress-text { font-weight: 600; color: var(--primary-cindy); align-self: center; }
+.story-content { max-width: 800px; margin: 0 auto; }
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media screen and (max-width: 1024px) {
+    .container { width: 100%; padding: 10px; }
+    .video-divider-container { height: 350px; margin: 20px auto; }
+    .relationship-section { grid-template-columns: 1fr; }
+}
+
+@media screen and (max-width: 768px) {
+    body { zoom: 0.85; -moz-transform: scale(0.85); -moz-transform-origin: 0 0; }
+    .title-section { padding-top: 20px; }
+    .title-section h1 { font-size: 2rem; }
+    .stories-container { gap: 15px; padding: 5px 10px; }
+    .story-ring { width: 55px; height: 55px; }
+    .story-label { font-size: 0.75rem; }
+    .filter-bar-container { min-width: unset; width: 95%; border-radius: 20px; flex-direction: column; gap: 10px; padding: 10px; margin: 30px auto; }
+    .filter-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; justify-content: flex-start; }
+    .modal-content { width: 95%; padding: 20px; max-height: 90vh; }
+    .character-pair-container { gap: 12px; margin-bottom: 20px; }
+    .flip-card-container { min-height: 480px; }
+    .avatar { width: 80px; height: 80px; }
+    .character-name { font-size: 1.2rem; }
+    .p-tag { font-size: 0.7rem; }
+    .couple-mascot-row { gap: 5px; transform: scale(0.9); }
+    .mascot-img-bottom { width: 60px; }
+    .single-heart { width: 22px; height: 22px; font-size: 6px; }
+    .single-heart::before, .single-heart::after { width: 22px; height: 22px; }
+    .single-heart::before { top: -11px; }
+    .single-heart::after { left: 11px; }
+}
