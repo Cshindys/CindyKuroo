@@ -500,17 +500,33 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
         padding: 10px;
     }
 
+    /* Keep side-by-side but move center zone to bottom */
     .character-cards {
-        grid-template-columns: 1fr; /* Stack vertically */
-        max-width: 650px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        grid-template-rows: auto auto; /* Two rows */
+        gap: 20px;
+        max-width: 800px;
         margin: 0 auto 40px;
-        gap: 30px;
     }
 
-    /* Reorder: Kuroo -> Cindy -> Center Content */
-    .character-cards > .flip-card-container#kuroo-container { order: 1; }
-    .character-cards > .flip-card-container#cindy-container { order: 2; }
-    .character-cards > .center-chat-zone { order: 3; }
+    /* Assign cards to first row */
+    .character-cards > .flip-card-container#kuroo-container {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .character-cards > .flip-card-container#cindy-container {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    /* Assign center zone to second row, spanning both columns */
+    .character-cards > .center-chat-zone {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        padding-top: 10px;
+    }
 
     .video-divider-container {
         height: 350px;
@@ -525,7 +541,7 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
 /* Mobile Devices */
 @media screen and (max-width: 768px) {
     
-    /* --- NEW ZOOM FIX: Scale down the body to simulate "Zoom Out" --- */
+    /* --- ZOOM FIX: Scale down body --- */
     body {
         zoom: 0.85; /* Works for Chrome/Safari */
         -moz-transform: scale(0.85); /* Firefox */
@@ -546,7 +562,7 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
         min-width: unset;
         width: 95%;
         border-radius: 20px;
-        flex-direction: column; /* Stack buttons on mobile or scroll */
+        flex-direction: column;
         gap: 10px;
         padding: 10px;
         margin: 30px auto;
@@ -571,14 +587,63 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
     .story-bubble-content { max-width: 100%; }
     .story-avatar { width: 40px; height: 40px; }
 
-    /* Character Cards */
-    .flip-card-container { min-height: 520px; }
-    .avatar { width: 120px; height: 120px; }
-    .character-name { font-size: 1.6rem; }
+    /* --- SIDE-BY-SIDE MOBILE CARDS ADJUSTMENTS --- */
+    .character-cards {
+        gap: 10px; /* Tighter gap */
+        margin-bottom: 20px;
+    }
+
+    /* Reduce container height for mobile */
+    .flip-card-container { min-height: 480px; }
+
+    /* Shrink internal card elements to fit side-by-side */
+    .flip-card-front, .flip-card-back { padding: 15px 10px; }
+    .avatar { 
+        width: 90px; 
+        height: 90px; 
+        margin-bottom: 10px;
+        border-width: 3px;
+    }
+    .character-name { 
+        font-size: 1.3rem; 
+        margin-bottom: 10px; 
+    }
+    .info-row { 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    .info-label { 
+        margin-right: 0; 
+        margin-bottom: 2px; 
+        font-size: 0.7rem; 
+        padding: 3px 10px;
+        min-width: unset;
+    }
+    .info-value { font-size: 0.85rem; text-align: center; }
     
+    .description-box { 
+        font-size: 0.8rem; 
+        padding: 10px; 
+        margin-top: 10px; 
+        margin-bottom: 10px;
+    }
+    
+    .personality-box { margin-top: 10px; padding-top: 10px; }
+    .personality-title { font-size: 0.9rem; margin-bottom: 8px; }
+    .personality-grid { gap: 5px; }
+    .p-tag { font-size: 0.75rem; padding: 5px; }
+    
+    .more-btn { 
+        padding: 8px 15px; 
+        font-size: 0.85rem; 
+        margin-top: 10px;
+    }
+
     /* Center Zone */
-    .mascot-img { max-width: 90px; }
-    .chat-bubble { font-size: 0.75rem; top: -30px; }
+    .mascot-img { max-width: 80px; }
+    .chat-bubble { font-size: 0.7rem; top: -30px; }
     
     /* Video */
     .video-divider-container { height: 200px; border-radius: 15px; }
@@ -609,6 +674,11 @@ body.dark-mode .back-button:hover { background: #333; color: white; }
 /* Very Small Screens */
 @media screen and (max-width: 480px) {
     .filter-btn { font-size: 1rem; padding: 10px; }
+    
+    /* Ensure cards don't break on tiny screens */
+    .character-name { font-size: 1.1rem; }
+    .info-value { font-size: 0.75rem; }
+    
     .cats-row { flex-direction: column; gap: 40px; align-items: center; }
     .mascot-wrapper { width: 100%; }
     .mascot-wrapper.left-side { align-items: center; }
