@@ -93,6 +93,32 @@ const eventStories = {
                 </div>
             </div>
         `
+    },
+    'event4': {
+        title: "體重計上的「幽靈數字」",
+        date: "記錄時間：體檢日",
+        content: `
+            <div class="story-paragraph">
+                在一次學校的例行體檢中，Cindy 排隊測量體重。輪到她時，她緊張地站上體重計，看到的數字卻比自己預想的重了許多！
+            </div>
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">Cindy</span>
+                    誒誒誒？！怎麼可能重了 5 公斤？！壞掉了嗎？！
+                </div>
+            </div>
+            <div class="story-paragraph">
+                負責記錄的護士笑著指了指她的身後。原來黑尾正一臉壞笑地把一隻腳偷偷搭在體重計邊緣。
+            </div>
+             <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    不錯喔，看來這陣子伙食很好？
+                </div>
+            </div>
+        `
     }
 };
 
@@ -176,7 +202,7 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary Data (Updated with Content for Popups)
+// Gardening Diary Data
 const gardenEntries = [
     {
         id: 'g1',
@@ -265,16 +291,68 @@ const gardenEntries = [
     }
 ];
 
+// PHOTOBOOK DATA
+const photobookData = [
+    {
+        src: "img/Kuroo_profile.JPEG",
+        caption: "第一次注意到他的那天",
+        date: "2023.04.10",
+        note: "在體育館的角落偷偷拍的"
+    },
+    {
+        src: "img/Cindy_profile.JPG",
+        caption: "園藝社的午後",
+        date: "2023.04.25",
+        note: "雖然總是弄得髒兮兮的，但很開心"
+    },
+    {
+        src: "img/KurooQQ(Transparent).png",
+        caption: "學長的招牌壞笑",
+        date: "2023.05.05",
+        note: "被發現我在偷看時的表情..."
+    },
+    {
+        src: "img/CindyQQ(Transparent).png",
+        caption: "被嚇到的瞬間",
+        date: "2023.05.05",
+        note: "學長突然從後面拍我肩膀！"
+    },
+    {
+        src: "img/C&KQQ.png",
+        caption: "我們的Q版合照",
+        date: "2023.11.17",
+        note: "生日特製紀念版！"
+    },
+    {
+        src: "img/CindyAQQ(Transparent).png",
+        caption: "像貓咪一樣的我？",
+        date: "Unknown",
+        note: "學長說這個神韻很像我"
+    },
+    {
+        src: "img/KurooAQQ(Transparent).png",
+        caption: "這是...黑尾貓？",
+        date: "Unknown",
+        note: "完全就是本人的翻版嘛"
+    },
+    {
+        src: "img/Book.png",
+        caption: "交換日記本",
+        date: "2024.02.14",
+        note: "希望能一直寫下去"
+    }
+];
+
 /* --- INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
     // Render Content
     renderChapters();
     renderGardenEntries();
+    renderPhotobook(); // Initial render of photobook
     
     // Add Event Listeners for Timeline Buttons
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            // Find the closest parent .timeline-event and get its data attribute
             const eventElement = e.target.closest('.timeline-event');
             const eventId = eventElement.getAttribute('data-event');
             openModal(eventId);
@@ -299,22 +377,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --- TAB FUNCTIONS --- */
-
 // Top Filter (Video vs Relationship)
 function switchTopTab(tabId) {
-    // 1. Hide all top tab contents
     document.querySelectorAll('.top-tab-content').forEach(content => {
         content.classList.remove('active');
     });
-
-    // 2. Remove active class from buttons
     document.getElementById('btn-top-video').classList.remove('active');
     document.getElementById('btn-top-relationship').classList.remove('active');
 
-    // 3. Activate selected content
     document.getElementById(tabId).classList.add('active');
 
-    // 4. Activate selected button
     if (tabId === 'top-tab-video') {
         document.getElementById('btn-top-video').classList.add('active');
     } else {
@@ -324,20 +396,15 @@ function switchTopTab(tabId) {
 
 // Main Filter (Interview, Storybook, etc)
 function toggleTab(tabId) {
-    // 1. Hide all tab sections
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
     });
-
-    // 2. Deactivate all buttons
     document.querySelectorAll('#filter-bar-anchor .filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // 3. Activate target section
     document.getElementById(tabId).classList.add('active');
 
-    // 4. Activate target button (Mapping IDs)
     const btnMap = {
         'interview-zone': 'btn-interview',
         'storybook-zone': 'btn-storybook',
@@ -351,13 +418,11 @@ function toggleTab(tabId) {
     }
 }
 
-// Helper to switch top tab and scroll
 function switchTopTabAndScroll(tabId) {
     switchTopTab(tabId);
     scrollToId('top-filter-anchor');
 }
 
-// Helper to switch main tab and scroll
 function switchTabAndScroll(tabId) {
     toggleTab(tabId);
     scrollToId('filter-bar-anchor');
@@ -391,21 +456,16 @@ function updateDarkModeIcon() {
 }
 
 /* --- MODAL FUNCTIONS --- */
-
-// Original function for Events
 function openModal(eventId) {
     const data = eventStories[eventId];
     if (!data) return;
-
     fillModalContent(data.title, data.date, data.content, "~ End of Memory ~");
 }
 
-// New function for Garden Entries
 function openGardenModal(entryData) {
     fillModalContent(entryData.title, entryData.date, entryData.content, "~ Garden Log End ~");
 }
 
-// Helper to fill modal DOM
 function fillModalContent(title, date, content, footerText) {
     const modalBody = document.getElementById('modalBody');
     modalBody.innerHTML = `
@@ -424,7 +484,6 @@ function closeModal() {
     document.getElementById('eventModal').classList.remove('active');
 }
 
-// Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('eventModal');
     if (event.target === modal) {
@@ -457,10 +516,8 @@ function renderChapters() {
 function openChapter(index) {
     currentChapterIndex = index;
     updateReaderContent();
-    
     document.getElementById('chapters-grid-view').style.display = 'none';
     document.getElementById('story-reader-view').style.display = 'block';
-    // Scroll to top of reader zone
     scrollToId('storybook-zone');
 }
 
@@ -485,8 +542,6 @@ function updateReaderContent() {
     document.getElementById('reader-date').textContent = chapter.date;
     document.getElementById('reader-content').innerHTML = chapter.content;
     document.getElementById('reader-progress').textContent = `${currentChapterIndex + 1} / ${storyChapters.length}`;
-    
-    // Disable buttons if at edges
     document.getElementById('reader-prev-btn').disabled = (currentChapterIndex === 0);
     document.getElementById('reader-next-btn').disabled = (currentChapterIndex === storyChapters.length - 1);
 }
@@ -499,8 +554,6 @@ function renderGardenEntries() {
     gardenEntries.forEach(entry => {
         const card = document.createElement('div');
         card.className = 'garden-card';
-        
-        // Add Click listener to open modal with garden data
         card.onclick = () => openGardenModal(entry);
 
         card.innerHTML = `
@@ -516,4 +569,88 @@ function renderGardenEntries() {
         `;
         container.appendChild(card);
     });
+}
+
+/* --- PHOTOBOOK LOGIC --- */
+let currentPhotoPage = 0; // Each page holds 2 photos (Left & Right)
+
+function renderPhotobook() {
+    const container = document.getElementById('photobook');
+    if (!container) return;
+
+    // Calculate indices
+    const leftIndex = currentPhotoPage * 2;
+    const rightIndex = leftIndex + 1;
+    
+    const leftPhoto = photobookData[leftIndex];
+    const rightPhoto = photobookData[rightIndex];
+
+    // Generate HTML for Left Page
+    let leftHtml = '';
+    if (leftPhoto) {
+        leftHtml = `
+            <div class="album-page page-left">
+                <div class="photo-slot">
+                    <div class="tape-strip"></div>
+                    <div class="photo-frame-inner">
+                        <img src="${leftPhoto.src}" alt="Memory">
+                    </div>
+                    <div class="photo-caption">${leftPhoto.caption}</div>
+                    <div class="photo-date">${leftPhoto.date}</div>
+                </div>
+                <div class="handwritten-note">${leftPhoto.note}</div>
+            </div>
+        `;
+    } else {
+        leftHtml = `<div class="album-page page-left empty-page"><div class="empty-text">Blank Page</div></div>`;
+    }
+
+    // Generate HTML for Right Page
+    let rightHtml = '';
+    if (rightPhoto) {
+        rightHtml = `
+            <div class="album-page page-right">
+                <div class="photo-slot">
+                    <div class="tape-strip"></div>
+                    <div class="photo-frame-inner">
+                        <img src="${rightPhoto.src}" alt="Memory">
+                    </div>
+                    <div class="photo-caption">${rightPhoto.caption}</div>
+                    <div class="photo-date">${rightPhoto.date}</div>
+                </div>
+                <div class="handwritten-note">${rightPhoto.note}</div>
+            </div>
+        `;
+    } else {
+        rightHtml = `<div class="album-page page-right empty-page"><div class="empty-text">End of Album</div></div>`;
+    }
+
+    // Combine
+    container.innerHTML = `
+        <div class="book-spine"></div>
+        ${leftHtml}
+        ${rightHtml}
+    `;
+
+    // Update Controls state
+    const prevBtn = document.querySelector('.control-btn[onclick="prevPage()"]');
+    const nextBtn = document.querySelector('.control-btn[onclick="nextPage()"]');
+    
+    if (prevBtn) prevBtn.disabled = currentPhotoPage === 0;
+    if (nextBtn) nextBtn.disabled = rightIndex >= photobookData.length - 1;
+}
+
+function prevPage() {
+    if (currentPhotoPage > 0) {
+        currentPhotoPage--;
+        renderPhotobook();
+    }
+}
+
+function nextPage() {
+    // Check if there are more photos to show
+    if ((currentPhotoPage + 1) * 2 < photobookData.length) {
+        currentPhotoPage++;
+        renderPhotobook();
+    }
 }
