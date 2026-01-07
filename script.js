@@ -176,7 +176,7 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary Data
+// Gardening Diary Data (UPDATED)
 const gardenEntries = [
     {
         id: 'g1',
