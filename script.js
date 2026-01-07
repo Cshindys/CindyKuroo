@@ -1,464 +1,917 @@
+/* --- RESET & BASIC STYLES --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary-kuroo: #333333;
+    --primary-cindy: #B4A7D6;
+    --accent-pink: #E8B4D9;
+    --gold-accent: #B084CC; /* Storybook corners */
+    --bg-light: linear-gradient(135deg, #FFF5F7 0%, #F0E6F6 100%);
+    --bg-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+    --container-width: 1450px; 
+}
+
+body {
+    font-family: 'Poppins', 'Noto Sans JP', 'Noto Sans TC', sans-serif;
+    background: var(--bg-light);
+    color: #4a4a4a;
+    transition: background 0.3s ease;
+    font-size: 15px; 
+    line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    background: var(--bg-dark);
+    color: #e0e0e0;
+}
+
+/* --- TOP STORIES SECTION --- */
+.stories-wrapper {
+    position: sticky; 
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .stories-wrapper {
+    background: rgba(26, 26, 46, 0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.stories-container {
+    max-width: var(--container-width);
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 25px; 
+    padding: 5px 20px;
+    justify-content: center;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+.stories-container::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+
+.story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.story-item:hover { transform: translateY(-3px); }
+.story-item:active { transform: scale(0.95); }
+
+.story-ring {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(45deg, var(--accent-pink), var(--primary-cindy), #4A90E2);
+    position: relative;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.story-ring::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px; right: 3px; bottom: 3px;
+    background: #FFF5F7;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+body.dark-mode .story-ring::after { background: #1a1a2e; }
+
+.story-img-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    border: 2px solid transparent;
+}
+
+.story-img-container img { width: 100%; height: 100%; object-fit: cover; }
+.story-label { font-size: 0.85rem; font-weight: 600; color: #666; letter-spacing: 0.5px; }
+body.dark-mode .story-label { color: #ccc; }
+
+/* --- TITLE SECTION --- */
+.title-section { text-align: center; padding: 40px 20px 10px; position: relative; }
+.title-section h1 {
+    font-size: 3rem; 
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    animation: titleFloat 3s ease-in-out infinite;
+}
+@keyframes titleFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+
+/* --- MAIN CONTAINER --- */
+.container { max-width: var(--container-width); width: 95%; margin: 0 auto; padding: 20px; }
+
+/* --- 2-COLUMN LAYOUT STRUCTURE --- */
+.character-pair-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Force 2 columns */
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.character-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between card and mascot */
+    align-items: center;
+}
+
+/* Mascot Row */
+.mascot-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+
+.mascot-img-small, .chibi-side-img {
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Heart Styles */
+.single-heart { position: relative; width: 35px; height: 35px; transform: rotate(-45deg); animation: heartbeat-rotated 1.5s infinite; }
+@keyframes heartbeat-rotated { 0%, 100% { transform: rotate(-45deg) scale(1); } 50% { transform: rotate(-45deg) scale(1.15); } }
+.single-heart::before, .single-heart::after { content: ""; position: absolute; width: 35px; height: 35px; border-radius: 50%; background: inherit; }
+.single-heart::before { top: -17.5px; left: 0; }
+.single-heart::after { top: 0; left: 17.5px; }
+.kuroo-heart { background-color: var(--primary-kuroo); }
+body.dark-mode .kuroo-heart { background-color: #555; }
+.cindy-heart { background-color: var(--primary-cindy); animation-delay: 0.2s; }
+
+/* Shared Bottom Zone */
+.bottom-shared-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 1000px;
+    width: 95%;
+}
+
+.couple-mascot-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.mascot-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+}
+
+.mascot-img-bottom {
+    width: 110px; 
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    animation: float 3s ease-in-out infinite;
+}
+
+.mascot-side.left .mascot-img-bottom { animation-delay: 0s; }
+.mascot-side.right .mascot-img-bottom { animation-delay: 1.5s; }
+
+.bottom-couple-container { display: flex; flex-direction: column; align-items: center; text-align: center; width: auto; }
+.bottom-couple-img { width: 180px; height: auto; filter: drop-shadow(0 6px 15px rgba(0,0,0,0.15)); margin-bottom: 15px; transition: transform 0.3s; }
+.bottom-couple-img:hover { transform: scale(1.05) rotate(2deg); }
+.bottom-quote { font-family: 'Zen Kurenaido', sans-serif; font-size: 1.4rem; color: #555; font-weight: 600; letter-spacing: 1px; background: linear-gradient(135deg, var(--primary-kuroo) 0%, var(--primary-cindy) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+body.dark-mode .bottom-quote { background: linear-gradient(135deg, #ccc 0%, var(--primary-cindy) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* --- CARD STYLES --- */
+.character-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px; 
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid rgba(255,255,255,0.6);
+    width: 100%;
+}
+body.dark-mode .character-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); }
+.character-card.kuroo { border-top: 6px solid var(--primary-kuroo); }
+.character-card.cindy { border-top: 6px solid var(--primary-cindy); }
+
+/* --- VIDEO DIVIDER --- */
+.video-divider-container {
+    width: 100%;
+    max-width: var(--container-width);
+    height: 800px;
+    margin: 40px auto;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background: #000;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.divider-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- PERSONALITY & FLIP CARDS --- */
+.personality-box { margin-top: 15px; padding-top: 15px; border-top: 2px dashed rgba(0,0,0,0.05); width: 100%; margin-bottom: 20px; }
+body.dark-mode .personality-box { border-top-color: rgba(255,255,255,0.1); }
+.personality-title { font-size: 1.1rem; font-weight: 700; color: #8E44AD; margin-bottom: 12px; }
+body.dark-mode .personality-title { color: var(--primary-cindy); }
+.personality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.p-tag { background: #F3E5F5; color: #6A1B9A; padding: 8px 5px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s; }
+.character-card.kuroo .p-tag { background: #eeeeee; color: #333; }
+.p-tag:hover { transform: translateY(-2px); }
+body.dark-mode .character-card.cindy .p-tag { background: rgba(180, 167, 214, 0.2); color: #E8B4D9; }
+body.dark-mode .character-card.kuroo .p-tag { background: #444; color: #fff; }
+
+.flip-card-container { background-color: transparent; perspective: 2000px; cursor: pointer; height: 100%; min-height: 580px; width: 100%; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; will-change: transform; }
+.flip-card-container.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; box-shadow: var(--card-shadow); top: 0; left: 0; display: flex; flex-direction: column; }
+.flip-card-front { position: relative; z-index: 2; background: white; transform: rotateY(0deg) translateZ(1px); padding: 30px; }
+body.dark-mode .flip-card-front { background: #16213e; }
+.flip-card-back { transform: rotateY(180deg) translateZ(0px); background-color: white; align-items: center; justify-content: center; padding: 30px; z-index: 1; }
+.flip-card-back.kuroo-back { border-top: 6px solid var(--primary-kuroo); }
+.flip-card-back.cindy-back { border-top: 6px solid var(--primary-cindy); }
+body.dark-mode .flip-card-back { background: #1a1a2e; border: 1px solid rgba(255, 255, 255, 0.1); }
+.card-quote { margin-top: 25px; font-family: 'Zen Kurenaido', sans-serif; font-size: 1.3rem; line-height: 1.6; color: #555; position: relative; padding: 0 15px; font-style: italic; }
+body.dark-mode .card-quote { color: #ccc; }
+.card-quote::before { content: '“'; font-size: 2.5rem; color: #eee; position: absolute; top: -20px; left: -10px; font-family: serif; }
+.card-quote::after { content: '”'; font-size: 2.5rem; color: #eee; position: absolute; bottom: -25px; right: -10px; font-family: serif; }
+.student-id-img { width: 100%; height: auto; max-height: 250px; object-fit: contain; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+.flip-card-container:hover .flip-card-front { transform: rotateY(0deg) translateZ(1px) translateY(-5px); box-shadow: var(--card-shadow-hover); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+.avatar { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px; border: 5px solid var(--accent-pink); overflow: hidden; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.character-name { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 20px; color: #333; letter-spacing: -0.5px; }
+body.dark-mode .character-name { color: #fff; }
+.info-row { display: flex; align-items: center; margin-bottom: 10px; padding: 8px; border-radius: 8px; transition: background 0.2s ease; }
+.info-row:hover { background: rgba(232, 180, 217, 0.1); }
+.info-label { background: var(--primary-kuroo); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; min-width: 80px; text-align: center; margin-right: 15px; font-weight: 500; }
+.character-card.cindy .info-label { background: var(--primary-cindy); }
+.info-value { font-size: 1rem; color: #555; font-weight: 500; }
+body.dark-mode .info-value { color: #ccc; }
+.description-box { background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%); padding: 20px; border-radius: 15px; margin-top: 20px; font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 20px; }
+body.dark-mode .description-box { background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); color: #aaa; }
+
+/* --- BUTTON STYLES --- */
+.more-btn {
+    margin-top: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    width: fit-content;
+}
+
+.more-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.more-btn:active { transform: scale(0.95); }
+.more-btn .btn-icon-flip { font-size: 1.2rem; transition: transform 0.5s ease; }
+.more-btn:hover .btn-icon-flip { transform: rotate(180deg); }
+.kuroo-btn { background: linear-gradient(135deg, var(--primary-kuroo) 0%, #555 100%); }
+.kuroo-btn:hover { box-shadow: 0 8px 20px rgba(51, 51, 51, 0.3); }
+.cindy-btn { background: linear-gradient(135deg, var(--primary-cindy) 0%, var(--accent-pink) 100%); }
+.cindy-btn:hover { box-shadow: 0 8px 20px rgba(232, 180, 217, 0.4); }
+
+/* --- MUSIC SECTION --- */
+.music-mood-layer { width: 100%; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); border-radius: 20px; padding: 15px; border: 1px solid rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+body.dark-mode .music-mood-layer { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255,255,255,0.1); }
+.music-track { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 12px; transition: transform 0.2s; cursor: pointer; }
+.music-track:hover { transform: scale(1.02); background: rgba(255,255,255,0.5); }
+body.dark-mode .music-track:hover { background: rgba(255,255,255,0.05); }
+.play-btn { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white; flex-shrink: 0; }
+.track-info { display: flex; flex-direction: column; flex: 1; }
+.track-title { font-size: 0.9rem; font-weight: 700; color: #444; }
+.track-artist { font-size: 0.75rem; color: #888; margin-top: 2px; }
+body.dark-mode .track-title { color: #ddd; }
+body.dark-mode .track-artist { color: #aaa; }
+.waveform { height: 20px; width: 40px; display: flex; align-items: center; gap: 3px; }
+.bar { width: 4px; background: #999; border-radius: 2px; animation: wave 1s ease-in-out infinite; }
+.bar:nth-child(2) { animation-delay: 0.1s; height: 60%; }
+.bar:nth-child(3) { animation-delay: 0.2s; height: 80%; }
+.bar:nth-child(4) { animation-delay: 0.3s; height: 50%; }
+@keyframes wave { 0%, 100% { height: 40%; } 50% { height: 100%; } }
+.kuroo-track .play-btn { background: var(--primary-kuroo); }
+body.dark-mode .kuroo-track .play-btn { background: #555; border: 1px solid #fff; }
+.kuroo-track .bar { background: var(--primary-kuroo); }
+body.dark-mode .kuroo-track .bar { background: #888; }
+.cindy-track .play-btn { background: var(--primary-cindy); }
+.cindy-track .bar { background: var(--primary-cindy); }
+
+/* --- HEART & GRAPH SECTION --- */
+.relationship-section { display: grid; grid-template-columns: 1fr 350px 1fr; gap: 30px; align-items: center; margin: 40px 0 60px 0; }
+.heart-section { background: white; border-radius: 20px; padding: 30px; box-shadow: var(--card-shadow); position: relative; transition: all 0.3s ease; text-align: center; }
+body.dark-mode .heart-section { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); }
+.heart-section:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); }
+.heart-section::before { content: '♥'; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-size: 3.5rem; animation: heartbeat 1.5s ease-in-out infinite; }
+.heart-section.left::before { color: var(--primary-kuroo); }
+.heart-section.right::before { color: var(--primary-cindy); }
+@keyframes heartbeat { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.2); } }
+.heart-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: #333; }
+body.dark-mode .heart-title { color: #fff; }
+.heart-subtitle { font-size: 1.1rem; color: var(--accent-pink); margin-bottom: 20px; font-weight: 500; }
+.heart-description { font-size: 0.95rem; line-height: 1.6; color: #666; text-align: left; }
+body.dark-mode .heart-description { color: #ccc; }
+
+.graph-container { width: 100%; height: 350px; background: white; border-radius: 20px; box-shadow: var(--card-shadow); position: relative; padding: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.05); }
+body.dark-mode .graph-container { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); }
+.axis-y { position: absolute; left: 50%; top: 30px; bottom: 30px; width: 2px; background-color: #ddd; transform: translateX(-50%); border-radius: 2px; }
+.axis-x { position: absolute; top: 50%; left: 30px; right: 30px; height: 2px; background-color: #ddd; transform: translateY(-50%); border-radius: 2px; }
+.axis-y::before { content: ''; position: absolute; top: -5px; left: -5px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 10px solid #ddd; }
+.axis-x::after { content: ''; position: absolute; right: -5px; top: -5px; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 10px solid #ddd; }
+.axis-label { position: absolute; font-size: 0.9rem; font-weight: 700; color: #555; background: rgba(255,255,255,0.9); padding: 6px 12px; border-radius: 15px; white-space: nowrap; font-family: "Noto Sans TC", sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2; }
+body.dark-mode .axis-label { background: rgba(0,0,0,0.6); color: #ddd; }
+.label-top { top: 5px; left: 50%; transform: translateX(-50%); }
+.label-bottom { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.label-left { top: 50%; left: 5px; transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: upright; }
+.label-right { top: 50%; right: 5px; transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: upright; }
+.graph-icon { position: absolute; width: 70px; height: 70px; z-index: 5; transition: transform 0.3s; cursor: pointer; }
+.graph-icon:hover { transform: scale(1.2); z-index: 10; }
+.graph-icon img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); }
+.pos-kuroo { top: 20%; left: 20%; }
+.pos-cindy { bottom: 20%; left: 65%; transform: translateX(-50%); }
+
+/* --- FILTER BAR & TABS --- */
+.filter-bar-container { display: flex; justify-content: center; align-items: center; gap: 20px; margin: 60px auto 50px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); padding: 12px; border-radius: 60px; box-shadow: 0 15px 35px rgba(0,0,0,0.1), inset 0 0 0 2px rgba(255,255,255,0.8); width: fit-content; min-width: 400px; position: relative; z-index: 100; }
+body.dark-mode .filter-bar-container { background: rgba(30, 30, 50, 0.7); box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 1px solid rgba(255, 255, 255, 0.1); }
+.filter-btn { flex: 1; border: none; background: transparent; padding: 16px 40px; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; color: #888; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; justify-content: center; align-items: center; gap: 12px; position: relative; white-space: nowrap; }
+.btn-icon { font-size: 1.4rem; transition: transform 0.3s ease; }
+.filter-btn.active { background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); color: white; box-shadow: 0 8px 25px rgba(232, 180, 217, 0.6); transform: scale(1.05); }
+.filter-btn:hover:not(.active) { background: rgba(0,0,0,0.04); color: #555; transform: translateY(-2px); }
+.filter-btn:hover .btn-icon { transform: scale(1.2) rotate(-10deg); }
+body.dark-mode .filter-btn { color: #aaa; }
+body.dark-mode .filter-btn:hover:not(.active) { background: rgba(255,255,255,0.1); color: #fff; }
+body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(180, 167, 214, 0.4); }
+
+.tab-section { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+.tab-section.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
+@keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+.top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
+
+/* --- GARDENING DIARY SECTION --- */
+.garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
+.garden-card { background: white; border: 1px solid #e0f2f1; border-radius: 20px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 128, 0, 0.05); transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
+body.dark-mode .garden-card { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+.garden-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 128, 0, 0.15); border-color: #81C784; }
+.garden-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #A5D6A7, #81C784); }
+.garden-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px dashed #e0e0e0; padding-bottom: 10px; }
+.garden-date { font-weight: 700; color: #388E3C; font-size: 0.9rem; background: #E8F5E9; padding: 4px 10px; border-radius: 15px; }
+.garden-weather { font-size: 1.2rem; }
+.garden-title { font-size: 1.2rem; font-weight: 700; color: #333; margin-bottom: 10px; }
+body.dark-mode .garden-title { color: white; }
+.garden-preview { font-size: 0.9rem; color: #666; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 15px; }
+body.dark-mode .garden-preview { color: #aaa; }
+.garden-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #555; }
+body.dark-mode .garden-status { color: #ccc; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; display: inline-block; }
+
+/* --- INTERVIEW SECTION --- */
+.interview-section, .timeline-section, .storybook-section, .photo-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
+.interview-title, .timeline-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #555; margin: 0 auto 60px auto; letter-spacing: 1px; position: relative; width: fit-content; display: flex; align-items: center; justify-content: center; gap: 15px; }
+body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
+.interview-title::after, .timeline-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 3px; }
+.interview-scene { background: white; border-radius: 20px; padding: 30px; box-shadow: var(--card-shadow); margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.03); }
+body.dark-mode .interview-scene { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); }
+.host-box { background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); padding: 15px 20px; border-radius: 12px; margin-bottom: 25px; font-weight: 600; color: #486581; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; }
+body.dark-mode .host-box { background: linear-gradient(135deg, #243b53 0%, #102a43 100%); color: #bcccdc; }
+.narrative-action { color: #888; font-style: italic; font-size: 0.9rem; margin: 10px 0 10px 15px; border-left: 3px solid #eee; padding-left: 12px; }
+body.dark-mode .narrative-action { color: #aaa; border-left-color: #444; }
+.dialogue-wrapper { display: flex; align-items: flex-start; gap: 15px; margin: 15px 0; }
+.dialogue-wrapper.right { flex-direction: row-reverse; }
+.char-avatar-small { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+.char-avatar-small img { width: 100%; height: 100%; object-fit: contain; }
+.dialogue-bubble { background: #f8f9fa; padding: 12px 18px; border-radius: 15px; font-size: 1rem; color: #444; max-width: 85%; position: relative; }
+.dialogue-bubble.cindy-style { background: #F3E5F5; color: #4A148C; border-radius: 15px 15px 15px 4px; }
+.dialogue-bubble.kuroo-style { background: #333; color: white; border-radius: 15px 15px 4px 15px; }
+body.dark-mode .dialogue-bubble.cindy-style { background: rgba(180, 167, 214, 0.2); color: #E8B4D9; }
+body.dark-mode .dialogue-bubble.kuroo-style { background: #555; color: white; }
+.inner-monologue { background: transparent; border: 2px dashed #ccc; padding: 15px; border-radius: 12px; margin: 20px 0 10px 40px; color: #666; font-size: 0.9rem; position: relative; }
+body.dark-mode .inner-monologue { border-color: #555; color: #aaa; }
+.inner-label { font-weight: bold; font-size: 0.8rem; color: #999; text-transform: uppercase; margin-bottom: 5px; display: block; }
+
+/* --- TIMELINE SECTION --- */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 2px; }
+.timeline-event { position: relative; margin-bottom: 60px; transition: all 0.6s ease; }
+.timeline-event::before { content: '♥'; position: absolute; left: -43px; top: 0; width: 30px; height: 30px; background: white; border: 3px solid var(--accent-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 0; padding-top: 2px; font-size: 0.9rem; color: var(--accent-pink); z-index: 1; box-shadow: 0 0 0 5px rgba(255,255,255,0.5); }
+body.dark-mode .timeline-event::before { background: #1a1a2e; box-shadow: 0 0 0 5px rgba(26,26,46,0.5); }
+.event-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); }
+body.dark-mode .event-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); }
+.event-card:hover { transform: translateX(5px) translateY(-2px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+.event-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0; }
+body.dark-mode .event-header { border-bottom-color: rgba(255, 255, 255, 0.1); }
+.event-id { font-weight: 600; color: var(--accent-pink); font-size: 0.9rem; }
+.event-time { font-size: 0.85rem; color: #888; background: #f5f5f5; padding: 6px 14px; border-radius: 15px; }
+body.dark-mode .event-time { background: rgba(255, 255, 255, 0.05); color: #aaa; }
+.event-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #333; }
+body.dark-mode .event-title { color: #fff; }
+.event-description { margin-bottom: 20px; line-height: 1.6; color: #555; font-size: 1rem; }
+body.dark-mode .event-description { color: #ccc; }
+.read-story-btn { margin-top: 15px; padding: 10px 24px; background: transparent; border: 2px solid var(--accent-pink); color: var(--accent-pink); border-radius: 25px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; width: fit-content; display: inline-block; }
+.read-story-btn:hover { background: var(--accent-pink); color: white; box-shadow: 0 5px 15px rgba(232, 180, 217, 0.4); transform: translateY(-2px); }
+
+/* --- COMMON MODAL STYLES --- */
+.story-modal-content { max-width: 800px; width: 95%; max-height: 90vh; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+#modalBody { padding: 40px; overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; }
+.story-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+.story-chapter-title { font-size: 2rem; font-weight: 700; color: var(--primary-kuroo); margin-bottom: 10px; }
+body.dark-mode .story-chapter-title { color: #fff; }
+.story-date { color: #888; font-size: 1rem; font-style: italic; }
+.story-paragraph { margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; color: #444; text-indent: 2em; }
+body.dark-mode .story-paragraph { color: #ccc; }
+.story-timestamp { text-align: center; color: var(--accent-pink); font-size: 0.9rem; margin: 25px 0; font-style: italic; font-weight: 600; }
+
+.story-bubble { display: flex; margin-bottom: 20px; align-items: flex-start; gap: 15px; }
+.story-bubble.left { justify-content: flex-start; flex-direction: row; }
+.story-bubble.right { justify-content: flex-end; flex-direction: row-reverse; }
+.story-avatar { width: 50px; height: 50px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.story-avatar img { width: 100%; height: 100%; object-fit: contain; }
+.story-bubble-content { max-width: 70%; padding: 15px 20px; border-radius: 18px; position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.story-bubble.left .story-bubble-content { background: #f0f2f5; color: #333; border-bottom-left-radius: 4px; }
+.story-bubble.right .story-bubble-content { background: #F3E5F5; color: #4A148C; border-bottom-right-radius: 4px; }
+.sb-speaker { font-size: 0.8rem; font-weight: 700; margin-bottom: 4px; display: block; }
+.story-bubble.left .sb-speaker { color: var(--primary-kuroo); }
+.story-bubble.right .sb-speaker { color: var(--primary-cindy); text-align: right; }
+
+.story-navigation { display: flex; justify-content: space-between; padding-top: 20px; margin-top: 30px; border-top: 2px solid #eee; }
+.story-nav-btn { padding: 10px 20px; border-radius: 25px; border: 1px solid #ddd; background: white; cursor: pointer; font-weight: 600; color: #555; transition: all 0.2s; }
+.story-nav-btn:hover:not(:disabled) { background: var(--bg-light); border-color: var(--accent-pink); color: var(--primary-kuroo); }
+.story-nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal.active { display: flex; }
+.modal-content { background: white; border-radius: 20px; padding: 40px; max-width: 700px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; animation: slideUp 0.3s ease; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+body.dark-mode .modal-content { background: #1a1a2e; border: 2px solid rgba(255, 255, 255, 0.1); }
+@keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-close { position: absolute; top: 15px; right: 15px; font-size: 2rem; cursor: pointer; color: #999; transition: all 0.3s ease; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+.modal-close:hover { color: var(--accent-pink); background: rgba(232, 180, 217, 0.1); transform: rotate(90deg); }
+
+.dark-mode-toggle { position: fixed; top: 20px; right: 20px; z-index: 2000; background: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; font-size: 1.5rem; }
+body.dark-mode .dark-mode-toggle { background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); }
+.scroll-to-top { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); opacity: 0; transition: all 0.3s ease; z-index: 998; font-size: 1.5rem; }
+.scroll-to-top.visible { opacity: 1; }
+
+
 /* ==========================================================================
-   GLOBAL CONFIGURATION & DATA
+   STORYBOOK SECTION (Kuse Inspired)
    ========================================================================== */
 
-/**
- * 1. PHOTOBOOK DATA
- */
-const albumData = [
-    {
-        image: "img/Memory1.JPG", 
-        caption: "第一次見面的排球館",
-        date: "2024.04.12",
-        tapeColor: "rgba(232, 180, 217, 0.7)"
-    },
-    {
-        image: "img/Memory2.JPG",
-        caption: "在園藝社偷偷觀察學長",
-        date: "2024.05.20",
-        tapeColor: "rgba(180, 167, 214, 0.7)"
-    },
-    {
-        image: "img/Memory3.JPG",
-        caption: "一起回家的小路",
-        date: "2024.09.15",
-        tapeColor: "rgba(74, 144, 226, 0.5)"
-    },
-    {
-        image: "img/Memory4.JPG",
-        caption: "學長的生日驚喜",
-        date: "2024.11.17",
-        tapeColor: "rgba(232, 180, 217, 0.7)"
-    }
-];
+.storybook-container-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    position: relative;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+body.dark-mode .storybook-container-inner {
+    background: #1a1a2e;
+    border: 1px solid rgba(255,255,255,0.05);
+}
 
-/**
- * 2. STORYBOOK DATA
- */
-const storyChapters = [
-    {
-        id: 1,
-        title: "第一章：相遇的預感",
-        date: "2024.04.12",
-        preview: "那天陽光正好，音駒的體育館裡傳來球鞋摩擦地板的聲音...",
-        content: `
-            <p>那天陽光正好，音駒的體育館裡傳來球鞋摩擦地板的聲音。シンディ抱著一疊園藝社的傳單路過，卻被那個高大的身影吸引住了目光。</p>
-            <p>黑尾鉄朗，那個總是帶著一絲壞笑、卻又無比可靠的排球部主將。他躍起扣球的瞬間，彷彿連空氣都凝固了。</p>
-            <p>「小心！」一顆排球突然飛出場外。</p>
-            <p>シンディ嚇得閉上了眼睛，但預想中的疼痛並沒有傳來。再次睜眼時，看到的是黑尾學長單手接住球的背影，以及他回過頭來那漫不經心的笑容。</p>
-            <p>「小學妹，走路要看路喔，還是說...妳在看我？」</p>
-        `
-    },
-    {
-        id: 2,
-        title: "第二章：圖書館的偶遇",
-        date: "2024.05.15",
-        preview: "圖書館的角落，除了書頁翻動的聲音，還有心跳的聲音...",
-        content: `
-            <p>期中考前的圖書館總是特別安靜。シンディ墊起腳尖想要拿架子最上層的植物圖鑑，手指剛碰到書脊，另一隻修長的手卻先一步拿下了它。</p>
-            <p>是黑尾學長。</p>
-            <p>「這本書很重喔，小個子。」他低頭看著她，眼裡帶著戲謔的笑意。</p>
-            <p>シンディ的臉瞬間紅透了，支支吾吾地道謝。那天下午，他們並肩坐在窗邊的桌子旁。黑尾在複習化學，而シンディ在看她的植物圖鑑，雖然她其實一個字也沒看進去。</p>
-        `
-    },
-    {
-        id: 3,
-        title: "第三章：夏日祭典",
-        date: "2024.08.20",
-        preview: "絢爛的煙火之下，有些話終於想要說出口...",
-        content: `
-            <p>夏日的祭典人聲鼎沸。シンディ穿著不習慣的浴衣，木屐磨得腳有些痛，稍微落後了隊伍。</p>
-            <p>「真是的，走慢點啊。」一隻溫暖的大手突然牽住了她。</p>
-            <p>黑尾並沒有回頭，但抓著她的手卻很緊。「迷路了我可不管喔。」</p>
-            <p>煙火在夜空中綻放的那一刻，喧囂彷彿都遠去了。シンディ看著被牽住的手，希望能永遠停留在這一刻。</p>
-        `
-    }
-];
+/* Decorative Corners */
+.book-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.corner-tl { top: 0; left: 0; border-top: 4px solid var(--gold-accent); border-left: 4px solid var(--gold-accent); border-radius: 20px 0 0 0; }
+.corner-tr { top: 0; right: 0; border-top: 4px solid var(--gold-accent); border-right: 4px solid var(--gold-accent); border-radius: 0 20px 0 0; }
+.corner-bl { bottom: 0; left: 0; border-bottom: 4px solid var(--gold-accent); border-left: 4px solid var(--gold-accent); border-radius: 0 0 0 20px; }
+.corner-br { bottom: 0; right: 0; border-bottom: 4px solid var(--gold-accent); border-right: 4px solid var(--gold-accent); border-radius: 0 0 20px 0; }
 
-/**
- * 3. GARDEN DATA
- */
-const gardenEntries = [
-    {
-        title: "新種下的繡球花",
-        date: "2024.06.01",
-        weather: "☀️",
-        status: "Growing",
-        content: "今天在社團花圃種下了藍色的繡球花。學長說他喜歡這種顏色，希望能順利開花！"
-    },
-    {
-        title: "仙人掌換盆日",
-        date: "2024.06.15",
-        weather: "☁️",
-        status: "Healthy",
-        content: "把黑尾學長送的仙人掌換了大一點的盆。它長得好快，就像學長的身高一樣（笑）。"
-    },
-    {
-        title: "暴風雨後的檢查",
-        date: "2024.07.10",
-        weather: "🌧️",
-        status: "Recovering",
-        content: "昨晚的風雨好大，好擔心花圃。早上趕去學校看，發現有人幫忙蓋了防雨布...一定是學長吧？"
-    }
-];
+.serif-title {
+    font-family: inherit; 
+    color: var(--gold-accent);
+}
+.deco-star {
+    color: #FFD700;
+    animation: twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-/**
- * 4. TIMELINE EVENT DETAILS
- */
-const timelineDetails = {
-    'event1': {
-        title: "愛的暗殺事件",
-        content: `
-            <p>シンデイ領養了一盆據說「絕對不會死」的仙人掌。出於對新生命的過度關愛，她每天瘋狂澆水。</p>
-            <p>結果不到一週，仙人掌就發黃軟爛了。黑尾路過園藝社時，看到她對著盆栽哭喪著臉，忍不住吐槽：「妳這是溺愛啊，小不點。植物也需要呼吸的。」</p>
-            <p>後來，黑尾親自教她怎麼換土、怎麼判斷澆水時機。那盆仙人掌奇蹟般地救回來了，現在被命名為「黑尾二號」。</p>
-        `
-    },
-    'event2': {
-        title: "圖書館書本空襲事件",
-        content: `
-            <p>為了查閱園藝資料，シンデイ在圖書館試圖取下一本高處的厚重精裝書。因身高不足，她墊著腳尖晃晃悠悠。</p>
-            <p>就在書本滑落、眼看要砸中她頭頂的瞬間，一隻手臂橫空出世，穩穩接住了那本書。</p>
-            <p>「危險動作請勿模仿。」黑尾的聲音從頭頂傳來，帶著好聞的洗衣精味道，「下次這種體力活，叫我就好了。」</p>
-            <p>那是シンデイ第一次覺得，這隻手臂不只是用來攔網的，也是用來保護她的。</p>
-        `
-    },
-    'event3': {
-        title: "左腳的愛過於沉重",
-        content: `
-            <p>黑尾生日那天，シンデイ送出了精心準備的禮物。黑尾滿懷期待地拆開，發現是...兩個左腳護膝。</p>
-            <p>空氣凝固了三秒。</p>
-            <p>シンデイ臉色慘白：「對、對不起！我買的時候太緊張，拿錯了盒子...」</p>
-            <p>黑尾卻大笑起來，當場把兩個護膝都套在左腿上試了試：「挺好的，雙倍防禦，看來我的左腿今天要無敵了。」</p>
-        `
-    },
-    'event4': {
-        title: "幽靈數字事件",
-        content: `
-            <p>體檢時，シンデイ站上體重計，發現指針飆升了5公斤。她驚恐地發出尖叫，引來眾人側目。</p>
-            <p>護士小姐無奈地指了指她身後。原來是黑尾正壞笑著，用一根手指悄悄壓在體重計的邊緣。</p>
-            <p>「黑、尾、學、長！」這是シンデイ第一次氣得追著他跑遍了半個校園。</p>
-        `
-    }
-};
+
+/* Chapter Cards (Sliding Gradient) */
+.chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 20px 0; }
+
+.chapter-card {
+    background: linear-gradient(135deg, #FFF8F0, #FFE6F0);
+    border: 2px solid var(--primary-cindy);
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+body.dark-mode .chapter-card {
+    background: linear-gradient(135deg, #24243e, #1a1a2e);
+    border-color: #444;
+}
+
+/* Sliding Hover Effect */
+.chapter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(180, 167, 214, 0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+body.dark-mode .chapter-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+.chapter-card:hover::before { left: 100%; }
+.chapter-card:hover { transform: translateY(-8px); border-color: var(--accent-pink); box-shadow: 0 15px 30px rgba(180, 167, 214, 0.25); }
+
+.chapter-number { font-size: 0.9rem; color: var(--gold-accent); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
+.chapter-title { font-size: 1.5rem; font-weight: 700; color: #555; margin-bottom: 10px; font-family: inherit; position: relative; z-index: 2; }
+body.dark-mode .chapter-title { color: #fff; }
+.chapter-desc { font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; position: relative; z-index: 2; }
+body.dark-mode .chapter-desc { color: #aaa; }
+.chapter-date { font-size: 0.85rem; color: #999; font-style: italic; position: relative; z-index: 2; }
+
+/* Story Viewer (Paper Look) */
+.story-viewer {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.story-paper {
+    background: #fffdf7;
+    padding: 50px 60px;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-left: 5px solid #e0e0e0;
+}
+body.dark-mode .story-paper {
+    background: #1f1f2e;
+    border-left: 5px solid #444;
+}
+
+.serif-text p {
+    font-family: inherit;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #333;
+    margin-bottom: 25px;
+}
+body.dark-mode .serif-text p { color: #ccc; }
+
+.back-button { margin-bottom: 20px; padding: 10px 20px; border-radius: 20px; border: 2px solid var(--primary-cindy); background: white; color: var(--primary-cindy); cursor: pointer; font-weight: 600; transition: all 0.2s; }
+.back-button:hover { background: var(--primary-cindy); color: white; }
+body.dark-mode .back-button { background: transparent; }
+body.dark-mode .back-button:hover { background: var(--primary-cindy); }
+
 
 /* ==========================================================================
-   CORE UI LOGIC
+   3D PHOTOBOOK STYLES (NEW)
    ========================================================================== */
 
-// 1. Navigation & Scrolling
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+.book-scene {
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    perspective: 1500px; /* Essential for 3D effect */
+    overflow: hidden;
+    padding: 20px 0;
 }
 
-function scrollToId(id) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+.book-container {
+    position: relative;
+    width: 400px;  /* Width of a SINGLE page */
+    height: 550px;
+    margin-bottom: 30px;
+    transition: transform 0.5s;
+}
+
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* The Page Structure */
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left center; /* Flip from the spine (left) */
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1); /* Smooth flipping */
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 5px 15px 15px 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Front and Back of each paper */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the back when facing front */
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+/* Front Face */
+.front {
+    z-index: 2;
+    border-radius: 5px 15px 15px 5px;
+    background: linear-gradient(to right, #eee 0%, #fff 5%, #fff 100%); /* Spine shadow */
+}
+
+/* Back Face */
+.back {
+    z-index: 1;
+    transform: rotateY(180deg); /* Pre-rotate back side */
+    border-radius: 15px 5px 5px 15px; /* Inverted radius for back */
+    background: linear-gradient(to left, #eee 0%, #fff 5%, #fff 100%);
+}
+
+/* Flipped State */
+.paper.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Content Layout inside Pages */
+.page-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-frame-book {
+    width: 90%;
+    height: 65%;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+    margin-bottom: 20px;
+    border: 1px solid #f0f0f0;
+}
+
+.photo-frame-book img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Alternate rotation for variety */
+.back .photo-frame-book { transform: rotate(2deg); }
+
+.book-caption {
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Cover Styling */
+.front.cover {
+    background: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--primary-cindy);
+    color: white;
+}
+.front.cover h2 { font-size: 2.5rem; color: var(--accent-pink); margin-bottom: 10px; }
+.front.cover span { font-size: 1rem; color: #ccc; letter-spacing: 2px; }
+
+/* Back Cover Styling */
+.back.cover-back {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+}
+
+/* Controls */
+.book-controls {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    z-index: 100;
+}
+.book-btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    background: var(--primary-cindy);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.book-btn:active { transform: scale(0.95); }
+.book-hint { color: #888; font-size: 0.9rem; font-style: italic; }
+
+/* Dark Mode Overrides */
+body.dark-mode .front, body.dark-mode .back {
+    background-color: #1a1a2e;
+    border-color: #444;
+}
+body.dark-mode .photo-frame-book {
+    background: #2a2a40;
+    border-color: #555;
+}
+body.dark-mode .book-caption { color: #ccc; }
+
+/* --- RESPONSIVE --- */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+    .video-divider-container {
+        height: 350px;
+        margin: 20px auto;
+    }
+    .relationship-section {
+        grid-template-columns: 1fr;
     }
 }
 
-// 2. Main Tab Switching
-function switchTabAndScroll(tabId) {
-    toggleTab(tabId);
-    setTimeout(() => {
-        const element = document.getElementById(tabId);
-        if (element) {
-            const yOffset = -100; 
-            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({top: y, behavior: 'smooth'});
-        }
-    }, 100);
-}
-
-function toggleTab(tabId) {
-    // Hide all sections first
-    document.querySelectorAll('.tab-section').forEach(section => {
-        section.classList.remove('active');
-        // Hide display after fade out animation (approx 0.5s)
-        setTimeout(() => {
-            if(!section.classList.contains('active')) section.style.display = 'none';
-        }, 500);
-    });
+@media screen and (max-width: 768px) {
+    /* ... (Keep existing mobile styles) ... */
     
-    // Deactivate buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-
-    // Activate Button
-    let btnId = '';
-    if(tabId === 'interview-zone') btnId = 'btn-interview';
-    if(tabId === 'storybook-zone') btnId = 'btn-storybook';
-    if(tabId === 'timeline-zone') btnId = 'btn-timeline';
-    if(tabId === 'photo-zone') btnId = 'btn-photo';
-    if(tabId === 'garden-zone') btnId = 'btn-garden';
-    const activeBtn = document.getElementById(btnId);
-    if(activeBtn) activeBtn.classList.add('active');
-
-    // Show selected section
-    const activeSection = document.getElementById(tabId);
-    if(activeSection) {
-        activeSection.style.display = 'block';
-        requestAnimationFrame(() => {
-            activeSection.classList.add('active');
-        });
-        
-        // RE-RENDER CONTENT: Key fix ensures content always loads
-        if (tabId === 'photo-zone') initPhotobook();
-        if (tabId === 'storybook-zone') renderChapterGrid();
-        if (tabId === 'garden-zone') renderGarden();
-    }
-}
-
-// 3. Top Section Tab Switching
-function switchTopTab(tabId) {
-    document.querySelectorAll('.top-tab-content').forEach(content => content.classList.remove('active'));
-    document.getElementById('btn-top-video').classList.remove('active');
-    document.getElementById('btn-top-relationship').classList.remove('active');
-
-    document.getElementById(tabId).classList.add('active');
+    .storybook-container-inner { padding: 40px 20px; border-radius: 20px; }
+    .book-corner { width: 40px; height: 40px; }
+    .story-paper { padding: 30px 20px; }
     
-    if(tabId === 'top-tab-video') document.getElementById('btn-top-video').classList.add('active');
-    if(tabId === 'top-tab-relationship') document.getElementById('btn-top-relationship').classList.add('active');
-}
-
-// 4. Dark Mode
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const icon = document.getElementById('darkModeIcon');
-    icon.innerText = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-}
-
-window.onscroll = function() {
-    const btn = document.getElementById("scrollTopBtn");
-    if (!btn) return;
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btn.classList.add("visible");
-    } else {
-        btn.classList.remove("visible");
+    body {
+        zoom: 0.85;
+        -moz-transform: scale(0.85);
+        -moz-transform-origin: 0 0;
     }
-};
-
-/* ==========================================================================
-   FEATURE: SWEET PHOTOBOOK (3D FLIP)
-   ========================================================================== */
-let currentPhotoPage = 0;
-const photobookEngine = document.getElementById('photobook-engine');
-
-function initPhotobook() {
-    if (!photobookEngine) return;
-    photobookEngine.innerHTML = '';
     
-    for (let i = 0; i < albumData.length; i += 2) {
-        const pageIndex = i / 2;
-        const pageElement = document.createElement('div');
-        pageElement.className = 'book-page';
-        pageElement.id = `page-${pageIndex}`;
-        // Stack order: First page on top
-        pageElement.style.zIndex = albumData.length - pageIndex;
-
-        const frontData = albumData[i];
-        // Handle odd number of photos
-        const backData = albumData[i + 1] ? albumData[i + 1] : { image: null, caption: 'End of Album', date: '', tapeColor: 'transparent' };
-
-        // Generate HTML with onerror placeholder
-        const placeholder = 'https://placehold.co/300x250/pink/white?text=Memory';
-        
-        pageElement.innerHTML = `
-            <div class="page-side page-front">
-                <div class="polaroid-frame">
-                    <div class="washi-tape" style="background: ${frontData.tapeColor}"></div>
-                    <img src="${frontData.image}" alt="Memory" class="polaroid-img" onerror="this.src='${placeholder}'">
-                    <div class="polaroid-caption">${frontData.caption}</div>
-                </div>
-                <div class="page-date-stamp">${frontData.date}</div>
-            </div>
-            <div class="page-side page-back">
-                <div class="polaroid-frame">
-                    <div class="washi-tape" style="background: ${backData.tapeColor}"></div>
-                    ${backData.image ? 
-                        `<img src="${backData.image}" alt="Memory" class="polaroid-img" onerror="this.src='${placeholder}'">` : 
-                        `<div style="height:250px; display:flex; align-items:center; justify-content:center; color:#ccc;">The End</div>`
-                    }
-                    <div class="polaroid-caption">${backData.caption}</div>
-                </div>
-                <div class="page-date-stamp">${backData.date}</div>
-            </div>
-        `;
-        
-        // Flip logic on click
-        pageElement.onclick = () => {
-            if (pageIndex === currentPhotoPage) {
-                nextPage();
-            } else if (pageIndex === currentPhotoPage - 1) {
-                prevPage();
-            }
-        };
-
-        photobookEngine.appendChild(pageElement);
-    }
-}
-
-function nextPage() {
-    const totalPages = Math.ceil(albumData.length / 2);
-    if (currentPhotoPage < totalPages) {
-        const pageToFlip = document.getElementById(`page-${currentPhotoPage}`);
-        if(pageToFlip) {
-            pageToFlip.classList.add('flipped');
-            // Z-index trick: after flip, move it down in stack
-            setTimeout(() => {
-                pageToFlip.style.zIndex = currentPhotoPage; 
-            }, 400); 
-            currentPhotoPage++;
-        }
-    }
-}
-
-function prevPage() {
-    if (currentPhotoPage > 0) {
-        currentPhotoPage--;
-        const pageToFlip = document.getElementById(`page-${currentPhotoPage}`);
-        if(pageToFlip) {
-            pageToFlip.classList.remove('flipped');
-            // Restore z-index
-            pageToFlip.style.zIndex = albumData.length - currentPhotoPage;
-        }
-    }
-}
-
-/* ==========================================================================
-   FEATURE: STORYBOOK READER (FIXED)
-   ========================================================================== */
-let currentChapterIndex = 0;
-
-function renderChapterGrid() {
-    const container = document.getElementById('chapters-container');
-    if (!container) return;
-
-    // FIX: Always clear and redraw to prevent "empty" state issues
-    container.innerHTML = ""; 
-
-    container.innerHTML = storyChapters.map((chapter, index) => `
-        <div class="chapter-card" onclick="openChapterReader(${index})">
-            <div class="chapter-number">Chapter 0${chapter.id}</div>
-            <h3 class="chapter-title">${chapter.title}</h3>
-            <p class="chapter-desc">${chapter.preview}</p>
-            <div class="chapter-date">${chapter.date}</div>
-        </div>
-    `).join('');
-}
-
-function openChapterReader(index) {
-    currentChapterIndex = index;
-    document.getElementById('chapters-grid-view').style.display = 'none';
-    document.getElementById('story-reader-view').style.display = 'block';
-    loadChapterContent(index);
-    document.getElementById('storybook-zone').scrollIntoView({ behavior: 'smooth' });
-}
-
-function closeChapterReader() {
-    document.getElementById('story-reader-view').style.display = 'none';
-    document.getElementById('chapters-grid-view').style.display = 'block';
-}
-
-function loadChapterContent(index) {
-    const chapter = storyChapters[index];
-    document.getElementById('reader-title').innerText = chapter.title;
-    document.getElementById('reader-date').innerText = chapter.date;
-    document.getElementById('reader-content').innerHTML = chapter.content;
+    .title-section { padding-top: 20px; }
+    .title-section h1 { font-size: 2rem; }
+    .stories-container { gap: 15px; padding: 5px 10px; }
+    .story-ring { width: 55px; height: 55px; }
+    .story-label { font-size: 0.75rem; }
+    .filter-bar-container { min-width: unset; width: 95%; border-radius: 20px; flex-direction: column; gap: 10px; padding: 10px; margin: 30px auto; }
+    .filter-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; justify-content: flex-start; }
+    .modal-content { width: 95%; padding: 20px; max-height: 90vh; }
+    #modalBody { padding: 10px 0; }
+    .story-bubble { flex-direction: column; gap: 5px; }
+    .story-bubble.right { flex-direction: column; align-items: flex-end; }
+    .story-bubble-content { max-width: 100%; }
+    .story-avatar { width: 40px; height: 40px; }
+    .character-pair-container { gap: 12px; margin-bottom: 20px; }
+    .flip-card-container { min-height: 480px; }
+    .flip-card-front, .flip-card-back { padding: 15px 10px; }
+    .avatar { width: 80px; height: 80px; margin-bottom: 10px; border-width: 3px; }
+    .character-name { font-size: 1.2rem; margin-bottom: 10px; }
+    .info-row { flex-direction: column; align-items: center; padding: 4px; margin-bottom: 5px; }
+    .info-label { margin-right: 0; margin-bottom: 2px; font-size: 0.7rem; padding: 3px 8px; min-width: unset; }
+    .info-value { font-size: 0.8rem; text-align: center; }
+    .description-box { font-size: 0.8rem; padding: 10px; margin-top: 10px; margin-bottom: 10px; line-height: 1.4; }
+    .personality-box { margin-top: 10px; padding-top: 10px; }
+    .personality-title { font-size: 0.9rem; margin-bottom: 8px; }
+    .personality-grid { gap: 5px; }
+    .p-tag { font-size: 0.7rem; padding: 4px; }
+    .more-btn { padding: 8px 15px; font-size: 0.85rem; }
+    .mascot-img-small { width: 70px; }
+    .chibi-side-img { width: 60px; }
+    .video-divider-container { height: 200px; border-radius: 15px; }
+    .graph-container { height: 300px; padding: 10px; }
+    .axis-label { font-size: 0.7rem; padding: 4px 8px; }
+    .graph-icon { width: 50px; height: 50px; }
+    .timeline { padding-left: 20px; }
+    .timeline-event::before { left: -28px; width: 20px; height: 20px; top: 5px; }
+    .event-card { padding: 20px; }
+    .event-title { font-size: 1.2rem; }
+    .interview-title, .timeline-title { font-size: 1.6rem; margin-bottom: 40px; }
+    .interview-scene { padding: 20px; }
+    .dialogue-wrapper { gap: 10px; }
+    .char-avatar-small { width: 40px; height: 40px; }
+    .dialogue-bubble { font-size: 0.95rem; }
+    .story-viewer { padding: 20px; }
+    .story-paragraph { text-indent: 0; font-size: 1rem; }
+    .couple-mascot-row { gap: 5px; transform: scale(0.9); }
+    .mascot-img-bottom { width: 50px; }
+    .mascot-side .single-heart { width: 25px; height: 25px; }
+    .mascot-side .single-heart::before, .mascot-side .single-heart::after { width: 25px; height: 25px; }
+    .mascot-side .single-heart::before { top: -12.5px; }
+    .mascot-side .single-heart::after { left: 12.5px; }
     
-    document.getElementById('reader-progress').innerText = `${index + 1} / ${storyChapters.length}`;
-    document.getElementById('reader-prev-btn').disabled = index === 0;
-    document.getElementById('reader-next-btn').disabled = index === storyChapters.length - 1;
-}
-
-function navigateChapter(direction) {
-    const newIndex = currentChapterIndex + direction;
-    if (newIndex >= 0 && newIndex < storyChapters.length) {
-        currentChapterIndex = newIndex;
-        loadChapterContent(newIndex);
+    /* MOBILE PHOTOBOOK ADJUSTMENTS */
+    .book-container {
+        width: 85vw; /* Almost full width on mobile */
+        height: 110vw; /* Maintain ratio */
+        max-height: 500px;
     }
-}
-
-/* ==========================================================================
-   FEATURE: TIMELINE MODAL
-   ========================================================================== */
-function setupTimelineEvents() {
-    document.querySelectorAll('.timeline-event .read-story-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const eventItem = this.closest('.timeline-event');
-            const eventId = eventItem.getAttribute('data-event');
-            openModal(eventId);
-        });
-    });
-}
-
-function openModal(eventId) {
-    const data = timelineDetails[eventId];
-    if (!data) return;
-
-    const modalBody = document.getElementById('modalBody');
-    modalBody.innerHTML = `
-        <div class="story-header">
-            <h2 class="story-chapter-title">${data.title}</h2>
-        </div>
-        <div class="serif-text">
-            ${data.content}
-        </div>
-    `;
     
-    const modal = document.getElementById('eventModal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; 
-}
-
-function closeModal() {
-    const modal = document.getElementById('eventModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-document.getElementById('eventModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-});
-
-/* ==========================================================================
-   FEATURE: GARDEN DIARY
-   ========================================================================== */
-function renderGarden() {
-    const container = document.getElementById('garden-container');
-    if (!container) return;
-
-    // Fix: Always clear and redraw
-    container.innerHTML = "";
-
-    container.innerHTML = gardenEntries.map(entry => `
-        <div class="garden-card">
-            <div class="garden-header">
-                <span class="garden-date">${entry.date}</span>
-                <span class="garden-weather">${entry.weather}</span>
-            </div>
-            <div class="garden-title">${entry.title}</div>
-            <div class="garden-preview">${entry.content}</div>
-            <div class="garden-status">
-                <span class="status-dot"></span> Status: ${entry.status}
-            </div>
-        </div>
-    `).join('');
-}
-
-/* ==========================================================================
-   INITIALIZATION
-   ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Setup Timeline
-    setupTimelineEvents();
+    .photo-frame-book {
+        height: 55%; 
+    }
     
-    // 2. Pre-load Content
-    initPhotobook();
-    renderGarden();
-    renderChapterGrid();
+    .book-caption {
+        font-size: 1rem;
+    }
+    
+    .front.cover h2 { font-size: 2rem; }
+}
 
-    // 3. Start at Interview
-    toggleTab('interview-zone');
-});
+@media screen and (max-width: 480px) {
+    .filter-btn { font-size: 1rem; padding: 10px; }
+    .character-name { font-size: 1.1rem; }
+    .info-value { font-size: 0.75rem; }
+}
