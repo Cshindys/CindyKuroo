@@ -280,30 +280,23 @@ const bookData = [
 
 /* --- INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
-    // Render Content
     renderChapters();
     renderGardenEntries();
-    
-    // Initialize 3D Photobook
     initPhotobook();
     
-    // Add Event Listeners for Timeline Buttons
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            // Find the closest parent .timeline-event and get its data attribute
             const eventElement = e.target.closest('.timeline-event');
             const eventId = eventElement.getAttribute('data-event');
             openModal(eventId);
         });
     });
 
-    // Check System Dark Mode Preference
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark-mode');
         updateDarkModeIcon();
     }
     
-    // Scroll Event for "Scroll to Top" button
     window.addEventListener('scroll', () => {
         const btn = document.getElementById('scrollTopBtn');
         if (window.scrollY > 300) {
@@ -314,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/* --- TAB FUNCTIONS --- */
+/* --- TAB & SCROLL FUNCTIONS --- */
 function switchTopTab(tabId) {
     document.querySelectorAll('.top-tab-content').forEach(content => {
         content.classList.remove('active');
@@ -360,7 +353,6 @@ function switchTabAndScroll(tabId) {
     scrollToId('filter-bar-anchor');
 }
 
-/* --- SCROLL FUNCTIONS --- */
 function scrollToId(id) {
     const element = document.getElementById(id);
     if (element) {
@@ -372,7 +364,6 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* --- DARK MODE --- */
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     updateDarkModeIcon();
@@ -422,7 +413,7 @@ window.onclick = function(event) {
     }
 }
 
-/* --- STORYBOOK READER LOGIC (For Text Stories) --- */
+/* --- TEXT STORIES --- */
 let currentChapterIndex = 0;
 
 function renderChapters() {
@@ -476,7 +467,6 @@ function updateReaderContent() {
     document.getElementById('reader-next-btn').disabled = (currentChapterIndex === storyChapters.length - 1);
 }
 
-/* --- GARDEN DIARY RENDER --- */
 function renderGardenEntries() {
     const container = document.getElementById('garden-container');
     if(!container) return;
@@ -500,7 +490,7 @@ function renderGardenEntries() {
     });
 }
 
-/* --- 3D PHOTOBOOK LOGIC (FIXED) --- */
+/* --- 3D PHOTOBOOK LOGIC --- */
 
 let currentLocation = 1;
 let numOfPapers = 0;
@@ -512,7 +502,6 @@ function initPhotobook() {
     
     book.innerHTML = ''; 
 
-    // Calculate total papers needed
     const paperCount = Math.ceil(bookData.length / 2);
     numOfPapers = paperCount;
     maxLocation = numOfPapers + 1;
@@ -524,10 +513,10 @@ function initPhotobook() {
         paper.className = 'paper';
         paper.id = `p${i}`;
         
-        // Initial Z-Index setup
+        // Initial Z-Index
         paper.style.zIndex = numOfPapers - i + 1; 
         
-        // Create Front Face
+        // Front
         const front = document.createElement('div');
         front.className = 'front';
         const frontData = bookData[dataIndex];
@@ -535,7 +524,7 @@ function initPhotobook() {
         if(i === 1) front.classList.add('cover');
         dataIndex++;
 
-        // Create Back Face
+        // Back
         const back = document.createElement('div');
         back.className = 'back';
         if (dataIndex < bookData.length) {
@@ -588,32 +577,23 @@ function generatePageContent(data) {
 
 function togglePage(paperNum) {
     if (currentLocation === paperNum) {
-        // Open/Next
         openBookPage(paperNum);
     } else if (currentLocation === paperNum + 1) {
-        // Close/Prev
         closeBookPage(paperNum);
     }
 }
 
-// *** NEW LOGIC: Enforce Global Z-Index Update ***
-// This function recalculates the stack order for ALL pages 
-// every time a page flips, ensuring the "Left Stack" logic is perfect.
-
+// Global Re-stack function to prevent layering bugs
 function updateGlobalZIndexes() {
     for (let i = 1; i <= numOfPapers; i++) {
         const paper = document.getElementById(`p${i}`);
         if (!paper) continue;
 
         if (i < currentLocation) {
-            // Page is flipped (on the Left side)
-            // Stacking order should be ascending (1, 2, 3...)
-            // So Page 2 covers Page 1.
+            // Left stack: Ascending Order
             paper.style.zIndex = i;
         } else {
-            // Page is unflipped (on the Right side)
-            // Stacking order should be descending (3, 2, 1...)
-            // So Page 1 covers Page 2.
+            // Right stack: Descending Order
             paper.style.zIndex = numOfPapers - i + 1;
         }
     }
@@ -624,7 +604,7 @@ function openBookPage(paperNum) {
     if(paper) {
         paper.classList.add('flipped');
         currentLocation++;
-        updateGlobalZIndexes(); // Force Update
+        updateGlobalZIndexes();
     }
 }
 
@@ -633,18 +613,6 @@ function closeBookPage(paperNum) {
     if(paper) {
         paper.classList.remove('flipped');
         currentLocation--;
-        updateGlobalZIndexes(); // Force Update
-    }
-}
-
-function nextPage() {
-    if (currentLocation < maxLocation) {
-        openBookPage(currentLocation);
-    }
-}
-
-function prevPage() {
-    if (currentLocation > 1) {
-        closeBookPage(currentLocation - 1);
+        updateGlobalZIndexes();
     }
 }
