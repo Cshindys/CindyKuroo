@@ -296,6 +296,9 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.remove('visible');
         }
     });
+
+    // Initialize the Scrapbook Logic
+    initScrapbook();
 });
 
 /* --- TAB FUNCTIONS --- */
@@ -516,4 +519,70 @@ function renderGardenEntries() {
         `;
         container.appendChild(card);
     });
+}
+
+/* --- BOOK & LIGHTBOX LOGIC --- */
+let currentPage = 0;
+let pages;
+
+function initScrapbook() {
+    pages = document.querySelectorAll('.book-page');
+    // Initialize Z-Indexes so first page is on top
+    if (pages.length > 0) {
+        pages.forEach((page, index) => {
+            page.style.zIndex = pages.length - index;
+            
+            // Allow clicking the actual book page to flip it (for intuition)
+            page.addEventListener('click', (e) => {
+                // Only flip if we didn't click a photo (because clicking a photo opens lightbox)
+                if (!e.target.closest('.scrap-photo')) {
+                    if (index === currentPage) {
+                        turnPage(1); // Click right page to flip forward
+                    } else if (index === currentPage - 1) {
+                        turnPage(-1); // Click left page to flip back
+                    }
+                }
+            });
+        });
+    }
+}
+
+function turnPage(direction) {
+    if (!pages) pages = document.querySelectorAll('.book-page');
+    
+    if (direction === 1) {
+        // Go forward
+        if (currentPage < pages.length) {
+            pages[currentPage].classList.add('flipped');
+            currentPage++;
+        }
+    } else {
+        // Go backward
+        if (currentPage > 0) {
+            currentPage--;
+            pages[currentPage].classList.remove('flipped');
+        }
+    }
+}
+
+// Lightbox Functions
+function openLightbox(element) {
+    const modal = document.getElementById("photoLightbox");
+    const modalImg = document.getElementById("lightboxImg");
+    const captionText = document.getElementById("lightboxCaption");
+    const sourceImg = element.querySelector('img');
+    const sourceCaption = element.querySelector('.caption');
+
+    modal.style.display = "flex";
+    modalImg.src = sourceImg.src;
+    
+    if (sourceCaption) {
+        captionText.textContent = sourceCaption.textContent;
+    } else {
+        captionText.textContent = "";
+    }
+}
+
+function closeLightbox() {
+    document.getElementById("photoLightbox").style.display = "none";
 }
