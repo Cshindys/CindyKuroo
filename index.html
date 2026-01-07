@@ -515,80 +515,19 @@
 
             <div class="photo-section tab-section" id="photo-zone">
                 <div class="interview-title">甜蜜相冊 · Sweet Album</div>
+                <div class="photobook-instructions">
+                    <span class="desktop-hint">← Click buttons to Flip →</span>
+                    <span class="mobile-hint">Tap to Flip Pages</span>
+                </div>
                 
-                <div class="photo-book-wrapper">
-                    <div class="book-container" id="scrapbook">
-                        <div class="book-page" style="z-index: 10;">
-                            <div class="page-front cover-page">
-                                <div class="cover-content">
-                                    <h2>Our Memories</h2>
-                                    <div class="cover-img">
-                                        <img src="img/C&KQQ.png" alt="Cover" onerror="this.src='img/Kuroo_profile.JPEG'">
-                                    </div>
-                                    <p>黒尾鉄朗 × シンディ</p>
-                                    <span class="tap-hint">(Click to Open)</span>
-                                </div>
-                            </div>
-                            <div class="page-back">
-                                <div class="scrap-photo" onclick="openLightbox(this)">
-                                    <div class="tape"></div>
-                                    <img src="img/Kuroo_profile.JPEG" alt="Handsome Kuroo">
-                                    <div class="caption">認真的主將 ✨</div>
-                                </div>
-                                <div class="scrap-photo" onclick="openLightbox(this)">
-                                    <div class="tape"></div>
-                                    <img src="img/Cindy_profile.JPG" alt="Cindy">
-                                    <div class="caption">偷看的視線 👀</div>
-                                </div>
-                            </div>
+                <div class="photobook-scene">
+                    <div class="photobook" id="photobook">
                         </div>
-
-                        <div class="book-page" style="z-index: 9;">
-                            <div class="page-front">
-                                <div class="scrap-photo full-page" onclick="openLightbox(this)">
-                                    <div class="tape-corner"></div>
-                                    <img src="img/Sandwich.PNG" alt="Sandwich">
-                                    <div class="caption">那天的三明治回憶 🥪</div>
-                                </div>
-                            </div>
-                            <div class="page-back">
-                                <div class="scrap-text-area">
-                                    <h3>School Days</h3>
-                                    <p>體育館的擦鞋聲，<br>還有空氣中止汗劑的味道。</p>
-                                </div>
-                                <div class="scrap-photo" onclick="openLightbox(this)">
-                                    <div class="tape"></div>
-                                    <img src="img/Kuroo(student).png" alt="ID Card">
-                                    <div class="caption">三年五組 黒尾</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="book-page" style="z-index: 8;">
-                            <div class="page-front">
-                                <div class="scrap-photo" onclick="openLightbox(this)">
-                                    <div class="tape"></div>
-                                    <img src="img/Cindy(student).png" alt="ID Card">
-                                    <div class="caption">二年三組 Cindy</div>
-                                </div>
-                                <div class="sticker-deco">🌸</div>
-                                <div class="scrap-photo" onclick="openLightbox(this)">
-                                    <div class="tape"></div>
-                                    <img src="img/KurooAQQ(Transparent).png" alt="Cat">
-                                    <div class="caption">像貓一樣的人</div>
-                                </div>
-                            </div>
-                            <div class="page-back last-page">
-                                <h3>To Be Continued...</h3>
-                                <div class="heart-end">❤</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="book-controls">
-                        <button class="book-btn" onclick="turnPage(-1)">← Prev</button>
-                        <button class="book-btn" onclick="turnPage(1)">Next →</button>
-                    </div>
+                </div>
+                
+                <div class="photobook-controls">
+                    <button class="pb-btn" id="pb-prev-btn" onclick="goPrevPage()">❮ Previous</button>
+                    <button class="pb-btn" id="pb-next-btn" onclick="goNextPage()">Next ❯</button>
                 </div>
             </div>
 
@@ -608,13 +547,6 @@
             </div>
         </div>
     </div>
-
-    <div id="photoLightbox" class="lightbox-modal" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightboxImg">
-        <div id="lightboxCaption"></div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
