@@ -412,6 +412,17 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
 .top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
 .top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
 
+/* --- PHOTO ALBUM SECTION --- */
+.photo-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 10px; }
+.photo-item { background: white; padding: 15px 15px 50px 15px; box-shadow: var(--card-shadow); transform: rotate(-2deg); transition: all 0.3s ease; border-radius: 4px; position: relative; cursor: pointer; border: 1px solid rgba(0,0,0,0.05); }
+.photo-item:nth-child(even) { transform: rotate(2deg); margin-top: 20px; }
+.photo-item:hover { transform: scale(1.05) rotate(0deg); z-index: 10; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+body.dark-mode .photo-item { background: #2a2a40; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.photo-frame { width: 100%; height: 300px; overflow: hidden; margin-bottom: 15px; background: #f0f0f0; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.photo-caption { font-family: 'Zen Kurenaido', sans-serif; text-align: center; color: #666; font-size: 1.1rem; font-weight: 600; position: absolute; bottom: 15px; left: 0; width: 100%; }
+body.dark-mode .photo-caption { color: #ccc; }
+
 /* --- GARDENING DIARY SECTION --- */
 .garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
 .garden-card { background: white; border: 1px solid #e0f2f1; border-radius: 20px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 128, 0, 0.05); transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
@@ -516,9 +527,11 @@ body.dark-mode .dark-mode-toggle { background: rgba(255, 255, 255, 0.1); border:
 .scroll-to-top { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); opacity: 0; transition: all 0.3s ease; z-index: 998; font-size: 1.5rem; }
 .scroll-to-top.visible { opacity: 1; }
 
+
 /* ==========================================================================
-   STORYBOOK SECTION
+   NEW REDESIGNED STORYBOOK SECTION (Kuse Inspired)
    ========================================================================== */
+
 .storybook-container-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -532,6 +545,8 @@ body.dark-mode .storybook-container-inner {
     background: #1a1a2e;
     border: 1px solid rgba(255,255,255,0.05);
 }
+
+/* Decorative Corners */
 .book-corner {
     position: absolute;
     width: 60px;
@@ -543,10 +558,22 @@ body.dark-mode .storybook-container-inner {
 .corner-tr { top: 0; right: 0; border-top: 4px solid var(--gold-accent); border-right: 4px solid var(--gold-accent); border-radius: 0 20px 0 0; }
 .corner-bl { bottom: 0; left: 0; border-bottom: 4px solid var(--gold-accent); border-left: 4px solid var(--gold-accent); border-radius: 0 0 0 20px; }
 .corner-br { bottom: 0; right: 0; border-bottom: 4px solid var(--gold-accent); border-right: 4px solid var(--gold-accent); border-radius: 0 0 20px 0; }
-.serif-title { font-family: inherit; color: var(--gold-accent); }
-.deco-star { color: #FFD700; animation: twinkle 2s ease-in-out infinite; }
+
+.serif-title {
+    /* CHANGED: Removed serif font to match rest of site */
+    font-family: inherit; 
+    color: var(--gold-accent);
+}
+.deco-star {
+    color: #FFD700;
+    animation: twinkle 2s ease-in-out infinite;
+}
 @keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+
+/* Redesigned Chapter Cards (Sliding Gradient) */
 .chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 20px 0; }
+
 .chapter-card {
     background: linear-gradient(135deg, #FFF8F0, #FFE6F0);
     border: 2px solid var(--primary-cindy);
@@ -558,45 +585,96 @@ body.dark-mode .storybook-container-inner {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-body.dark-mode .chapter-card { background: linear-gradient(135deg, #24243e, #1a1a2e); border-color: #444; }
-.chapter-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(180, 167, 214, 0.2), transparent); transition: left 0.5s ease; z-index: 1; }
-body.dark-mode .chapter-card::before { background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent); }
+body.dark-mode .chapter-card {
+    background: linear-gradient(135deg, #24243e, #1a1a2e);
+    border-color: #444;
+}
+
+/* Sliding Hover Effect */
+.chapter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(180, 167, 214, 0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+body.dark-mode .chapter-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
 .chapter-card:hover::before { left: 100%; }
 .chapter-card:hover { transform: translateY(-8px); border-color: var(--accent-pink); box-shadow: 0 15px 30px rgba(180, 167, 214, 0.25); }
+
 .chapter-number { font-size: 0.9rem; color: var(--gold-accent); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
+/* CHANGED: Removed serif font from chapter title */
 .chapter-title { font-size: 1.5rem; font-weight: 700; color: #555; margin-bottom: 10px; font-family: inherit; position: relative; z-index: 2; }
 body.dark-mode .chapter-title { color: #fff; }
 .chapter-desc { font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; position: relative; z-index: 2; }
 body.dark-mode .chapter-desc { color: #aaa; }
 .chapter-date { font-size: 0.85rem; color: #999; font-style: italic; position: relative; z-index: 2; }
-.story-viewer { background: transparent; border-radius: 0; padding: 0; box-shadow: none; border: none; animation: fadeIn 0.5s ease; }
-.story-paper { background: #fffdf7; padding: 50px 60px; border-radius: 5px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 5px solid #e0e0e0; }
-body.dark-mode .story-paper { background: #1f1f2e; border-left: 5px solid #444; }
-.serif-text p { font-family: inherit; font-size: 1.1rem; line-height: 2; color: #333; margin-bottom: 25px; }
+
+/* Redesigned Story Viewer (Paper Look) */
+.story-viewer {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.story-paper {
+    background: #fffdf7; /* Old paper color */
+    padding: 50px 60px;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-left: 5px solid #e0e0e0; /* Binding look */
+}
+body.dark-mode .story-paper {
+    background: #1f1f2e;
+    border-left: 5px solid #444;
+}
+
+.serif-text p {
+    /* CHANGED: Removed serif font from paragraph text */
+    font-family: inherit;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #333;
+    margin-bottom: 25px;
+}
 body.dark-mode .serif-text p { color: #ccc; }
+
 .back-button { margin-bottom: 20px; padding: 10px 20px; border-radius: 20px; border: 2px solid var(--primary-cindy); background: white; color: var(--primary-cindy); cursor: pointer; font-weight: 600; transition: all 0.2s; }
 .back-button:hover { background: var(--primary-cindy); color: white; }
 body.dark-mode .back-button { background: transparent; }
 body.dark-mode .back-button:hover { background: var(--primary-cindy); }
 
+
 /* ==========================================================================
-   SWEET PHOTOBOOK SECTION (3D FLIPBOOK)
+   3D FLIPBOOK PHOTO ALBUM STYLES
    ========================================================================== */
+
 .photobook-scene {
     width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    perspective: 2000px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    perspective: 1500px;
-    padding: 20px 0;
 }
 
 .photobook-container {
-    width: 500px;
-    height: 400px;
+    width: 100%;
+    height: 500px;
     position: relative;
-    /* We are creating a "book" that opens. 
-       The right half is where pages stack. */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .photobook {
@@ -606,147 +684,158 @@ body.dark-mode .back-button:hover { background: var(--primary-cindy); }
     transform-style: preserve-3d;
 }
 
+/* Individual Book Page */
 .book-page {
-    width: 100%;
+    position: absolute;
+    top: 0;
+    /* In desktop, the book is open, so a page is half the container width. 
+       We center it initially. */
+    left: 50%;
+    width: 45%; 
     height: 100%;
+    background-color: #fff;
+    transform-origin: left center; /* Critical: Rotate from the spine (left) */
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.05), 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 0 10px 10px 0; /* Rounded outer corners */
+    display: flex; /* Helps align content */
+}
+
+/* Page Sides: Front and Back */
+.page-side {
     position: absolute;
     top: 0;
     left: 0;
-    transform-origin: left center;
-    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transform-style: preserve-3d;
-    cursor: pointer;
-}
-
-.book-page.flipped {
-    transform: rotateY(-180deg);
-}
-
-/* Front and Back of each page */
-.page-front, .page-back {
-    position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Hide back when front is visible */
-    border-radius: 5px 15px 15px 5px;
-    overflow: hidden;
-    background-color: #fffdf7; /* Paper color */
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.05), 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border: 1px solid #eee;
-}
-
-body.dark-mode .page-front, body.dark-mode .page-back {
-    background-color: #1f1f2e;
-    border-color: #444;
-}
-
-/* The Front side */
-.page-front {
-    z-index: 2;
-    transform: rotateY(0deg);
-}
-
-/* The Back side */
-.page-back {
-    z-index: 1;
-    transform: rotateY(180deg);
-    border-radius: 15px 5px 5px 15px; /* Mirrored radius */
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.05), -5px 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Content Styling inside pages */
-.page-content-wrapper {
-    width: 100%;
-    height: 100%;
+    backface-visibility: hidden; /* Hide the back when facing away */
+    padding: 30px;
+    background-color: #fdfbf7; /* Slight paper tint */
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    border: 1px dashed #ddd; /* Decoration inside paper */
-    border-radius: 10px;
-    padding: 15px;
+    overflow: hidden;
 }
-body.dark-mode .page-content-wrapper {
+
+/* The Front of the page */
+.page-front {
+    z-index: 2;
+    border-left: 2px solid rgba(0,0,0,0.05); /* Spine detail */
+}
+
+/* The Back of the page */
+.page-back {
+    z-index: 1;
+    transform: rotateY(180deg); /* Pre-rotate back side */
+    border-right: 2px solid rgba(0,0,0,0.05); /* Spine detail */
+    border-radius: 10px 0 0 10px; /* Invert radius for back side */
+}
+
+/* Dark Mode for Pages */
+body.dark-mode .page-side {
+    background-color: #2a2a35;
+    background-image: none;
     border-color: #444;
 }
 
-.album-photo {
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    border: 4px solid white;
+/* Flipped State: Rotate the whole page container -180deg */
+.book-page.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Z-Index Logic handled via JS mostly, but defaults here */
+.book-page:nth-child(1) { z-index: 10; }
+.book-page:nth-child(2) { z-index: 9; }
+.book-page:nth-child(3) { z-index: 8; }
+.book-page:nth-child(4) { z-index: 7; }
+
+/* --- POLAROID CONTENT STYLING --- */
+.polaroid-frame {
+    background: white;
+    padding: 15px 15px 45px 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transform: rotate(-2deg);
-}
-.page-back .album-photo {
-    transform: rotate(2deg);
-}
-
-.album-caption {
-    font-family: 'Zen Kurenaido', sans-serif;
-    font-size: 1.1rem;
-    color: #555;
-    font-weight: 600;
-}
-body.dark-mode .album-caption {
-    color: #ccc;
+    transition: transform 0.3s ease;
+    position: relative;
+    max-width: 90%;
+    max-height: 80%;
 }
 
-/* Cover Styling */
-.cover-page {
-    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-cindy) 100%);
-    color: white;
+.polaroid-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
 }
-.cover-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+
+.polaroid-img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover;
+    background: #eee;
+    display: block;
 }
-.cover-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
+
+/* Washi Tape Decoration */
+.washi-tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+    width: 80px;
+    height: 25px;
+    background: rgba(232, 180, 217, 0.7); /* Pink tape */
+    opacity: 0.8;
+    z-index: 5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.polaroid-caption {
+    font-family: 'Caveat', 'Zen Kurenaido', cursive;
+    font-size: 1.3rem;
+    color: #444;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    left: 0;
+}
+body.dark-mode .polaroid-caption { color: #333; } /* Keep dark on white polaroid */
+
+.page-date-stamp {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #aaa;
+    opacity: 0.7;
+    transform: rotate(-5deg);
 }
 
 /* Controls */
 .book-controls {
-    margin-top: 40px;
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-top: 10px;
 }
-.control-btn {
-    padding: 10px 25px;
-    border-radius: 30px;
-    border: none;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    font-weight: 600;
-    cursor: pointer;
-    color: #555;
-    transition: all 0.2s ease;
-}
-.control-btn:hover {
-    transform: translateY(-2px);
-    background: var(--primary-cindy);
-    color: white;
-}
-.book-hint {
-    font-size: 0.9rem;
-    color: #888;
-    font-style: italic;
-}
-body.dark-mode .book-hint { color: #aaa; }
-body.dark-mode .control-btn { background: #333; color: #ddd; }
-body.dark-mode .control-btn:hover { background: var(--primary-cindy); color: white; }
 
-/* Responsive Photobook */
+.control-btn {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.control-btn:hover { background: var(--accent-pink); color: white; border-color: transparent; }
+.book-hint { font-size: 0.9rem; color: #888; font-style: italic; }
+
+/* --- RESPONSIVE BOOK (MOBILE) --- */
 @media screen and (max-width: 1024px) {
     .container {
         width: 100%;
@@ -763,6 +852,27 @@ body.dark-mode .control-btn:hover { background: var(--primary-cindy); color: whi
 
 @media screen and (max-width: 768px) {
     /* ... (Keep existing mobile styles) ... */
+    
+    /* FLIPBOOK MOBILE OVERRIDES */
+    .photobook-container {
+        height: 400px;
+    }
+    
+    .book-page {
+        left: 0;
+        width: 100%; /* Full width on mobile */
+        border-radius: 10px; /* Rounded all corners */
+    }
+    
+    .page-back {
+        border-radius: 10px; /* Fix radius for back side on mobile */
+    }
+    
+    .polaroid-img {
+        height: 200px;
+    }
+    
+    /* ... (Rest of existing mobile styles) ... */
     
     /* Mobile Tweaks for New Storybook */
     .storybook-container-inner { padding: 40px 20px; border-radius: 20px; }
@@ -829,11 +939,6 @@ body.dark-mode .control-btn:hover { background: var(--primary-cindy); color: whi
     .mascot-side .single-heart::before, .mascot-side .single-heart::after { width: 25px; height: 25px; }
     .mascot-side .single-heart::before { top: -12.5px; }
     .mascot-side .single-heart::after { left: 12.5px; }
-
-    /* Photobook Mobile */
-    .photobook-container { width: 100%; height: 350px; }
-    .cover-title { font-size: 1.8rem; }
-    .album-photo { max-height: 150px; }
 }
 
 @media screen and (max-width: 480px) {
