@@ -37,15 +37,6 @@
                 </div>
                 <div class="story-label">シンディ</div>
             </div>
-
-            <!-- <div class="story-item" onclick="switchTopTabAndScroll('top-tab-relationship')">
-                <div class="story-ring">
-                    <div class="story-img-container">
-                        <img src="img/HeartBeat.png" alt="關係">
-                    </div>
-                </div>
-                <div class="story-label">關係</div>
-            </div> -->
                                                                                                          
             <div class="story-item" onclick="switchTabAndScroll('interview-zone')">
                 <div class="story-ring">
@@ -306,19 +297,16 @@
   <div class="interview-section tab-section active" id="interview-zone" aria-labelledby="interview-title">
     <div class="interview-title" id="interview-title">甜蜜訪談室 · Sweet Interview</div>
     <div class="interview-scene">
-      <!-- 主持人 -->
       <div class="host-box" role="group" aria-label="主持人提問">
         <span class="host-icon" aria-hidden="true">🎤</span>
         <span>主持人：請問，シンデイ，妳對黑尾學長的第一印象是什麼呢？</span>
       </div>
 
-      <!-- 敘事動作 -->
       <div class="narrative-action">*聽到這個問題，シンデイ的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起……那矯健的身姿與自信的笑容，像一道光，瞬間照亮了她的世界。從那之後，她的視線再也無法從他身上移開。*</div>
      <div class="inner-monologue">
           <span class="inner-label">シンデイ內心獨白（OS）</span>
           「糟糕……學長一定知道我那時候都在偷看他。要怎麼回答才自然一點，不會太笨呢……」
         </div>
-      <!-- 對話 -->
       <div class="dialogue-wrapper" role="dialog" aria-label="訪談對話">
         <div class="char-avatar-small">
           <img src="img/CindyQQ(Transparent).png" alt="Cindy 的頭像" />
@@ -334,7 +322,6 @@
         </div>
       </div>
        <div class="narrative-action">*她一股腦把腦海中浮現的形容詞全都說了出來，語氣急促，臉上的熱度持續升高。*</div>
-      <!-- 黑尾內心 -->
       <div class="inner-monologue">
         <span class="inner-label">黑尾內心獨白（OS）</span>
         「噗嗤，這小傢伙。我還以為她會來一段驚天動地、肉麻到讓我起雞皮疙瘩的告白呢。不過『很帥氣、很有活力、更加有魅力』嗎……看來我在她心裡的分數一直很高。嗯，不錯。」
@@ -528,57 +515,80 @@
 
             <div class="photo-section tab-section" id="photo-zone">
                 <div class="interview-title">甜蜜相冊 · Sweet Album</div>
-                <div class="photo-gallery">
-                    <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/Kuroo_profile.JPEG" alt="帥氣的黑尾">
-                             <div class="photo-caption">帥氣的黑尾學長</div>
-                         </div>
-                    </div>
-                    <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/Cindy_profile.JPG" alt="可愛的Cindy">
-                             <div class="photo-caption">可愛的Cindy</div>
-                         </div>
-                    </div>
-                    <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/Sandwich.PNG" alt="可愛的Cindy">
-                             <div class="photo-caption">Sandwich Memory</div>
-                         </div>
-                    </div>
+                
+                <div class="photo-book-wrapper">
+                    <div class="book-container" id="scrapbook">
+                        <div class="book-page" style="z-index: 4;">
+                            <div class="page-front cover-page">
+                                <div class="cover-content">
+                                    <h2>Our Memories</h2>
+                                    <div class="cover-img">
+                                        <img src="img/C&KQQ.png" alt="Cover" onerror="this.src='img/Kuroo_profile.JPEG'">
+                                    </div>
+                                    <p>黒尾鉄朗 × シンディ</p>
+                                    <span class="tap-hint">(Click to Open)</span>
+                                </div>
+                            </div>
+                            <div class="page-back">
+                                <div class="scrap-photo" onclick="openLightbox(this)">
+                                    <div class="tape"></div>
+                                    <img src="img/Kuroo_profile.JPEG" alt="Handsome Kuroo">
+                                    <div class="caption">認真的主將 ✨</div>
+                                </div>
+                                <div class="scrap-photo" onclick="openLightbox(this)">
+                                    <div class="tape"></div>
+                                    <img src="img/Cindy_profile.JPG" alt="Cindy">
+                                    <div class="caption">偷看的視線 👀</div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="book-page" style="z-index: 3;">
+                            <div class="page-front">
+                                <div class="scrap-photo full-page" onclick="openLightbox(this)">
+                                    <div class="tape-corner"></div>
+                                    <img src="img/Sandwich.PNG" alt="Sandwich">
+                                    <div class="caption">那天的三明治回憶 🥪</div>
+                                </div>
+                            </div>
+                            <div class="page-back">
+                                <div class="scrap-text-area">
+                                    <h3>School Days</h3>
+                                    <p>體育館的擦鞋聲，<br>還有空氣中止汗劑的味道。</p>
+                                </div>
+                                <div class="scrap-photo" onclick="openLightbox(this)">
+                                    <div class="tape"></div>
+                                    <img src="img/Kuroo(student).png" alt="ID Card">
+                                    <div class="caption">三年五組 黒尾</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-page" style="z-index: 2;">
+                            <div class="page-front">
+                                <div class="scrap-photo" onclick="openLightbox(this)">
+                                    <div class="tape"></div>
+                                    <img src="img/Cindy(student).png" alt="ID Card">
+                                    <div class="caption">二年三組 Cindy</div>
+                                </div>
+                                <div class="sticker-deco">🌸</div>
+                                <div class="scrap-photo" onclick="openLightbox(this)">
+                                    <div class="tape"></div>
+                                    <img src="img/KurooAQQ(Transparent).png" alt="Cat">
+                                    <div class="caption">像貓一樣的人</div>
+                                </div>
+                            </div>
+                            <div class="page-back last-page">
+                                <h3>To Be Continued...</h3>
+                                <div class="heart-end">❤</div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <!-- <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/Kuroo(student).png" alt="學生證">
-                             <div class="photo-caption">學生證 - 黑尾</div>
-                         </div>
+                    <div class="book-controls">
+                        <button class="book-btn" onclick="turnPage(-1)">← Prev</button>
+                        <button class="book-btn" onclick="turnPage(1)">Next →</button>
                     </div>
-                    <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/Cindy(student).png" alt="學生證">
-                             <div class="photo-caption">學生證 - Cindy</div>
-                         </div>
-                    </div>
-                     <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/C&KQQ.png" alt="甜蜜合照">
-                             <div class="photo-caption">甜蜜Q版合照</div>
-                         </div>
-                    </div>
-                     <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/KurooAQQ(Transparent).png" alt="Mascot">
-                             <div class="photo-caption">吉祥物 - 黑貓</div>
-                         </div>
-                    </div> -->
-                     <!-- <div class="photo-item">
-                         <div class="photo-frame">
-                             <img src="img/CindyAQQ(Transparent).png" alt="Mascot">
-                             <div class="photo-caption">吉祥物 - 紫貓</div>
-                         </div>
-                    </div> -->
                 </div>
             </div>
 
@@ -598,6 +608,13 @@
             </div>
         </div>
     </div>
+
+    <div id="photoLightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div id="lightboxCaption"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
