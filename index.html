@@ -6,6 +6,7 @@
     <title>黒尾鉄朗 × シンディ | 我們的專屬空間</title>
     
     <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Zen+Kurenaido&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -37,6 +38,7 @@
                 </div>
                 <div class="story-label">シンディ</div>
             </div>
+
 
             <div class="story-item" onclick="switchTabAndScroll('interview-zone')">
                 <div class="story-ring">
@@ -84,12 +86,133 @@
         </div>
     </div>
 
-    <div class="title-section">
-        <h1>黒尾鉄朗 × シンディ</h1>
-    </div>
+
 
     <div class="container">
         
+        <div class="profile-section-main" id="profile-zone">
+            
+            <div class="profile-container-glass" style="margin-bottom: 50px;">
+                
+                <div class="profile-header-center">
+                    <div class="profile-avatar-wrapper">
+                        <div class="profile-avatar-ring"></div>
+                        <div class="profile-avatar-img">
+                            <img src="img/Cindy_profile.JPG" alt="Cindy">
+                        </div>
+                    </div>
+                    <h2 class="profile-username">シンディ (Cindy)</h2>
+                    <p class="profile-bio">
+                        「我的愛溢出就像雨水。」<br>
+                        HK/成人済み/一途嫁<br>
+                        熱愛懸疑恐怖推理腦電波交友<br>
+                        歡迎跟我討論我吃的cp
+                    </p>
+                </div>
+
+                <div class="profile-links-list">
+                    <a href="#" class="profile-link-card">
+                        <div class="link-icon instagram"><i class="fab fa-instagram"></i></div>
+                        <div class="link-content">
+                            <div class="link-title">Instagram</div>
+                            <div class="link-subtitle">Follow my daily moments</div>
+                        </div>
+                    </a>
+                    <a href="#" class="profile-link-card">
+                        <div class="link-icon twitter"><i class="fab fa-twitter"></i></div>
+                        <div class="link-content">
+                            <div class="link-title">Twitter</div>
+                            <div class="link-subtitle">Latest updates & thoughts</div>
+                        </div>
+                    </a>
+                    <a href="#" class="profile-link-card">
+                        <div class="link-icon youtube"><i class="fab fa-youtube"></i></div>
+                        <div class="link-content">
+                            <div class="link-title">YouTube</div>
+                            <div class="link-subtitle">Watch my videos</div>
+                        </div>
+                    </a>
+                     <a href="#" class="profile-link-card">
+                        <div class="link-icon tiktok"><i class="fab fa-tiktok"></i></div>
+                        <div class="link-content">
+                            <div class="link-title">TikTok</div>
+                            <div class="link-subtitle">Short videos & fun</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interests-container">
+                    <div class="category-card-styled">
+                        <div class="category-header-styled" onclick="toggleCategory(this)">
+                            <span><i class="fas fa-tv"></i> 主要作品</span>
+                            <i class="fas fa-chevron-down category-icon"></i>
+                        </div>
+                        <div class="category-content-styled">
+                            <div class="tags-container-styled">
+                                <span class="tag-styled">僕のヒーローアカデミア</span>
+                                <span class="tag-styled">あんさんぶるスターズ</span>
+                                <span class="tag-styled">名探偵コナン</span>
+                                <span class="tag-styled">斉木楠雄のΨ難</span>
+                                <span class="tag-styled">葬送のフリーレン</span>
+                                <span class="tag-styled">ジョジョの奇妙な冒険</span>
+                                <span class="tag-styled">デスノート</span>
+                                <span class="tag-styled">新世紀エヴァンゲリオン</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card-styled">
+                        <div class="category-header-styled" onclick="toggleCategory(this)">
+                            <span><i class="fas fa-heart"></i> 推しキャラ</span>
+                            <i class="fas fa-chevron-down category-icon"></i>
+                        </div>
+                        <div class="category-content-styled">
+                            <div class="tags-container-styled">
+                                <span class="tag-styled">耳郎響香</span>
+                                <span class="tag-styled">上鳴電気</span>
+                                <span class="tag-styled">影片みか</span>
+                                <span class="tag-styled">漣ジュン</span>
+                                <span class="tag-styled">服部平次</span>
+                                <span class="tag-styled">工藤新一</span>
+                                <span class="tag-styled">海藤瞬</span>
+                                <span class="tag-styled">シュタルク</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="category-card-styled">
+                        <div class="category-header-styled" onclick="toggleCategory(this)">
+                            <span><i class="fas fa-music"></i> 音楽 & エンタメ</span>
+                            <i class="fas fa-chevron-down category-icon"></i>
+                        </div>
+                        <div class="category-content-styled">
+                            <div class="tags-container-styled">
+                                <span class="tag-styled">JPOP</span>
+                                <span class="tag-styled">VOCALOID</span>
+                                <span class="tag-styled">菅田将暉</span>
+                                <span class="tag-styled">綾野剛</span>
+                                <span class="tag-styled">佐藤健</span>
+                                <span class="tag-styled">岡本信彦</span>
+                                <span class="tag-styled">內田雄馬</span>
+                                <span class="tag-styled">山田涼介</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-social-footer">
+                     <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="title-section">
+        <h1>黒尾鉄朗 × シンディ</h1>
+       </div>
         <div class="character-pair-container">
             <div class="character-column">
                 <div class="flip-card-container" id="kuroo-container">
@@ -212,8 +335,8 @@
                 <div class="music-track cindy-track">
                     <div class="play-btn">▶</div>
                     <div class="track-info">
-                        <div class="track-title">Theme: 恋に恋して</div>
-                        <div class="track-artist">倉木麻衣</div>
+                        <div class="track-title">Theme: Blooming Shyly</div>
+                        <div class="track-artist">Garden Club</div>
                     </div>
                     <div class="waveform"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
                 </div>
@@ -528,5 +651,26 @@
         </div>
     </div>
     <script src="script.js"></script>
+    
+    <script>
+    function toggleCategory(header) {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('.category-icon');
+        const isActive = content.classList.contains('active');
+        
+        document.querySelectorAll('.category-content-styled').forEach(c => {
+            c.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.category-icon').forEach(i => {
+            i.style.transform = 'rotate(0deg)';
+        });
+        
+        if (!isActive) {
+            content.classList.add('active');
+            icon.style.transform = 'rotate(180deg)';
+        }
+    }
+    </script>
 </body>
 </html>

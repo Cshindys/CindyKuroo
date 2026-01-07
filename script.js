@@ -176,7 +176,7 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary Data (UPDATED)
+// Gardening Diary Data
 const gardenEntries = [
     {
         id: 'g1',
@@ -329,23 +329,34 @@ function switchTopTab(tabId) {
 }
 
 function toggleTab(tabId) {
+    // 1. Hide all tab sections
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
     });
+    
+    // 2. Reset bottom filter buttons
     document.querySelectorAll('#filter-bar-anchor .filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    document.getElementById(tabId).classList.add('active');
+
+    // 3. Show the target tab
+    const target = document.getElementById(tabId);
+    if(target) {
+        target.classList.add('active');
+    }
     
+    // 4. Highlight button if it exists in the bottom bar
     const btnMap = {
         'interview-zone': 'btn-interview',
         'storybook-zone': 'btn-storybook',
         'timeline-zone': 'btn-timeline',
         'photo-zone': 'btn-photo',
-        'garden-zone': 'btn-garden'
+        'garden-zone': 'btn-garden',
+        'profile-zone': 'btn-profile' // Added profile button mapping
     };
     if (btnMap[tabId]) {
-        document.getElementById(btnMap[tabId]).classList.add('active');
+        const btn = document.getElementById(btnMap[tabId]);
+        if(btn) btn.classList.add('active');
     }
 }
 
