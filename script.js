@@ -366,12 +366,8 @@ function toggleTab(tabId) {
         document.getElementById(btnMap[tabId]).classList.add('active');
     }
     
-    // Special check for photobook: if opening photo tab, refresh book layout if needed
-    if (tabId === 'photo-zone') {
-        // Optional: Reset book to start if you want
-        // currentLocation = 1;
-        // initPhotobook();
-    }
+    // Special check for photobook: if opening photo tab, we can refresh
+    // layout if needed, but usually not required with CSS.
 }
 
 // Helper to switch top tab and scroll
@@ -551,16 +547,11 @@ let maxLocation = 0;
 
 function initPhotobook() {
     const book = document.getElementById('book');
-    if (!book) return; // Guard clause if element doesn't exist
+    if (!book) return; 
     
-    book.innerHTML = ''; // Clear existing content
+    book.innerHTML = ''; 
 
-    // Logic: Each "Paper" has a Front and Back.
-    // Paper 1 Front = Cover
-    // Paper 1 Back = Page 1
-    // Paper 2 Front = Page 2
-    // Paper 2 Back = Page 3 ...
-    
+    // Calculate total papers needed
     const paperCount = Math.ceil(bookData.length / 2);
     numOfPapers = paperCount;
     maxLocation = numOfPapers + 1;
@@ -571,44 +562,37 @@ function initPhotobook() {
         const paper = document.createElement('div');
         paper.className = 'paper';
         paper.id = `p${i}`;
-        // Z-index calculation: Earlier pages (like cover) start on top
-        paper.style.zIndex = paperCount - i + 1; 
         
-        // --- Create Front Face ---
+        // --- Z-INDEX INITIALIZATION ---
+        // Stack order for Right Side: 
+        // Page 1 (i=1) must have highest z-index.
+        // Page 2 (i=2) has lower, etc.
+        paper.style.zIndex = numOfPapers - i + 1; 
+        
+        // Create Front Face
         const front = document.createElement('div');
         front.className = 'front';
-        
         const frontData = bookData[dataIndex];
         front.innerHTML = generatePageContent(frontData);
-        
-        // --- Add 'cover' class if it is the very first page front ---
         if(i === 1) front.classList.add('cover');
-        
         dataIndex++;
 
-        // --- Create Back Face ---
+        // Create Back Face
         const back = document.createElement('div');
         back.className = 'back';
-        
         if (dataIndex < bookData.length) {
             const backData = bookData[dataIndex];
             back.innerHTML = generatePageContent(backData);
-            
-            // Add back cover class if it's the last item
             if(backData.type === 'back-cover') back.classList.add('cover-back');
-            
             dataIndex++;
         } else {
-            // Empty end page if odd number of items
             back.innerHTML = `<div class="page-content"><div class="book-caption">The End</div></div>`;
         }
 
         paper.appendChild(front);
         paper.appendChild(back);
         
-        // Add click event to flip
         paper.addEventListener('click', () => togglePage(i));
-        
         book.appendChild(paper);
     }
 }
@@ -659,6 +643,13 @@ function openBookPage(paperNum) {
     const paper = document.getElementById(`p${paperNum}`);
     if(paper) {
         paper.classList.add('flipped');
+        
+        // --- Z-INDEX UPDATE FOR LEFT SIDE ---
+        // When flipped to Left, Higher page numbers must be ON TOP.
+        // So we set z-index to match the page number.
+        // p1 (z1) < p2 (z2) < p3 (z3)
+        paper.style.zIndex = paperNum;
+        
         currentLocation++;
     }
 }
@@ -667,6 +658,12 @@ function closeBookPage(paperNum) {
     const paper = document.getElementById(`p${paperNum}`);
     if(paper) {
         paper.classList.remove('flipped');
+        
+        // --- Z-INDEX RESTORE FOR RIGHT SIDE ---
+        // When flipping back to Right, Lower page numbers must be ON TOP.
+        // We restore original math: max - num + 1.
+        paper.style.zIndex = numOfPapers - paperNum + 1;
+        
         currentLocation--;
     }
 }
