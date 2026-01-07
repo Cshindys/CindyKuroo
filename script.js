@@ -4,8 +4,6 @@
 
 /**
  * 1. PHOTOBOOK DATA
- * Add your photos here. 
- * 'tapeColor' determines the color of the tape on the polaroid.
  */
 const albumData = [
     {
@@ -36,7 +34,6 @@ const albumData = [
 
 /**
  * 2. STORYBOOK DATA
- * The content for "我們的故事書" (Our Storybook)
  */
 const storyChapters = [
     {
@@ -80,7 +77,6 @@ const storyChapters = [
 
 /**
  * 3. GARDEN DATA
- * The content for "園藝社日誌"
  */
 const gardenEntries = [
     {
@@ -108,7 +104,6 @@ const gardenEntries = [
 
 /**
  * 4. TIMELINE EVENT DETAILS
- * Content for the Modal when clicking "Read Full Story"
  */
 const timelineDetails = {
     'event1': {
@@ -163,13 +158,12 @@ function scrollToId(id) {
     }
 }
 
-// 2. Main Tab Switching (Interview, Storybook, etc.)
+// 2. Main Tab Switching
 function switchTabAndScroll(tabId) {
     toggleTab(tabId);
     setTimeout(() => {
         const element = document.getElementById(tabId);
         if (element) {
-            // Mobile adjustment: Scroll a bit higher to account for sticky header
             const yOffset = -100; 
             const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
             window.scrollTo({top: y, behavior: 'smooth'});
@@ -178,64 +172,56 @@ function switchTabAndScroll(tabId) {
 }
 
 function toggleTab(tabId) {
-    // Hide all sections
+    // Hide all sections first
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
+        // Hide display after fade out animation (approx 0.5s)
         setTimeout(() => {
             if(!section.classList.contains('active')) section.style.display = 'none';
-        }, 500); // Wait for fade out
+        }, 500);
     });
     
-    // Deactivate all buttons
+    // Deactivate buttons
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
 
-    // Handle button activation
+    // Activate Button
     let btnId = '';
     if(tabId === 'interview-zone') btnId = 'btn-interview';
     if(tabId === 'storybook-zone') btnId = 'btn-storybook';
     if(tabId === 'timeline-zone') btnId = 'btn-timeline';
     if(tabId === 'photo-zone') btnId = 'btn-photo';
     if(tabId === 'garden-zone') btnId = 'btn-garden';
-    
     const activeBtn = document.getElementById(btnId);
     if(activeBtn) activeBtn.classList.add('active');
 
-    // Show selected section immediately for responsiveness, then fade in
+    // Show selected section
     const activeSection = document.getElementById(tabId);
     if(activeSection) {
         activeSection.style.display = 'block';
-        // Small delay to allow display:block to apply before adding opacity class
         requestAnimationFrame(() => {
             activeSection.classList.add('active');
         });
         
-        // Init section specific logic
+        // RE-RENDER CONTENT: Key fix ensures content always loads
         if (tabId === 'photo-zone') initPhotobook();
         if (tabId === 'storybook-zone') renderChapterGrid();
         if (tabId === 'garden-zone') renderGarden();
     }
 }
 
-// 3. Top Section Tab Switching (Video vs Relationship)
+// 3. Top Section Tab Switching
 function switchTopTab(tabId) {
-    // Hide all top contents
-    document.querySelectorAll('.top-tab-content').forEach(content => {
-        content.classList.remove('active');
-    });
-
-    // Deactivate top buttons
+    document.querySelectorAll('.top-tab-content').forEach(content => content.classList.remove('active'));
     document.getElementById('btn-top-video').classList.remove('active');
     document.getElementById('btn-top-relationship').classList.remove('active');
 
-    // Activate selected
     document.getElementById(tabId).classList.add('active');
     
-    // Activate button style
     if(tabId === 'top-tab-video') document.getElementById('btn-top-video').classList.add('active');
     if(tabId === 'top-tab-relationship') document.getElementById('btn-top-relationship').classList.add('active');
 }
 
-// 4. Dark Mode & Scroll Button Visibility
+// 4. Dark Mode
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const icon = document.getElementById('darkModeIcon');
@@ -271,13 +257,17 @@ function initPhotobook() {
         pageElement.style.zIndex = albumData.length - pageIndex;
 
         const frontData = albumData[i];
-        const backData = albumData[i + 1] ? albumData[i + 1] : { image: '', caption: 'To Be Continued...', date: '', tapeColor: 'transparent' };
+        // Handle odd number of photos
+        const backData = albumData[i + 1] ? albumData[i + 1] : { image: null, caption: 'End of Album', date: '', tapeColor: 'transparent' };
 
+        // Generate HTML with onerror placeholder
+        const placeholder = 'https://placehold.co/300x250/pink/white?text=Memory';
+        
         pageElement.innerHTML = `
             <div class="page-side page-front">
                 <div class="polaroid-frame">
                     <div class="washi-tape" style="background: ${frontData.tapeColor}"></div>
-                    <img src="${frontData.image}" alt="Memory" class="polaroid-img" onerror="this.src='https://placehold.co/300x250/pink/white?text=Love+Memory'">
+                    <img src="${frontData.image}" alt="Memory" class="polaroid-img" onerror="this.src='${placeholder}'">
                     <div class="polaroid-caption">${frontData.caption}</div>
                 </div>
                 <div class="page-date-stamp">${frontData.date}</div>
@@ -285,14 +275,17 @@ function initPhotobook() {
             <div class="page-side page-back">
                 <div class="polaroid-frame">
                     <div class="washi-tape" style="background: ${backData.tapeColor}"></div>
-                    ${backData.image ? `<img src="${backData.image}" alt="Memory" class="polaroid-img" onerror="this.src='https://placehold.co/300x250/pink/white?text=Love+Memory'">` : '<div style="height:250px; display:flex; align-items:center; justify-content:center; color:#ccc;">End of Album</div>'}
+                    ${backData.image ? 
+                        `<img src="${backData.image}" alt="Memory" class="polaroid-img" onerror="this.src='${placeholder}'">` : 
+                        `<div style="height:250px; display:flex; align-items:center; justify-content:center; color:#ccc;">The End</div>`
+                    }
                     <div class="polaroid-caption">${backData.caption}</div>
                 </div>
                 <div class="page-date-stamp">${backData.date}</div>
             </div>
         `;
         
-        // Click to flip logic
+        // Flip logic on click
         pageElement.onclick = () => {
             if (pageIndex === currentPhotoPage) {
                 nextPage();
@@ -311,10 +304,10 @@ function nextPage() {
         const pageToFlip = document.getElementById(`page-${currentPhotoPage}`);
         if(pageToFlip) {
             pageToFlip.classList.add('flipped');
-            // Z-index trick: after flip, move it down in stack so we can click the previous page if needed
+            // Z-index trick: after flip, move it down in stack
             setTimeout(() => {
                 pageToFlip.style.zIndex = currentPhotoPage; 
-            }, 400); // half of css transition time
+            }, 400); 
             currentPhotoPage++;
         }
     }
@@ -333,13 +326,16 @@ function prevPage() {
 }
 
 /* ==========================================================================
-   FEATURE: STORYBOOK READER
+   FEATURE: STORYBOOK READER (FIXED)
    ========================================================================== */
 let currentChapterIndex = 0;
 
 function renderChapterGrid() {
     const container = document.getElementById('chapters-container');
-    if (!container || container.children.length > 0) return; // Prevent re-rendering if exists
+    if (!container) return;
+
+    // FIX: Always clear and redraw to prevent "empty" state issues
+    container.innerHTML = ""; 
 
     container.innerHTML = storyChapters.map((chapter, index) => `
         <div class="chapter-card" onclick="openChapterReader(${index})">
@@ -356,7 +352,6 @@ function openChapterReader(index) {
     document.getElementById('chapters-grid-view').style.display = 'none';
     document.getElementById('story-reader-view').style.display = 'block';
     loadChapterContent(index);
-    // Scroll to top of reader
     document.getElementById('storybook-zone').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -371,7 +366,6 @@ function loadChapterContent(index) {
     document.getElementById('reader-date').innerText = chapter.date;
     document.getElementById('reader-content').innerHTML = chapter.content;
     
-    // Update navigation buttons
     document.getElementById('reader-progress').innerText = `${index + 1} / ${storyChapters.length}`;
     document.getElementById('reader-prev-btn').disabled = index === 0;
     document.getElementById('reader-next-btn').disabled = index === storyChapters.length - 1;
@@ -392,7 +386,6 @@ function setupTimelineEvents() {
     document.querySelectorAll('.timeline-event .read-story-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            // Find parent to get data-event ID
             const eventItem = this.closest('.timeline-event');
             const eventId = eventItem.getAttribute('data-event');
             openModal(eventId);
@@ -416,7 +409,7 @@ function openModal(eventId) {
     
     const modal = document.getElementById('eventModal');
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
+    document.body.style.overflow = 'hidden'; 
 }
 
 function closeModal() {
@@ -425,11 +418,8 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// Close modal when clicking outside content
 document.getElementById('eventModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeModal();
-    }
+    if (e.target === this) closeModal();
 });
 
 /* ==========================================================================
@@ -437,7 +427,10 @@ document.getElementById('eventModal').addEventListener('click', function(e) {
    ========================================================================== */
 function renderGarden() {
     const container = document.getElementById('garden-container');
-    if (!container || container.children.length > 0) return;
+    if (!container) return;
+
+    // Fix: Always clear and redraw
+    container.innerHTML = "";
 
     container.innerHTML = gardenEntries.map(entry => `
         <div class="garden-card">
@@ -458,16 +451,14 @@ function renderGarden() {
    INITIALIZATION
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Start at Interview Zone
-    toggleTab('interview-zone');
-    
-    // 2. Setup Timeline Buttons
+    // 1. Setup Timeline
     setupTimelineEvents();
     
-    // 3. Pre-load Photobook (optional, but good for data setup)
+    // 2. Pre-load Content
     initPhotobook();
-    
-    // 4. Pre-load other sections data so they are ready
     renderGarden();
     renderChapterGrid();
+
+    // 3. Start at Interview
+    toggleTab('interview-zone');
 });
