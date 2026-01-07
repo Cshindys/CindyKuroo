@@ -284,21 +284,50 @@
             </button>
         </div>
 
-        <div class="tab-content-wrapper">
-            <div class="interview-section tab-section active" id="interview-zone">
-                <div class="interview-title">甜蜜訪談室 · Sweet Interview</div>
-                <div class="interview-scene"> 
-                    <div class="host-box"><span class="host-icon">🎤</span><span>主持人 : 請問シンデイ，妳對黑尾學長的第一印象是？</span></div>
-                    <div class="narrative-action">*聽到這個問題，シンデイ的臉頰瞬間爆紅，腦海裡立刻浮現出夕陽西下的排球館，汗水淋漓的少年在球網前高高躍起，...那矯健的身姿和自信的笑容，像一道光，瞬間照亮了她的整個世界。從那以後，她的視線就再也無法從他身上移開。*</div>
-                    <div class="dialogue-wrapper">
-                        <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png" alt="Cindy"></div>
-                        <div class="inner-monologue"><span class="inner-label">シンデイ內心獨白 (OS)</span>「糟糕，學長一定知道我那時候都在偷看他……要怎麼回答才能顯得自然一點，不會太笨呢……」</div
-                        <div class="dialogue-bubble cindy-style">「我、我對學長的第一印象……是、是個...非常帥氣...而且很有活力的學長！」</div>
-                        <div class="dialogue-bubble cindy-style">「在排球場上的時候……學長簡直、簡直像變了一個人……不對！我是說、我是說學長本來就很帥氣了，只是在排球場上更、更有魅力了……」</div>
-                         <div class="narrative-action">*她一股腦地把腦海中浮現出的形容詞都吐了出來，語氣急促，臉上的熱度也持續升高。*</div>
-                    </div>
-                    <div class="inner-monologue"><span class="inner-label">黑尾內心獨白 (OS)</span>「噗嗤，這小傢伙。我還以為她會說出什麼驚天動地、肉麻到讓我起雞皮疙瘩的告白呢。不過『很帥氣、很有活力、更有魅力』嗎……看來我在她心裡的分數一直很高啊。嗯，不錯不錯。」</div>
-                </div>
+
+<div class="tab-content-wrapper">
+  <div class="interview-section tab-section active" id="interview-zone" aria-labelledby="interview-title">
+    <div class="interview-title" id="interview-title">甜蜜訪談室 · Sweet Interview</div>
+
+    <div class="interview-scene">
+      <!-- 主持人 -->
+      <div class="host-box" role="group" aria-label="主持人提問">
+        <span class="host-icon" aria-hidden="true">🎤</span>
+        <span>主持人：請問，シンデイ，妳對黑尾學長的第一印象是什麼呢？</span>
+      </div>
+
+      <!-- 敘事動作 -->
+      <div class="narrative-action">*聽到這個問題，シンデイ的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起……那矯健的身姿與自信的笑容，像一道光，瞬間照亮了她的世界。從那之後，她的視線再也無法從他身上移開。*</div>
+
+      <!-- 對話 -->
+      <div class="dialogue-wrapper" role="dialog" aria-label="訪談對話">
+        <div class="char-avatar-small">
+          <img src="img/CindyQQ(Transparent).png" alt="Cindy 的頭像" />
+        </div>
+
+        <div class="inner-monologue">
+          <span class="inner-label">シンデイ內心獨白（OS）</span>
+          「糟糕……學長一定知道我那時候都在偷看他。要怎麼回答才自然一點，不會太笨呢……」
+        </div>
+
+        <div class="dialogue-bubble cindy-style">「我、我對學長的第一印象……是、是個非常帥氣，而且很有活力的學長！」</div>
+
+        <div class="dialogue-bubble cindy-style">
+          「在排球場上的時候……學長簡直像變了一個人——不對！我的意思是，學長本來就很帥，只是在排球場上更、有、魅力了……」
+        </div>
+
+        <div class="narrative-action">*她一股腦把腦海中浮現的形容詞全都說了出來，語氣急促，臉上的熱度持續升高。*</div>
+      </div>
+
+      <!-- 黑尾內心 -->
+      <div class="inner-monologue">
+        <span class="inner-label">黑尾內心獨白（OS）</span>
+        「噗嗤，這小傢伙。我還以為她會來一段驚天動地、肉麻到讓我起雞皮疙瘩的告白呢。不過『很帥氣、很有活力、更加有魅力』嗎……看來我在她心裡的分數一直很高。嗯，不錯。」
+      </div>
+    </div>
+  </div>
+</div>
+
                 <div class="interview-scene">
                     <div class="host-box"><span class="host-icon">🎤</span><span>主持人 : 那麼黑尾君，你對シンデイ的第一印象呢？</span></div>
                     <div class="dialogue-wrapper right">
