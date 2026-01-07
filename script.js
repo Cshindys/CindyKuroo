@@ -315,22 +315,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --- TAB FUNCTIONS --- */
-
-// Top Filter (Video vs Relationship)
 function switchTopTab(tabId) {
-    // 1. Hide all top tab contents
     document.querySelectorAll('.top-tab-content').forEach(content => {
         content.classList.remove('active');
     });
-
-    // 2. Remove active class from buttons
     document.getElementById('btn-top-video').classList.remove('active');
     document.getElementById('btn-top-relationship').classList.remove('active');
-
-    // 3. Activate selected content
     document.getElementById(tabId).classList.add('active');
-
-    // 4. Activate selected button
     if (tabId === 'top-tab-video') {
         document.getElementById('btn-top-video').classList.add('active');
     } else {
@@ -338,22 +329,15 @@ function switchTopTab(tabId) {
     }
 }
 
-// Main Filter (Interview, Storybook, etc)
 function toggleTab(tabId) {
-    // 1. Hide all tab sections
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
     });
-
-    // 2. Deactivate all buttons
     document.querySelectorAll('#filter-bar-anchor .filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-
-    // 3. Activate target section
     document.getElementById(tabId).classList.add('active');
-
-    // 4. Activate target button (Mapping IDs)
+    
     const btnMap = {
         'interview-zone': 'btn-interview',
         'storybook-zone': 'btn-storybook',
@@ -361,22 +345,16 @@ function toggleTab(tabId) {
         'photo-zone': 'btn-photo',
         'garden-zone': 'btn-garden'
     };
-    
     if (btnMap[tabId]) {
         document.getElementById(btnMap[tabId]).classList.add('active');
     }
-    
-    // Special check for photobook: if opening photo tab, we can refresh
-    // layout if needed, but usually not required with CSS.
 }
 
-// Helper to switch top tab and scroll
 function switchTopTabAndScroll(tabId) {
     switchTopTab(tabId);
     scrollToId('top-filter-anchor');
 }
 
-// Helper to switch main tab and scroll
 function switchTabAndScroll(tabId) {
     toggleTab(tabId);
     scrollToId('filter-bar-anchor');
@@ -410,21 +388,16 @@ function updateDarkModeIcon() {
 }
 
 /* --- MODAL FUNCTIONS --- */
-
-// Original function for Events
 function openModal(eventId) {
     const data = eventStories[eventId];
     if (!data) return;
-
     fillModalContent(data.title, data.date, data.content, "~ End of Memory ~");
 }
 
-// New function for Garden Entries
 function openGardenModal(entryData) {
     fillModalContent(entryData.title, entryData.date, entryData.content, "~ Garden Log End ~");
 }
 
-// Helper to fill modal DOM
 function fillModalContent(title, date, content, footerText) {
     const modalBody = document.getElementById('modalBody');
     modalBody.innerHTML = `
@@ -435,7 +408,6 @@ function fillModalContent(title, date, content, footerText) {
         ${content}
         <div class="story-timestamp">${footerText}</div>
     `;
-
     document.getElementById('eventModal').classList.add('active');
 }
 
@@ -443,7 +415,6 @@ function closeModal() {
     document.getElementById('eventModal').classList.remove('active');
 }
 
-// Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('eventModal');
     if (event.target === modal) {
@@ -458,12 +429,10 @@ function renderChapters() {
     const container = document.getElementById('chapters-container');
     if(!container) return; 
     container.innerHTML = '';
-
     storyChapters.forEach((chapter, index) => {
         const card = document.createElement('div');
         card.className = 'chapter-card';
         card.onclick = () => openChapter(index);
-        
         card.innerHTML = `
             <div class="chapter-number">Chapter ${chapter.id}</div>
             <div class="chapter-title">${chapter.title}</div>
@@ -477,10 +446,8 @@ function renderChapters() {
 function openChapter(index) {
     currentChapterIndex = index;
     updateReaderContent();
-    
     document.getElementById('chapters-grid-view').style.display = 'none';
     document.getElementById('story-reader-view').style.display = 'block';
-    // Scroll to top of reader zone
     scrollToId('storybook-zone');
 }
 
@@ -505,8 +472,6 @@ function updateReaderContent() {
     document.getElementById('reader-date').textContent = chapter.date;
     document.getElementById('reader-content').innerHTML = chapter.content;
     document.getElementById('reader-progress').textContent = `${currentChapterIndex + 1} / ${storyChapters.length}`;
-    
-    // Disable buttons if at edges
     document.getElementById('reader-prev-btn').disabled = (currentChapterIndex === 0);
     document.getElementById('reader-next-btn').disabled = (currentChapterIndex === storyChapters.length - 1);
 }
@@ -516,14 +481,10 @@ function renderGardenEntries() {
     const container = document.getElementById('garden-container');
     if(!container) return;
     container.innerHTML = '';
-
     gardenEntries.forEach(entry => {
         const card = document.createElement('div');
         card.className = 'garden-card';
-        
-        // Add Click listener to open modal with garden data
         card.onclick = () => openGardenModal(entry);
-
         card.innerHTML = `
             <div class="garden-header">
                 <span class="garden-date">${entry.date}</span>
@@ -539,7 +500,7 @@ function renderGardenEntries() {
     });
 }
 
-/* --- 3D PHOTOBOOK LOGIC --- */
+/* --- 3D PHOTOBOOK LOGIC (FIXED) --- */
 
 let currentLocation = 1;
 let numOfPapers = 0;
@@ -563,10 +524,7 @@ function initPhotobook() {
         paper.className = 'paper';
         paper.id = `p${i}`;
         
-        // --- Z-INDEX INITIALIZATION ---
-        // Stack order for Right Side: 
-        // Page 1 (i=1) must have highest z-index.
-        // Page 2 (i=2) has lower, etc.
+        // Initial Z-Index setup
         paper.style.zIndex = numOfPapers - i + 1; 
         
         // Create Front Face
@@ -618,7 +576,6 @@ function generatePageContent(data) {
         `;
     }
 
-    // Normal Photo Page
     return `
         <div class="page-content">
             <div class="photo-frame-book">
@@ -631,11 +588,34 @@ function generatePageContent(data) {
 
 function togglePage(paperNum) {
     if (currentLocation === paperNum) {
-        // We are opening this page (Flip Left)
+        // Open/Next
         openBookPage(paperNum);
     } else if (currentLocation === paperNum + 1) {
-        // We are closing the previous page (Flip Right)
+        // Close/Prev
         closeBookPage(paperNum);
+    }
+}
+
+// *** NEW LOGIC: Enforce Global Z-Index Update ***
+// This function recalculates the stack order for ALL pages 
+// every time a page flips, ensuring the "Left Stack" logic is perfect.
+
+function updateGlobalZIndexes() {
+    for (let i = 1; i <= numOfPapers; i++) {
+        const paper = document.getElementById(`p${i}`);
+        if (!paper) continue;
+
+        if (i < currentLocation) {
+            // Page is flipped (on the Left side)
+            // Stacking order should be ascending (1, 2, 3...)
+            // So Page 2 covers Page 1.
+            paper.style.zIndex = i;
+        } else {
+            // Page is unflipped (on the Right side)
+            // Stacking order should be descending (3, 2, 1...)
+            // So Page 1 covers Page 2.
+            paper.style.zIndex = numOfPapers - i + 1;
+        }
     }
 }
 
@@ -643,14 +623,8 @@ function openBookPage(paperNum) {
     const paper = document.getElementById(`p${paperNum}`);
     if(paper) {
         paper.classList.add('flipped');
-        
-        // --- Z-INDEX UPDATE FOR LEFT SIDE ---
-        // When flipped to Left, Higher page numbers must be ON TOP.
-        // So we set z-index to match the page number.
-        // p1 (z1) < p2 (z2) < p3 (z3)
-        paper.style.zIndex = paperNum;
-        
         currentLocation++;
+        updateGlobalZIndexes(); // Force Update
     }
 }
 
@@ -658,13 +632,8 @@ function closeBookPage(paperNum) {
     const paper = document.getElementById(`p${paperNum}`);
     if(paper) {
         paper.classList.remove('flipped');
-        
-        // --- Z-INDEX RESTORE FOR RIGHT SIDE ---
-        // When flipping back to Right, Lower page numbers must be ON TOP.
-        // We restore original math: max - num + 1.
-        paper.style.zIndex = numOfPapers - paperNum + 1;
-        
         currentLocation--;
+        updateGlobalZIndexes(); // Force Update
     }
 }
 
