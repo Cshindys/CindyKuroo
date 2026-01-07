@@ -412,6 +412,164 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
 .top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
 .top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
 
+
+/* ==========================================================================
+   PHOTOBOOK SECTION (REPLACES OLD PHOTO GALLERY)
+   ========================================================================== */
+.photobook-scene {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 2000px; /* Strong perspective for 3D feel */
+    margin: 40px 0;
+}
+
+.photobook-wrapper {
+    width: 900px;
+    height: 600px;
+    position: relative;
+    /* On mobile, we scale this wrapper down */
+    transform-style: preserve-3d;
+}
+
+.photobook {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    user-select: none;
+}
+
+/* The leaf (Page Sheet) */
+.leaf {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0; /* Pivot point is center of book, so leaf sits on right */
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    /* By default, leaves are on the right stack */
+}
+
+/* Flipped state: Rotates to the left */
+.leaf.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Page Sides (Front and Back of the same sheet) */
+.page-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: white;
+    backface-visibility: hidden; /* Crucial: hides the reverse side */
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 0 15px 15px 0; /* Rounded outer corners for right page */
+}
+
+body.dark-mode .page-face {
+    background: #2a2a40;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.3), 0 0 10px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* The Front Face (Visible when page is on the Right) */
+.page-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+/* The Back Face (Visible when page is on the Left) */
+.page-back {
+    z-index: 1;
+    transform: rotateY(180deg);
+    border-radius: 15px 0 0 15px; /* Rounded outer corners for left page */
+    background: #fdfdfd; /* Slightly different shade for realism */
+}
+body.dark-mode .page-back {
+    background: #252538;
+}
+
+/* Content inside the page */
+.photo-content {
+    width: 90%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-frame-book {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 15px 15px 50px 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    border: 1px solid #eee;
+    transform: rotate(-2deg);
+}
+.page-back .photo-frame-book { transform: rotate(2deg); }
+
+body.dark-mode .photo-frame-book {
+    background: #1a1a2e;
+    border-color: #444;
+}
+
+.photo-frame-book img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-caption-book {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Zen Kurenaido', sans-serif;
+    color: #666;
+    font-size: 1.2rem;
+}
+body.dark-mode .photo-caption-book { color: #ccc; }
+
+/* Book Controls */
+.book-controls {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.control-btn {
+    padding: 10px 25px;
+    background: var(--primary-cindy);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(180, 167, 214, 0.4);
+}
+.control-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(180, 167, 214, 0.6); }
+.control-btn:active { transform: scale(0.95); }
+
+.book-hint { color: #888; font-size: 0.9rem; font-style: italic; }
+
+
 /* --- GARDENING DIARY SECTION --- */
 .garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
 .garden-card { background: white; border: 1px solid #e0f2f1; border-radius: 20px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 128, 0, 0.05); transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
@@ -549,7 +707,6 @@ body.dark-mode .storybook-container-inner {
 .corner-br { bottom: 0; right: 0; border-bottom: 4px solid var(--gold-accent); border-right: 4px solid var(--gold-accent); border-radius: 0 0 20px 0; }
 
 .serif-title {
-    /* CHANGED: Removed serif font to match rest of site */
     font-family: inherit; 
     color: var(--gold-accent);
 }
@@ -628,7 +785,6 @@ body.dark-mode .story-paper {
 }
 
 .serif-text p {
-    /* CHANGED: Removed serif font from paragraph text */
     font-family: inherit;
     font-size: 1.1rem;
     line-height: 2;
@@ -642,238 +798,116 @@ body.dark-mode .serif-text p { color: #ccc; }
 body.dark-mode .back-button { background: transparent; }
 body.dark-mode .back-button:hover { background: var(--primary-cindy); }
 
-/* --- 3D SCRAPBOOK STYLES --- */
-.photo-book-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    perspective: 1500px;
-    margin: 50px 0;
-    width: 100%;
-}
-
-.book-container {
-    width: 400px;
-    height: 500px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
-
-/* Individual Pages */
-.book-page {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    transform-origin: left center;
-    transform-style: preserve-3d;
-    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-    cursor: pointer;
-}
-
-.book-page.flipped {
-    transform: rotateY(-180deg);
-}
-
-/* Front and Back of pages */
-.page-front, .page-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    padding: 20px;
-    background: #fdfaf5; /* Cream paper */
-    background-image: 
-        linear-gradient(#e6e6e6 1px, transparent 1px),
-        linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
-    background-size: 20px 20px;
-    border-radius: 5px 15px 15px 5px;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.05), 1px 1px 5px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.page-back {
-    transform: rotateY(180deg);
-    border-radius: 15px 5px 5px 15px;
-    background: #fff0f5; /* Slight pink tint for back pages */
-}
-
-/* Cover Styling */
-.cover-page {
-    background: linear-gradient(135deg, var(--primary-cindy) 0%, var(--accent-pink) 100%);
-    color: white;
-    border: 2px solid rgba(255,255,255,0.3);
-}
-
-.cover-content {
-    text-align: center;
-    border: 3px double white;
-    padding: 30px;
-    width: 90%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.cover-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid white;
-    overflow: hidden;
-    margin: 20px 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.tap-hint {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    animation: pulse 1.5s infinite;
-}
-
-/* Scrapbook Photo Styling */
-.scrap-photo {
-    background: white;
-    padding: 10px 10px 30px 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    position: relative;
-    transform: rotate(-2deg);
-    transition: transform 0.3s ease;
-    max-width: 85%;
-    cursor: zoom-in;
-}
-
-.scrap-photo:hover {
-    transform: scale(1.05) rotate(0deg);
-    z-index: 10;
-}
-
-.scrap-photo img {
-    width: 100%;
-    max-height: 160px;
-    object-fit: cover;
-    display: block;
-}
-
-.scrap-photo.full-page img {
-    max-height: 300px;
-}
-
-.scrap-photo:nth-child(even) {
-    transform: rotate(3deg);
-}
-
-.caption {
-    font-family: 'Zen Kurenaido', cursive;
-    text-align: center;
-    color: #555;
-    margin-top: 10px;
-    font-size: 1.1rem;
-}
-
-/* Washi Tape Effect */
-.tape {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 20px;
-    background: rgba(232, 180, 217, 0.7);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    z-index: 5;
-}
-
-.tape-corner {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 40px;
-    height: 40px;
-    background: rgba(180, 167, 214, 0.7);
-    transform: rotate(-45deg);
-    z-index: 5;
-}
-
-/* Book Controls */
-.book-controls {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
-}
-
-.book-btn {
-    padding: 10px 25px;
-    border: none;
-    background: var(--primary-kuroo);
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: 0.3s;
-}
-
-.book-btn:hover {
-    background: var(--primary-cindy);
-    transform: translateY(-2px);
-}
-
-/* Lightbox Styles */
-.lightbox-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.3s;
-}
-
-.lightbox-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border: 5px solid white;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
-}
-
-#lightboxCaption {
-    margin-top: 20px;
-    color: white;
-    font-size: 1.5rem;
-    font-family: 'Zen Kurenaido', sans-serif;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Responsive Book */
-@media screen and (max-width: 600px) {
-    .book-container {
-        width: 300px;
-        height: 400px;
+/* --- RESPONSIVE --- */
+@media screen and (max-width: 1024px) {
+    .container { width: 100%; padding: 10px; }
+    .video-divider-container { height: 350px; margin: 20px auto; }
+    .relationship-section { grid-template-columns: 1fr; }
+    
+    /* Auto-scale photobook for smaller screens */
+    .photobook-wrapper {
+        transform: scale(0.8);
     }
-    .photo-book-wrapper {
-        perspective: 2000px; /* Reduces distortion on mobile */
+}
+
+@media screen and (max-width: 768px) {
+    /* ... (Keep existing mobile styles) ... */
+    
+    /* Mobile Tweaks for New Storybook */
+    .storybook-container-inner { padding: 40px 20px; border-radius: 20px; }
+    .book-corner { width: 40px; height: 40px; }
+    .story-paper { padding: 30px 20px; }
+    
+    body {
+        zoom: 0.85;
+        -moz-transform: scale(0.85);
+        -moz-transform-origin: 0 0;
+    }
+    
+    .title-section { padding-top: 20px; }
+    .title-section h1 { font-size: 2rem; }
+    .stories-container { gap: 15px; padding: 5px 10px; }
+    .story-ring { width: 55px; height: 55px; }
+    .story-label { font-size: 0.75rem; }
+    .filter-bar-container { min-width: unset; width: 95%; border-radius: 20px; flex-direction: column; gap: 10px; padding: 10px; margin: 30px auto; }
+    .filter-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; justify-content: flex-start; }
+    .modal-content { width: 95%; padding: 20px; max-height: 90vh; }
+    #modalBody { padding: 10px 0; }
+    .story-bubble { flex-direction: column; gap: 5px; }
+    .story-bubble.right { flex-direction: column; align-items: flex-end; }
+    .story-bubble-content { max-width: 100%; }
+    .story-avatar { width: 40px; height: 40px; }
+    .character-pair-container { gap: 12px; margin-bottom: 20px; }
+    .flip-card-container { min-height: 480px; }
+    .flip-card-front, .flip-card-back { padding: 15px 10px; }
+    .avatar { width: 80px; height: 80px; margin-bottom: 10px; border-width: 3px; }
+    .character-name { font-size: 1.2rem; margin-bottom: 10px; }
+    .info-row { flex-direction: column; align-items: center; padding: 4px; margin-bottom: 5px; }
+    .info-label { margin-right: 0; margin-bottom: 2px; font-size: 0.7rem; padding: 3px 8px; min-width: unset; }
+    .info-value { font-size: 0.8rem; text-align: center; }
+    .description-box { font-size: 0.8rem; padding: 10px; margin-top: 10px; margin-bottom: 10px; line-height: 1.4; }
+    .personality-box { margin-top: 10px; padding-top: 10px; }
+    .personality-title { font-size: 0.9rem; margin-bottom: 8px; }
+    .personality-grid { gap: 5px; }
+    .p-tag { font-size: 0.7rem; padding: 4px; }
+    .more-btn { padding: 8px 15px; font-size: 0.85rem; }
+    .mascot-img-small { width: 70px; }
+    .chibi-side-img { width: 60px; }
+    .video-divider-container { height: 200px; border-radius: 15px; }
+    .graph-container { height: 300px; padding: 10px; }
+    .axis-label { font-size: 0.7rem; padding: 4px 8px; }
+    .graph-icon { width: 50px; height: 50px; }
+    .timeline { padding-left: 20px; }
+    .timeline-event::before { left: -28px; width: 20px; height: 20px; top: 5px; }
+    .event-card { padding: 20px; }
+    .event-title { font-size: 1.2rem; }
+    .interview-title, .timeline-title { font-size: 1.6rem; margin-bottom: 40px; }
+    .interview-scene { padding: 20px; }
+    .dialogue-wrapper { gap: 10px; }
+    .char-avatar-small { width: 40px; height: 40px; }
+    .dialogue-bubble { font-size: 0.95rem; }
+    .story-viewer { padding: 20px; }
+    .story-paragraph { text-indent: 0; font-size: 1rem; }
+    .couple-mascot-row { gap: 5px; transform: scale(0.9); }
+    .mascot-img-bottom { width: 50px; }
+    .mascot-side .single-heart { width: 25px; height: 25px; }
+    .mascot-side .single-heart::before, .mascot-side .single-heart::after { width: 25px; height: 25px; }
+    .mascot-side .single-heart::before { top: -12.5px; }
+    .mascot-side .single-heart::after { left: 12.5px; }
+    
+    /* Photobook Mobile Specifics */
+    .photobook-scene {
+        margin: 20px 0;
+        perspective: 1000px;
+    }
+    .photobook-wrapper {
+        width: 100%;
+        height: 80vw; /* Make it responsive height */
+        max-height: 400px;
+        transform: scale(1) !important; /* Reset desktop scaling */
+    }
+    .leaf {
+        width: 100%; /* Full width pages on mobile */
+        right: 0;
+        transform-origin: center center; /* Rotate around center for simple flip or keep book style */
+    }
+    /* Switch to a simpler stack interaction for mobile? 
+       Or keep Book but adjust pivot. Let's keep book pivot but width 50% 
+       Actually for mobile, 3D books are hard. Let's scale the wrapper.
+    */
+    .photobook-wrapper {
+        width: 300px; /* Force size */
+        height: 400px;
+        transform: scale(0.9);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .filter-btn { font-size: 1rem; padding: 10px; }
+    .character-name { font-size: 1.1rem; }
+    .info-value { font-size: 0.75rem; }
+    
+    .photobook-wrapper {
+        transform: scale(0.85);
     }
 }
