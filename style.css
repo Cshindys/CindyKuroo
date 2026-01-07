@@ -412,17 +412,6 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
 .top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
 .top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
 
-/* --- PHOTO ALBUM SECTION --- */
-.photo-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 10px; }
-.photo-item { background: white; padding: 15px 15px 50px 15px; box-shadow: var(--card-shadow); transform: rotate(-2deg); transition: all 0.3s ease; border-radius: 4px; position: relative; cursor: pointer; border: 1px solid rgba(0,0,0,0.05); }
-.photo-item:nth-child(even) { transform: rotate(2deg); margin-top: 20px; }
-.photo-item:hover { transform: scale(1.05) rotate(0deg); z-index: 10; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
-body.dark-mode .photo-item { background: #2a2a40; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-.photo-frame { width: 100%; height: 300px; overflow: hidden; margin-bottom: 15px; background: #f0f0f0; }
-.photo-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.photo-caption { font-family: 'Zen Kurenaido', sans-serif; text-align: center; color: #666; font-size: 1.1rem; font-weight: 600; position: absolute; bottom: 15px; left: 0; width: 100%; }
-body.dark-mode .photo-caption { color: #ccc; }
-
 /* --- GARDENING DIARY SECTION --- */
 .garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
 .garden-card { background: white; border: 1px solid #e0f2f1; border-radius: 20px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 128, 0, 0.05); transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
@@ -653,93 +642,238 @@ body.dark-mode .serif-text p { color: #ccc; }
 body.dark-mode .back-button { background: transparent; }
 body.dark-mode .back-button:hover { background: var(--primary-cindy); }
 
-/* --- RESPONSIVE --- */
-@media screen and (max-width: 1024px) {
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
-    .video-divider-container {
-        height: 350px;
-        margin: 20px auto;
-    }
-    .relationship-section {
-        grid-template-columns: 1fr;
-    }
+/* --- 3D SCRAPBOOK STYLES --- */
+.photo-book-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1500px;
+    margin: 50px 0;
+    width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-    /* ... (Keep existing mobile styles) ... */
-    
-    /* Mobile Tweaks for New Storybook */
-    .storybook-container-inner { padding: 40px 20px; border-radius: 20px; }
-    .book-corner { width: 40px; height: 40px; }
-    .story-paper { padding: 30px 20px; }
-    
-    body {
-        zoom: 0.85;
-        -moz-transform: scale(0.85);
-        -moz-transform-origin: 0 0;
-    }
-    
-    .title-section { padding-top: 20px; }
-    .title-section h1 { font-size: 2rem; }
-    .stories-container { gap: 15px; padding: 5px 10px; }
-    .story-ring { width: 55px; height: 55px; }
-    .story-label { font-size: 0.75rem; }
-    .filter-bar-container { min-width: unset; width: 95%; border-radius: 20px; flex-direction: column; gap: 10px; padding: 10px; margin: 30px auto; }
-    .filter-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; justify-content: flex-start; }
-    .modal-content { width: 95%; padding: 20px; max-height: 90vh; }
-    #modalBody { padding: 10px 0; }
-    .story-bubble { flex-direction: column; gap: 5px; }
-    .story-bubble.right { flex-direction: column; align-items: flex-end; }
-    .story-bubble-content { max-width: 100%; }
-    .story-avatar { width: 40px; height: 40px; }
-    .character-pair-container { gap: 12px; margin-bottom: 20px; }
-    .flip-card-container { min-height: 480px; }
-    .flip-card-front, .flip-card-back { padding: 15px 10px; }
-    .avatar { width: 80px; height: 80px; margin-bottom: 10px; border-width: 3px; }
-    .character-name { font-size: 1.2rem; margin-bottom: 10px; }
-    .info-row { flex-direction: column; align-items: center; padding: 4px; margin-bottom: 5px; }
-    .info-label { margin-right: 0; margin-bottom: 2px; font-size: 0.7rem; padding: 3px 8px; min-width: unset; }
-    .info-value { font-size: 0.8rem; text-align: center; }
-    .description-box { font-size: 0.8rem; padding: 10px; margin-top: 10px; margin-bottom: 10px; line-height: 1.4; }
-    .personality-box { margin-top: 10px; padding-top: 10px; }
-    .personality-title { font-size: 0.9rem; margin-bottom: 8px; }
-    .personality-grid { gap: 5px; }
-    .p-tag { font-size: 0.7rem; padding: 4px; }
-    .more-btn { padding: 8px 15px; font-size: 0.85rem; }
-    .mascot-img-small { width: 70px; }
-    .chibi-side-img { width: 60px; }
-    .video-divider-container { height: 200px; border-radius: 15px; }
-    .graph-container { height: 300px; padding: 10px; }
-    .axis-label { font-size: 0.7rem; padding: 4px 8px; }
-    .graph-icon { width: 50px; height: 50px; }
-    .photo-gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
-    .photo-item { padding: 10px 10px 35px 10px; }
-    .photo-frame { height: 180px; }
-    .photo-caption { font-size: 0.9rem; bottom: 8px; }
-    .timeline { padding-left: 20px; }
-    .timeline-event::before { left: -28px; width: 20px; height: 20px; top: 5px; }
-    .event-card { padding: 20px; }
-    .event-title { font-size: 1.2rem; }
-    .interview-title, .timeline-title { font-size: 1.6rem; margin-bottom: 40px; }
-    .interview-scene { padding: 20px; }
-    .dialogue-wrapper { gap: 10px; }
-    .char-avatar-small { width: 40px; height: 40px; }
-    .dialogue-bubble { font-size: 0.95rem; }
-    .story-viewer { padding: 20px; }
-    .story-paragraph { text-indent: 0; font-size: 1rem; }
-    .couple-mascot-row { gap: 5px; transform: scale(0.9); }
-    .mascot-img-bottom { width: 50px; }
-    .mascot-side .single-heart { width: 25px; height: 25px; }
-    .mascot-side .single-heart::before, .mascot-side .single-heart::after { width: 25px; height: 25px; }
-    .mascot-side .single-heart::before { top: -12.5px; }
-    .mascot-side .single-heart::after { left: 12.5px; }
+.book-container {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
 
-@media screen and (max-width: 480px) {
-    .filter-btn { font-size: 1rem; padding: 10px; }
-    .character-name { font-size: 1.1rem; }
-    .info-value { font-size: 0.75rem; }
+/* Individual Pages */
+.book-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+}
+
+.book-page.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Front and Back of pages */
+.page-front, .page-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 20px;
+    background: #fdfaf5; /* Cream paper */
+    background-image: 
+        linear-gradient(#e6e6e6 1px, transparent 1px),
+        linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 5px 15px 15px 5px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.05), 1px 1px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-back {
+    transform: rotateY(180deg);
+    border-radius: 15px 5px 5px 15px;
+    background: #fff0f5; /* Slight pink tint for back pages */
+}
+
+/* Cover Styling */
+.cover-page {
+    background: linear-gradient(135deg, var(--primary-cindy) 0%, var(--accent-pink) 100%);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.cover-content {
+    text-align: center;
+    border: 3px double white;
+    padding: 30px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tap-hint {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    animation: pulse 1.5s infinite;
+}
+
+/* Scrapbook Photo Styling */
+.scrap-photo {
+    background: white;
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    position: relative;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+    max-width: 85%;
+    cursor: zoom-in;
+}
+
+.scrap-photo:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+}
+
+.scrap-photo img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.scrap-photo.full-page img {
+    max-height: 300px;
+}
+
+.scrap-photo:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+.caption {
+    font-family: 'Zen Kurenaido', cursive;
+    text-align: center;
+    color: #555;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Washi Tape Effect */
+.tape {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: rgba(232, 180, 217, 0.7);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    z-index: 5;
+}
+
+.tape-corner {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(180, 167, 214, 0.7);
+    transform: rotate(-45deg);
+    z-index: 5;
+}
+
+/* Book Controls */
+.book-controls {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.book-btn {
+    padding: 10px 25px;
+    border: none;
+    background: var(--primary-kuroo);
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.book-btn:hover {
+    background: var(--primary-cindy);
+    transform: translateY(-2px);
+}
+
+/* Lightbox Styles */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border: 5px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+#lightboxCaption {
+    margin-top: 20px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Zen Kurenaido', sans-serif;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive Book */
+@media screen and (max-width: 600px) {
+    .book-container {
+        width: 300px;
+        height: 400px;
+    }
+    .photo-book-wrapper {
+        perspective: 2000px; /* Reduces distortion on mobile */
+    }
 }
