@@ -176,7 +176,7 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary Data
+// Gardening Diary Data (Updated with Time, Thoughts, and Actions)
 const gardenEntries = [
     {
         id: 'g1',
@@ -186,21 +186,44 @@ const gardenEntries = [
         status: "開花",
         preview: "今天下了一整天的雨，但是紫色的繡球花開得非常漂亮。就像學長的髮色一樣...不對，學長是黑髮啦！我是說氣質！",
         content: `
-            <div class="story-paragraph">
-                梅雨季節到了，園藝社角落的繡球花終於盛開了。我特地調整了土壤的酸鹼度，才種出了這種夢幻的紫色。
+            <div style="font-weight:700; color:#888; margin-bottom:15px;">⏰ 時間：放學後的雷陣雨時分</div>
+            
+            <div class="narrative-action">
+                *梅雨季節的雨聲淅瀝淅瀝地打在溫室玻璃上。Cindy 蹲在花圃前，正專注地檢查繡球花的葉片，並沒有發現身後多了一個人影。*
             </div>
-            <div class="story-paragraph">
-                今天整理花圃時，黑尾學長剛好為了躲雨跑進了溫室走廊。
+
+            <div class="inner-monologue">
+                <span class="inner-label">Cindy 內心獨白</span>
+                （這紫藍色的漸層真好看...有點像黑尾學長偶爾露出的冷靜眼神。啊！我在胡思亂想什麼啊！）
             </div>
+
+            <div class="story-paragraph">
+                突然，一道影子籠罩下來。
+            </div>
+
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
-                    喔？這顏色挺不錯的嘛。跟妳的髮夾顏色很像。
+                    喔？這顏色挺不錯的嘛。跟妳今天頭上夾的髮夾顏色很像。
                 </div>
             </div>
-            <div class="story-paragraph">
-                只是一句隨口的話，卻讓我開心了一整天。連這煩人的雨聲聽起來都變得悅耳了。
+
+            <div class="narrative-action">
+                *黑尾身上還穿著排球部的練習服，似乎是為了躲雨才走進這條走廊。他單手插在口袋裡，微微彎腰看著花。*
+            </div>
+
+            <div class="inner-monologue">
+                <span class="inner-label">黑尾 內心獨白</span>
+                （其實早就看到這傢伙在這裡了。明明被雨聲吵得聽不見腳步聲，卻對花這麼專注...稍微有點不爽啊。）
+            </div>
+
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">Cindy</span>
+                    學、學長？！...謝、謝謝誇獎。（臉瞬間紅透）
+                </div>
             </div>
         `
     },
@@ -210,32 +233,53 @@ const gardenEntries = [
         date: "5月 20日",
         weather: "☀️",
         status: "發芽",
-        preview: "シンディ為了吸引附近的貓咪，開始在社團角落種植貓草。",
+        preview: "Cindy 為了吸引附近的貓咪，開始在社團角落種植貓草。結果引來了...一隻大黑貓？",
         content: `
+            <div style="font-weight:700; color:#888; margin-bottom:15px;">⏰ 時間：陽光普照的午休時間</div>
+
             <div class="story-paragraph">
-            午後的陽光溫暖而不灼人，微風輕拂，帶來泥土與青草的芬芳。
+                在園藝社最隱蔽的角落，Cindy 提著藍色小水壺悄悄靠近。那是她為了吸引流浪貓而特意開闢的「貓草秘密基地」。
             </div>
-            <div class="story-paragraph">
-            在音駒高中園藝社那片規劃整齊的田畦旁，有一個幾乎被人遺忘的角落。這裡緊鄰著老舊的圍牆，陽光剛好能灑進來，卻又足夠隱蔽。
+
+            <div class="narrative-action">
+                *然而，當她繞過轉角時，卻發現那裡已經被佔據了。一個高大的身影正蹲在草叢邊，手裡拿著狗尾巴草。*
             </div>
-            <div class="story-paragraph">
-            シンデイ提著一個小巧的藍色灑水壺，踮著腳尖，小心翼翼地朝那個角落走去。她每天午休都會像現在這樣，提著水壺，滿懷期待地來為它們澆水。
-            </div>
-            <div class="story-paragraph">
-                今天去澆水的時候，發現貓草旁邊蹲著一個巨大的身影...是黑尾學長。他正拿著一根狗尾巴草逗弄著聞訊而來的野貓。
-            </div>
+
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
-                    這草種得不錯啊，很有吸引力。連我都想過來趴著了。
+                    咪—咪—過來。這裡有好吃的喔。
                 </div>
             </div>
+
+            <div class="inner-monologue">
+                <span class="inner-label">Cindy 內心獨白</span>
+                （天啊...那是黑尾學長？他在跟貓說話的語氣也太溫柔了吧！！心臟受不了了...好想變成那隻貓...）
+            </div>
+
+            <div class="narrative-action">
+                *黑尾其實早就察覺到背後的視線。他嘴角微微上揚，故意沒有回頭，只是稍微側過臉。*
+            </div>
+
+            <div class="inner-monologue">
+                <span class="inner-label">黑尾 內心獨白</span>
+                （這氣息...是那個園藝社的小不點吧。躲在柱子後面偷看的樣子，比這隻野貓還像小動物。）
+            </div>
+
+            <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    這草種得不錯啊，很有吸引力。連我都想過來趴著睡午覺了。妳說是吧？經理小姐？
+                </div>
+            </div>
+
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
-                    學、學長想趴著也可以喔！（大驚慌）
+                    學、學長想趴著也可以喔！不、不對！這裡有泥土會弄髒衣服的！（大驚慌）
                 </div>
             </div>
         `
@@ -248,30 +292,57 @@ const gardenEntries = [
         status: "生長中",
         preview: "向日葵總是看著太陽。我也想成為能一直注視著學長的人。今天的陽光好刺眼啊。",
         content: `
+            <div style="font-weight:700; color:#888; margin-bottom:15px;">⏰ 時間：蟬鳴不斷的盛夏午後</div>
+
             <div class="story-paragraph">
-                向日葵長得好高啊，已經快要超過我的身高了。它們總是堅定地追逐著太陽，這種直率的特質真讓人羨慕。
+                向日葵長得好高，已經完全超過了 Cindy 的身高。她必須抬起手遮擋刺眼的陽光，才能看清花盤。
             </div>
-            <div class="story-paragraph">
-                如果我也能像向日葵一樣，光明正大地一直看著學長就好了。
+
+            <div class="inner-monologue">
+                <span class="inner-label">Cindy 內心獨白</span>
+                （向日葵真好啊，可以這樣光明正大地一直追逐著太陽。如果我也能這麼直率地看著學長就好了...不過學長也像太陽一樣耀眼，看太久會眼睛痛吧。）
             </div>
-            <div class="story-paragraph">
-                正想著，黑尾學長突然從向日葵花田的另一端探出頭來，因為身高優勢，他輕輕鬆鬆就俯視著我。
+
+            <div class="narrative-action">
+                *Cindy 踮起腳尖試圖測量花莖的高度，身體搖搖晃晃的。突然，一道陰影覆蓋了下來，替她擋住了刺眼的陽光。*
             </div>
-             <div class="story-bubble left">
+
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
                     躲在這裡幹嘛？小心中暑喔，小不點。
                 </div>
             </div>
-            <div class="story-paragraph">
-                ...果然，無論是太陽還是學長，都好耀眼。
+
+            <div class="narrative-action">
+                *黑尾從花田的另一端探出頭，因為身高的絕對優勢，他輕鬆地俯視著 Cindy。看著她被曬得紅撲撲的臉頰，他無奈地嘆了口氣，將手裡的運動飲料貼在她的臉頰上。*
+            </div>
+
+            <div class="inner-monologue">
+                <span class="inner-label">黑尾 內心獨白</span>
+                （這麼熱的天還在外面晃...真是讓人操心。這張臉都快比向日葵還紅了。）
+            </div>
+
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">Cindy</span>
+                    冰、冰的好舒服... 學長才是，練習不累嗎？
+                </div>
+            </div>
+             <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    只要看到妳這呆樣就不累了。走了，回陰涼處去。
+                </div>
             </div>
         `
     }
 ];
 
-/* --- NEW: INTERVIEW DATA SERIES --- */
+/* --- INTERVIEW DATA SERIES --- */
 const interviewSeries = [
     {
         id: 'ep1',
@@ -366,7 +437,7 @@ let currentInterviewIndex = 0;
 /* --- INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- ADDED: IMAGE PROTECTION ---
+    // --- IMAGE PROTECTION ---
     // Prevent right-clicking on any <img> element
     document.addEventListener('contextmenu', function(e) {
         if (e.target.tagName === 'IMG') {
