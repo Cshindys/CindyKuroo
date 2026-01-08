@@ -1,6 +1,15 @@
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
+/* Prevent dragging images to save them */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
 :root {
     --primary-kuroo: #333333;
     --primary-cindy: #B4A7D6;
