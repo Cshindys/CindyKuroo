@@ -111,7 +111,8 @@ body.dark-mode .story-ring::after { background: #1a1a2e; }
 .story-img-container img { width: 100%; height: 100%; object-fit: cover; }
 .story-label { font-size: 0.85rem; font-weight: 600; color: #666; letter-spacing: 0.5px; }
 body.dark-mode .story-label { color: #ccc; }
-/* --- PROFILE SECTION (Cindy's Intro) --- */
+
+/* --- PROFILE SECTION (CINDY) --- */
 .profile-section-main {
     max-width: 900px;
     width: 95%;
@@ -194,6 +195,55 @@ body.dark-mode .profile-username { color: white; }
     margin: 0 auto;
 }
 body.dark-mode .profile-bio { color: #ccc; }
+
+/* IMPORTANT POINTS BOX */
+.profile-important-box {
+    background: rgba(255, 255, 255, 0.7); /* Slightly more opaque than the background */
+    border: 2px dashed var(--accent-pink); /* Cute dashed border */
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 auto 30px auto; /* Spacing below the box */
+    max-width: 700px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(232, 180, 217, 0.1);
+}
+
+body.dark-mode .profile-important-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.important-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--primary-cindy); /* Purple color */
+    font-size: 1.1rem;
+    justify-content: center; /* Center the title */
+}
+
+body.dark-mode .important-header {
+    color: var(--accent-pink);
+}
+
+.important-icon {
+    font-size: 1.2rem;
+    animation: twinkle 3s infinite;
+}
+
+.important-content {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center; /* Center the text */
+}
+
+body.dark-mode .important-content {
+    color: #ccc;
+}
 
 /* Profile Links (Instagram, etc.) */
 .profile-links-list {
@@ -309,6 +359,7 @@ body.dark-mode .tag-styled {
     color: #ccc;
     border: none;
 }
+
 /* --- TITLE SECTION --- */
 .title-section { text-align: center; padding: 40px 20px 10px; position: relative; }
 .title-section h1 {
