@@ -821,6 +821,10 @@ body.dark-mode .hero-grid-item {
     }
 }
 
+/* ==========================================================================
+   NOTICE SECTION (Notification Rectangle)
+   ========================================================================== */
+
 /* --- ENHANCED NOTICE SECTION --- */
 .notice-section {
     max-width: 900px;
