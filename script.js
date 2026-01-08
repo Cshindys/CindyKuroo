@@ -691,3 +691,11 @@ function observeInterviewElements() {
 
     elements.forEach(el => observer.observe(el));
 }
+
+/* --- IMAGE PROTECTION --- */
+// Prevent right-clicking on any <img> element
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
