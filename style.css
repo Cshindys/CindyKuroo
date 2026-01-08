@@ -1,15 +1,6 @@
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-/* Prevent dragging images to save them */
-img {
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
+
 :root {
     --primary-kuroo: #333333;
     --primary-cindy: #B4A7D6;
@@ -20,6 +11,21 @@ img {
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     --card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
     --container-width: 1450px; 
+}
+
+/* --- IMAGE PROTECTION (ADDED) --- */
+/* This prevents users from dragging images to their desktop */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: auto; /* Ensures clicks still work, just not dragging */
 }
 
 body {
