@@ -1317,7 +1317,7 @@ body.dark-mode .open-book-btn { background-color: #555; }
     .book-content-left { flex-direction: column; gap: 15px; }
 }
 
-/* =========================================
+/* /* =========================================
    WATERMARK STYLES (ADDED)
    ========================================= */
 
@@ -1347,4 +1347,4 @@ body.dark-mode .open-book-btn { background-color: #555; }
     bottom: 15px;
     right: 15px;
     font-size: 9px;
-}
+} */
