@@ -284,12 +284,106 @@ const bookData = [
     { type: 'back-cover' }
 ];
 
+/* --- NEW: INTERVIEW DATA SERIES --- */
+const interviewSeries = [
+    {
+        id: 'ep1',
+        title: "第一回：初印象篇",
+        content: `
+            <div class="interview-scene">
+                <div class="host-box" role="group"><span class="host-icon">🎤</span><span>主持人：請問，シンデイ，妳對黑尾學長的第一印象是什麼呢？</span></div>
+                <div class="narrative-action">*聽到這個問題，Cindy的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起……*</div>
+                <div class="inner-monologue"><span class="inner-label">Cindy內心獨白</span>「糟糕……學長一定知道我那時候都在偷看他。要怎麼回答才自然一點...」</div>
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「我、我對學長的第一印象……是、是個非常帥氣，而且很有活力的學長！」</div>
+                </div>
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「在排球場上的時候……學長簡直像變了一個人...」</div>
+                </div>
+                <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「噗嗤，看來我在她心裡的分數一直很高。」</div>
+                
+                <div class="host-box"><span class="host-icon">🎤</span><span>主持人 : 那麼黑尾君，你對シンデイ的第一印象呢？</span></div>
+                <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「嗯……我還以為我們音駒是不是來了一隻特別喜歡躲貓貓的小貓咪？」</div>
+                </div>
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「喵？！」</div>
+                </div>
+                <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「妳不是經常躲在排球館二樓嗎？傻瓜，妳那麼明顯...要看不見，那才是真有問題吧？」</div>
+                </div>
+                <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「只是那時候我不知道，這個小東西會變成現在這麼讓我上心的存在。」</div>
+            </div>
+        `
+    },
+    {
+        id: 'ep2',
+        title: "第二回：興趣與愛好",
+        content: `
+            <div class="interview-scene">
+                <div class="host-box"><span class="host-icon">🎤</span><span>主持人：哇，學長原來早就知道了啊！那請問兩位，平時除了學習之外，有什麼特別的興趣嗎？</span></div>
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「我喜歡看書，還有照顧家裡的植物。嗯，還有……關注排球的比賽日程和消息。」</div>
+                </div>
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「當然，現在我有很認真地學習怎麼照顧植物了！不會再把仙人掌澆死了！」</div>
+                </div>
+                <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「我的興趣嘛……除了排球和讀書之外……」</div>
+                </div>
+                <div class="narrative-action">*他眼神意味深長地瞟了一眼シンデイ。*</div>
+                <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「研究生物的行為模式。」</div>
+                </div>
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「？。」</div>
+                </div>
+            </div>
+        `
+    },
+    {
+        id: 'ep3',
+        title: "第三回：未來的夢想",
+        content: `
+            <div class="interview-scene">
+                <div class="host-box"><span class="host-icon">🎤</span><span>主持人：最後一個問題，兩位未來的夢想是什麼呢？</span></div>
+                <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「希望能繼續從事排球相關的工作，把這份熱情傳遞給更多人。」</div>
+                </div>
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的花店...如果可以的話，也想一直支持著學長的夢想。」</div>
+                </div>
+                 <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「哈哈，那就拜託妳了，最強的贊助商。」</div>
+                </div>
+            </div>
+        `
+    }
+];
+
+let currentInterviewIndex = 0; 
+
 /* --- INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
     renderChapters();
     renderGardenEntries();
     initPhotobook();
-    initScrollAnimations();
+    initInterviews();       // NEW: Start interview logic
+    initScrollAnimations(); // NEW: Start global scroll animations
+    
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const eventElement = e.target.closest('.timeline-event');
@@ -329,30 +423,25 @@ function switchTopTab(tabId) {
 }
 
 function toggleTab(tabId) {
-    // 1. Hide all tab sections
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
     });
-    
-    // 2. Reset bottom filter buttons
     document.querySelectorAll('#filter-bar-anchor .filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // 3. Show the target tab
     const target = document.getElementById(tabId);
     if(target) {
         target.classList.add('active');
     }
     
-    // 4. Highlight button if it exists in the bottom bar
     const btnMap = {
         'interview-zone': 'btn-interview',
         'storybook-zone': 'btn-storybook',
         'timeline-zone': 'btn-timeline',
         'photo-zone': 'btn-photo',
         'garden-zone': 'btn-garden',
-        'profile-zone': 'btn-profile' // Added profile button mapping
+        'profile-zone': 'btn-profile' 
     };
     if (btnMap[tabId]) {
         const btn = document.getElementById(btnMap[tabId]);
@@ -600,17 +689,14 @@ function togglePage(paperNum) {
     }
 }
 
-// Global Re-stack function to prevent layering bugs
 function updateGlobalZIndexes() {
     for (let i = 1; i <= numOfPapers; i++) {
         const paper = document.getElementById(`p${i}`);
         if (!paper) continue;
 
         if (i < currentLocation) {
-            // Left stack: Ascending Order
             paper.style.zIndex = i;
         } else {
-            // Right stack: Descending Order
             paper.style.zIndex = numOfPapers - i + 1;
         }
     }
@@ -634,9 +720,72 @@ function closeBookPage(paperNum) {
     }
 }
 
-/* --- SCROLL ANIMATION FUNCTION --- */
+/* --- NEW: INTERVIEW LOGIC FUNCTIONS --- */
+function initInterviews() {
+    const filterContainer = document.getElementById('interview-filters');
+    if (!filterContainer) return;
+
+    // 1. Generate Filter Buttons
+    filterContainer.innerHTML = '';
+    interviewSeries.forEach((series, index) => {
+        const btn = document.createElement('button');
+        btn.className = `sub-filter-btn ${index === 0 ? 'active' : ''}`;
+        btn.textContent = series.title;
+        btn.onclick = () => loadInterview(index);
+        filterContainer.appendChild(btn);
+    });
+
+    // 2. Load the first interview
+    loadInterview(0);
+}
+
+function loadInterview(index) {
+    if (index < 0 || index >= interviewSeries.length) return;
+    
+    currentInterviewIndex = index;
+    const data = interviewSeries[index];
+    
+    // 1. Update Content with Fade Effect
+    const container = document.getElementById('interview-dynamic-content');
+    container.style.opacity = '0';
+    
+    setTimeout(() => {
+        container.innerHTML = data.content;
+        container.style.opacity = '1';
+        
+        // **IMPORTANT: Re-trigger scroll animations for new content**
+        observeInterviewElements(); 
+    }, 200);
+
+    // 2. Update Filter Buttons
+    document.querySelectorAll('.sub-filter-btn').forEach((btn, idx) => {
+        if (idx === index) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+
+    // 3. Update Pagination Buttons
+    const prevBtn = document.getElementById('prev-interview-btn');
+    const nextBtn = document.getElementById('next-interview-btn');
+    
+    if(prevBtn && nextBtn) {
+        prevBtn.disabled = (index === 0);
+        nextBtn.disabled = (index === interviewSeries.length - 1);
+        
+        if(index < interviewSeries.length - 1) {
+            nextBtn.innerHTML = `下一篇 <i class="fas fa-arrow-right"></i>`;
+        } else {
+            nextBtn.innerHTML = `End <i class="fas fa-check"></i>`;
+        }
+    }
+}
+
+function changeInterview(direction) {
+    loadInterview(currentInterviewIndex + direction);
+    document.getElementById('interview-zone').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* --- NEW: SCROLL ANIMATION FUNCTIONS --- */
 function initScrollAnimations() {
-    // 1. Select all the elements we want to animate in the interview section
     const interviewElements = document.querySelectorAll(
         '.interview-scene .host-box, ' +
         '.interview-scene .narrative-action, ' +
@@ -644,26 +793,39 @@ function initScrollAnimations() {
         '.interview-scene .dialogue-wrapper'
     );
 
-    // 2. Create the Observer
-    // threshold: 0.1 means "trigger when 10% of the item is visible"
-    // rootMargin: "-20px" creates a small buffer so it doesn't trigger immediately at the very edge
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // When element enters screen: Pop In
                 entry.target.classList.add('pop-in-active');
             } else {
-                // When element leaves screen: Pop Out (Remove this else block if you want them to stay visible once loaded)
                 entry.target.classList.remove('pop-in-active');
             }
         });
     }, {
         threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px" // Triggers slightly before the bottom of screen
+        rootMargin: "0px 0px -50px 0px"
     });
 
-    // 3. Tell the observer to watch every element
-    interviewElements.forEach(el => {
-        observer.observe(el);
-    });
+    interviewElements.forEach(el => observer.observe(el));
+}
+
+function observeInterviewElements() {
+    const elements = document.querySelectorAll(
+        '.interview-scene .host-box, ' +
+        '.interview-scene .narrative-action, ' +
+        '.interview-scene .inner-monologue, ' +
+        '.interview-scene .dialogue-wrapper'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('pop-in-active');
+            } else {
+                entry.target.classList.remove('pop-in-active');
+            }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+    elements.forEach(el => observer.observe(el));
 }
