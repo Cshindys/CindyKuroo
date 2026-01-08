@@ -7,7 +7,7 @@ const eventStories = {
         date: "記錄時間：未知",
         content: `
             <div class="story-paragraph">
-                Cindy 其實並不擅長園藝，但為了加入園藝社（以及偷看隔壁體育館的黑尾），她努力學習。
+                シンディ其實並不擅長園藝，但為了加入園藝社（以及偷看隔壁體育館的黑尾），她努力學習。
                 她領養了一盆號稱「絕對不會死」的仙人掌。
             </div>
             <div class="story-paragraph">
