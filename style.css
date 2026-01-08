@@ -1218,3 +1218,36 @@ body.dark-mode .notice-item:hover {
     color: #fff;
     border-color: var(--primary-cindy);
 }
+
+/* =========================================
+   WATERMARK STYLES
+   ========================================= */
+
+/* 1. Apply to the Photo Grid and Profile Picture */
+.hero-grid-item::after,
+.profile-avatar-img::after {
+    content: "@ccin_o3o_c";      /* The text you want */
+    
+    position: absolute;          /* Positions it over the image */
+    bottom: 8px;                 /* Distance from bottom */
+    right: 8px;                  /* Distance from right */
+    z-index: 10;                 /* Ensures it sits ON TOP of the image */
+    
+    color: red;                  /* Red text */
+    font-size: 12px;             /* Small size */
+    font-weight: bold;           /* Bold text */
+    font-family: sans-serif;
+    
+    /* Optional: Adds a tiny white glow so it's readable on dark photos */
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
+    
+    pointer-events: none;        /* Allows users to click 'through' the text */
+}
+
+/* 2. Specific adjustment for Circular Images (Profile Pic) 
+   to make sure the text isn't cut off by the rounded corners */
+.profile-avatar-img::after {
+    bottom: 15px;
+    right: 15px;
+    font-size: 10px;
+}
