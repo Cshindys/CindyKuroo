@@ -13,8 +13,7 @@
     --container-width: 1450px; 
 }
 
-/* --- IMAGE PROTECTION (ADDED) --- */
-/* This prevents users from dragging images to their desktop */
+/* --- IMAGE PROTECTION (Stop Dragging) --- */
 img {
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -25,7 +24,7 @@ img {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    pointer-events: auto; /* Ensures clicks still work, just not dragging */
+    pointer-events: auto; 
 }
 
 body {
@@ -213,11 +212,11 @@ body.dark-mode .profile-bio { color: #ccc; }
 
 /* IMPORTANT POINTS BOX */
 .profile-important-box {
-    background: rgba(255, 255, 255, 0.7); /* Slightly more opaque than the background */
-    border: 2px dashed var(--accent-pink); /* Cute dashed border */
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px dashed var(--accent-pink);
     border-radius: 20px;
     padding: 20px;
-    margin: 0 auto 30px auto; /* Spacing below the box */
+    margin: 0 auto 30px auto;
     max-width: 700px;
     text-align: left;
     position: relative;
@@ -235,9 +234,9 @@ body.dark-mode .profile-important-box {
     gap: 10px;
     margin-bottom: 10px;
     font-weight: 700;
-    color: var(--primary-cindy); /* Purple color */
+    color: var(--primary-cindy);
     font-size: 1.1rem;
-    justify-content: center; /* Center the title */
+    justify-content: center;
 }
 
 body.dark-mode .important-header {
@@ -253,7 +252,7 @@ body.dark-mode .important-header {
     font-size: 0.95rem;
     color: #555;
     line-height: 1.6;
-    text-align: center; /* Center the text */
+    text-align: center;
 }
 
 body.dark-mode .important-content {
@@ -1036,7 +1035,7 @@ body.dark-mode .nav-arrow-btn:disabled {
     /* Always 4 columns, even on mobile */
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
-    max-width: 1000px;
+    max-width: 900px; /* <--- CHANGED FROM 1000px TO 900px TO MATCH NOTICE CARD */
     width: 95%;
     margin: 0 auto 30px auto;
     /* No animation property here anymore */
@@ -1220,34 +1219,33 @@ body.dark-mode .notice-item:hover {
 }
 
 /* =========================================
-   WATERMARK STYLES
+   WATERMARK STYLES (ADDED)
    ========================================= */
 
 /* 1. Apply to the Photo Grid and Profile Picture */
 .hero-grid-item::after,
 .profile-avatar-img::after {
-    content: "@ccin_o3o_c";      /* The text you want */
+    content: "@ccindy_sty";      /* YOUR WATERMARK TEXT */
     
-    position: absolute;          /* Positions it over the image */
-    bottom: 8px;                 /* Distance from bottom */
-    right: 8px;                  /* Distance from right */
-    z-index: 10;                 /* Ensures it sits ON TOP of the image */
+    position: absolute;          
+    bottom: 5px;                 
+    right: 5px;                 
+    z-index: 10;                 
     
-    color: red;                  /* Red text */
-    font-size: 12px;             /* Small size */
-    font-weight: bold;           /* Bold text */
+    color: red;                  
+    font-size: 10px;             
+    font-weight: bold;           
     font-family: sans-serif;
     
-    /* Optional: Adds a tiny white glow so it's readable on dark photos */
+    /* Adds a tiny white outline so it's readable on dark photos */
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
     
-    pointer-events: none;        /* Allows users to click 'through' the text */
+    pointer-events: none;        
 }
 
-/* 2. Specific adjustment for Circular Images (Profile Pic) 
-   to make sure the text isn't cut off by the rounded corners */
+/* 2. Specific adjustment for Circular Images (Profile Pic) */
 .profile-avatar-img::after {
     bottom: 15px;
     right: 15px;
-    font-size: 10px;
+    font-size: 9px;
 }
