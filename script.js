@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderChapters();
     renderGardenEntries();
     initPhotobook();
-    
+    initScrollAnimations();
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const eventElement = e.target.closest('.timeline-event');
@@ -632,4 +632,38 @@ function closeBookPage(paperNum) {
         currentLocation--;
         updateGlobalZIndexes();
     }
+}
+
+/* --- SCROLL ANIMATION FUNCTION --- */
+function initScrollAnimations() {
+    // 1. Select all the elements we want to animate in the interview section
+    const interviewElements = document.querySelectorAll(
+        '.interview-scene .host-box, ' +
+        '.interview-scene .narrative-action, ' +
+        '.interview-scene .inner-monologue, ' +
+        '.interview-scene .dialogue-wrapper'
+    );
+
+    // 2. Create the Observer
+    // threshold: 0.1 means "trigger when 10% of the item is visible"
+    // rootMargin: "-20px" creates a small buffer so it doesn't trigger immediately at the very edge
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // When element enters screen: Pop In
+                entry.target.classList.add('pop-in-active');
+            } else {
+                // When element leaves screen: Pop Out (Remove this else block if you want them to stay visible once loaded)
+                entry.target.classList.remove('pop-in-active');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px" // Triggers slightly before the bottom of screen
+    });
+
+    // 3. Tell the observer to watch every element
+    interviewElements.forEach(el => {
+        observer.observe(el);
+    });
 }
