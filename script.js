@@ -271,19 +271,6 @@ const gardenEntries = [
     }
 ];
 
-// --- PHOTOBOOK DATA ---
-const bookData = [
-    { type: 'cover', title: "Sweet Memories", subtitle: "Kuroo & Cindy" },
-    { img: "img/Kuroo_profile.JPEG", caption: "初次見面時，學長那自信的笑容。" },
-    { img: "img/Cindy_profile.JPG", caption: "躲在花叢後面的我，被發現了..." },
-    { img: "img/Kuroo(student).png", caption: "借物賽跑，被拉著手奔跑的瞬間。" },
-    { img: "img/Cindy(student).png", caption: "雖然很害羞，但還是努力跟上了！" },
-    { img: "img/C&KQQ.png", caption: "以後的每一個日子，都要在一起。" },
-    { img: "img/CindyAQQ(Transparent).png", caption: "偶爾也會變身成小貓咪？" },
-    { img: "img/KurooAQQ(Transparent).png", caption: "你是最帥氣的黑貓。" },
-    { type: 'back-cover' }
-];
-
 /* --- NEW: INTERVIEW DATA SERIES --- */
 const interviewSeries = [
     {
@@ -380,9 +367,9 @@ let currentInterviewIndex = 0;
 document.addEventListener('DOMContentLoaded', () => {
     renderChapters();
     renderGardenEntries();
-    initPhotobook();
-    initInterviews();       // NEW: Start interview logic
-    initScrollAnimations(); // NEW: Start global scroll animations
+    // initPhotobook(); // REMOVED
+    initInterviews();       
+    initScrollAnimations(); 
     
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -439,7 +426,6 @@ function toggleTab(tabId) {
         'interview-zone': 'btn-interview',
         'storybook-zone': 'btn-storybook',
         'timeline-zone': 'btn-timeline',
-        'photo-zone': 'btn-photo',
         'garden-zone': 'btn-garden',
         'profile-zone': 'btn-profile' 
     };
@@ -596,131 +582,7 @@ function renderGardenEntries() {
     });
 }
 
-/* --- 3D PHOTOBOOK LOGIC --- */
-
-let currentLocation = 1;
-let numOfPapers = 0;
-let maxLocation = 0;
-
-function initPhotobook() {
-    const book = document.getElementById('book');
-    if (!book) return; 
-    
-    book.innerHTML = ''; 
-
-    const paperCount = Math.ceil(bookData.length / 2);
-    numOfPapers = paperCount;
-    maxLocation = numOfPapers + 1;
-
-    let dataIndex = 0;
-
-    for (let i = 1; i <= paperCount; i++) {
-        const paper = document.createElement('div');
-        paper.className = 'paper';
-        paper.id = `p${i}`;
-        
-        // Initial Z-Index
-        paper.style.zIndex = numOfPapers - i + 1; 
-        
-        // Front
-        const front = document.createElement('div');
-        front.className = 'front';
-        const frontData = bookData[dataIndex];
-        front.innerHTML = generatePageContent(frontData);
-        if(i === 1) front.classList.add('cover');
-        dataIndex++;
-
-        // Back
-        const back = document.createElement('div');
-        back.className = 'back';
-        if (dataIndex < bookData.length) {
-            const backData = bookData[dataIndex];
-            back.innerHTML = generatePageContent(backData);
-            if(backData.type === 'back-cover') back.classList.add('cover-back');
-            dataIndex++;
-        } else {
-            back.innerHTML = `<div class="page-content"><div class="book-caption">The End</div></div>`;
-        }
-
-        paper.appendChild(front);
-        paper.appendChild(back);
-        
-        paper.addEventListener('click', () => togglePage(i));
-        book.appendChild(paper);
-    }
-}
-
-function generatePageContent(data) {
-    if (!data) return '';
-    
-    if (data.type === 'cover') {
-        return `
-            <div class="page-content">
-                <h2>${data.title}</h2>
-                <span>${data.subtitle}</span>
-                <div style="font-size:3rem; margin-top:20px; animation: heartbeat 1.5s infinite;">♥</div>
-            </div>
-        `;
-    }
-    
-    if (data.type === 'back-cover') {
-        return `
-            <div class="page-content">
-                <span>© Nekoma High Photography Club</span>
-            </div>
-        `;
-    }
-
-    return `
-        <div class="page-content">
-            <div class="photo-frame-book">
-                <img src="${data.img}" alt="Memory" loading="lazy">
-            </div>
-            <div class="book-caption">${data.caption}</div>
-        </div>
-    `;
-}
-
-function togglePage(paperNum) {
-    if (currentLocation === paperNum) {
-        openBookPage(paperNum);
-    } else if (currentLocation === paperNum + 1) {
-        closeBookPage(paperNum);
-    }
-}
-
-function updateGlobalZIndexes() {
-    for (let i = 1; i <= numOfPapers; i++) {
-        const paper = document.getElementById(`p${i}`);
-        if (!paper) continue;
-
-        if (i < currentLocation) {
-            paper.style.zIndex = i;
-        } else {
-            paper.style.zIndex = numOfPapers - i + 1;
-        }
-    }
-}
-
-function openBookPage(paperNum) {
-    const paper = document.getElementById(`p${paperNum}`);
-    if(paper) {
-        paper.classList.add('flipped');
-        currentLocation++;
-        updateGlobalZIndexes();
-    }
-}
-
-function closeBookPage(paperNum) {
-    const paper = document.getElementById(`p${paperNum}`);
-    if(paper) {
-        paper.classList.remove('flipped');
-        currentLocation--;
-        updateGlobalZIndexes();
-    }
-}
-
-/* --- NEW: INTERVIEW LOGIC FUNCTIONS --- */
+/* --- INTERVIEW LOGIC FUNCTIONS --- */
 function initInterviews() {
     const filterContainer = document.getElementById('interview-filters');
     if (!filterContainer) return;
@@ -784,7 +646,7 @@ function changeInterview(direction) {
     document.getElementById('interview-zone').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* --- NEW: SCROLL ANIMATION FUNCTIONS --- */
+/* --- SCROLL ANIMATION FUNCTIONS --- */
 function initScrollAnimations() {
     const interviewElements = document.querySelectorAll(
         '.interview-scene .host-box, ' +
