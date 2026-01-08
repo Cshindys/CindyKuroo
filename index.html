@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>黒尾鉄朗 × シンディ | 我們的專屬空間</title>
+    <title>黒尾鉄朗 × シンディ | Home</title>
     
     <link href="https://gs.jurieo.com/gemini/fonts-googleapis/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Zen+Kurenaido&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,59 +21,59 @@
 
     <div class="stories-wrapper">
         <div class="stories-container">
-            <div class="story-item" onclick="scrollToId('kuroo-card')">
+            <a href="couple.html#kuroo-card" class="story-item" style="text-decoration: none; color: inherit;">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/Kuroo_profile.JPEG" alt="黒尾">
                     </div>
                 </div>
                 <div class="story-label">黒尾鉄朗</div>
-            </div>
+            </a>
 
-            <div class="story-item" onclick="scrollToId('cindy-card')">
+            <a href="couple.html#cindy-card" class="story-item" style="text-decoration: none; color: inherit;">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/Cindy(Icon).png" alt="シンディ">
                     </div>
                 </div>
                 <div class="story-label">シンディ</div>
-            </div>
+            </a>
 
-            <div class="story-item" onclick="switchTabAndScroll('interview-zone')">
+            <a href="couple.html?tab=interview-zone" class="story-item" style="text-decoration: none; color: inherit;">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/Mic.png" alt="訪談">
                     </div>
                 </div>
                 <div class="story-label">甜蜜訪談室</div>
-            </div>
+            </a>
 
-            <div class="story-item" onclick="switchTabAndScroll('storybook-zone')">
+            <a href="couple.html?tab=storybook-zone" class="story-item" style="text-decoration: none; color: inherit;">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/Book.png" alt="故事書">
                     </div>
                 </div>
                 <div class="story-label">我們的故事書</div>
-            </div>
+            </a>
 
-             <div class="story-item" onclick="switchTabAndScroll('timeline-zone')">
+             <a href="couple.html?tab=timeline-zone" class="story-item" style="text-decoration: none; color: inherit;">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/Magnifier.png" alt="事件">
                     </div>
                 </div>
                 <div class="story-label">事件簿</div>
-            </div>
+            </a>
     
-             <div class="story-item" onclick="switchTabAndScroll('garden-zone')">
+             <a href="couple.html?tab=garden-zone" class="story-item" style="text-decoration: none; color: inherit;">
                 <div class="story-ring">
                     <div class="story-img-container">
                         <img src="img/Pencil.png" alt="園藝社日誌">
                     </div>
                 </div>
                 <div class="story-label">園藝社日誌</div>
-            </div>
+            </a>
         </div>
     </div>
 
@@ -218,327 +218,86 @@
             </div>
         </div>
 
-        <div class="title-section">
-            <h1>黒尾鉄朗 × シンディ</h1>
-        </div>
-        
-        <div class="character-pair-container">
-            <div class="character-column">
-                <div class="flip-card-container" id="kuroo-container">
-                    <div class="flip-card-inner">
-                        <div class="character-card kuroo flip-card-front" id="kuroo-card">
-                            <div class="avatar">
-                                <img src="img/Kuroo_profile.JPEG" alt="Kuroo Profile" />
-                            </div>
-                            <div class="character-name">黒尾鉄朗 🐈‍⬛</div>
-                            <div class="character-info">
-                                <div class="info-row"><div class="info-label">年級</div><div class="info-value">音駒高校三年五班</div></div>
-                                <div class="info-row"><div class="info-label">部活</div><div class="info-value">男子排球部 🏐（主將）</div></div>
-                                <div class="info-row"><div class="info-label">生日</div><div class="info-value">11月17日</div></div>
-                                <div class="info-row"><div class="info-label">身高</div><div class="info-value">183cm</div></div>
-                            </div>
-                            <div class="description-box">
-                                音駒高校排球部主將，擁有出色的領導能力和戰術頭腦。性格沉穩冷靜，在場上總能做出最佳判斷。
-                            </div>
-                            <div class="personality-box">
-                                <div class="personality-title">個性 Personality</div>
-                                <div class="personality-grid">
-                                    <span class="p-tag">沉穩冷靜</span>
-                                    <span class="p-tag">戰術頭腦</span>
-                                    <span class="p-tag">挑釁高手</span>
-                                    <span class="p-tag">溫柔體貼</span>
-                                </div>
-                            </div>
-                            <button class="more-btn kuroo-btn" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
-                                <span class="btn-text">Read More</span>
-                                <span class="btn-icon-flip">↻</span>
-                            </button>
-                        </div>
-                        <div class="character-card flip-card-back kuroo-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
-                            <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
-                            <div class="card-quote">
-                                「俺達は血液だ 滞り無く流れろ <br>酸素を回せ “脳”が正常に働くために」
-                            </div>
-                            <button class="more-btn kuroo-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
-                                <span class="btn-text">Go Back</span>
-                                <span class="btn-icon-flip">↻</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="textbook-link-section" style="margin-top: 50px; padding: 20px 10px; text-align: center;">
+            <a href="couple.html" class="book-cover-link" style="text-decoration: none;">
+                <div class="book-cover-container" style="
+                    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+                    border-radius: 12px 20px 20px 12px;
+                    box-shadow: 
+                        10px 10px 20px rgba(0,0,0,0.1),
+                        inset 3px 0px 5px rgba(0,0,0,0.1),
+                        inset -1px 0px 2px rgba(255,255,255,0.8);
+                    max-width: 320px;
+                    margin: 0 auto;
+                    padding: 40px 20px;
+                    position: relative;
+                    border-left: 12px solid #5a4b45; /* The book spine */
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    cursor: pointer;
+                ">
+                    <div class="book-spine-crease" style="
+                        position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: rgba(0,0,0,0.1);
+                    "></div>
 
-            <div class="character-column">
-                <div class="flip-card-container" id="cindy-container">
-                    <div class="flip-card-inner">
-                        <div class="character-card cindy flip-card-front" id="cindy-card">
-                            <div class="avatar">
-                                <img src="img/Cindy_profile.JPG" alt="Cindy Profile" />
-                            </div>
-                            <div class="character-name">シンディ💜</div>
-                            <div class="character-info">
-                                <div class="info-row"><div class="info-label">年級</div><div class="info-value">音駒高校二年三班</div></div>
-                                <div class="info-row"><div class="info-label">部活</div><div class="info-value">園藝社(唯一部員) 🪴</div></div>
-                                <div class="info-row"><div class="info-label">生日</div><div class="info-value">10月22日</div></div>
-                                <div class="info-row"><div class="info-label">身高</div><div class="info-value">160 cm</div></div>
-                            </div>
-                            <div class="description-box">
-                                為了更靠近黑尾前輩，她加入了與第一體育館相鄰的園藝社，默默注視著那個閃耀的身影。
-                            </div>
-                            <div class="personality-box">
-                                <div class="personality-title">個性 Personality</div>
-                                <div class="personality-grid">
-                                    <span class="p-tag">內向害羞</span>
-                                    <span class="p-tag">高度迷糊屬性</span>
-                                    <span class="p-tag">心思細膩默默耕耘</span>
-                                    <span class="p-tag">堅定專一</span>
-                                </div>
-                            </div>
-                            <button class="more-btn cindy-btn" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
-                                <span class="btn-text">Read More</span>
-                                <span class="btn-icon-flip">↻</span>
-                            </button>
-                        </div>
-                        <div class="character-card flip-card-back cindy-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
-                            <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
-                             <div class="card-quote">
-                                「いつか、先輩の隣に堂々と<br>立てるようになりたいです。」
-                            </div>
-                            <button class="more-btn cindy-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
-                                <span class="btn-text">Go Back</span>
-                                <span class="btn-icon-flip">↻</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom-shared-zone">
-            <div class="couple-mascot-row">
-                <div class="mascot-side left">
-                    <div class="single-heart cindy-heart"></div>
-                    <img src="img/CindyAQQ(Transparent).png" alt="Cindy Cat" class="mascot-img-bottom">
-                </div>
-
-                <div class="bottom-couple-container">
-                    <img src="img/C&KQQ.png" alt="Chibi" class="bottom-couple-img">
-                    <div class="bottom-quote">ずっとそばにいる</div>
-                </div>
-
-                <div class="mascot-side right">
-                    <img src="img/KurooAQQ(Transparent).png" alt="Kuroo Cat" class="mascot-img-bottom">
-                    <div class="single-heart kuroo-heart"></div>
-                </div>
-            </div>
-
-            <div class="music-mood-layer">
-                <div class="music-track kuroo-track">
-                    <div class="play-btn">▶</div>
-                    <div class="track-info">
-                        <div class="track-title">Theme: Tactician's Silence</div>
-                        <div class="track-artist">Nekoma High</div>
-                    </div>
-                    <div class="waveform"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-                </div>
-                <div class="music-track cindy-track">
-                    <div class="play-btn">▶</div>
-                    <div class="track-info">
-                        <div class="track-title">Theme: Blooming Shyly</div>
-                        <div class="track-artist">Garden Club</div>
-                    </div>
-                    <div class="waveform"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="filter-bar-container" id="top-filter-anchor">
-            <button class="filter-btn active" onclick="switchTopTab('top-tab-video')" id="btn-top-video">
-                <span class="btn-icon">🎬</span> 獨家影片
-            </button>
-            <button class="filter-btn" onclick="switchTopTab('top-tab-relationship')" id="btn-top-relationship">
-                <span class="btn-icon">💞</span> 初印象
-            </button>
-        </div>
-
-        <div id="top-tab-video" class="top-tab-content active">
-            <div class="video-divider-container">
-                <video class="divider-video" autoplay muted loop playsinline>
-                    <source src="img/Kuroo Cindy.mp4" type="video/mp4">
-                    您的瀏覽器不支援影片播放。
-                </video>
-            </div>
-        </div>
-
-        <div id="top-tab-relationship" class="top-tab-content">
-            <div class="relationship-section" id="relationship-zone">
-                <div class="heart-section left">
-                    <div class="heart-title">黒尾對シンディ初印象</div>
-                    <div class="heart-subtitle">關注與好奇</div>
-                    <div class="heart-description">
-                        他知道有位低年級學妹在偷偷關注他，當時或許只是覺得有趣。隨著時間推移，那份「小心翼翼的愛意」漸漸印在他心中。
-                    </div>
-                </div>
-
-                <div class="graph-container">
-                    <div class="axis-y"></div>
-                    <div class="axis-x"></div>
-                    <div class="axis-label label-top">後知後覺</div>
-                    <div class="axis-label label-bottom">一見鍾情</div>
-                    <div class="axis-label label-left">無意識</div>
-                    <div class="axis-label label-right">嘗試拉近關係</div>
-
-                    <div class="graph-icon pos-kuroo" title="黑尾：後知後覺 / 無意識">
-                        <img src="img/KurooAQQ(Transparent).png" alt="Kuroo">
-                    </div>
-                    <div class="graph-icon pos-cindy" title="Cindy：一見鍾情">
-                        <img src="img/CindyAQQ(Transparent).png" alt="Cindy">
-                    </div>
-                </div>
-
-                <div class="heart-section right">
-                    <div class="heart-title">シンディ對黒尾初印象</div>
-                    <div class="heart-subtitle">崇拜與迷惘</div>
-                    <div class="heart-description">
-                        初次見面時，她便被黒尾的排球英姿深深吸引。想要靠近，卻又不知道該如何開口，只能默默地支持著。
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="filter-bar-container" id="filter-bar-anchor">
-            <button class="filter-btn active" onclick="toggleTab('interview-zone')" id="btn-interview">
-                <span class="btn-icon">🎤</span> 甜蜜訪談室
-            </button>
-            <button class="filter-btn" onclick="toggleTab('storybook-zone')" id="btn-storybook">
-                <span class="btn-icon">📖</span> 我們的故事書
-            </button>
-            <button class="filter-btn" onclick="toggleTab('timeline-zone')" id="btn-timeline">
-                <span class="btn-icon">📅</span> 事件簿
-            </button>
-            <button class="filter-btn" onclick="toggleTab('garden-zone')" id="btn-garden">
-                <span class="btn-icon">🌻</span> 園藝社日誌
-            </button>
-        </div>
-
-        <div class="tab-content-wrapper">
-            
-            <div class="interview-section tab-section active" id="interview-zone">
-                <div class="interview-title" id="interview-title">甜蜜訪談室 · Sweet Interview</div>
-
-                <div class="sub-filter-container" id="interview-filters">
+                    <div class="book-icon" style="
+                        font-size: 3rem; 
+                        color: #5a4b45; 
+                        margin-bottom: 15px;
+                        opacity: 0.8;
+                    ">
+                        <i class="fas fa-book-open"></i>
                     </div>
 
-                <div id="interview-dynamic-content">
-                    </div>
-
-                <div class="interview-pagination">
-                    <button class="nav-arrow-btn" id="prev-interview-btn" onclick="changeInterview(-1)">
-                        <i class="fas fa-arrow-left"></i> 上一篇
-                    </button>
-                    <span class="pagination-dots" id="interview-dots">•••</span>
-                    <button class="nav-arrow-btn" id="next-interview-btn" onclick="changeInterview(1)">
-                        下一篇 <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="storybook-section tab-section" id="storybook-zone">
-                <div class="storybook-container-inner">
-                    <div class="book-corner corner-tl"></div>
-                    <div class="book-corner corner-tr"></div>
-                    <div class="book-corner corner-bl"></div>
-                    <div class="book-corner corner-br"></div>
-
-                    <div class="interview-title serif-title">
-                        <span class="deco-star">✨</span> 我們的故事書 <span class="deco-star">✨</span>
-                    </div>
+                    <h2 style="
+                        font-family: 'Zen Kurenaido', sans-serif;
+                        font-size: 1.5rem;
+                        color: #333;
+                        margin-bottom: 10px;
+                        letter-spacing: 2px;
+                    ">黒尾鉄朗 × シンディ</h2>
                     
-                    <div id="chapters-grid-view">
-                        <div class="chapters-grid" id="chapters-container">
-                        </div>
+                    <div class="book-subtitle" style="
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 0.9rem;
+                        color: #777;
+                        border-top: 1px solid #ccc;
+                        border-bottom: 1px solid #ccc;
+                        padding: 8px 0;
+                        margin: 0 20px 20px 20px;
+                    ">
+                        OUR STORY BOOK
                     </div>
 
-                    <div id="story-reader-view" class="story-viewer" style="display: none;">
-                        <button class="back-button" onclick="closeChapterReader()">← 返回章節列表</button>
-                        
-                        <div class="story-paper">
-                            <div class="story-header">
-                                <h2 class="story-chapter-title serif-title" id="reader-title"></h2>
-                                <div class="story-date" id="reader-date"></div>
-                            </div>
-                            <div class="story-content serif-text" id="reader-content"></div>
-                            
-                            <div class="story-navigation">
-                                <button class="story-nav-btn" id="reader-prev-btn" onclick="navigateChapter(-1)">← 上一章</button>
-                                <div class="progress-text" id="reader-progress"></div>
-                                <button class="story-nav-btn" id="reader-next-btn" onclick="navigateChapter(1)">下一章 →</button>
-                            </div>
-                        </div>
-                    </div>
+                    <span class="open-book-btn" style="
+                        background-color: #5a4b45;
+                        color: #fff;
+                        padding: 8px 20px;
+                        border-radius: 20px;
+                        font-size: 0.85rem;
+                        font-weight: 500;
+                    ">
+                        點擊閱讀 Click to Read
+                    </span>
                 </div>
-            </div>
-
-            <div class="timeline-section tab-section" id="timeline-zone">
-                <div class="timeline-title">秘密事件簿 · Secret Diary</div>
-                <div class="timeline">
-                    <div class="timeline-event" data-event="event1">
-                        <div class="event-card">
-                            <div class="event-header">
-                                <div class="event-id">CND-KTR-001</div>
-                                <div class="event-time">記錄時間：未知</div>
-                            </div>
-                            <div class="event-title">🖤「愛的暗殺事件🌱」</div>
-                            <div class="event-description">シンデイ領養了一盆據說「絕對不會死」的仙人掌。出於對新生命的過度關愛，她每天瘋狂澆水...</div>
-                            <button class="read-story-btn">Read Full Story ➜</button>
-                        </div>
-                    </div>
-                    <div class="timeline-event" data-event="event2">
-                        <div class="event-card">
-                            <div class="event-header">
-                                <div class="event-id">CND-KTR-002</div>
-                                <div class="event-time">記錄時間：午休時間</div>
-                            </div>
-                            <div class="event-title">🖤「圖書館書本空襲事件📕」</div>
-                            <div class="event-description">因身高不足取書時重心不穩。一本厚重的精裝書精準地砸中了她自己的頭頂...</div>
-                            <button class="read-story-btn">Read Full Story ➜</button>
-                        </div>
-                    </div>
-                    <div class="timeline-event" data-event="event3">
-                        <div class="event-card">
-                            <div class="event-header">
-                                <div class="event-id">CND-KTR-003</div>
-                                <div class="event-time">記錄時間：黑尾生日</div>
-                            </div>
-                            <div class="event-title">🖤「左腳的愛過於沉重🦶🏻」</div>
-                            <div class="event-description">生日當天，黑尾打開禮盒，發現裡面靜靜地躺著兩個「左腳專用護膝」。</div>
-                            <button class="read-story-btn">Read Full Story ➜</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gardening-section tab-section" id="garden-zone">
-                <div class="interview-title">園藝社日誌 · Gardening Diary</div>
-                <div class="garden-grid" id="garden-container">
-                    </div>
-            </div>
-
-        </div> 
-    </div>
-
-    <div class="modal" id="eventModal">
-        <div class="modal-content story-modal-content">
-            <div class="modal-close" onclick="closeModal()">×</div>
-            <div id="modalBody">
-            </div>
+            </a>
+            
+            <style>
+                /* Hover effect for the book */
+                .book-cover-link:hover .book-cover-container {
+                    transform: translateY(-5px) rotateY(-5deg);
+                    box-shadow: 15px 15px 30px rgba(0,0,0,0.15);
+                }
+            </style>
         </div>
+
+        <div style="height: 100px;"></div>
+
     </div>
     
     <script src="script.js"></script>
     
     <script>
-    // Inline small script for accordion
+    // Accordion Logic
     function toggleCategory(header) {
         const content = header.nextElementSibling;
         const icon = header.querySelector('.category-icon');
