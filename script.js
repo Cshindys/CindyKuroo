@@ -176,7 +176,7 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary Data (Updated with Time, Thoughts, and Actions)
+// Gardening Diary Data (Updated & Prettier Version)
 const gardenEntries = [
     {
         id: 'g1',
@@ -186,9 +186,13 @@ const gardenEntries = [
         status: "開花",
         preview: "今天下了一整天的雨，但是紫色的繡球花開得非常漂亮。就像學長的髮色一樣...不對，學長是黑髮啦！我是說氣質！",
         content: `
-            <div style="font-weight:700; color:#888; margin-bottom:15px;">⏰ 時間：放學後的雷陣雨時分</div>
+            <div style="text-align: center; margin-bottom: 25px;">
+                <span style="background: #f0f2f5; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: #666; display: inline-block;">
+                    ⏰ 時間：放學後的雷陣雨時分
+                </span>
+            </div>
             
-            <div class="narrative-action">
+            <div class="narrative-action" style="text-indent: 0;">
                 *梅雨季節的雨聲淅瀝淅瀝地打在溫室玻璃上。Cindy 蹲在花圃前，正專注地檢查繡球花的葉片，並沒有發現身後多了一個人影。*
             </div>
 
@@ -197,7 +201,7 @@ const gardenEntries = [
                 （這紫藍色的漸層真好看...有點像黑尾學長偶爾露出的冷靜眼神。啊！我在胡思亂想什麼啊！）
             </div>
 
-            <div class="story-paragraph">
+            <div class="story-paragraph" style="text-indent: 0;">
                 突然，一道影子籠罩下來。
             </div>
 
@@ -209,7 +213,7 @@ const gardenEntries = [
                 </div>
             </div>
 
-            <div class="narrative-action">
+            <div class="narrative-action" style="text-indent: 0;">
                 *黑尾身上還穿著排球部的練習服，似乎是為了躲雨才走進這條走廊。他單手插在口袋裡，微微彎腰看著花。*
             </div>
 
@@ -235,13 +239,17 @@ const gardenEntries = [
         status: "發芽",
         preview: "Cindy 為了吸引附近的貓咪，開始在社團角落種植貓草。結果引來了...一隻大黑貓？",
         content: `
-            <div style="font-weight:700; color:#888; margin-bottom:15px;">⏰ 時間：陽光普照的午休時間</div>
+            <div style="text-align: center; margin-bottom: 25px;">
+                <span style="background: #f0f2f5; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: #666; display: inline-block;">
+                    ⏰ 時間：陽光普照的午休時間
+                </span>
+            </div>
 
-            <div class="story-paragraph">
+            <div class="story-paragraph" style="text-indent: 0;">
                 在園藝社最隱蔽的角落，Cindy 提著藍色小水壺悄悄靠近。那是她為了吸引流浪貓而特意開闢的「貓草秘密基地」。
             </div>
 
-            <div class="narrative-action">
+            <div class="narrative-action" style="text-indent: 0;">
                 *然而，當她繞過轉角時，卻發現那裡已經被佔據了。一個高大的身影正蹲在草叢邊，手裡拿著狗尾巴草。*
             </div>
 
@@ -258,7 +266,7 @@ const gardenEntries = [
                 （天啊...那是黑尾學長？他在跟貓說話的語氣也太溫柔了吧！！心臟受不了了...好想變成那隻貓...）
             </div>
 
-            <div class="narrative-action">
+            <div class="narrative-action" style="text-indent: 0;">
                 *黑尾其實早就察覺到背後的視線。他嘴角微微上揚，故意沒有回頭，只是稍微側過臉。*
             </div>
 
@@ -292,9 +300,13 @@ const gardenEntries = [
         status: "生長中",
         preview: "向日葵總是看著太陽。我也想成為能一直注視著學長的人。今天的陽光好刺眼啊。",
         content: `
-            <div style="font-weight:700; color:#888; margin-bottom:15px;">⏰ 時間：蟬鳴不斷的盛夏午後</div>
+            <div style="text-align: center; margin-bottom: 25px;">
+                <span style="background: #f0f2f5; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: #666; display: inline-block;">
+                    ⏰ 時間：蟬鳴不斷的盛夏午後
+                </span>
+            </div>
 
-            <div class="story-paragraph">
+            <div class="story-paragraph" style="text-indent: 0;">
                 向日葵長得好高，已經完全超過了 Cindy 的身高。她必須抬起手遮擋刺眼的陽光，才能看清花盤。
             </div>
 
@@ -303,7 +315,7 @@ const gardenEntries = [
                 （向日葵真好啊，可以這樣光明正大地一直追逐著太陽。如果我也能這麼直率地看著學長就好了...不過學長也像太陽一樣耀眼，看太久會眼睛痛吧。）
             </div>
 
-            <div class="narrative-action">
+            <div class="narrative-action" style="text-indent: 0;">
                 *Cindy 踮起腳尖試圖測量花莖的高度，身體搖搖晃晃的。突然，一道陰影覆蓋了下來，替她擋住了刺眼的陽光。*
             </div>
 
@@ -315,7 +327,7 @@ const gardenEntries = [
                 </div>
             </div>
 
-            <div class="narrative-action">
+            <div class="narrative-action" style="text-indent: 0;">
                 *黑尾從花田的另一端探出頭，因為身高的絕對優勢，他輕鬆地俯視著 Cindy。看著她被曬得紅撲撲的臉頰，他無奈地嘆了口氣，將手裡的運動飲料貼在她的臉頰上。*
             </div>
 
