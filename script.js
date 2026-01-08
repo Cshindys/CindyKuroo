@@ -365,6 +365,23 @@ let currentInterviewIndex = 0;
 
 /* --- INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- ADDED: IMAGE PROTECTION ---
+    // Prevent right-clicking on any <img> element
+    document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
+    // Prevent dragging on any <img> element
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+    // ------------------------------------
+
     renderChapters();
     renderGardenEntries();
     // initPhotobook(); // REMOVED
@@ -691,11 +708,3 @@ function observeInterviewElements() {
 
     elements.forEach(el => observer.observe(el));
 }
-
-/* --- IMAGE PROTECTION --- */
-// Prevent right-clicking on any <img> element
-document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === 'IMG') {
-        e.preventDefault();
-    }
-});
