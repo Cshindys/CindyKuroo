@@ -1068,6 +1068,114 @@ body.dark-mode .tag-styled { background: rgba(255,255,255,0.1); color: #ccc; }
     transform: translateY(0) scale(1);
 }
 
+/* ==========================================================================
+   INTERVIEW SUB-NAVIGATION STYLES
+   ========================================================================== */
+
+/* 1. Sub-Filter Bar (Pill Shape) */
+.sub-filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.sub-filter-btn {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.sub-filter-btn:hover {
+    transform: translateY(-2px);
+    color: var(--primary-cindy);
+    border-color: var(--primary-cindy);
+}
+
+.sub-filter-btn.active {
+    background: var(--primary-cindy);
+    color: white;
+    border-color: var(--primary-cindy);
+    box-shadow: 0 5px 15px rgba(180, 167, 214, 0.4);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .sub-filter-btn {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    color: #aaa;
+}
+body.dark-mode .sub-filter-btn.active {
+    background: var(--primary-cindy);
+    color: white;
+}
+
+/* 2. Bottom Navigation (Next/Prev) */
+.interview-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+}
+
+.nav-arrow-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: none;
+    background: white;
+    color: #555;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-arrow-btn:hover:not(:disabled) {
+    background: var(--primary-cindy);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Reverse hover effect for "Previous" button */
+#prev-interview-btn:hover:not(:disabled) {
+    transform: translateX(-5px);
+}
+
+.nav-arrow-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f0f0f0;
+    box-shadow: none;
+    transform: none;
+}
+
+.pagination-dots {
+    color: #ccc;
+    letter-spacing: 5px;
+    font-size: 1.2rem;
+}
+
+body.dark-mode .nav-arrow-btn {
+    background: #2a2a40;
+    color: #ddd;
+}
+body.dark-mode .nav-arrow-btn:disabled {
+    background: rgba(255,255,255,0.05);
+    color: #555;
+}
+
 /* Optional: Add a slight delay for left/right bubbles for variety */
 .interview-scene .dialogue-wrapper.right {
     transition-delay: 0.1s;
