@@ -1180,3 +1180,72 @@ body.dark-mode .nav-arrow-btn:disabled {
 .interview-scene .dialogue-wrapper.right {
     transition-delay: 0.1s;
 }
+
+/* ==========================================================================
+   HERO GRID SECTION (4 SQUARES) 
+   ========================================================================== */
+
+.hero-grid-section {
+    display: grid;
+    /* Default: 4 columns in a single row */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    max-width: 1000px; /* Matches character card width */
+    width: 95%;
+    margin: 0 auto 30px auto; /* Centered with bottom margin */
+    /* Add animation so it fades in smoothly if page loads */
+    animation: fadeSlideUp 0.7s forwards;
+}
+
+.hero-grid-item {
+    position: relative;
+    width: 100%;
+    /* This ensures it stays a perfect square */
+    aspect-ratio: 1 / 1; 
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 5px solid white; /* Polaroid border effect */
+    background: white;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Dark mode support */
+body.dark-mode .hero-grid-item {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: #1a1a2e;
+}
+
+.hero-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the square without stretching */
+    transition: transform 0.5s ease;
+}
+
+/* Hover Effects */
+.hero-grid-item:hover {
+    transform: translateY(-5px) rotate(2deg);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.hero-grid-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- MOBILE RESPONSIVENESS (2x2 Grid) --- */
+@media screen and (max-width: 768px) {
+    .hero-grid-section {
+        /* Switch to 2 columns (2x2 layout) on tablet/mobile */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-grid-item {
+        border-width: 3px; /* Slightly thinner border on mobile */
+        border-radius: 15px;
+    }
+}
