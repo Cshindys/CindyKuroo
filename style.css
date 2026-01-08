@@ -821,72 +821,133 @@ body.dark-mode .hero-grid-item {
     }
 }
 
-/* ==========================================================================
-   NOTICE SECTION (Notification Rectangle)
-   ========================================================================== */
-
+/* --- ENHANCED NOTICE SECTION --- */
 .notice-section {
-    max-width: 1000px;
+    max-width: 900px;
     width: 95%;
-    margin: 0 auto 30px auto; /* Consistent margin */
-    animation: fadeSlideUp 0.5s forwards;
+    margin: 0 auto 50px auto;
+    animation: fadeSlideUp 0.6s ease-out forwards;
 }
 
 .notice-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 20px;
-    padding: 25px;
+    /* Stronger Glass Effect */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(180, 167, 214, 0.2); /* Soft purple tint shadow */
+    position: relative;
+    overflow: hidden;
     text-align: center;
-    box-shadow: var(--card-shadow);
 }
 
+/* Dark Mode Card */
 body.dark-mode .notice-card {
-    background: rgba(26, 26, 46, 0.8);
+    background: rgba(26, 26, 46, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.notice-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.notice-icon {
+    color: var(--primary-cindy);
+    font-size: 1.4rem;
+    transform: rotate(-15deg);
 }
 
 .notice-main-text {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #555;
-    font-weight: 500;
-    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
 }
 
-body.dark-mode .notice-main-text { color: #ccc; }
+body.dark-mode .notice-main-text { color: #ddd; }
 
 .notice-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--accent-pink), transparent);
-    margin: 15px 0;
-    opacity: 0.5;
+    margin: 0 auto 25px auto;
+    width: 70%;
+    opacity: 0.6;
+}
+
+.notice-label-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.notice-label {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--gold-accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.notice-sparkle {
+    font-size: 1rem;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
 .notice-list-wrapper {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-}
-
-.notice-label {
-    font-weight: 700;
-    color: var(--gold-accent);
-    margin-right: 5px;
+    gap: 12px;
 }
 
 .notice-item {
     background: white;
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.9rem;
+    padding: 8px 20px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 0.95rem;
+    font-weight: 500;
     color: #666;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid rgba(232, 180, 217, 0.3); /* Soft pink border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Hover Effect for Names */
+.notice-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    border-color: var(--primary-cindy);
+    color: var(--primary-cindy);
+    box-shadow: 0 8px 15px rgba(180, 167, 214, 0.25);
+}
+
+/* Dark Mode Names */
 body.dark-mode .notice-item {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.05);
     color: #ccc;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .notice-item:hover {
+    background: rgba(180, 167, 214, 0.15);
+    color: #fff;
+    border-color: var(--primary-cindy);
 }
