@@ -24,7 +24,7 @@ img {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    pointer-events: auto; 
+    pointer-events: auto; /* Ensures clicks still work */
 }
 
 body {
@@ -73,10 +73,10 @@ body.dark-mode .stories-wrapper {
     gap: 25px; 
     padding: 5px 20px;
     justify-content: center;
-    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
-    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
 }
-.stories-container::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+.stories-container::-webkit-scrollbar { display: none; }
 
 .story-item {
     display: flex;
@@ -1216,6 +1216,105 @@ body.dark-mode .notice-item:hover {
     background: rgba(180, 167, 214, 0.15);
     color: #fff;
     border-color: var(--primary-cindy);
+}
+
+/* =========================================
+   STORYBOOK LINK SECTION (New Wide Card)
+   ========================================= */
+
+.textbook-link-section {
+    max-width: 900px; /* Same as Hero Grid */
+    width: 95%;
+    margin: 50px auto;
+    padding: 0;
+}
+
+.book-cover-link {
+    text-decoration: none;
+    display: block;
+}
+
+.book-cover-container {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 30px 40px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Spine Color - Purple */
+    border-left: 12px solid var(--primary-cindy); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-left-width: 12px;
+}
+
+body.dark-mode .book-cover-container {
+    background: linear-gradient(135deg, #24243e, #1a1a2e);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 12px solid var(--primary-cindy);
+}
+
+.book-cover-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(180, 167, 214, 0.25);
+}
+
+.book-spine-crease {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: rgba(0,0,0,0.1); z-index: 2;
+}
+
+.book-content-left {
+    display: flex; align-items: center; gap: 25px;
+}
+
+.book-icon {
+    font-size: 2.5rem;
+    color: var(--primary-cindy);
+    opacity: 0.9;
+}
+
+.book-text-info h2 {
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+    letter-spacing: 1px;
+}
+body.dark-mode .book-text-info h2 { color: #fff; }
+
+.book-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.open-book-btn {
+    background-color: var(--primary-kuroo);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+body.dark-mode .open-book-btn { background-color: #555; }
+
+.book-cover-container:hover .open-book-btn {
+    background-color: var(--primary-cindy);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .book-cover-container { flex-direction: column; text-align: center; gap: 20px; padding: 30px 20px; }
+    .book-content-left { flex-direction: column; gap: 15px; }
 }
 
 /* =========================================
