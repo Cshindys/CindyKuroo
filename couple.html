@@ -66,9 +66,13 @@
                         </div>
                         
                         <div class="character-card flip-card-back kuroo-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
+                            
+                            <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
+
                             <div class="card-quote">
                                 「俺達は血液だ 滞り無く流れろ <br>酸素を回せ “脳”が正常に働くために」
                             </div>
+                            
                             <img src="img/Kuroo(student).png" alt="Kuroo Student ID" class="student-id-img">
                             
                             <button class="more-btn kuroo-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('kuroo-container').classList.toggle('flipped')">
@@ -113,9 +117,13 @@
                         </div>
 
                         <div class="character-card flip-card-back cindy-back" onclick="this.parentElement.parentElement.classList.toggle('flipped')">
+                            
+                            <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
+
                             <div class="card-quote">
                                 「いつか、先輩の隣に堂々と<br>立てるようになりたいです。」
                             </div>
+
                             <img src="img/Cindy(student).png" alt="Cindy Student ID" class="student-id-img">
                              
                             <button class="more-btn cindy-btn" style="margin-top:auto;" onclick="event.stopPropagation(); document.getElementById('cindy-container').classList.toggle('flipped')">
@@ -240,19 +248,21 @@
             <div class="interview-section tab-section active" id="interview-zone">
                 <div class="interview-title" id="interview-title">甜蜜訪談室 · Sweet Interview</div>
 
-                <div class="sub-filter-container" id="interview-filters">
+                <div class="sub-filter-container styled-filter-container" id="interview-filters">
                     </div>
 
                 <div id="interview-dynamic-content">
                     </div>
 
-                <div class="interview-pagination">
+                <div class="interview-pagination styled-pagination">
                     <button class="nav-arrow-btn" id="prev-interview-btn" onclick="changeInterview(-1)">
-                        <i class="fas fa-arrow-left"></i> 上一篇
+                        <i class="fas fa-chevron-left"></i> 上一篇
                     </button>
-                    <span class="pagination-dots" id="interview-dots">•••</span>
+                    <span class="pagination-dots" id="interview-dots">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    </span>
                     <button class="nav-arrow-btn" id="next-interview-btn" onclick="changeInterview(1)">
-                        下一篇 <i class="fas fa-arrow-right"></i>
+                        下一篇 <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
