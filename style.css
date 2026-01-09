@@ -292,15 +292,19 @@ body.dark-mode .attention-col {
     margin-bottom: 30px;
 }
 
-/* UPDATED INSTAGRAM BUTTON: Longer/Wider */
+/* UPDATED INSTAGRAM BUTTON: Matches length of warning text */
 .profile-link-card {
     display: flex;
     align-items: center;
     justify-content: center; /* Center the text inside */
     gap: 15px;
     background: white;
-    padding: 12px 50px; /* Increased padding */
-    min-width: 300px;   /* Forces button to be wide */
+    padding: 12px 25px; 
+    
+    /* Width Settings */
+    width: 100%;
+    max-width: 550px; /* Matches the approximate width of the warning text */
+    
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
