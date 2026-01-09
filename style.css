@@ -1,4 +1,4 @@
-/* style.css - HERO TEXT STYLE UPDATED */
+/* style.css - TRANSPARENT TEXT BOX VERSION */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1135,116 +1135,81 @@ body.dark-mode .hero-grid-item {
     }
 }
 
-/* --- HERO STACK SECTION (NEW: 1 AFTER 1 with TEXT) --- */
-/* This section handles the vertical stack of images + captions */
+/* --- HERO STACK SECTION --- */
 .hero-stack-section {
     display: flex;
     flex-direction: column; 
     gap: 30px;
-    max-width: 700px; /* Matches Cindy Card Width */
+    max-width: 700px;
     width: 95%;
     margin: 0 auto 50px auto;
 }
 
 .hero-stack-item {
     width: 100%;
-    /* Parent relative for absolute text positioning */
-    position: relative; 
+    position: relative; /* Essential for placing text on top */
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     background: white;
     border: 5px solid white;
 }
 
-/* Dark mode for stack */
-body.dark-mode .hero-stack-item {
-    border-color: rgba(255,255,255,0.1);
-    background: #1a1a2e;
-}
-
 .hero-stack-item img {
     width: 100%;
-    /* IMAGE ITSELF STAYS SQUARE */
-    aspect-ratio: 1 / 1; 
-    object-fit: cover; 
-    object-position: center 20%;
+    aspect-ratio: 1 / 1; /* Keeps it square */
+    object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
 }
 
 .hero-stack-item:hover img {
-    transform: scale(1.05); /* Zoom effect on hover */
+    transform: scale(1.05);
 }
 
-/* --- HERO CAPTION BOX (UPDATED STYLE) --- */
+/* --- HERO CAPTION BOX (The Rounded Transparent Box) --- */
 .hero-caption-box {
     position: absolute;
-    bottom: 20px;
+    bottom: 20px;         /* Distance from bottom */
     left: 50%;
-    transform: translateX(-50%);
-    width: 85%; /* Make it look like a floating pill */
+    transform: translateX(-50%); /* Centers it perfectly */
+    width: 85%;           /* Width of the text box */
     
-    /* GLASS EFFECT BACKGROUND */
-    background: rgba(255, 255, 255, 0.85); 
+    /* GLASS EFFECT (Transparent Background) */
+    background: rgba(255, 255, 255, 0.6); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     
     padding: 15px 25px;
     text-align: center;
-    border-radius: 30px; /* Rounded pill shape */
+    border-radius: 30px; /* Makes it a Rounded Rectangle */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 10;
-}
-
-/* Dark mode tweaks for caption */
-body.dark-mode .hero-caption-box {
-    background: rgba(26, 26, 46, 0.85);
-    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .hero-caption-box h3 {
     font-size: 1.4rem;
-    color: var(--primary-kuroo);
+    color: #333;
     margin-bottom: 5px;
     font-family: 'Zen Kurenaido', sans-serif;
-    letter-spacing: 1px;
 }
 
 .hero-caption-box p {
     font-size: 0.95rem;
-    color: #555;
-    font-family: 'Poppins', sans-serif;
+    color: #666;
     margin: 0;
 }
 
+/* Dark Mode Support */
+body.dark-mode .hero-stack-item {
+    border-color: rgba(255,255,255,0.1);
+    background: #1a1a2e;
+}
+body.dark-mode .hero-caption-box {
+    background: rgba(26, 26, 46, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+}
 body.dark-mode .hero-caption-box h3 { color: #fff; }
 body.dark-mode .hero-caption-box p { color: #ccc; }
 
-/* =========================================
-   WATERMARK STYLES
-   ========================================= */
-
-.hero-grid-item::after,
-.profile-avatar-img::after {
-    content: "@ccindy_sty";      /* YOUR WATERMARK TEXT */
-    position: absolute;          
-    bottom: 5px;                 
-    right: 5px;                 
-    z-index: 10;                 
-    color: red;                  
-    font-size: 10px;             
-    font-weight: bold;           
-    font-family: sans-serif;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
-    pointer-events: none;        
-}
-
-.profile-avatar-img::after {
-    bottom: 15px;
-    right: 15px;
-    font-size: 9px;
-}
