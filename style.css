@@ -1,4 +1,4 @@
-/* style.css - FINAL COMPLETE VERSION */
+/* style.css - FINAL CORRECTED VERSION */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -290,9 +290,10 @@ body.dark-mode .attention-col {
     justify-content: center;
     gap: 15px;
     margin-bottom: 30px;
+    width: 100%;
 }
 
-/* UPDATED INSTAGRAM BUTTON: Matches length of warning text */
+/* WIDE INSTAGRAM BUTTON */
 .profile-link-card {
     display: flex;
     align-items: center;
@@ -303,7 +304,7 @@ body.dark-mode .attention-col {
     
     /* Width Settings */
     width: 100%;
-    max-width: 550px; /* Matches the approximate width of the warning text */
+    max-width: 600px; /* Matches the Bio Width */
     
     border-radius: 50px;
     text-decoration: none;
@@ -379,7 +380,7 @@ body.dark-mode .category-header-styled { color: #ddd; }
     background: rgba(255,255,255,0.3);
 }
 .category-content-styled.active {
-    max-height: 200px; /* Adjust if content is longer */
+    max-height: 400px; /* Adjust if content is longer */
     border-top: 1px solid rgba(0,0,0,0.03);
 }
 
@@ -863,7 +864,7 @@ body.dark-mode .serif-text p { color: #ccc; }
 body.dark-mode .back-button { background: transparent; }
 body.dark-mode .back-button:hover { background: var(--primary-cindy); }
 
-/* --- HERO GRID SECTION (Verified) --- */
+/* --- HERO GRID SECTION --- */
 .hero-grid-section {
     display: grid;
     /* Always 4 columns */
