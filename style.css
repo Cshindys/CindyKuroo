@@ -1387,3 +1387,78 @@ body.dark-mode .hero-stack-item:hover .hero-caption-box {
 
 body.dark-mode .hero-caption-box h3 { color: #fff; }
 body.dark-mode .hero-caption-box p { color: #aaa; }
+/* style.css - Add this to the bottom or replace existing styles */
+
+/* --- PRETTY DIARY STYLES --- */
+
+/* 1. Action / Narrative Style */
+.narrative-action {
+    background: #f9f9f9;
+    border-left: 4px solid var(--accent-pink); /* Pink line on left */
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 0 10px 10px 0;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    font-style: normal; /* Removed italic for better readability */
+    position: relative;
+}
+
+body.dark-mode .narrative-action {
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: var(--accent-pink);
+    color: #ccc;
+}
+
+/* 2. Inner Monologue / Thoughts Style */
+.inner-monologue {
+    background: #FFF8E1; /* Soft yellow background for thoughts */
+    border: 2px dashed #FFD54F; /* Dashed gold border */
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin: 20px auto;
+    color: #795548;
+    font-size: 0.95rem;
+    position: relative;
+    max-width: 90%;
+}
+
+body.dark-mode .inner-monologue {
+    background: rgba(255, 213, 79, 0.1);
+    border-color: rgba(255, 213, 79, 0.3);
+    color: #E6EE9C;
+}
+
+.inner-label {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+/* 3. Ensure Cindy aligns Right */
+.story-bubble.right {
+    justify-content: flex-end;
+    flex-direction: row-reverse; /* Avatar on right */
+}
+
+.story-bubble.right .story-bubble-content {
+    background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+    color: #4A148C;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    text-align: left; /* Text inside remains left-aligned for readability */
+}
+
+/* 4. Ensure Kuroo aligns Left */
+.story-bubble.left .story-bubble-content {
+    background: #eee;
+    color: #333;
+    border-bottom-left-radius: 2px;
+}
