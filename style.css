@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css - 完整修正版 */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -717,7 +717,7 @@ body.dark-mode .garden-status { color: #ccc; }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; display: inline-block; }
 
 /* --- INTERVIEW SECTION --- */
-.interview-section, .timeline-section, .storybook-section, .photo-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
+.interview-section, .timeline-section, .storybook-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
 .interview-title, .timeline-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #555; margin: 0 auto 60px auto; letter-spacing: 1px; position: relative; width: fit-content; display: flex; align-items: center; justify-content: center; gap: 15px; }
 body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
 .interview-title::after, .timeline-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 3px; }
@@ -1072,7 +1072,7 @@ body.dark-mode .notice-item:hover {
     border-color: var(--primary-cindy);
 }
 
-/* --- HERO GRID SECTION (Verified) --- */
+/* --- HERO GRID SECTION (Restored) --- */
 .hero-grid-section {
     display: grid;
     /* Always 4 columns, even on mobile */
@@ -1122,6 +1122,37 @@ body.dark-mode .hero-grid-item {
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
+}
+
+/* --- HERO STACK SECTION (NEW: 1 AFTER 1) --- */
+.hero-stack-section {
+    display: flex;
+    flex-direction: column; /* This makes it 1 after 1 (vertical) */
+    gap: 30px;
+    max-width: 700px;
+    width: 95%;
+    margin: 0 auto 50px auto;
+}
+
+.hero-stack-item {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background: white;
+    border: 5px solid white;
+}
+
+/* Dark mode for stack */
+body.dark-mode .hero-stack-item {
+    border-color: rgba(255,255,255,0.1);
+    background: #1a1a2e;
+}
+
+.hero-stack-item img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* =========================================
