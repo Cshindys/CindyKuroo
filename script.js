@@ -1,6 +1,6 @@
 /* --- GLOBAL VARIABLES & DATA --- */
 
-// Timeline Event Stories Data (Updated with Pretty Styles & Right-Aligned Cindy)
+// Timeline Event Stories Data (Cindy = Left, Kuroo = Right)
 const eventStories = {
     'event1': {
         title: "愛的暗殺事件🌱",
@@ -11,7 +11,7 @@ const eventStories = {
             </div>
 
             <div class="inner-monologue">
-                <span class="inner-label">Cindy 內心獨白</span>
+                <span class="inner-label">Cindy's Mind</span>
                 （只要給它滿滿的愛，它一定會長得很高大吧！就像學長一樣！）
             </div>
 
@@ -19,7 +19,7 @@ const eventStories = {
                 出於對這個小生命的過度關愛，她每天早晚都給它澆水，還對著它說話。結果兩個禮拜後，仙人掌... 從內部爛掉了。
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -27,7 +27,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -45,7 +45,7 @@ const eventStories = {
             </div>
 
             <div class="inner-monologue">
-                <span class="inner-label">Cindy 內心獨白</span>
+                <span class="inner-label">Cindy's Mind</span>
                 （差一點點...再高一點點就拿到了...！）
             </div>
 
@@ -53,7 +53,7 @@ const eventStories = {
                 就在指尖碰到書脊的瞬間，重心不穩，整個人向後仰去。她閉上眼睛準備迎接疼痛，卻沒有摔倒在地，反而是頭頂傳來「咚」的一聲悶響。
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -65,7 +65,7 @@ const eventStories = {
                 原來黑尾剛好經過，伸手扶住了她，卻被落下的精裝書精準砸中了自己的手臂，還反彈到了 Cindy 的頭上。
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -82,7 +82,7 @@ const eventStories = {
                 黑尾生日當天，Cindy 鼓起勇氣送出了準備已久的禮物。包裝非常精美，還綁著紫色的緞帶。
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -95,11 +95,11 @@ const eventStories = {
             </div>
 
             <div class="inner-monologue">
-                <span class="inner-label">Cindy 內心獨白</span>
+                <span class="inner-label">Cindy's Mind</span>
                 （糟了...學長的表情怪怪的...難道是不喜歡這個顏色嗎？）
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -107,7 +107,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -118,7 +118,7 @@ const eventStories = {
     }
 };
 
-// Storybook Chapters Data
+// Storybook Chapters Data (Rest of the file remains largely the same)
 const storyChapters = [
     {
         id: 1,
@@ -227,7 +227,7 @@ const gardenEntries = [
                 突然，一道影子籠罩下來。
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -244,7 +244,7 @@ const gardenEntries = [
                 （其實早就看到這傢伙在這裡了。明明被雨聲吵得聽不見腳步聲，卻對花這麼專注...稍微有點不爽啊。）
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -292,7 +292,7 @@ const gardenEntries = [
             <div class="story-paragraph" style="text-indent: 0;">
                 *黑色的制服褲包裹著修長的腿，那頭標誌性的雞冠頭，在陽光下顯得格外清晰。*
             </div>
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -327,7 +327,7 @@ const gardenEntries = [
                 （這氣息...是那個園藝社的小不點吧。躲在柱子後面偷看的樣子，比這隻野貓還像小動物。）
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -335,7 +335,7 @@ const gardenEntries = [
                 </div>
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -371,7 +371,7 @@ const gardenEntries = [
                 *Cindy 踮起腳尖試圖測量花莖的高度，身體搖搖晃晃的。突然，一道陰影覆蓋了下來，替她擋住了刺眼的陽光。*
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -388,14 +388,14 @@ const gardenEntries = [
                 （這麼熱的天還在外面晃...真是讓人操心。這張臉都快比向日葵還紅了。）
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
                     冰、冰的好舒服... 學長才是，練習不累嗎？
                 </div>
             </div>
-             <div class="story-bubble left">
+             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
