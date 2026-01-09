@@ -202,7 +202,7 @@ const eventStories = {
     }
 };
 
-// Storybook Chapters Data (Rest of the file remains largely the same)
+// Storybook Chapters Data
 const storyChapters = [
     {
         id: 1,
@@ -926,5 +926,4 @@ function observeInterviewElements() {
     }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
     elements.forEach(el => observer.observe(el));
-}
 }
