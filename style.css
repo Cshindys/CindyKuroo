@@ -133,6 +133,7 @@ body.dark-mode .story-label { color: #ccc; }
     margin: 30px auto 0 auto;
 }
 
+/* UPDATED: Profile Card Container with Height Limit */
 .profile-container-glass {
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(20px);
@@ -143,7 +144,30 @@ body.dark-mode .story-label { color: #ccc; }
     box-shadow: 0 15px 40px rgba(180, 167, 214, 0.15);
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto; /* Enable scrolling */
+    max-height: 500px; /* Limit height to match Attention card */
+    
+    /* Scrollbar styling for Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-cindy) transparent;
+}
+
+/* Custom Scrollbar for Chrome/Safari/Edge */
+.profile-container-glass::-webkit-scrollbar {
+    width: 6px;
+}
+.profile-container-glass::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 20px 0; /* Add margin so scrollbar doesn't touch top/bottom edges */
+}
+.profile-container-glass::-webkit-scrollbar-thumb {
+    background-color: var(--primary-cindy);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+.profile-container-glass::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-pink);
 }
 
 body.dark-mode .profile-container-glass {
@@ -164,6 +188,7 @@ body.dark-mode .profile-container-glass {
     width: 140px;
     height: 140px;
     margin-bottom: 20px;
+    flex-shrink: 0; /* Prevent avatar from shrinking */
 }
 
 .profile-avatar-ring {
@@ -1318,33 +1343,26 @@ body.dark-mode .open-book-btn { background-color: #555; }
 }
 
 /* =========================================
-   WATERMARK STYLES (ADDED)
+   WATERMARK STYLES
    ========================================= */
 
-/* 1. Apply to the Photo Grid and Profile Picture */
-/* .hero-grid-item::after,
-.profile-avatar-img::after { */
-    /* content: "@ccindy_sty";      /* YOUR WATERMARK TEXT */
-    
-    /* position: absolute;          
+.hero-grid-item::after,
+.profile-avatar-img::after {
+    content: "@ccindy_sty";      
+    position: absolute;          
     bottom: 5px;                 
     right: 5px;                 
     z-index: 10;                 
-    
     color: red;                  
     font-size: 10px;             
     font-weight: bold;           
-    font-family: sans-serif; */
-     */
-    /* Adds a tiny white outline so it's readable on dark photos */
-    /* text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
-    
+    font-family: sans-serif;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
     pointer-events: none;        
-} */
+}
 
-/* 2. Specific adjustment for Circular Images (Profile Pic) */
-/* .profile-avatar-img::after {
+.profile-avatar-img::after {
     bottom: 15px;
     right: 15px;
     font-size: 9px;
-} */
+}
