@@ -1,8 +1,8 @@
-/* script.js - FINAL FIXED VERSION */
+/* script.js - FINAL FIXED COMPLETE VERSION */
 
-/* --- GLOBAL VARIABLES & DATA --- */
+/* --- 1. DATA DEFINITIONS --- */
 
-// 1. Timeline Event Stories
+// Timeline Event Stories
 const eventStories = {
     'event1': {
         title: "愛的暗殺事件🌱",
@@ -98,7 +98,7 @@ const eventStories = {
     }
 };
 
-// 2. Storybook Chapters Data
+// Storybook Chapters
 const storyChapters = [
     {
         id: 1,
@@ -178,7 +178,7 @@ const storyChapters = [
     }
 ];
 
-// 3. Gardening Diary Data
+// Gardening Diary
 const gardeningData = [
     {
         id: 'g1',
@@ -389,7 +389,7 @@ const gardeningData = [
     }
 ];
 
-// 4. Interview Series Data (THIS WAS MISSING BEFORE)
+// Interview Series
 const interviewSeries = [
     {
         id: 'ep1',
@@ -479,28 +479,23 @@ const interviewSeries = [
     }
 ];
 
-let currentInterviewIndex = 0; 
+let currentInterviewIndex = 0;
+let currentChapterIndex = 0;
 
-/* --- INITIALIZATION --- */
+/* --- 2. INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- IMAGE PROTECTION ---
-    document.addEventListener('contextmenu', function(e) {
-        if (e.target.tagName === 'IMG') {
-            e.preventDefault();
-        }
-    });
-    document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-            e.preventDefault();
-        }
-    });
+    document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
+    // Initialize Content
     renderChapters();
     renderGardenEntries();
     initInterviews();       
     initScrollAnimations(); 
     
+    // Bind Event Listeners
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const eventElement = e.target.closest('.timeline-event');
@@ -509,11 +504,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Dark Mode Check
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark-mode');
         updateDarkModeIcon();
     }
     
+    // Scroll Button Check
     window.addEventListener('scroll', () => {
         const btn = document.getElementById('scrollTopBtn');
         if (btn) {
@@ -526,23 +523,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/* --- TAB & SCROLL FUNCTIONS --- */
-function toggleCategory(header) {
-    const content = header.nextElementSibling;
-    const icon = header.querySelector('.category-icon');
-    const isActive = content.classList.contains('active');
-    
-    document.querySelectorAll('.category-content-styled').forEach(c => {
-        c.classList.remove('active');
+/* --- 3. TAB & NAVIGATION FUNCTIONS --- */
+
+// Function for Couple.html TOP filter tabs (Video vs Relationship)
+function switchTopTab(tabId) {
+    document.querySelectorAll('.top-tab-content').forEach(content => {
+        content.classList.remove('active');
     });
     
-    document.querySelectorAll('.category-icon').forEach(i => {
-        i.style.transform = 'rotate(0deg)';
-    });
+    // Handle Buttons
+    const videoBtn = document.getElementById('btn-top-video');
+    const relationBtn = document.getElementById('btn-top-relationship');
     
-    if (!isActive) {
-        content.classList.add('active');
-        icon.style.transform = 'rotate(180deg)';
+    if(videoBtn) videoBtn.classList.remove('active');
+    if(relationBtn) relationBtn.classList.remove('active');
+
+    // Activate Target
+    const target = document.getElementById(tabId);
+    if(target) target.classList.add('active');
+
+    // Activate Button
+    if (tabId === 'top-tab-video' && videoBtn) {
+        videoBtn.classList.add('active');
+    } else if (relationBtn) {
+        relationBtn.classList.add('active');
+    }
+}
+
+// Function for Couple.html MAIN tabs (Interview, Storybook, etc.)
+function toggleTab(tabId) {
+    // Hide all sections
+    document.querySelectorAll('.tab-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    // Reset all buttons
+    document.querySelectorAll('#filter-bar-anchor .filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Show target section
+    const target = document.getElementById(tabId);
+    if(target) {
+        target.classList.add('active');
+        // Trigger animations if entering interview zone
+        if(tabId === 'interview-zone') observeInterviewElements();
+    }
+    
+    // Highlight button
+    const btnMap = {
+        'interview-zone': 'btn-interview',
+        'storybook-zone': 'btn-storybook',
+        'timeline-zone': 'btn-timeline',
+        'garden-zone': 'btn-garden'
+    };
+    if (btnMap[tabId]) {
+        const btn = document.getElementById(btnMap[tabId]);
+        if(btn) btn.classList.add('active');
+    }
+}
+
+function scrollToId(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
@@ -557,14 +600,12 @@ function toggleDarkMode() {
 
 function updateDarkModeIcon() {
     const icon = document.getElementById('darkModeIcon');
-    if (document.body.classList.contains('dark-mode')) {
-        icon.textContent = '☀️';
-    } else {
-        icon.textContent = '🌙';
+    if(icon) {
+        icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     }
 }
 
-/* --- MODAL FUNCTIONS --- */
+/* --- 4. MODAL FUNCTIONS --- */
 function openModal(eventId) {
     const data = eventStories[eventId];
     if (!data) return;
@@ -577,21 +618,9 @@ function openGardenModal(entryData) {
 
 function fillModalContent(title, date, content, footerText) {
     const modalBody = document.getElementById('modalBody');
-    if(!modalBody) {
-        // Create modal if it doesn't exist
-        const modalHtml = `
-            <div class="modal" id="eventModal" onclick="closeModal()">
-                <div class="modal-content" onclick="event.stopPropagation()">
-                    <div class="modal-close" onclick="closeModal()">×</div>
-                    <div id="modalBody"></div>
-                </div>
-            </div>
-        `;
-        document.body.insertAdjacentHTML('beforeend', modalHtml);
-    }
-    
-    const targetBody = document.getElementById('modalBody');
-    targetBody.innerHTML = `
+    if(!modalBody) return; // Safety check
+
+    modalBody.innerHTML = `
         <div class="story-header">
             <h2 class="story-chapter-title">${title}</h2>
             <div class="story-date">${date}</div>
@@ -599,7 +628,8 @@ function fillModalContent(title, date, content, footerText) {
         ${content}
         <div class="story-timestamp">${footerText}</div>
     `;
-    document.getElementById('eventModal').classList.add('active');
+    const modal = document.getElementById('eventModal');
+    if(modal) modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
@@ -609,14 +639,15 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-function openStoryModal(eventId) {
-    // Legacy support for event cards that might call this
-    openModal(eventId);
+// Close modal on outside click
+window.onclick = function(event) {
+    const modal = document.getElementById('eventModal');
+    if (event.target === modal) {
+        closeModal();
+    }
 }
 
-/* --- TEXT STORIES --- */
-let currentChapterIndex = 0;
-
+/* --- 5. STORYBOOK LOGIC --- */
 function renderChapters() {
     const container = document.getElementById('chapters-container');
     if(!container) return; 
@@ -635,12 +666,56 @@ function renderChapters() {
     });
 }
 
-/* --- GARDEN --- */
+function openChapter(index) {
+    currentChapterIndex = index;
+    updateReaderContent();
+    const gridView = document.getElementById('chapters-grid-view');
+    const readerView = document.getElementById('story-reader-view');
+    if(gridView) gridView.style.display = 'none';
+    if(readerView) readerView.style.display = 'block';
+    scrollToId('storybook-zone');
+}
+
+function closeChapterReader() {
+    const gridView = document.getElementById('chapters-grid-view');
+    const readerView = document.getElementById('story-reader-view');
+    if(gridView) gridView.style.display = 'block';
+    if(readerView) readerView.style.display = 'none';
+    scrollToId('storybook-zone');
+}
+
+function navigateChapter(direction) {
+    const newIndex = currentChapterIndex + direction;
+    if (newIndex >= 0 && newIndex < storyChapters.length) {
+        currentChapterIndex = newIndex;
+        updateReaderContent();
+        scrollToId('storybook-zone');
+    }
+}
+
+function updateReaderContent() {
+    const chapter = storyChapters[currentChapterIndex];
+    const title = document.getElementById('reader-title');
+    const date = document.getElementById('reader-date');
+    const content = document.getElementById('reader-content');
+    const progress = document.getElementById('reader-progress');
+    const prevBtn = document.getElementById('reader-prev-btn');
+    const nextBtn = document.getElementById('reader-next-btn');
+
+    if(title) title.textContent = chapter.title;
+    if(date) date.textContent = chapter.date;
+    if(content) content.innerHTML = chapter.content;
+    if(progress) progress.textContent = `${currentChapterIndex + 1} / ${storyChapters.length}`;
+    if(prevBtn) prevBtn.disabled = (currentChapterIndex === 0);
+    if(nextBtn) nextBtn.disabled = (currentChapterIndex === storyChapters.length - 1);
+}
+
+/* --- 6. GARDEN LOGIC --- */
 function renderGardenEntries() {
     const container = document.getElementById('garden-container');
     if(!container) return;
     container.innerHTML = '';
-    gardeningData.forEach(entry => { // Changed from gardenEntries to gardeningData
+    gardeningData.forEach(entry => {
         const card = document.createElement('div');
         card.className = 'garden-card';
         card.onclick = () => openGardenModal(entry);
@@ -659,12 +734,12 @@ function renderGardenEntries() {
     });
 }
 
-/* --- INTERVIEW LOGIC FUNCTIONS --- */
+/* --- 7. INTERVIEW LOGIC --- */
 function initInterviews() {
     const filterContainer = document.getElementById('interview-filters');
     if (!filterContainer) return;
 
-    // 1. Generate Filter Buttons
+    // Generate Filter Buttons
     filterContainer.innerHTML = '';
     interviewSeries.forEach((series, index) => {
         const btn = document.createElement('button');
@@ -674,7 +749,7 @@ function initInterviews() {
         filterContainer.appendChild(btn);
     });
 
-    // 2. Load the first interview
+    // Load first
     loadInterview(0);
 }
 
@@ -684,28 +759,45 @@ function loadInterview(index) {
     currentInterviewIndex = index;
     const data = interviewSeries[index];
     
-    // 1. Update Content with Fade Effect
+    // Update Content
     const container = document.getElementById('interview-dynamic-content');
     if(container) {
         container.style.opacity = '0';
-        
         setTimeout(() => {
             container.innerHTML = data.content;
             container.style.opacity = '1';
-            
-            // Re-trigger scroll animations for new content
             observeInterviewElements(); 
         }, 200);
     }
 
-    // 2. Update Filter Buttons
+    // Update Filters
     document.querySelectorAll('.sub-filter-btn').forEach((btn, idx) => {
         if (idx === index) btn.classList.add('active');
         else btn.classList.remove('active');
     });
+
+    // Update Pagination
+    const prevBtn = document.getElementById('prev-interview-btn');
+    const nextBtn = document.getElementById('next-interview-btn');
+    
+    if(prevBtn) prevBtn.disabled = (index === 0);
+    if(nextBtn) {
+        nextBtn.disabled = (index === interviewSeries.length - 1);
+        if(index < interviewSeries.length - 1) {
+            nextBtn.innerHTML = `下一篇 <i class="fas fa-arrow-right"></i>`;
+        } else {
+            nextBtn.innerHTML = `End <i class="fas fa-check"></i>`;
+        }
+    }
 }
 
-/* --- SCROLL ANIMATION FUNCTIONS --- */
+function changeInterview(direction) {
+    loadInterview(currentInterviewIndex + direction);
+    const zone = document.getElementById('interview-zone');
+    if(zone) zone.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* --- 8. ANIMATION UTILS --- */
 function initScrollAnimations() {
     const interviewElements = document.querySelectorAll(
         '.interview-scene .host-box, ' +
@@ -720,10 +812,7 @@ function initScrollAnimations() {
                 entry.target.classList.add('pop-in-active');
             }
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    });
+    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
     interviewElements.forEach(el => observer.observe(el));
 }
