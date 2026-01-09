@@ -1,4 +1,4 @@
-/* style.css - 完整修正版 */
+/* style.css - COMPLETE FIXED VERSION */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -130,7 +130,7 @@ body.dark-mode .story-label { color: #ccc; }
 
 /* --- PROFILE SECTION (CINDY) --- */
 .profile-section-main {
-    max-width: 700px; /* Aligned width */
+    max-width: 700px;
     width: 95%;
     margin: 30px auto 0 auto;
 }
@@ -699,6 +699,17 @@ body.dark-mode .filter-btn.active { color: white; box-shadow: 0 8px 25px rgba(18
 .top-tab-content { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
 .top-tab-content.active { display: block; opacity: 1; transform: translateY(0); animation: fadeSlideUp 0.5s forwards; }
 
+/* --- PHOTO ALBUM SECTION --- */
+.photo-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 10px; }
+.photo-item { background: white; padding: 15px 15px 50px 15px; box-shadow: var(--card-shadow); transform: rotate(-2deg); transition: all 0.3s ease; border-radius: 4px; position: relative; cursor: pointer; border: 1px solid rgba(0,0,0,0.05); }
+.photo-item:nth-child(even) { transform: rotate(2deg); margin-top: 20px; }
+.photo-item:hover { transform: scale(1.05) rotate(0deg); z-index: 10; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+body.dark-mode .photo-item { background: #2a2a40; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.photo-frame { width: 100%; height: 300px; overflow: hidden; margin-bottom: 15px; background: #f0f0f0; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.photo-caption { font-family: 'Zen Kurenaido', sans-serif; text-align: center; color: #666; font-size: 1.1rem; font-weight: 600; position: absolute; bottom: 15px; left: 0; width: 100%; }
+body.dark-mode .photo-caption { color: #ccc; }
+
 /* --- GARDENING DIARY SECTION --- */
 .garden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 10px; }
 .garden-card { background: white; border: 1px solid #e0f2f1; border-radius: 20px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 128, 0, 0.05); transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
@@ -717,7 +728,7 @@ body.dark-mode .garden-status { color: #ccc; }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; display: inline-block; }
 
 /* --- INTERVIEW SECTION --- */
-.interview-section, .timeline-section, .storybook-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
+.interview-section, .timeline-section, .storybook-section, .photo-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
 .interview-title, .timeline-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #555; margin: 0 auto 60px auto; letter-spacing: 1px; position: relative; width: fit-content; display: flex; align-items: center; justify-content: center; gap: 15px; }
 body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
 .interview-title::after, .timeline-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 3px; }
@@ -1072,7 +1083,7 @@ body.dark-mode .notice-item:hover {
     border-color: var(--primary-cindy);
 }
 
-/* --- HERO GRID SECTION (Restored) --- */
+/* --- HERO GRID SECTION (Verified) --- */
 .hero-grid-section {
     display: grid;
     /* Always 4 columns, even on mobile */
@@ -1125,22 +1136,25 @@ body.dark-mode .hero-grid-item {
 }
 
 /* --- HERO STACK SECTION (NEW: 1 AFTER 1) --- */
+/* This section handles the vertical stack of images */
 .hero-stack-section {
     display: flex;
-    flex-direction: column; /* This makes it 1 after 1 (vertical) */
+    flex-direction: column; 
     gap: 30px;
-    max-width: 700px;
+    max-width: 700px; /* Matches Cindy Card Width */
     width: 95%;
     margin: 0 auto 50px auto;
 }
 
 .hero-stack-item {
     width: 100%;
+    height: 500px; /* <--- FIXED HEIGHT to prevent "too big" */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
     background: white;
     border: 5px solid white;
+    position: relative;
 }
 
 /* Dark mode for stack */
@@ -1151,31 +1165,14 @@ body.dark-mode .hero-stack-item {
 
 .hero-stack-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the box nicely */
+    object-position: center 20%; /* Adjusts focus slightly up */
     display: block;
+    transition: transform 0.5s ease;
 }
 
-/* =========================================
-   WATERMARK STYLES
-   ========================================= */
-
-.hero-grid-item::after,
-.profile-avatar-img::after {
-    content: "@ccindy_sty";      /* YOUR WATERMARK TEXT */
-    position: absolute;          
-    bottom: 5px;                 
-    right: 5px;                 
-    z-index: 10;                 
-    color: red;                  
-    font-size: 10px;             
-    font-weight: bold;           
-    font-family: sans-serif;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
-    pointer-events: none;        
+.hero-stack-item:hover img {
+    transform: scale(1.05); /* Zoom effect on hover */
 }
 
-.profile-avatar-img::after {
-    bottom: 15px;
-    right: 15px;
-    font-size: 9px;
-}
