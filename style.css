@@ -1139,7 +1139,7 @@ body.dark-mode .hero-grid-item {
 .hero-stack-section {
     display: flex;
     flex-direction: column; 
-    gap: 30px;
+    gap: 50px; 
     max-width: 700px;
     width: 95%;
     margin: 0 auto 50px auto;
@@ -1147,69 +1147,96 @@ body.dark-mode .hero-grid-item {
 
 .hero-stack-item {
     width: 100%;
-    position: relative; /* Essential for placing text on top */
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    background: white;
-    border: 5px solid white;
+    position: relative; 
+    background: transparent; 
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .hero-stack-item img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Keeps it square */
+    aspect-ratio: 1 / 1; 
     object-fit: cover;
     display: block;
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
     transition: transform 0.5s ease;
+    z-index: 1;
 }
 
 .hero-stack-item:hover img {
-    transform: scale(1.05);
+    transform: translateY(-5px); 
 }
 
-/* --- HERO CAPTION BOX (The Rounded Transparent Box) --- */
+/* --- HERO CAPTION BUTTON (The New Look) --- */
 .hero-caption-box {
-    position: absolute;
-    bottom: 20px;         /* Distance from bottom */
-    left: 50%;
-    transform: translateX(-50%); /* Centers it perfectly */
-    width: 85%;           /* Width of the text box */
+    position: relative; 
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%); 
     
-    /* GLASS EFFECT (Transparent Background) */
-    background: rgba(255, 255, 255, 0.6); 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    width: fit-content;    
+    min-width: 280px;      
+    max-width: 90%;
     
-    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    padding: 12px 35px;    
     text-align: center;
-    border-radius: 30px; /* Makes it a Rounded Rectangle */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;   
+    
+    box-shadow: 0 10px 25px rgba(180, 167, 214, 0.3);
+    border: 2px solid white;
+    
     z-index: 10;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
+    cursor: default; 
+}
+
+/* Hover Effect for the Button */
+.hero-stack-item:hover .hero-caption-box {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 15px 35px rgba(232, 180, 217, 0.4);
+    border-color: var(--primary-cindy);
 }
 
 .hero-caption-box h3 {
-    font-size: 1.4rem;
-    color: #333;
-    margin-bottom: 5px;
+    font-size: 1.3rem;
+    color: var(--primary-kuroo);
+    margin: 0;
     font-family: 'Zen Kurenaido', sans-serif;
+    font-weight: 700;
 }
 
 .hero-caption-box p {
-    font-size: 0.95rem;
-    color: #666;
-    margin: 0;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* Dark Mode Support */
-body.dark-mode .hero-stack-item {
-    border-color: rgba(255,255,255,0.1);
-    background: #1a1a2e;
+body.dark-mode .hero-stack-item img {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
 }
-body.dark-mode .hero-caption-box {
-    background: rgba(26, 26, 46, 0.6);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-body.dark-mode .hero-caption-box h3 { color: #fff; }
-body.dark-mode .hero-caption-box p { color: #ccc; }
 
+body.dark-mode .hero-caption-box {
+    background: rgba(30, 30, 50, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .hero-stack-item:hover .hero-caption-box {
+    border-color: var(--accent-pink);
+    box-shadow: 0 15px 35px rgba(180, 167, 214, 0.2);
+}
+
+body.dark-mode .hero-caption-box h3 { color: #fff; }
+body.dark-mode .hero-caption-box p { color: #aaa; }
