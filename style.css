@@ -1,4 +1,4 @@
-/* style.css - UPDATED WITH 1080x1350 ASPECT RATIO */
+/* style.css - 完整修正版 (1接1圖片+文字) */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1135,8 +1135,8 @@ body.dark-mode .hero-grid-item {
     }
 }
 
-/* --- HERO STACK SECTION (NEW: 1 AFTER 1) --- */
-/* This section handles the vertical stack of images */
+/* --- HERO STACK SECTION (NEW: 1 AFTER 1 with TEXT) --- */
+/* This section handles the vertical stack of images + captions */
 .hero-stack-section {
     display: flex;
     flex-direction: column; 
@@ -1148,14 +1148,15 @@ body.dark-mode .hero-grid-item {
 
 .hero-stack-item {
     width: 100%;
-    /* UPDATED: Removed fixed height, added aspect-ratio */
-    aspect-ratio: 1080 / 1350; /* Preserves 4:5 portrait ratio */
+    /* REMOVED aspect-ratio here so container can grow with text */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
     background: white;
     border: 5px solid white;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Dark mode for stack */
@@ -1166,9 +1167,10 @@ body.dark-mode .hero-stack-item {
 
 .hero-stack-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures image fills the box nicely */
-    object-position: center 20%; /* Adjusts focus slightly up */
+    /* IMAGE ITSELF STAYS SQUARE */
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; 
+    object-position: center 20%;
     display: block;
     transition: transform 0.5s ease;
 }
@@ -1176,6 +1178,33 @@ body.dark-mode .hero-stack-item {
 .hero-stack-item:hover img {
     transform: scale(1.05); /* Zoom effect on hover */
 }
+
+/* --- HERO CAPTION BOX (New) --- */
+.hero-caption-box {
+    padding: 20px 25px;
+    text-align: center;
+    background: white;
+}
+
+.hero-caption-box h3 {
+    font-size: 1.4rem;
+    color: var(--primary-kuroo);
+    margin-bottom: 8px;
+    font-family: 'Zen Kurenaido', sans-serif;
+}
+
+.hero-caption-box p {
+    font-size: 1rem;
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Dark mode tweaks for caption */
+body.dark-mode .hero-caption-box {
+    background: #1a1a2e;
+}
+body.dark-mode .hero-caption-box h3 { color: #fff; }
+body.dark-mode .hero-caption-box p { color: #aaa; }
 
 /* =========================================
    WATERMARK STYLES
