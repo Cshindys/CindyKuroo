@@ -9,7 +9,7 @@ const eventStories = {
         date: "記錄時間：未知",
         content: `
             <div class="story-paragraph">
-                シンディ其實並不擅長園藝，但為了加入園藝社（以及偷看隔壁體育館的黑尾），她努力學習。
+                シンディ其實並不擅長園藝，但為了偷看隔壁體育館的黑尾，她加入園藝社。
                 她領養了一盆號稱「絕對不會死」的仙人掌。
             </div>
             <div class="story-paragraph">
@@ -86,11 +86,7 @@ const gardeningData = [
             </div>
 
             <div class="narrative-action">
-                她臉上漾開一抹溫柔的微笑，腳步也輕快了幾分。<br>然而，當她繞過一叢半人高的繡球花時，腳步卻猛地頓住了。
-            </div>
-
-            <div class="narrative-action strong-impact">
-                —— 她 看 到 了 。
+                她臉上漾開一抹溫柔的微笑，腳步也輕快了幾分。<br>然而，當她繞過一叢半人高的繡球花時，腳步卻猛地頓住了。 —— 她 看 到 了 。
             </div>
 
             <div class="story-paragraph">
@@ -108,40 +104,58 @@ const gardeningData = [
 
             <div class="inner-monologue">
                 <span class="inner-label">Cindy's Mind</span>
-                （天啊...那是黑尾學長？！<br>他在跟貓說話的語氣也太溫柔了吧！！心臟受不了了...好想變成那隻貓...）
+                天啊...那是黑尾學長？！他在跟貓說話的語氣也太溫柔了吧！！心臟受不了了...好想變成那隻貓...
             </div>
 
             <div class="narrative-action">
                 心臟瞬間漏跳了一拍。<br>她下意識地往繡球花叢後縮了縮，只探出半顆腦袋，屏住呼吸，偷偷地觀察著。
             </div>
 
+            <div class="narrative-action">
+                在他的面前，一隻毛色漂亮的橘白黑三花貓正愜意地躺在貓草叢中，翻著肚皮，發出滿足的「呼嚕」聲。
+            </div>
+            <div class="narrative-action">
+                而黑尾的手中，正捏著一根細長的狗尾巴草。他將毛茸茸的草穗，輕輕地、有技巧地在三花貓的鼻尖、下巴和肉球上來回搔刮、逗弄。他的動作很輕，帶著一種與生俱來的耐心與熟練。
+            </div>
+            <div class="narrative-action">
+                三花貓顯然對此非常受用，它瞇著眼睛，前爪時不時地伸出來，懶洋洋地揮舞著，試圖抓住那調皮的草穗，喉嚨裡發出的呼嚕聲愈發響亮。
+            </div>
             <div class="story-paragraph">
                 陽光灑在黑尾的側臉上，為他深刻的輪廓鍍上了一層柔和的金邊。
                 沒有了平時那種狡黠的壞笑，也沒有了球場上的凌厲。他的嘴角微微上揚，眼神中流露出的，是純粹的、不帶任何雜質的寵溺。
             </div>
-
+            <div class="narrative-action">
+                那一瞬間，シンデイ感覺自己的心臟像是被一隻溫暖的手輕輕地攥住了，一種難以名狀的悸動，伴隨著微酸的暖流，迅速蔓延至四肢百骸。
+            </div>        
             <div class="inner-monologue">
                 <span class="inner-label">Cindy's Mind</span>
-                （...學長...原來私底下是這個樣子的啊...<br>等等！為、為什麼黑尾學長會在這裡？！他發現我的祕密基地了嗎？）
+                ...學長...原來私底下是這個樣子的啊...<br>等等！為、為什麼黑尾學長會在這裡？！他發現我的祕密基地了嗎？
             </div>
-
             <div class="narrative-action">
-                黑尾其實早就察覺到背後的視線。<br>他嘴角微微上揚，故意沒有回頭，只是稍微側過臉。
+                就在シンデイ看得有些出神的時候，那隻三花貓似乎玩膩了，它打了個大大的哈欠，翻了個身，將臉埋進貓草叢裡，只留給黑尾一個毛茸茸的後腦杓。
+            </div>  
+            <div class="narrative-action">
+                黑尾見狀，也不生氣，只是無奈地輕笑了一聲。他伸出修長的手指，輕輕地點了點貓咪的屁股，貓咪只是懶洋洋地甩了甩尾巴，表示抗議。
+            </div>  
+            <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    喂喂，你也太沒良心了吧？玩夠了就不理人了？
+                </div>
             </div>
-
+            <div class="narrative-action">
+                黑尾似乎還想說什麼，卻像是察覺到了什麼一般，動作微微一頓。他那敏銳的視線，忽然朝著シンデイ藏身的繡球花叢方向，不經意地掃了一眼。
+            </div>  
+            <div class="narrative-action">
+                シンデイ的心猛地提到了嗓子眼，她嚇得渾身一僵，連忙將整個身子都縮回了花叢後，死死地捂住自己的嘴巴，連大氣都不敢喘一口。
+            </div>  
             <div class="inner-monologue kuroo-mind">
                 <span class="inner-label">Kuroo's Mind</span>
                 （這氣息...是那個園藝社的小不點吧。<br>躲在柱子後面偷看的樣子，比這隻野貓還像小動物。）
             </div>
 
-            <div class="story-bubble left">
-                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
-                <div class="story-bubble-content">
-                    <span class="sb-speaker">黑尾</span>
-                    這草種得不錯啊，很有吸引力。連我都想過來趴著睡午覺了。<br>
-                    妳說是吧？經理小姐？
-                </div>
-            </div>
+
 
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
