@@ -1317,16 +1317,16 @@ body.dark-mode .open-book-btn { background-color: #555; }
     .book-content-left { flex-direction: column; gap: 15px; }
 }
 
-/* /* =========================================
+/* =========================================
    WATERMARK STYLES (ADDED)
    ========================================= */
 
 /* 1. Apply to the Photo Grid and Profile Picture */
-.hero-grid-item::after,
-.profile-avatar-img::after {
-    content: "@ccindy_sty";      /* YOUR WATERMARK TEXT */
+/* .hero-grid-item::after,
+.profile-avatar-img::after { */
+    /* content: "@ccindy_sty";      /* YOUR WATERMARK TEXT */
     
-    position: absolute;          
+    /* position: absolute;          
     bottom: 5px;                 
     right: 5px;                 
     z-index: 10;                 
@@ -1334,16 +1334,16 @@ body.dark-mode .open-book-btn { background-color: #555; }
     color: red;                  
     font-size: 10px;             
     font-weight: bold;           
-    font-family: sans-serif;
-    
+    font-family: sans-serif; */
+     */
     /* Adds a tiny white outline so it's readable on dark photos */
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
+    /* text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); 
     
     pointer-events: none;        
-}
+} */
 
 /* 2. Specific adjustment for Circular Images (Profile Pic) */
-.profile-avatar-img::after {
+/* .profile-avatar-img::after {
     bottom: 15px;
     right: 15px;
     font-size: 9px;
