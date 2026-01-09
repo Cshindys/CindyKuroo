@@ -115,6 +115,90 @@ const eventStories = {
                 </div>
             </div>
         `
+    },
+    'event9': {
+        title: "「貓咪畸變」手工吊飾騷動🧶",
+        date: "記錄時間：大賽預選前夕",
+        content: `
+            <div class="narrative-action">
+                在一次重要的全國大賽預選賽前夕，シンデイ懷著滿腔熱情，決定親手為每一位隊員製作「音駒貓」毛氈御守。她閉關整整一個週末，對著教學影片一針一線地創作，想像著大家收到禮物時的笑容。
+            </div>
+
+            <div class="narrative-action">
+                然而，由於她對針線活有著「天賦異稟般的笨拙」，成品產生了巨大的、甚至是物種上的差異。
+                <br><br>
+                有的眼睛一大一小，有的嘴巴像詭異波浪線，最經典的一個耳朵還縫反了，與其說是貓，不如說是一隻憂鬱的變形蝙蝠。
+            </div>
+
+            <div class="narrative-action">
+                當她鼓起勇氣送出這一籃「畸變貓咪軍團」時，整個排球館陷入了微妙而漫長的沉默。
+            </div>
+
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    哈哈，那個東西啊... 我到現在還留著呢。（從鐵盒裡拿出一個難以形容的物體）
+                </div>
+            </div>
+
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    你看，耳朵一前一後，眼睛像被揍了一拳，這嘴角簡直是在嘲諷全世界。我當時不是問妳：『學妹，妳確定這是貓？不是什麼新品種的外星生物嗎？』
+                </div>
+            </div>
+
+            <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">Cindy</span>
+                    嗚...（臉紅得像晚霞）我、我真的不是故意的！教學影片明明很可愛啊！
+                </div>
+            </div>
+
+            <div class="story-bubble left">
+                <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">Cindy</span>
+                    可是針線到我手上就有自己的想法！完全不聽指揮！我的手指都被扎了好幾個洞... 我以為你們會偷偷丟掉的...
+                </div>
+            </div>
+
+            <div class="narrative-action">
+                黑尾看著眼前快要哭出來的女孩，眼神忽然變得溫柔了許多。他輕輕晃了晃手中的「畸變貓」。
+            </div>
+
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    雖然長得很有創意，但所有人都收下了。研磨還把它掛在遊戲機包上，說卡關的時候看一眼就覺得沒什麼過不去的坎了。
+                </div>
+            </div>
+
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    至於我這個嘛... 我一直收得很好。因為我知道，這是某個笨手笨腳的傢伙，熬了好幾個晚上，忍著手指痛才做出來的東西。
+                </div>
+            </div>
+
+            <div class="story-bubble right">
+                <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
+                <div class="story-bubble-content">
+                    <span class="sb-speaker">黑尾</span>
+                    這份心意，比任何做得漂亮的東西，都貴重多了。
+                </div>
+            </div>
+
+            <div class="inner-monologue">
+                <span class="inner-label">Cindy's Mind</span>
+                （原來...那份笨拙的心意，真的有被好好地珍視著啊...）
+            </div>
+        `
     }
 };
 
@@ -842,4 +926,5 @@ function observeInterviewElements() {
     }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
     elements.forEach(el => observer.observe(el));
+}
 }
