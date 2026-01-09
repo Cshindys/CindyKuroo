@@ -1,4 +1,4 @@
-/* style.css - FINAL CORRECTED VERSION */
+/* style.css - TRANSPARENT TEXT BOX VERSION */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -290,22 +290,14 @@ body.dark-mode .attention-col {
     justify-content: center;
     gap: 15px;
     margin-bottom: 30px;
-    width: 100%;
 }
 
-/* WIDE INSTAGRAM BUTTON */
 .profile-link-card {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the text inside */
     gap: 15px;
     background: white;
-    padding: 12px 25px; 
-    
-    /* Width Settings */
-    width: 100%;
-    max-width: 600px; /* Matches the Bio Width */
-    
+    padding: 12px 25px;
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -380,7 +372,7 @@ body.dark-mode .category-header-styled { color: #ddd; }
     background: rgba(255,255,255,0.3);
 }
 .category-content-styled.active {
-    max-height: 400px; /* Adjust if content is longer */
+    max-height: 200px; /* Adjust if content is longer */
     border-top: 1px solid rgba(0,0,0,0.03);
 }
 
@@ -864,13 +856,240 @@ body.dark-mode .serif-text p { color: #ccc; }
 body.dark-mode .back-button { background: transparent; }
 body.dark-mode .back-button:hover { background: var(--primary-cindy); }
 
-/* --- HERO GRID SECTION --- */
+/* --- TEXTBOOK LINK SECTION (Verified) --- */
+.textbook-link-section {
+    max-width: 700px;
+    width: 95%;
+    margin: 50px auto;
+    padding: 0;
+}
+
+.book-cover-link {
+    text-decoration: none;
+    display: block;
+}
+
+.book-cover-container {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 30px 40px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Spine Color - Purple */
+    border-left: 12px solid var(--primary-cindy); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-left-width: 12px;
+}
+
+body.dark-mode .book-cover-container {
+    background: linear-gradient(135deg, #24243e, #1a1a2e);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 12px solid var(--primary-cindy);
+}
+
+.book-cover-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(180, 167, 214, 0.25);
+}
+
+.book-spine-crease {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: rgba(0,0,0,0.1); z-index: 2;
+}
+
+.book-content-left {
+    display: flex; align-items: center; gap: 25px;
+}
+
+.book-icon {
+    font-size: 2.5rem;
+    color: var(--primary-cindy);
+    opacity: 0.9;
+}
+
+.book-text-info h2 {
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+    letter-spacing: 1px;
+}
+body.dark-mode .book-text-info h2 { color: #fff; }
+
+.book-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.open-book-btn {
+    background-color: var(--primary-kuroo);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+body.dark-mode .open-book-btn { background-color: #555; }
+
+.book-cover-container:hover .open-book-btn {
+    background-color: var(--primary-cindy);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .book-cover-container { flex-direction: column; text-align: center; gap: 20px; padding: 30px 20px; }
+    .book-content-left { flex-direction: column; gap: 15px; }
+}
+
+/* --- NOTICE SECTION (Verified) --- */
+.notice-section {
+    max-width: 700px;
+    width: 95%;
+    margin: 0 auto 50px auto;
+    animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+.notice-card {
+    /* Stronger Glass Effect */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(180, 167, 214, 0.2); /* Soft purple tint shadow */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Dark Mode Card */
+body.dark-mode .notice-card {
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.notice-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.notice-icon {
+    color: var(--primary-cindy);
+    font-size: 1.4rem;
+    transform: rotate(-15deg);
+}
+
+.notice-main-text {
+    font-size: 1.05rem;
+    color: #555;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+body.dark-mode .notice-main-text { color: #ddd; }
+
+.notice-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-pink), transparent);
+    margin: 0 auto 25px auto;
+    width: 70%;
+    opacity: 0.6;
+}
+
+.notice-label-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.notice-label {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--gold-accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.notice-sparkle {
+    font-size: 1rem;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.notice-list-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.notice-item {
+    background: white;
+    padding: 8px 20px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #666;
+    border: 1px solid rgba(232, 180, 217, 0.3); /* Soft pink border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect for Names */
+.notice-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    border-color: var(--primary-cindy);
+    color: var(--primary-cindy);
+    box-shadow: 0 8px 15px rgba(180, 167, 214, 0.25);
+}
+
+/* Dark Mode Names */
+body.dark-mode .notice-item {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ccc;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .notice-item:hover {
+    background: rgba(180, 167, 214, 0.15);
+    color: #fff;
+    border-color: var(--primary-cindy);
+}
+
+/* --- HERO GRID SECTION (Verified) --- */
 .hero-grid-section {
     display: grid;
-    /* Always 4 columns */
+    /* Always 4 columns, even on mobile */
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
-    max-width: 700px;
+    max-width: 700px; /* Aligned with main profile */
     width: 95%;
     margin: 0 auto 30px auto;
 }
@@ -878,14 +1097,17 @@ body.dark-mode .back-button:hover { background: var(--primary-cindy); }
 .hero-grid-item {
     position: relative;
     width: 100%;
+    /* Forces a perfect square ratio */
     aspect-ratio: 1 / 1; 
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
+    /* Polaroid-style white border */
     border: 5px solid white; 
     background: white;
 }
 
+/* Dark mode support */
 body.dark-mode .hero-grid-item {
     border-color: rgba(255, 255, 255, 0.1);
     background: #1a1a2e;
@@ -894,15 +1116,19 @@ body.dark-mode .hero-grid-item {
 .hero-grid-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* Ensures image fills the square */
 }
 
+/* --- MOBILE RESPONSIVENESS FOR GRID --- */
 @media screen and (max-width: 768px) {
     .hero-grid-section {
+        /* We keep 4 columns, but reduce the gap so it fits better */
         gap: 8px; 
         margin-bottom: 20px;
     }
+    
     .hero-grid-item {
+        /* Thinner border on mobile so the image isn't too small */
         border-width: 2px; 
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -921,7 +1147,7 @@ body.dark-mode .hero-grid-item {
 
 .hero-stack-item {
     width: 100%;
-    position: relative; 
+    position: relative; /* Essential for placing text on top */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -931,7 +1157,7 @@ body.dark-mode .hero-grid-item {
 
 .hero-stack-item img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Default Square */
+    aspect-ratio: 1 / 1; /* Keeps it square */
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
@@ -941,50 +1167,36 @@ body.dark-mode .hero-grid-item {
     transform: scale(1.05);
 }
 
-/* Updated Landscape Style */
-.hero-stack-item.hero-landscape img {
-    aspect-ratio: 3 / 2; /* 1.5x wider than tall */
-}
-
-/* --- UPDATED HERO CAPTION BOX (Button Style) --- */
+/* --- HERO CAPTION BOX (The Rounded Transparent Box) --- */
 .hero-caption-box {
-    position: relative; 
-    bottom: 0;
-    left: 0;
-    transform: none;
+    position: absolute;
+    bottom: 20px;         /* Distance from bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centers it perfectly */
+    width: 85%;           /* Width of the text box */
     
-    width: fit-content;    
-    margin: 15px auto;     
+    /* GLASS EFFECT (Transparent Background) */
+    background: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     
-    background: rgba(255, 255, 255, 0.85); 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    padding: 12px 40px;    
+    padding: 15px 25px;
     text-align: center;
-    border-radius: 50px;   
-    
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px; /* Makes it a Rounded Rectangle */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 10;
-    transition: all 0.3s ease;
-}
-
-.hero-caption-box:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .hero-caption-box h3 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #333;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
 .hero-caption-box p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #666;
     margin: 0;
 }
@@ -995,138 +1207,9 @@ body.dark-mode .hero-stack-item {
     background: #1a1a2e;
 }
 body.dark-mode .hero-caption-box {
-    background: rgba(26, 26, 46, 0.85);
+    background: rgba(26, 26, 46, 0.6);
     border-color: rgba(255, 255, 255, 0.1);
 }
 body.dark-mode .hero-caption-box h3 { color: #fff; }
 body.dark-mode .hero-caption-box p { color: #ccc; }
 
-/* --- STORY STYLE ENHANCEMENTS (Garden & Daily) --- */
-
-/* 1. 場景資訊列 (時間/地點) */
-.story-scene-info {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-}
-
-.scene-tag {
-    background: #f0f2f5;
-    color: #666;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.scene-tag i {
-    color: var(--primary-cindy); /* 使用 Cindy 的主題色 */
-}
-
-/* 2. 敘事動作 (代替原本的 *動作*) */
-.narrative-action {
-    text-align: center;
-    color: #888;
-    font-style: italic;
-    font-size: 0.95rem;
-    margin: 25px 0;
-    position: relative;
-    padding: 0 20px;
-}
-
-/* 讓動作前後有一些裝飾線條，增加精緻感 */
-.narrative-action::before,
-.narrative-action::after {
-    content: '—';
-    color: #ddd;
-    margin: 0 10px;
-}
-
-/* 重點動作 (例如：她看到了) */
-.narrative-action.strong-impact {
-    font-weight: 700;
-    color: var(--primary-kuroo);
-    font-size: 1.1rem;
-    font-style: normal;
-    letter-spacing: 2px;
-    margin: 30px 0;
-}
-
-/* 3. 內心獨白 (更像漫畫框) */
-.inner-monologue {
-    background: rgba(255, 255, 255, 0.8);
-    border: 2px dashed #d1c4e9; /* 淡紫色虛線 */
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px 10px;
-    color: #5e5e5e;
-    font-size: 0.95rem;
-    position: relative;
-    text-align: justify;
-}
-
-.inner-monologue.kuroo-mind {
-    border-color: #aaa; /* 黑尾的內心戲用灰色虛線 */
-    background: #f9f9f9;
-}
-
-.inner-label {
-    position: absolute;
-    top: -12px;
-    left: 20px;
-    background: white;
-    padding: 0 10px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 5px;
-}
-
-.inner-monologue.kuroo-mind .inner-label {
-    color: var(--primary-kuroo);
-}
-
-/* 4. 段落優化 */
-.story-paragraph {
-    line-height: 1.8;
-    margin-bottom: 20px;
-    text-indent: 0; /* 取消縮排 */
-    color: #444;
-}
-
-/* Dark Mode 支援 */
-body.dark-mode .scene-tag {
-    background: rgba(255,255,255,0.1);
-    color: #ccc;
-    border-color: rgba(255,255,255,0.1);
-}
-
-body.dark-mode .narrative-action {
-    color: #aaa;
-}
-
-body.dark-mode .narrative-action.strong-impact {
-    color: #fff;
-}
-
-body.dark-mode .inner-monologue {
-    background: rgba(255,255,255,0.05);
-    border-color: rgba(255,255,255,0.2);
-    color: #ccc;
-}
-
-body.dark-mode .inner-label {
-    background: #1a1a2e; /* 深色模式背景色 */
-    color: #aaa;
-}
-
-/* Common Utilities */
-@keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

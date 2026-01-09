@@ -1,8 +1,6 @@
-/* script.js - FINAL FIXED COMPLETE VERSION */
+/* --- GLOBAL VARIABLES & DATA --- */
 
-/* --- 1. DATA DEFINITIONS --- */
-
-// Timeline Event Stories
+// Timeline Event Stories Data
 const eventStories = {
     'event1': {
         title: "愛的暗殺事件🌱",
@@ -98,7 +96,7 @@ const eventStories = {
     }
 };
 
-// Storybook Chapters
+// Storybook Chapters Data
 const storyChapters = [
     {
         id: 1,
@@ -178,8 +176,8 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary
-const gardeningData = [
+// Gardening Diary Data (Updated & Prettier Version)
+const gardenEntries = [
     {
         id: 'g1',
         title: "繡球花盛開",
@@ -241,79 +239,77 @@ const gardeningData = [
         status: "發芽",
         preview: "聽說音駒這附近有很多流浪貓，シンディ為了吸引附近的貓咪，開始在社團角落種植貓草。結果引來了...一隻大黑貓？",
         content: `
-            <div class="story-scene-info">
-                <span class="scene-tag"><i class="fas fa-map-marker-alt"></i> 園藝社角落</span>
-                <span class="scene-tag"><i class="far fa-clock"></i> 1:35 PM (午休)</span>
+            <div style="text-align: center; margin-bottom: 25px;">
+                <span style="background: #f0f2f5; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: #666; display: inline-block;">
+                    ⏰ 時間：1:35 PM 
+                </span>
             </div>
 
-            <div class="story-paragraph">
-                大約一個月前，從園藝社的前輩那裡聽說，學校附近常常有流浪貓出沒。牠們有時會悄悄溜進校園，在體育館的屋簷下躲雨，或是在舊校舍的窗台上曬太陽。
+            <div class="story-paragraph" style="text-indent: 0;">
+                大約一個月前，シンデイ從園藝社的前輩那裡聽說，學校附近常常有流浪貓出沒，牠們有時會悄悄溜進校園，在體育館的屋簷下躲雨，或是在舊校舍的窗台上曬太陽。
             </div>
-            
-            <div class="story-paragraph">
-                從那天起，我在園藝社最隱蔽的角落，撒下了貓草的種子。每天午休都會像現在這樣，提著水壺，滿懷期待地來為它們澆水。看著那些翠綠的嫩芽一天天破土而出，心中便會湧起一股難以言喻的成就感。
+           <div class="story-paragraph" style="text-indent: 0;">
+                從那天起，シンデイ在園藝社最隱蔽的角落，撒下了貓草的種子。她每天午休都會像現在這樣，提著水壺，滿懷期待地來為它們澆水。
             </div>
-
-            <div class="inner-monologue">
-                <span class="inner-label">Cindy's Mind</span>
-                （不知道今天有沒有貓咪客人來過呢...它們會喜歡我種的貓草嗎？<br>如果能親眼看到它們在這裡打滾的樣子，那就太好了...）
+           <div class="story-paragraph" style="text-indent: 0;">
+                看著那些翠綠的嫩芽一天天破土而出，茁壯成長，她心中便會湧起一股難以言喻的成就感與溫柔。
             </div>
-
-            <div class="narrative-action">
-                她臉上漾開一抹溫柔的微笑，腳步也輕快了幾分。<br>然而，當她繞過一叢半人高的繡球花時，腳步卻猛地頓住了。
+             <div class="inner-monologue">
+                <span class="inner-label">シンデイ內心獨白</span>
+                （不知道今天有沒有貓咪客人來過呢...它們會喜歡我種的貓草嗎？如果能親眼看到它們在這裡打滾的樣子，那就太好了...）
             </div>
-
-            <div class="narrative-action strong-impact">
-                —— 她 看 到 了 。
+            <div class="narrative-action" style="text-indent: 0;">
+                *她臉上漾開一抹溫柔的微笑，腳步也輕快了幾分。然而，當她繞過一叢半人高的繡球花時，腳步卻猛地頓住了。*
             </div>
-
-            <div class="story-paragraph">
-                在那個灑滿陽光、長滿了青翠貓草的祕密角落裡，一個高大、熟悉到不能再熟悉的身影正蹲在那裡。黑色的制服褲包裹著修長的腿，那頭標誌性的雞冠頭，在陽光下顯得格外清晰。
+            <div class="narrative-action" style="text-indent: 0;">
+                *她看到了。*
             </div>
-
+            <div class="story-paragraph" style="text-indent: 0;">
+                *在那個灑滿陽光、長滿了青翠貓草的祕密角落裡，一個高大、熟悉到不能再熟悉的身影正蹲在那裡。*
+            </div>
+            <div class="story-paragraph" style="text-indent: 0;">
+                *黑色的制服褲包裹著修長的腿，那頭標誌性的雞冠頭，在陽光下顯得格外清晰。*
+            </div>
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
-                    咪～咪～過來。這裡有好吃的喔。<br>
-                    <span style="font-size: 0.85em; color: #bbb;">(語氣異常溫柔)</span>
+                    咪～咪～過來。這裡有好吃的喔。
                 </div>
             </div>
+            <div class="inner-monologue">
+                <span class="inner-label">シンデイ內心獨白</span>
+                （天啊...那是黑尾學長？他在跟貓說話的語氣也太溫柔了吧！！心臟受不了了...好想變成那隻貓...）
+            </div>
+            <div class="narrative-action" style="text-indent: 0;">
+                *シンデイ的心臟瞬間漏跳了一拍，她下意識地往繡球花叢後縮了縮，只探出半顆腦袋，屏住呼吸，偷偷地觀察著。*
+            </div>
+            <div class="story-paragraph" style="text-indent: 0;">
+                *陽光灑在黑尾的側臉上，為他深刻的輪廓鍍上了一層柔和的金邊。他此刻的表情，是シンデイ從未見過的。沒有了平時那種狡黠的、彷彿能看透一切的壞笑，也沒有了球場上那份身為主將的凌厲與霸氣。他的嘴角微微上揚，形成一個極其溫柔的弧度，那雙狹長的眼眸微微瞇起，專注地凝視著眼前的小生命，眼神中流露出的，是純粹的、不帶任何雜質的溫柔與寵溺。*
+            </div>
+            <div class="story-paragraph" style="text-indent: 0;">
+                *那一瞬間，シンデイ感覺自己的心臟像是被一隻溫暖的手輕輕地攥住了，一種難以名狀的悸動，伴隨著微酸的暖流，迅速蔓延至四肢百骸。*
+            </div>
+             <div class="inner-monologue">
+                <span class="inner-label">シンデイ內心獨白</span>
+                （...學長...原來是這個樣子的啊...等等！為、為什麼黑尾學長會在這裡？！他發現我的祕密基地了嗎？不、不會吧...還是說...他也是來看貓的？）
+            </div>
+
+
+            <div class="narrative-action" style="text-indent: 0;">
+                *黑尾其實早就察覺到背後的視線。他嘴角微微上揚，故意沒有回頭，只是稍微側過臉。*
+            </div>
 
             <div class="inner-monologue">
-                <span class="inner-label">Cindy's Mind</span>
-                （天啊...那是黑尾學長？！<br>他在跟貓說話的語氣也太溫柔了吧！！心臟受不了了...好想變成那隻貓...）
-            </div>
-
-            <div class="narrative-action">
-                心臟瞬間漏跳了一拍。<br>她下意識地往繡球花叢後縮了縮，只探出半顆腦袋，屏住呼吸，偷偷地觀察著。
-            </div>
-
-            <div class="story-paragraph">
-                陽光灑在黑尾的側臉上，為他深刻的輪廓鍍上了一層柔和的金邊。
-                沒有了平時那種狡黠的壞笑，也沒有了球場上的凌厲。他的嘴角微微上揚，眼神中流露出的，是純粹的、不帶任何雜質的寵溺。
-            </div>
-
-            <div class="inner-monologue">
-                <span class="inner-label">Cindy's Mind</span>
-                （...學長...原來私底下是這個樣子的啊...<br>等等！為、為什麼黑尾學長會在這裡？！他發現我的祕密基地了嗎？）
-            </div>
-
-            <div class="narrative-action">
-                黑尾其實早就察覺到背後的視線。<br>他嘴角微微上揚，故意沒有回頭，只是稍微側過臉。
-            </div>
-
-            <div class="inner-monologue kuroo-mind">
-                <span class="inner-label">Kuroo's Mind</span>
-                （這氣息...是那個園藝社的小不點吧。<br>躲在柱子後面偷看的樣子，比這隻野貓還像小動物。）
+                <span class="inner-label">黑尾 內心獨白</span>
+                （這氣息...是那個園藝社的小不點吧。躲在柱子後面偷看的樣子，比這隻野貓還像小動物。）
             </div>
 
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
-                    這草種得不錯啊，很有吸引力。連我都想過來趴著睡午覺了。<br>
-                    妳說是吧？經理小姐？
+                    這草種得不錯啊，很有吸引力。連我都想過來趴著睡午覺了。妳說是吧？經理小姐？
                 </div>
             </div>
 
@@ -321,8 +317,7 @@ const gardeningData = [
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
-                    學、學長想趴著也可以喔！<br>
-                    不、不對！這裡有泥土會弄髒衣服的！💦
+                    學、學長想趴著也可以喔！不、不對！這裡有泥土會弄髒衣服的！（大驚慌）
                 </div>
             </div>
         `
@@ -389,7 +384,7 @@ const gardeningData = [
     }
 ];
 
-// Interview Series
+/* --- INTERVIEW DATA SERIES --- */
 const interviewSeries = [
     {
         id: 'ep1',
@@ -479,23 +474,33 @@ const interviewSeries = [
     }
 ];
 
-let currentInterviewIndex = 0;
-let currentChapterIndex = 0;
+let currentInterviewIndex = 0; 
 
-/* --- 2. INITIALIZATION --- */
+/* --- INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- IMAGE PROTECTION ---
-    document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
-    document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+    // Prevent right-clicking on any <img> element
+    document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
 
-    // Initialize Content
+    // Prevent dragging on any <img> element
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+    // ------------------------------------
+
     renderChapters();
     renderGardenEntries();
+    // initPhotobook(); // REMOVED
     initInterviews();       
     initScrollAnimations(); 
     
-    // Bind Event Listeners
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const eventElement = e.target.closest('.timeline-event');
@@ -504,82 +509,70 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Dark Mode Check
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark-mode');
         updateDarkModeIcon();
     }
     
-    // Scroll Button Check
     window.addEventListener('scroll', () => {
         const btn = document.getElementById('scrollTopBtn');
-        if (btn) {
-            if (window.scrollY > 300) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
+        if (window.scrollY > 300) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
         }
     });
 });
 
-/* --- 3. TAB & NAVIGATION FUNCTIONS --- */
-
-// Function for Couple.html TOP filter tabs (Video vs Relationship)
+/* --- TAB & SCROLL FUNCTIONS --- */
 function switchTopTab(tabId) {
     document.querySelectorAll('.top-tab-content').forEach(content => {
         content.classList.remove('active');
     });
-    
-    // Handle Buttons
-    const videoBtn = document.getElementById('btn-top-video');
-    const relationBtn = document.getElementById('btn-top-relationship');
-    
-    if(videoBtn) videoBtn.classList.remove('active');
-    if(relationBtn) relationBtn.classList.remove('active');
-
-    // Activate Target
-    const target = document.getElementById(tabId);
-    if(target) target.classList.add('active');
-
-    // Activate Button
-    if (tabId === 'top-tab-video' && videoBtn) {
-        videoBtn.classList.add('active');
-    } else if (relationBtn) {
-        relationBtn.classList.add('active');
+    document.getElementById('btn-top-video').classList.remove('active');
+    document.getElementById('btn-top-relationship').classList.remove('active');
+    document.getElementById(tabId).classList.add('active');
+    if (tabId === 'top-tab-video') {
+        document.getElementById('btn-top-video').classList.add('active');
+    } else {
+        document.getElementById('btn-top-relationship').classList.add('active');
     }
 }
 
-// Function for Couple.html MAIN tabs (Interview, Storybook, etc.)
 function toggleTab(tabId) {
-    // Hide all sections
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
     });
-    // Reset all buttons
     document.querySelectorAll('#filter-bar-anchor .filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // Show target section
     const target = document.getElementById(tabId);
     if(target) {
         target.classList.add('active');
-        // Trigger animations if entering interview zone
-        if(tabId === 'interview-zone') observeInterviewElements();
     }
     
-    // Highlight button
     const btnMap = {
         'interview-zone': 'btn-interview',
         'storybook-zone': 'btn-storybook',
         'timeline-zone': 'btn-timeline',
-        'garden-zone': 'btn-garden'
+        'garden-zone': 'btn-garden',
+        'profile-zone': 'btn-profile' 
     };
     if (btnMap[tabId]) {
         const btn = document.getElementById(btnMap[tabId]);
         if(btn) btn.classList.add('active');
     }
+}
+
+function switchTopTabAndScroll(tabId) {
+    switchTopTab(tabId);
+    scrollToId('top-filter-anchor');
+}
+
+function switchTabAndScroll(tabId) {
+    toggleTab(tabId);
+    scrollToId('filter-bar-anchor');
 }
 
 function scrollToId(id) {
@@ -600,12 +593,14 @@ function toggleDarkMode() {
 
 function updateDarkModeIcon() {
     const icon = document.getElementById('darkModeIcon');
-    if(icon) {
-        icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    if (document.body.classList.contains('dark-mode')) {
+        icon.textContent = '☀️';
+    } else {
+        icon.textContent = '🌙';
     }
 }
 
-/* --- 4. MODAL FUNCTIONS --- */
+/* --- MODAL FUNCTIONS --- */
 function openModal(eventId) {
     const data = eventStories[eventId];
     if (!data) return;
@@ -618,8 +613,6 @@ function openGardenModal(entryData) {
 
 function fillModalContent(title, date, content, footerText) {
     const modalBody = document.getElementById('modalBody');
-    if(!modalBody) return; // Safety check
-
     modalBody.innerHTML = `
         <div class="story-header">
             <h2 class="story-chapter-title">${title}</h2>
@@ -628,18 +621,13 @@ function fillModalContent(title, date, content, footerText) {
         ${content}
         <div class="story-timestamp">${footerText}</div>
     `;
-    const modal = document.getElementById('eventModal');
-    if(modal) modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.getElementById('eventModal').classList.add('active');
 }
 
 function closeModal() {
-    const modal = document.getElementById('eventModal');
-    if(modal) modal.classList.remove('active');
-    document.body.style.overflow = '';
+    document.getElementById('eventModal').classList.remove('active');
 }
 
-// Close modal on outside click
 window.onclick = function(event) {
     const modal = document.getElementById('eventModal');
     if (event.target === modal) {
@@ -647,7 +635,9 @@ window.onclick = function(event) {
     }
 }
 
-/* --- 5. STORYBOOK LOGIC --- */
+/* --- TEXT STORIES --- */
+let currentChapterIndex = 0;
+
 function renderChapters() {
     const container = document.getElementById('chapters-container');
     if(!container) return; 
@@ -669,18 +659,14 @@ function renderChapters() {
 function openChapter(index) {
     currentChapterIndex = index;
     updateReaderContent();
-    const gridView = document.getElementById('chapters-grid-view');
-    const readerView = document.getElementById('story-reader-view');
-    if(gridView) gridView.style.display = 'none';
-    if(readerView) readerView.style.display = 'block';
+    document.getElementById('chapters-grid-view').style.display = 'none';
+    document.getElementById('story-reader-view').style.display = 'block';
     scrollToId('storybook-zone');
 }
 
 function closeChapterReader() {
-    const gridView = document.getElementById('chapters-grid-view');
-    const readerView = document.getElementById('story-reader-view');
-    if(gridView) gridView.style.display = 'block';
-    if(readerView) readerView.style.display = 'none';
+    document.getElementById('story-reader-view').style.display = 'none';
+    document.getElementById('chapters-grid-view').style.display = 'block';
     scrollToId('storybook-zone');
 }
 
@@ -695,27 +681,19 @@ function navigateChapter(direction) {
 
 function updateReaderContent() {
     const chapter = storyChapters[currentChapterIndex];
-    const title = document.getElementById('reader-title');
-    const date = document.getElementById('reader-date');
-    const content = document.getElementById('reader-content');
-    const progress = document.getElementById('reader-progress');
-    const prevBtn = document.getElementById('reader-prev-btn');
-    const nextBtn = document.getElementById('reader-next-btn');
-
-    if(title) title.textContent = chapter.title;
-    if(date) date.textContent = chapter.date;
-    if(content) content.innerHTML = chapter.content;
-    if(progress) progress.textContent = `${currentChapterIndex + 1} / ${storyChapters.length}`;
-    if(prevBtn) prevBtn.disabled = (currentChapterIndex === 0);
-    if(nextBtn) nextBtn.disabled = (currentChapterIndex === storyChapters.length - 1);
+    document.getElementById('reader-title').textContent = chapter.title;
+    document.getElementById('reader-date').textContent = chapter.date;
+    document.getElementById('reader-content').innerHTML = chapter.content;
+    document.getElementById('reader-progress').textContent = `${currentChapterIndex + 1} / ${storyChapters.length}`;
+    document.getElementById('reader-prev-btn').disabled = (currentChapterIndex === 0);
+    document.getElementById('reader-next-btn').disabled = (currentChapterIndex === storyChapters.length - 1);
 }
 
-/* --- 6. GARDEN LOGIC --- */
 function renderGardenEntries() {
     const container = document.getElementById('garden-container');
     if(!container) return;
     container.innerHTML = '';
-    gardeningData.forEach(entry => {
+    gardenEntries.forEach(entry => {
         const card = document.createElement('div');
         card.className = 'garden-card';
         card.onclick = () => openGardenModal(entry);
@@ -734,12 +712,12 @@ function renderGardenEntries() {
     });
 }
 
-/* --- 7. INTERVIEW LOGIC --- */
+/* --- INTERVIEW LOGIC FUNCTIONS --- */
 function initInterviews() {
     const filterContainer = document.getElementById('interview-filters');
     if (!filterContainer) return;
 
-    // Generate Filter Buttons
+    // 1. Generate Filter Buttons
     filterContainer.innerHTML = '';
     interviewSeries.forEach((series, index) => {
         const btn = document.createElement('button');
@@ -749,7 +727,7 @@ function initInterviews() {
         filterContainer.appendChild(btn);
     });
 
-    // Load first
+    // 2. Load the first interview
     loadInterview(0);
 }
 
@@ -759,30 +737,32 @@ function loadInterview(index) {
     currentInterviewIndex = index;
     const data = interviewSeries[index];
     
-    // Update Content
+    // 1. Update Content with Fade Effect
     const container = document.getElementById('interview-dynamic-content');
-    if(container) {
-        container.style.opacity = '0';
-        setTimeout(() => {
-            container.innerHTML = data.content;
-            container.style.opacity = '1';
-            observeInterviewElements(); 
-        }, 200);
-    }
+    container.style.opacity = '0';
+    
+    setTimeout(() => {
+        container.innerHTML = data.content;
+        container.style.opacity = '1';
+        
+        // **IMPORTANT: Re-trigger scroll animations for new content**
+        observeInterviewElements(); 
+    }, 200);
 
-    // Update Filters
+    // 2. Update Filter Buttons
     document.querySelectorAll('.sub-filter-btn').forEach((btn, idx) => {
         if (idx === index) btn.classList.add('active');
         else btn.classList.remove('active');
     });
 
-    // Update Pagination
+    // 3. Update Pagination Buttons
     const prevBtn = document.getElementById('prev-interview-btn');
     const nextBtn = document.getElementById('next-interview-btn');
     
-    if(prevBtn) prevBtn.disabled = (index === 0);
-    if(nextBtn) {
+    if(prevBtn && nextBtn) {
+        prevBtn.disabled = (index === 0);
         nextBtn.disabled = (index === interviewSeries.length - 1);
+        
         if(index < interviewSeries.length - 1) {
             nextBtn.innerHTML = `下一篇 <i class="fas fa-arrow-right"></i>`;
         } else {
@@ -793,11 +773,10 @@ function loadInterview(index) {
 
 function changeInterview(direction) {
     loadInterview(currentInterviewIndex + direction);
-    const zone = document.getElementById('interview-zone');
-    if(zone) zone.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('interview-zone').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* --- 8. ANIMATION UTILS --- */
+/* --- SCROLL ANIMATION FUNCTIONS --- */
 function initScrollAnimations() {
     const interviewElements = document.querySelectorAll(
         '.interview-scene .host-box, ' +
@@ -810,9 +789,14 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('pop-in-active');
+            } else {
+                entry.target.classList.remove('pop-in-active');
             }
         });
-    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+    }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    });
 
     interviewElements.forEach(el => observer.observe(el));
 }
@@ -829,6 +813,8 @@ function observeInterviewElements() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('pop-in-active');
+            } else {
+                entry.target.classList.remove('pop-in-active');
             }
         });
     }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
