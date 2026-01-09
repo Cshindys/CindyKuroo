@@ -1,26 +1,32 @@
 /* --- GLOBAL VARIABLES & DATA --- */
 
-// Timeline Event Stories Data
+// Timeline Event Stories Data (Updated with Pretty Styles & Right-Aligned Cindy)
 const eventStories = {
     'event1': {
         title: "愛的暗殺事件🌱",
         date: "記錄時間：未知",
         content: `
-            <div class="story-paragraph">
-                シンディ其實並不擅長園藝，但為了加入園藝社（以及偷看隔壁體育館的黑尾），她努力學習。
-                她領養了一盆號稱「絕對不會死」的仙人掌。
+            <div class="narrative-action">
+                シンディ其實並不擅長園藝，但為了加入園藝社（以及偷看隔壁體育館的黑尾），她努力學習。她領養了一盆號稱「絕對不會死」的仙人掌。
             </div>
-            <div class="story-paragraph">
-                出於對這個小生命的過度關愛，她每天早晚都給它澆水，還對著它說話。
-                結果兩個禮拜後，仙人掌... 從內部爛掉了。
+
+            <div class="inner-monologue">
+                <span class="inner-label">Cindy 內心獨白</span>
+                （只要給它滿滿的愛，它一定會長得很高大吧！就像學長一樣！）
             </div>
+
+            <div class="narrative-action">
+                出於對這個小生命的過度關愛，她每天早晚都給它澆水，還對著它說話。結果兩個禮拜後，仙人掌... 從內部爛掉了。
+            </div>
+
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
-                    嗚嗚嗚...為什麼連仙人掌都會被我養死...
+                    嗚嗚嗚...為什麼...店員明明說它很堅強的...
                 </div>
             </div>
+
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -34,28 +40,36 @@ const eventStories = {
         title: "圖書館書本空襲事件📕",
         date: "記錄時間：午休時間",
         content: `
-            <div class="story-paragraph">
+            <div class="narrative-action">
                 午休時間，圖書館內一片寂靜。Cindy 踮著腳尖試圖拿取書架頂層的一本植物圖鑑。
-                就在指尖碰到書脊的瞬間，重心不穩，整個人向後仰去。
             </div>
-            <div class="story-paragraph">
-                就在她閉上眼睛準備迎接疼痛時，並沒有摔倒在地，但頭頂卻傳來「咚」的一聲悶響。
+
+            <div class="inner-monologue">
+                <span class="inner-label">Cindy 內心獨白</span>
+                （差一點點...再高一點點就拿到了...！）
             </div>
+
+            <div class="narrative-action">
+                就在指尖碰到書脊的瞬間，重心不穩，整個人向後仰去。她閉上眼睛準備迎接疼痛，卻沒有摔倒在地，反而是頭頂傳來「咚」的一聲悶響。
+            </div>
+
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
-                    好痛... 妳是在練習頭球攻擊嗎？
+                    好痛... 妳是在練習頭球攻擊嗎？小不點？
                 </div>
             </div>
-            <div class="story-paragraph">
+
+            <div class="narrative-action">
                 原來黑尾剛好經過，伸手扶住了她，卻被落下的精裝書精準砸中了自己的手臂，還反彈到了 Cindy 的頭上。
             </div>
+
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
-                    對、對不起學長！！我不是故意的！
+                    對、對不起學長！！我不是故意的！你的手沒事吧？！
                 </div>
             </div>
         `
@@ -64,10 +78,10 @@ const eventStories = {
         title: "左腳的愛過於沉重🦶🏻",
         date: "記錄時間：黑尾生日",
         content: `
-            <div class="story-paragraph">
-                黑尾生日當天，Cindy 鼓起勇氣送出了準備已久的禮物。
-                包裝非常精美，還綁著紫色的緞帶。
+            <div class="narrative-action">
+                黑尾生日當天，Cindy 鼓起勇氣送出了準備已久的禮物。包裝非常精美，還綁著紫色的緞帶。
             </div>
+
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -75,9 +89,16 @@ const eventStories = {
                     喔？謝啦。我可以現在拆開嗎？
                 </div>
             </div>
-            <div class="story-paragraph">
+
+            <div class="narrative-action">
                 黑尾打開盒子，表情凝固了三秒。裡面是兩個高品質的護膝... 但仔細一看，包裝上都貼著「左腳專用」的標籤。
             </div>
+
+            <div class="inner-monologue">
+                <span class="inner-label">Cindy 內心獨白</span>
+                （糟了...學長的表情怪怪的...難道是不喜歡這個顏色嗎？）
+            </div>
+
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -85,11 +106,12 @@ const eventStories = {
                     那、那個！因為太緊張買錯了... 店員說只剩左腳的庫存... 我想說反正形狀差不多...
                 </div>
             </div>
+
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
-                    噗... 哈哈哈哈！這什麼理由啊！好吧，我會好好守護我的左腳的，謝啦。
+                    噗... 哈哈哈哈！這什麼理由啊！好吧，我會好好守護我的左腳的，這份沉重的愛我就收下了。
                 </div>
             </div>
         `
@@ -176,7 +198,7 @@ const storyChapters = [
     }
 ];
 
-// Gardening Diary Data (Updated & Prettier Version)
+// Gardening Diary Data
 const gardenEntries = [
     {
         id: 'g1',
