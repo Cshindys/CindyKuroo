@@ -234,37 +234,67 @@ const gardenEntries = [
     {
         id: 'g2',
         title: "貓草種植計畫",
-        date: "5月 20日",
+        date: "5月 20日午休時間",
         weather: "☀️",
         status: "發芽",
-        preview: "Cindy 為了吸引附近的貓咪，開始在社團角落種植貓草。結果引來了...一隻大黑貓？",
+        preview: "聽說音駒這附近有很多流浪貓，シンディ為了吸引附近的貓咪，開始在社團角落種植貓草。結果引來了...一隻大黑貓？",
         content: `
             <div style="text-align: center; margin-bottom: 25px;">
                 <span style="background: #f0f2f5; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: #666; display: inline-block;">
-                    ⏰ 時間：陽光普照的午休時間
+                    ⏰ 時間：1:35 PM 
                 </span>
             </div>
 
             <div class="story-paragraph" style="text-indent: 0;">
-                在園藝社最隱蔽的角落，Cindy 提著藍色小水壺悄悄靠近。那是她為了吸引流浪貓而特意開闢的「貓草秘密基地」。
+                大約一個月前，シンデイ從園藝社的前輩那裡聽說，學校附近常常有流浪貓出沒，牠們有時會悄悄溜進校園，在體育館的屋簷下躲雨，或是在舊校舍的窗台上曬太陽。
             </div>
-
+           <div class="story-paragraph" style="text-indent: 0;">
+                從那天起，シンデイ在園藝社最隱蔽的角落，撒下了貓草的種子。她每天午休都會像現在這樣，提著水壺，滿懷期待地來為它們澆水。
+            </div>
+           <div class="story-paragraph" style="text-indent: 0;">
+                看著那些翠綠的嫩芽一天天破土而出，茁壯成長，她心中便會湧起一股難以言喻的成就感與溫柔。
+            </div>
+             <div class="inner-monologue">
+                <span class="inner-label">シンデイ內心獨白</span>
+                （不知道今天有沒有貓咪客人來過呢...它們會喜歡我種的貓草嗎？如果能親眼看到它們在這裡打滾的樣子，那就太好了...）
+            </div>
             <div class="narrative-action" style="text-indent: 0;">
-                *然而，當她繞過轉角時，卻發現那裡已經被佔據了。一個高大的身影正蹲在草叢邊，手裡拿著狗尾巴草。*
+                *她臉上漾開一抹溫柔的微笑，腳步也輕快了幾分。然而，當她繞過一叢半人高的繡球花時，腳步卻猛地頓住了。*
             </div>
-
+            <div class="narrative-action" style="text-indent: 0;">
+                *她看到了。*
+            </div>
+            <div class="story-paragraph" style="text-indent: 0;">
+                *在那個灑滿陽光、長滿了青翠貓草的祕密角落裡，一個高大、熟悉到不能再熟悉的身影正蹲在那裡。*
+            </div>
+            <div class="story-paragraph" style="text-indent: 0;">
+                *黑色的制服褲包裹著修長的腿，那頭標誌性的雞冠頭，在陽光下顯得格外清晰。*
+            </div>
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
-                    咪—咪—過來。這裡有好吃的喔。
+                    咪～咪～過來。這裡有好吃的喔。
                 </div>
             </div>
-
             <div class="inner-monologue">
-                <span class="inner-label">Cindy 內心獨白</span>
+                <span class="inner-label">シンデイ內心獨白</span>
                 （天啊...那是黑尾學長？他在跟貓說話的語氣也太溫柔了吧！！心臟受不了了...好想變成那隻貓...）
             </div>
+            <div class="narrative-action" style="text-indent: 0;">
+                *シンデイ的心臟瞬間漏跳了一拍，她下意識地往繡球花叢後縮了縮，只探出半顆腦袋，屏住呼吸，偷偷地觀察著。*
+            </div>
+            <div class="story-paragraph" style="text-indent: 0;">
+                *陽光灑在黑尾的側臉上，為他深刻的輪廓鍍上了一層柔和的金邊。他此刻的表情，是シンデイ從未見過的。沒有了平時那種狡黠的、彷彿能看透一切的壞笑，也沒有了球場上那份身為主將的凌厲與霸氣。他的嘴角微微上揚，形成一個極其溫柔的弧度，那雙狹長的眼眸微微瞇起，專注地凝視著眼前的小生命，眼神中流露出的，是純粹的、不帶任何雜質的溫柔與寵溺。*
+            </div>
+            <div class="story-paragraph" style="text-indent: 0;">
+                *那一瞬間，シンデイ感覺自己的心臟像是被一隻溫暖的手輕輕地攥住了，一種難以名狀的悸動，伴隨著微酸的暖流，迅速蔓延至四肢百骸。*
+            </div>
+             <div class="inner-monologue">
+                <span class="inner-label">シンデイ內心獨白</span>
+                （...學長...原來是這個樣子的啊...等等！為、為什麼黑尾學長會在這裡？！他發現我的祕密基地了嗎？不、不會吧...還是說...他也是來看貓的？）
+            </div>
+
 
             <div class="narrative-action" style="text-indent: 0;">
                 *黑尾其實早就察覺到背後的視線。他嘴角微微上揚，故意沒有回頭，只是稍微側過臉。*
