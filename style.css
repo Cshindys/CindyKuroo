@@ -998,3 +998,9 @@ body.dark-mode .hero-caption-box {
 }
 body.dark-mode .hero-caption-box h3 { color: #fff; }
 body.dark-mode .hero-caption-box p { color: #ccc; }
+
+/* NEW ADDITION: Wide Landscape Style for Hero 1 */
+.hero-stack-item.hero-landscape img {
+    aspect-ratio: 3 / 2; /* Makes it a wider rectangle (1.5x width of height) */
+    /* Alternatively use 16/9 for even wider */
+}
