@@ -1,6 +1,7 @@
 /* --- GLOBAL VARIABLES & DATA --- */
 
-// Timeline Event Stories Data (Cindy = Left, Kuroo = Right)
+// Timeline Event Stories Data
+// UPDATED: Cindy = Right (Purple), Kuroo = Left (Black)
 const eventStories = {
     'event1': {
         title: "愛的暗殺事件🌱",
@@ -19,7 +20,7 @@ const eventStories = {
                 出於對這個小生命的過度關愛，她每天早晚都給它澆水，還對著它說話。結果兩個禮拜後，仙人掌... 從內部爛掉了。
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -27,7 +28,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -53,7 +54,7 @@ const eventStories = {
                 就在指尖碰到書脊的瞬間，重心不穩，整個人向後仰去。她閉上眼睛準備迎接疼痛，卻沒有摔倒在地，反而是頭頂傳來「咚」的一聲悶響。
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -65,7 +66,7 @@ const eventStories = {
                 原來黑尾剛好經過，伸手扶住了她，卻被落下的精裝書精準砸中了自己的手臂，還反彈到了 Cindy 的頭上。
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -82,7 +83,7 @@ const eventStories = {
                 黑尾生日當天，Cindy 鼓起勇氣送出了準備已久的禮物。包裝非常精美，還綁著紫色的緞帶。
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -99,7 +100,7 @@ const eventStories = {
                 （糟了...學長的表情怪怪的...難道是不喜歡這個顏色嗎？）
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -107,7 +108,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -134,7 +135,7 @@ const eventStories = {
                 當她鼓起勇氣送出這一籃「畸變貓咪軍團」時，整個排球館陷入了微妙而漫長的沉默。
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -142,7 +143,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -150,7 +151,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -158,7 +159,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -170,7 +171,7 @@ const eventStories = {
                 黑尾看著眼前快要哭出來的女孩，眼神忽然變得溫柔了許多。他輕輕晃了晃手中的「畸變貓」。
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -178,7 +179,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -186,7 +187,7 @@ const eventStories = {
                 </div>
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -213,7 +214,7 @@ const storyChapters = [
             <p>四月的風帶著櫻花的香氣，輕輕吹過音駒高校的校園。</p>
             <p>Cindy 手裡緊緊抓著澆水壺，躲在體育館側門的縫隙旁。這已經是她這個禮拜第五次「不小心」路過這裡了。</p>
             <p>球鞋摩擦地板的聲音，充滿力量的擊球聲，還有那個總是帶著玩世不恭笑容的黑髮少年。</p>
-            <div class="dialogue-wrapper right">
+            <div class="dialogue-wrapper">
                 <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
                 <div class="dialogue-bubble kuroo-style">
                     「喂！研磨！跑起來啊！我們可是血液！」
@@ -233,13 +234,13 @@ const storyChapters = [
             <p>「借物賽跑！三年級組，黑尾選手抽到了題目！」廣播裡傳來興奮的聲音。</p>
             <p>黑尾看了一眼手中的紙條，眉頭微微一挑，隨即目光掃向人群。他的視線穿過重重人海，最後定格在正拿著毛巾幫園藝社搬東西的 Cindy 身上。</p>
             <p>他大步流星地跑過去，在 Cindy 還沒反應過來時，一把抓住了她的手腕。</p>
-            <div class="dialogue-wrapper">
+            <div class="dialogue-wrapper right">
                 <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png" alt="Cindy"></div>
                 <div class="dialogue-bubble cindy-style">
                     「學、學長？！」
                 </div>
             </div>
-            <div class="dialogue-wrapper right">
+            <div class="dialogue-wrapper">
                 <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
                 <div class="dialogue-bubble kuroo-style">
                     「借我一下！」
@@ -257,14 +258,14 @@ const storyChapters = [
         content: `
             <p>畢業典禮結束後，校園裡充滿了離別的感傷與祝福。</p>
             <p>Cindy 站在櫻花樹下，手裡捏著一封沒送出去的信。她聽說很多女生都去向黑尾學長要鈕扣了，自己大概...沒有機會了吧。</p>
-            <div class="dialogue-wrapper right">
+            <div class="dialogue-wrapper">
                 <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
                 <div class="dialogue-bubble kuroo-style">
                     「在這種地方發什麼呆？」
                 </div>
             </div>
             <p>熟悉的聲音從頭頂傳來。Cindy 猛地抬頭，看見黑尾手裡拿著畢業證書，制服外套敞開著。</p>
-            <div class="dialogue-wrapper">
+            <div class="dialogue-wrapper right">
                 <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png" alt="Cindy"></div>
                 <div class="dialogue-bubble cindy-style">
                     「學長...恭喜畢業。」
@@ -272,7 +273,7 @@ const storyChapters = [
             </div>
             <p>黑尾抓了抓頭髮，突然伸手扯下了自己制服上的第二顆鈕扣，隨手拋給了 Cindy。</p>
             <p>Cindy 手忙腳亂地接住：「誒？這是...？」</p>
-            <div class="dialogue-wrapper right">
+            <div class="dialogue-wrapper">
                 <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png" alt="Kuroo"></div>
                 <div class="dialogue-bubble kuroo-style">
                     「幫我保管一下。要是弄丟了，我可是會找妳算帳的喔。」
@@ -283,6 +284,7 @@ const storyChapters = [
 ];
 
 // Gardening Diary Data
+// UPDATED: Cindy = Right (Purple), Kuroo = Left (Black)
 const gardenEntries = [
     {
         id: 'g1',
@@ -311,7 +313,7 @@ const gardenEntries = [
                 突然，一道影子籠罩下來。
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -328,7 +330,7 @@ const gardenEntries = [
                 （其實早就看到這傢伙在這裡了。明明被雨聲吵得聽不見腳步聲，卻對花這麼專注...稍微有點不爽啊。）
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -376,7 +378,7 @@ const gardenEntries = [
             <div class="story-paragraph" style="text-indent: 0;">
                 *黑色的制服褲包裹著修長的腿，那頭標誌性的雞冠頭，在陽光下顯得格外清晰。*
             </div>
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -411,7 +413,7 @@ const gardenEntries = [
                 （這氣息...是那個園藝社的小不點吧。躲在柱子後面偷看的樣子，比這隻野貓還像小動物。）
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -419,7 +421,7 @@ const gardenEntries = [
                 </div>
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
@@ -455,7 +457,7 @@ const gardenEntries = [
                 *Cindy 踮起腳尖試圖測量花莖的高度，身體搖搖晃晃的。突然，一道陰影覆蓋了下來，替她擋住了刺眼的陽光。*
             </div>
 
-            <div class="story-bubble right">
+            <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -472,14 +474,14 @@ const gardenEntries = [
                 （這麼熱的天還在外面晃...真是讓人操心。這張臉都快比向日葵還紅了。）
             </div>
 
-            <div class="story-bubble left">
+            <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">Cindy</span>
                     冰、冰的好舒服... 學長才是，練習不累嗎？
                 </div>
             </div>
-             <div class="story-bubble right">
+             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
                     <span class="sb-speaker">黑尾</span>
@@ -491,6 +493,7 @@ const gardenEntries = [
 ];
 
 /* --- INTERVIEW DATA SERIES --- */
+// UPDATED: Cindy = Right (Purple), Kuroo = Left (Black)
 const interviewSeries = [
     {
         id: 'ep1',
@@ -500,26 +503,26 @@ const interviewSeries = [
                 <div class="host-box" role="group"><span class="host-icon">🎤</span><span>主持人：請問，シンデイ，妳對黑尾學長的第一印象是什麼呢？</span></div>
                 <div class="narrative-action">*聽到這個問題，Cindy的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起……*</div>
                 <div class="inner-monologue"><span class="inner-label">Cindy內心獨白</span>「糟糕……學長一定知道我那時候都在偷看他。要怎麼回答才自然一點...」</div>
-                <div class="dialogue-wrapper">
+                <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
                     <div class="dialogue-bubble cindy-style">「我、我對學長的第一印象……是、是個非常帥氣，而且很有活力的學長！」</div>
                 </div>
-                <div class="dialogue-wrapper">
+                <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
                     <div class="dialogue-bubble cindy-style">「在排球場上的時候……學長簡直像變了一個人...」</div>
                 </div>
                 <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「噗嗤，看來我在她心裡的分數一直很高。」</div>
                 
                 <div class="host-box"><span class="host-icon">🎤</span><span>主持人 : 那麼黑尾君，你對シンデイ的第一印象呢？</span></div>
-                <div class="dialogue-wrapper right">
+                <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「嗯……我還以為我們音駒是不是來了一隻特別喜歡躲貓貓的小貓咪？」</div>
                 </div>
-                <div class="dialogue-wrapper">
+                <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
                     <div class="dialogue-bubble cindy-style">「喵？！」</div>
                 </div>
-                <div class="dialogue-wrapper right">
+                <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「妳不是經常躲在排球館二樓嗎？傻瓜，妳那麼明顯...要看不見，那才是真有問題吧？」</div>
                 </div>
@@ -533,24 +536,24 @@ const interviewSeries = [
         content: `
             <div class="interview-scene">
                 <div class="host-box"><span class="host-icon">🎤</span><span>主持人：哇，學長原來早就知道了啊！那請問兩位，平時除了學習之外，有什麼特別的興趣嗎？</span></div>
-                <div class="dialogue-wrapper">
+                <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
                     <div class="dialogue-bubble cindy-style">「我喜歡看書，還有照顧家裡的植物。嗯，還有……關注排球的比賽日程和消息。」</div>
                 </div>
-                <div class="dialogue-wrapper">
+                <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
                     <div class="dialogue-bubble cindy-style">「當然，現在我有很認真地學習怎麼照顧植物了！不會再把仙人掌澆死了！」</div>
                 </div>
-                <div class="dialogue-wrapper right">
+                <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「我的興趣嘛……除了排球和讀書之外……」</div>
                 </div>
                 <div class="narrative-action">*他眼神意味深長地瞟了一眼シンデイ。*</div>
-                <div class="dialogue-wrapper right">
+                <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「研究生物的行為模式。」</div>
                 </div>
-                <div class="dialogue-wrapper">
+                <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
                     <div class="dialogue-bubble cindy-style">「？。」</div>
                 </div>
@@ -563,15 +566,15 @@ const interviewSeries = [
         content: `
             <div class="interview-scene">
                 <div class="host-box"><span class="host-icon">🎤</span><span>主持人：最後一個問題，兩位未來的夢想是什麼呢？</span></div>
-                <div class="dialogue-wrapper right">
+                <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「希望能繼續從事排球相關的工作，把這份熱情傳遞給更多人。」</div>
                 </div>
-                <div class="dialogue-wrapper">
+                <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
                     <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的花店...如果可以的話，也想一直支持著學長的夢想。」</div>
                 </div>
-                 <div class="dialogue-wrapper right">
+                 <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「哈哈，那就拜託妳了，最強的贊助商。」</div>
                 </div>
