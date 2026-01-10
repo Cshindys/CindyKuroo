@@ -1,4 +1,4 @@
-/* style.css - COMPLETE VERSION */
+/* style.css - COMPLETE VERSION (With Animations Fixed) */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -637,32 +637,83 @@ body.dark-mode .garden-preview { color: #aaa; }
 body.dark-mode .garden-status { color: #ccc; }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; display: inline-block; }
 
-/* --- INTERVIEW & DIARY STYLES --- */
+/* --- INTERVIEW & DIARY STYLES (PRETTY & CINEMATIC) --- */
 .interview-section, .timeline-section, .storybook-section, .gardening-section { margin: 20px auto 80px auto; width: 100%; max-width: 100%; }
 .interview-title, .timeline-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #555; margin: 0 auto 60px auto; letter-spacing: 1px; position: relative; width: fit-content; display: flex; align-items: center; justify-content: center; gap: 15px; }
 body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
 .interview-title::after, .timeline-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, var(--accent-pink) 0%, var(--primary-cindy) 100%); border-radius: 3px; }
 
-.interview-scene { background: white; border-radius: 20px; padding: 30px; box-shadow: var(--card-shadow); margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.03); }
+.interview-scene { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--card-shadow); margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.03); }
 body.dark-mode .interview-scene { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); }
-.host-box { background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); padding: 15px 20px; border-radius: 12px; margin-bottom: 25px; font-weight: 600; color: #486581; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; }
-body.dark-mode .host-box { background: linear-gradient(135deg, #243b53 0%, #102a43 100%); color: #bcccdc; }
 
-.narrative-action { background: #f9f9f9; border-left: 4px solid var(--accent-pink); padding: 15px; margin: 15px 0; border-radius: 0 10px 10px 0; font-size: 0.95rem; color: #666; line-height: 1.6; position: relative; }
-body.dark-mode .narrative-action { background: rgba(255, 255, 255, 0.05); border-left-color: var(--accent-pink); color: #ccc; }
-.inner-monologue { background: #FFF8E1; border: 2px dashed #FFD54F; padding: 15px 20px; border-radius: 15px; margin: 20px auto; color: #795548; font-size: 0.95rem; position: relative; max-width: 90%; }
-body.dark-mode .inner-monologue { background: rgba(255, 213, 79, 0.1); border-color: rgba(255, 213, 79, 0.3); color: #E6EE9C; }
-.inner-label { font-weight: 700; font-size: 0.8rem; color: #aaa; text-transform: uppercase; margin-bottom: 5px; display: block; letter-spacing: 1px; }
+/* UPDATED: NARRATIVE ACTION (Pretty Story Style) */
+.narrative-action { 
+    background: transparent; 
+    border-left: none; 
+    padding: 10px 0; 
+    margin: 25px auto; 
+    border-radius: 0; 
+    font-size: 0.95rem; 
+    color: #777; 
+    line-height: 1.8; 
+    position: relative; 
+    text-align: center; 
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.narrative-action::before, .narrative-action::after { content: '✦'; color: var(--accent-pink); font-size: 0.8rem; opacity: 0.6; }
+body.dark-mode .narrative-action { background: transparent; color: #bbb; border-left: none; }
 
-.dialogue-wrapper { display: flex; align-items: flex-start; gap: 15px; margin: 15px 0; }
+/* UPDATED: INNER MONOLOGUE (Dreamy Thought Bubble) */
+.inner-monologue { 
+    background: rgba(255, 255, 255, 0.6); 
+    border: 1px solid rgba(180, 167, 214, 0.3); 
+    padding: 20px 30px; 
+    border-radius: 25px; 
+    margin: 25px auto; 
+    color: #6d5d6e; 
+    font-size: 0.95rem; 
+    position: relative; 
+    max-width: 90%; 
+    box-shadow: 0 5px 20px rgba(180, 167, 214, 0.1); 
+    text-align: center;
+}
+body.dark-mode .inner-monologue { background: rgba(180, 167, 214, 0.1); border-color: rgba(180, 167, 214, 0.2); color: #E6EE9C; box-shadow: none; }
+.inner-label { font-weight: 700; font-size: 0.75rem; color: var(--gold-accent); text-transform: uppercase; margin-bottom: 8px; display: block; letter-spacing: 1.5px; }
+
+/* UPDATED: HOST BOX (Interview Host) */
+.host-box { 
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); 
+    padding: 12px 30px; 
+    border-radius: 50px; 
+    margin: 0 auto 35px auto; 
+    font-weight: 600; 
+    color: #555; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 12px; 
+    font-size: 0.95rem; 
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    max-width: fit-content;
+}
+body.dark-mode .host-box { background: rgba(255,255,255,0.1); color: #ddd; border-color: rgba(255,255,255,0.1); }
+.host-icon { font-size: 1.2rem; animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+.dialogue-wrapper { display: flex; align-items: flex-start; gap: 15px; margin: 20px 0; }
 .dialogue-wrapper.right { flex-direction: row-reverse; }
 .char-avatar-small { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 .char-avatar-small img { width: 100%; height: 100%; object-fit: contain; }
-.dialogue-bubble { background: #f8f9fa; padding: 12px 18px; border-radius: 15px; font-size: 1rem; color: #444; max-width: 85%; position: relative; }
-.dialogue-bubble.cindy-style { background: #F3E5F5; color: #4A148C; border-radius: 15px 15px 15px 4px; }
-.dialogue-bubble.kuroo-style { background: #333; color: white; border-radius: 15px 15px 4px 15px; }
-body.dark-mode .dialogue-bubble.cindy-style { background: rgba(180, 167, 214, 0.2); color: #E8B4D9; }
-body.dark-mode .dialogue-bubble.kuroo-style { background: #555; color: white; }
+.dialogue-bubble { background: #f8f9fa; padding: 14px 22px; border-radius: 18px; font-size: 1rem; color: #444; max-width: 85%; position: relative; line-height: 1.6; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+.dialogue-bubble.cindy-style { background: linear-gradient(135deg, #FFF5F7 0%, #F3E5F5 100%); color: #4A148C; border-radius: 20px 20px 20px 4px; border: 1px solid rgba(232, 180, 217, 0.2); }
+.dialogue-bubble.kuroo-style { background: #333; color: white; border-radius: 20px 20px 4px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+body.dark-mode .dialogue-bubble.cindy-style { background: rgba(180, 167, 214, 0.15); color: #E8B4D9; border: 1px solid rgba(180, 167, 214, 0.2); }
+body.dark-mode .dialogue-bubble.kuroo-style { background: #444; color: white; border: 1px solid #555; }
 
 /* Filter Buttons & Pagination */
 .styled-filter-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
@@ -1143,3 +1194,20 @@ body.dark-mode .hero-stack-item:hover .hero-caption-box {
 
 body.dark-mode .hero-caption-box h3 { color: #fff; }
 body.dark-mode .hero-caption-box p { color: #aaa; }
+
+/* --- SCROLL ANIMATION UTILITIES --- */
+/* Initial State (Hidden & Shifted Down) */
+.interview-scene .host-box,
+.interview-scene .narrative-action,
+.interview-scene .inner-monologue,
+.interview-scene .dialogue-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+/* Active State (Visible & In Place) - Triggered by JS */
+.pop-in-active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
