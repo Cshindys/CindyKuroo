@@ -1,4 +1,4 @@
-/* style.css - COMPLETE VERSION (With Animations Fixed) */
+/* style.css - COMPLETE VERSION (With Left Alignment Updates) */
 
 /* --- RESET & BASIC STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -646,55 +646,75 @@ body.dark-mode .interview-title, body.dark-mode .timeline-title { color: #eee; }
 .interview-scene { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--card-shadow); margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.03); }
 body.dark-mode .interview-scene { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); }
 
-/* UPDATED: NARRATIVE ACTION (Pretty Story Style) */
+/* UPDATED: NARRATIVE ACTION (Left Aligned) */
 .narrative-action { 
     background: transparent; 
     border-left: none; 
     padding: 10px 0; 
-    margin: 25px auto; 
+    
+    /* CHANGED: Margin from '25px auto' to '25px 0' to stop centering the box */
+    margin: 25px 0; 
+    
     border-radius: 0; 
     font-size: 0.95rem; 
     color: #777; 
     line-height: 1.8; 
     position: relative; 
-    text-align: center; 
+    
+    /* CHANGED: Text align to left */
+    text-align: left; 
+    
     font-style: italic;
     display: flex;
     align-items: center;
-    justify-content: center;
+    
+    /* CHANGED: Justify content to flex-start (left) */
+    justify-content: flex-start;
+    
     gap: 12px;
 }
 .narrative-action::before, .narrative-action::after { content: '✦'; color: var(--accent-pink); font-size: 0.8rem; opacity: 0.6; }
 body.dark-mode .narrative-action { background: transparent; color: #bbb; border-left: none; }
 
-/* UPDATED: INNER MONOLOGUE (Dreamy Thought Bubble) */
+/* UPDATED: INNER MONOLOGUE (Left Aligned) */
 .inner-monologue { 
     background: rgba(255, 255, 255, 0.6); 
     border: 1px solid rgba(180, 167, 214, 0.3); 
     padding: 20px 30px; 
     border-radius: 25px; 
-    margin: 25px auto; 
+    
+    /* CHANGED: Margin from '25px auto' to '25px 0' */
+    margin: 25px 0; 
+    
     color: #6d5d6e; 
     font-size: 0.95rem; 
     position: relative; 
     max-width: 90%; 
     box-shadow: 0 5px 20px rgba(180, 167, 214, 0.1); 
-    text-align: center;
+    
+    /* CHANGED: Text align to left */
+    text-align: left;
 }
 body.dark-mode .inner-monologue { background: rgba(180, 167, 214, 0.1); border-color: rgba(180, 167, 214, 0.2); color: #E6EE9C; box-shadow: none; }
 .inner-label { font-weight: 700; font-size: 0.75rem; color: var(--gold-accent); text-transform: uppercase; margin-bottom: 8px; display: block; letter-spacing: 1.5px; }
 
-/* UPDATED: HOST BOX (Interview Host) */
+/* UPDATED: HOST BOX (Left Aligned) */
 .host-box { 
     background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); 
     padding: 12px 30px; 
     border-radius: 50px; 
-    margin: 0 auto 35px auto; 
+    
+    /* CHANGED: Margin from '0 auto 35px auto' to '0 0 35px 0' */
+    margin: 0 0 35px 0; 
+    
     font-weight: 600; 
     color: #555; 
     display: flex; 
     align-items: center; 
-    justify-content: center; 
+    
+    /* CHANGED: Justify to flex-start (left) */
+    justify-content: flex-start; 
+    
     gap: 12px; 
     font-size: 0.95rem; 
     border: 1px solid rgba(0,0,0,0.05);
