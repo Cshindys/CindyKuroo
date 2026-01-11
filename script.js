@@ -573,12 +573,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    renderChapters();
-    renderGardenEntries();
-    initInterviews();       
+    // === SAFETY CHECK: Only run these if the container exists! ===
+    // This prevents the script from crashing on the homepage (index.html)
+    // where these containers do not exist.
+    if (document.getElementById('chapters-container')) {
+        renderChapters();
+    }
+    
+    if (document.getElementById('garden-container')) {
+        renderGardenEntries();
+    }
+
+    if (document.getElementById('interview-filters')) {
+        initInterviews();
+    }
+    
+    // Scroll animations should run safely
     initScrollAnimations(); 
     
-    // Check URL parameters for specific tab
+    // Check URL parameters for specific tab (e.g. index.html -> couple.html?tab=interview)
     const urlParams = new URLSearchParams(window.location.search);
     const tabParam = urlParams.get('tab');
     if (tabParam) {
@@ -589,13 +602,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Event listener for timeline buttons
-    document.querySelectorAll('.read-story-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const eventElement = e.target.closest('.timeline-event');
-            const eventId = eventElement.getAttribute('data-event');
-            openModal(eventId);
+    const readButtons = document.querySelectorAll('.read-story-btn');
+    if (readButtons.length > 0) {
+        readButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const eventElement = e.target.closest('.timeline-event');
+                const eventId = eventElement.getAttribute('data-event');
+                openModal(eventId);
+            });
         });
-    });
+    }
 
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark-mode');
@@ -741,7 +757,8 @@ let currentChapterIndex = 0;
 
 function renderChapters() {
     const container = document.getElementById('chapters-container');
-    if(!container) return; 
+    if(!container) return; // SAFEGUARD: Stop if container missing (homepage)
+    
     container.innerHTML = '';
     storyChapters.forEach((chapter, index) => {
         const card = document.createElement('div');
@@ -760,14 +777,22 @@ function renderChapters() {
 function openChapter(index) {
     currentChapterIndex = index;
     updateReaderContent();
-    document.getElementById('chapters-grid-view').style.display = 'none';
-    document.getElementById('story-reader-view').style.display = 'block';
+    const gridView = document.getElementById('chapters-grid-view');
+    const readerView = document.getElementById('story-reader-view');
+    
+    if(gridView) gridView.style.display = 'none';
+    if(readerView) readerView.style.display = 'block';
+    
     scrollToId('storybook-zone');
 }
 
 function closeChapterReader() {
-    document.getElementById('story-reader-view').style.display = 'none';
-    document.getElementById('chapters-grid-view').style.display = 'block';
+    const gridView = document.getElementById('chapters-grid-view');
+    const readerView = document.getElementById('story-reader-view');
+    
+    if(readerView) readerView.style.display = 'none';
+    if(gridView) gridView.style.display = 'block';
+    
     scrollToId('storybook-zone');
 }
 
@@ -795,7 +820,8 @@ function updateReaderContent() {
 
 function renderGardenEntries() {
     const container = document.getElementById('garden-container');
-    if(!container) return;
+    if(!container) return; // SAFEGUARD: Stop if container missing
+    
     container.innerHTML = '';
     gardenEntries.forEach(entry => {
         const card = document.createElement('div');
@@ -819,7 +845,7 @@ function renderGardenEntries() {
 /* --- INTERVIEW LOGIC FUNCTIONS --- */
 function initInterviews() {
     const filterContainer = document.getElementById('interview-filters');
-    if (!filterContainer) return;
+    if (!filterContainer) return; // SAFEGUARD: Stop if container missing
 
     // 1. Generate Filter Buttons
     filterContainer.innerHTML = '';
@@ -934,9 +960,9 @@ function observeInterviewElements() {
     elements.forEach(el => observer.observe(el));
 }
 
-// In index.html there is a function toggleCategory defined inline.
-// You can include it here if you want to clean up index.html, 
-// otherwise keep it in index.html as is.
+// Function to handle Accordion on Index Page
+// This exists in index.html inline script too, but adding it here
+// ensures it works even if inline scripts are removed.
 function toggleCategory(header) {
     const content = header.nextElementSibling;
     const icon = header.querySelector('.category-icon');
