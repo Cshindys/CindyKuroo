@@ -501,7 +501,7 @@ const interviewSeries = [
         content: `
             <div class="interview-scene">
                 <div class="host-box" role="group"><span class="host-icon">🎤</span><span>主持人：請問，シンデイ，妳對黑尾學長的第一印象是什麼呢？</span></div>
-                <div class="narrative-action">*聽到這個問題，Cindy的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起……*</div>
+                <div class="narrative-action">聽到這個問題，シンデイ的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起...</div>
                 <div class="inner-monologue"><span class="inner-label">Cindy內心獨白</span>「糟糕……學長一定知道我那時候都在偷看他。要怎麼回答才自然一點...」</div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
@@ -509,7 +509,7 @@ const interviewSeries = [
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「在排球場上的時候……學長簡直像變了一個人...」</div>
+                    <div class="dialogue-bubble cindy-style">「在排球場上的時候...學長簡直像變了一個人...」</div>
                 </div>
                 <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「噗嗤，看來我在她心裡的分數一直很高。」</div>
                 
@@ -526,7 +526,7 @@ const interviewSeries = [
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「妳不是經常躲在排球館二樓嗎？傻瓜，妳那麼明顯...要看不見，那才是真有問題吧？」</div>
                 </div>
-                <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「只是那時候我不知道，這個小東西會變成現在這麼讓我上心的存在。」</div>
+                <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「只是那時候我不知道，這個小傻瓜會變成現在這麼讓我上心的存在。」</div>
             </div>
         `
     },
@@ -535,10 +535,10 @@ const interviewSeries = [
         title: "第二回：興趣與愛好",
         content: `
             <div class="interview-scene">
-                <div class="host-box"><span class="host-icon">🎤</span><span>主持人：哇，學長原來早就知道了啊！那請問兩位，平時除了學習之外，有什麼特別的興趣嗎？</span></div>
+                <div class="host-box"><span class="host-icon">🎤</span><span>主持人：哇，黑尾君原來早就知道了啊！那請問兩位，平時除了學習之外，有什麼特別的興趣嗎？</span></div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「我喜歡看書，還有照顧家裡的植物。嗯，還有……關注排球的比賽日程和消息。」</div>
+                    <div class="dialogue-bubble cindy-style">「我喜歡看書，還有照顧家裡的植物。嗯，還有傻瓜關注排球比賽的日程和消息。」</div>
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
@@ -546,7 +546,7 @@ const interviewSeries = [
                 </div>
                 <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble kuroo-style">「我的興趣嘛……除了排球和讀書之外……」</div>
+                    <div class="dialogue-bubble kuroo-style">「我的興趣嘛...除了排球和讀書之外...」</div>
                 </div>
                 <div class="narrative-action">*他眼神意味深長地瞟了一眼シンデイ。*</div>
                 <div class="dialogue-wrapper">
@@ -555,7 +555,7 @@ const interviewSeries = [
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「？。」</div>
+                    <div class="dialogue-bubble cindy-style">「？」</div>
                 </div>
             </div>
         `
@@ -572,7 +572,7 @@ const interviewSeries = [
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的花店...如果可以的話，也想一直支持著學長的夢想。」</div>
+                    <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的店鋪，具體是怎麼的店鋪，有可能是咖啡店...如果可以的話，也想一直支持著學長的夢想。」</div>
                 </div>
                  <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
