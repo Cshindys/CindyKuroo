@@ -548,7 +548,7 @@ const interviewSeries = [
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「我的興趣嘛...除了排球和讀書之外...」</div>
                 </div>
-                <div class="narrative-action">*他眼神意味深長地瞟了一眼シンデイ。*</div>
+                <div class="narrative-action">他眼神意味深長地瞟了一眼シンデイ。</div>
                 <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「研究生物的行為模式。」</div>
@@ -561,8 +561,62 @@ const interviewSeries = [
         `
     },
     {
-        id: 'ep3',
-        title: "第三回：未來的夢想",
+id: 'ep3',
+title: "第三回：形容對方",
+content: `
+    <div class="interview-scene">
+        <div class="host-box">
+            <span class="host-icon">🎤</span>
+            <span>主持人：哈哈，這個回答真是出人意料。那麼接下來是簡短的提問：請用一個詞來形容對方吧！</span>
+        </div>
+
+        <div class="dialogue-wrapper right">
+            <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+            <div class="dialogue-bubble cindy-style">「安心感！學長對我來說就是『安心感』。不論發生什麼事，只要有學長在，我就會覺得很踏實。」</div>
+        </div>
+        <div class="narrative-action">她回答這句話時，眼睛裡閃爍著真誠的光芒，語氣裡沒有絲毫猶豫。</div>
+        
+        <div class="narrative-action">黑尾聞言，嘴角勾起一抹滿意又略帶得意的弧度。他修長的手指輕點著下巴，目光玩味地投向對面的シンディ。</div>
+
+        <div class="dialogue-wrapper">
+            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+            <div class="dialogue-bubble kuroo-style">「一個詞來形容シンディ嗎……這可難倒我了。迷糊、愛操心、天然呆、笨拙……還有……」</div>
+        </div>
+        <div class="dialogue-wrapper">
+            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+            <div class="dialogue-bubble kuroo-style">「嗯，還是用這個吧——『有趣』。」</div>
+        </div>
+
+        <div class="dialogue-wrapper right">
+            <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+            <div class="dialogue-bubble cindy-style">「……咦？有趣？」</div>
+        </div>
+
+        <div class="dialogue-wrapper">
+            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+            <div class="dialogue-bubble kuroo-style">「是啊，有趣。妳想想看……」</div>
+        </div>
+        <div class="dialogue-wrapper">
+            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+            <div class="dialogue-bubble kuroo-style">「除了妳，還有誰能憑藉著『過剩的愛心』，把以生命力頑強著稱的仙人掌給活活『淹死』？這種才能，我還真沒見過第二個。」</div>
+        </div>
+        
+        <div class="narrative-action">他每舉一個例子，シンディ的臉就更紅一分。那些在她看來想立刻銷毀的「黑歷史」，從他嘴裡說出來，卻彷彿變成了值得珍藏的可愛回憶。</div>
+        
+        <div class="dialogue-wrapper">
+            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+            <div class="dialogue-bubble kuroo-style">「這些難道不『有趣』嗎？妳就像一個……我永遠預測不到下一秒會做出什麼驚人之舉的寶藏。」</div>
+        </div>
+        <div class="dialogue-wrapper">
+            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+            <div class="dialogue-bubble kuroo-style">「觀察妳的這些反應，比研究任何複雜的化學反應式都還要讓我著迷。所以，シンディ，妳對我而言，是獨一無二的『有趣』。」</div>
+        </div>
+    </div>
+        
+    },
+    {
+        id: 'ep4',
+        title: "第四回：未來的夢想",
         content: `
             <div class="interview-scene">
                 <div class="host-box"><span class="host-icon">🎤</span><span>主持人：最後一個問題，兩位未來的夢想是什麼呢？</span></div>
