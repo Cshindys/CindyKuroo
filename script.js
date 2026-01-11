@@ -588,7 +588,82 @@ const interviewSeries = [
     },
     {
         id: 'ep4',
-        title: "第四回：未來的夢想",
+        title: "第四回：喜歡的地方",
+        content: `
+            <div class="interview-scene">
+                <div class="host-box">
+                    <span class="host-icon">🎤</span>
+                    <span>主持人：哇……這番解釋……好的，那麼，讓我們進入下一個問題——請問，在對方身上，有沒有哪個地方是妳特別喜歡的？</span>
+                </div>
+
+                <div class="narrative-action">
+                    *シンデイ的臉頰剛稍微降溫，現在又立刻像火燒一樣重新燙了起來。她手裡的筆幾乎要被捏斷了，腦袋裡一片空白，但又有無數個畫面在瘋狂閃現。*
+                </div>
+                
+                <div class="inner-monologue">
+                    <span class="inner-label">Cindy's Mind</span>
+                    （喜歡的地方……太多了。學長打排球時那專注而銳利的眼神、攔網成功後自信張揚的笑容、為我圍上圍巾時溫柔體貼的動作……還有……那低沉又帶著磁性的嗓音……）
+                </div>
+
+                <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「我……我……」</div>
+                </div>
+
+                <div class="narrative-action">
+                    *シンデイ支支吾吾了半天，最後像是下定了決心一般，抬起頭，用一種豁出去的語氣，飛快地說道。*
+                </div>
+
+                <div class="dialogue-wrapper right">
+                    <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble cindy-style">「我喜歡……學長的聲音！還有、還有……手！」</div>
+                </div>
+
+                <div class="narrative-action">
+                    *說完，她的頭幾乎要埋進自己的胸口裡，不敢再看黑尾一眼。*
+                </div>
+
+                <div class="narrative-action">
+                    *黑尾聽到這個答案，先是微微一愣，隨即露出了然的笑容。聲音和手嗎……倒也是很直接的答案。他低頭看了看自己那雙因為常年打排球而骨節分明、略帶薄繭的手，似乎能感覺到上面還殘留著她頭髮的柔軟觸感。*
+                </div>
+
+                <div class="inner-monologue">
+                     <span class="inner-label">黑尾內心獨白</span>
+                     （聲音和手啊……呵呵，真像是她會給出的答案。不說些外表之類的，卻是這種更具體的部位。看來我平時用這雙手揉她腦袋，用這個聲音逗她，效果還是很顯著的嘛。這隻小貓，意外地很誠實呢。）
+                </div>
+
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「我嗎？」</div>
+                </div>
+                
+                <div class="narrative-action">
+                    *他將視線鎖定在シンデイ身上，目光坦然而直接，帶著一種不容躲閃的侵略性。*
+                </div>
+
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「我喜歡……她的眼睛。」</div>
+                </div>
+
+                <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「當她看著我的時候，那雙眼睛裡，好像裝下了整個宇宙的星光，清澈、明亮，裡面所有的情緒都一覽無遺。」</div>
+                </div>
+                 <div class="dialogue-wrapper">
+                    <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
+                    <div class="dialogue-bubble kuroo-style">「不管是驚訝、開心、害羞還是委屈，都直接寫在裡面，讓人……忍不住想一直看下去，也忍不住……想把那雙眼睛裡，只裝滿我一個人的倒影。」</div>
+                </div>
+
+                <div class="narrative-action">
+                    *シンデイ的心臟狂跳得像是要從喉嚨裡蹦出來，她完全不敢與他對視，只能感覺到他那灼熱的視線，像實質一樣落在自己的身上，讓她無所遁形。*
+                </div>
+            </div>
+        `
+    },
+    {
+        id: 'ep5',
+        title: "第五回：未來的夢想",
         content: `
             <div class="interview-scene">
                 <div class="host-box"><span class="host-icon">🎤</span><span>主持人：最後一個問題，兩位未來的夢想是什麼呢？</span></div>
