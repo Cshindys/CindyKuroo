@@ -568,15 +568,15 @@ const interviewSeries = [
                 <div class="host-box"><span class="host-icon">🎤</span><span>主持人：最後一個問題，兩位未來的夢想是什麼呢？</span></div>
                 <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble kuroo-style">「希望能繼續從事排球相關的工作，把這份熱情傳遞給更多人。」</div>
+                    <div class="dialogue-bubble kuroo-style">「希望能繼續從事排球相關的工作，讓更多人體會到這項運動的樂趣，把這份熱情傳遞給更多人。」</div>
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的店鋪，具體是怎麼的店鋪，有可能是咖啡店...如果可以的話，也想一直支持著學長的夢想。」</div>
+                    <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的小店，或許是咖啡廳吧……還有，如果可以的話，希望能一直陪在學長身邊，支持著他的夢想，看著他閃閃發光的樣子。」</div>
                 </div>
                  <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble kuroo-style">「哈哈，那就拜託妳了，最強的贊助商。」</div>
+                    <div class="dialogue-bubble kuroo-style">「哈哈，那我就放心了。以後請多指教囉，黒尾鉄朗的贊助商。」</div>
                 </div>
             </div>
         `
