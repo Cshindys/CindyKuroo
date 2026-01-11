@@ -1,7 +1,6 @@
 /* --- GLOBAL VARIABLES & DATA --- */
 
 // Timeline Event Stories Data
-// UPDATED: Cindy = Right (Purple), Kuroo = Left (Black)
 const eventStories = {
     'event1': {
         title: "愛的暗殺事件🌱",
@@ -10,16 +9,13 @@ const eventStories = {
             <div class="narrative-action">
                 シンディ其實並不擅長園藝，但為了加入園藝社（以及偷看隔壁體育館的黑尾），她努力學習。她領養了一盆號稱「絕對不會死」的仙人掌。
             </div>
-
             <div class="inner-monologue">
                 <span class="inner-label">Cindy's Mind</span>
                 （只要給它滿滿的愛，它一定會長得很高大吧！就像學長一樣！）
             </div>
-
             <div class="narrative-action">
                 出於對這個小生命的過度關愛，她每天早晚都給它澆水，還對著它說話。結果兩個禮拜後，仙人掌... 從內部爛掉了。
             </div>
-
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -27,7 +23,6 @@ const eventStories = {
                     嗚嗚嗚...為什麼...店員明明說它很堅強的...
                 </div>
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -44,16 +39,13 @@ const eventStories = {
             <div class="narrative-action">
                 午休時間，圖書館內一片寂靜。Cindy 踮著腳尖試圖拿取書架頂層的一本植物圖鑑。
             </div>
-
             <div class="inner-monologue">
                 <span class="inner-label">Cindy's Mind</span>
                 （差一點點...再高一點點就拿到了...！）
             </div>
-
             <div class="narrative-action">
                 就在指尖碰到書脊的瞬間，重心不穩，整個人向後仰去。她閉上眼睛準備迎接疼痛，卻沒有摔倒在地，反而是頭頂傳來「咚」的一聲悶響。
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -61,11 +53,9 @@ const eventStories = {
                     好痛... 妳是在練習頭球攻擊嗎？小不點？
                 </div>
             </div>
-
             <div class="narrative-action">
                 原來黑尾剛好經過，伸手扶住了她，卻被落下的精裝書精準砸中了自己的手臂，還反彈到了 Cindy 的頭上。
             </div>
-
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -82,7 +72,6 @@ const eventStories = {
             <div class="narrative-action">
                 黑尾生日當天，Cindy 鼓起勇氣送出了準備已久的禮物。包裝非常精美，還綁著紫色的緞帶。
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -90,16 +79,13 @@ const eventStories = {
                     喔？謝啦。我可以現在拆開嗎？
                 </div>
             </div>
-
             <div class="narrative-action">
                 黑尾打開盒子，表情凝固了三秒。裡面是兩個高品質的護膝... 但仔細一看，包裝上都貼著「左腳專用」的標籤。
             </div>
-
             <div class="inner-monologue">
                 <span class="inner-label">Cindy's Mind</span>
                 （糟了...學長的表情怪怪的...難道是不喜歡這個顏色嗎？）
             </div>
-
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -107,7 +93,6 @@ const eventStories = {
                     那、那個！因為太緊張買錯了... 店員說只剩左腳的庫存... 我想說反正形狀差不多...
                 </div>
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -124,17 +109,14 @@ const eventStories = {
             <div class="narrative-action">
                 在一次重要的全國大賽預選賽前夕，シンデイ懷著滿腔熱情，決定親手為每一位隊員製作「音駒貓」毛氈御守。她閉關整整一個週末，對著教學影片一針一線地創作，想像著大家收到禮物時的笑容。
             </div>
-
             <div class="narrative-action">
                 然而，由於她對針線活有著「天賦異稟般的笨拙」，成品產生了巨大的、甚至是物種上的差異。
                 <br><br>
                 有的眼睛一大一小，有的嘴巴像詭異波浪線，最經典的一個耳朵還縫反了，與其說是貓，不如說是一隻憂鬱的變形蝙蝠。
             </div>
-
             <div class="narrative-action">
                 當她鼓起勇氣送出這一籃「畸變貓咪軍團」時，整個排球館陷入了微妙而漫長的沉默。
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -142,7 +124,6 @@ const eventStories = {
                     哈哈，那個東西啊... 我到現在還留著呢。（從鐵盒裡拿出一個難以形容的物體）
                 </div>
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -150,7 +131,6 @@ const eventStories = {
                     你看，耳朵一前一後，眼睛像被揍了一拳，這嘴角簡直是在嘲諷全世界。我當時不是問妳：『學妹，妳確定這是貓？不是什麼新品種的外星生物嗎？』
                 </div>
             </div>
-
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -158,7 +138,6 @@ const eventStories = {
                     嗚...（臉紅得像晚霞）我、我真的不是故意的！教學影片明明很可愛啊！
                 </div>
             </div>
-
             <div class="story-bubble right">
                 <div class="story-avatar"><img src="img/CindyQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -166,11 +145,9 @@ const eventStories = {
                     可是針線到我手上就有自己的想法！完全不聽指揮！我的手指都被扎了好幾個洞... 我以為你們會偷偷丟掉的...
                 </div>
             </div>
-
             <div class="narrative-action">
                 黑尾看著眼前快要哭出來的女孩，眼神忽然變得溫柔了許多。他輕輕晃了晃手中的「畸變貓」。
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -178,7 +155,6 @@ const eventStories = {
                     雖然長得很有創意，但所有人都收下了。研磨還把它掛在遊戲機包上，說卡關的時候看一眼就覺得沒什麼過不去的坎了。
                 </div>
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -186,7 +162,6 @@ const eventStories = {
                     至於我這個嘛... 我一直收得很好。因為我知道，這是某個笨手笨腳的傢伙，熬了好幾個晚上，忍著手指痛才做出來的東西。
                 </div>
             </div>
-
             <div class="story-bubble left">
                 <div class="story-avatar"><img src="img/KurooQQ(Transparent).png"></div>
                 <div class="story-bubble-content">
@@ -194,7 +169,6 @@ const eventStories = {
                     這份心意，比任何做得漂亮的東西，都貴重多了。
                 </div>
             </div>
-
             <div class="inner-monologue">
                 <span class="inner-label">Cindy's Mind</span>
                 （原來...那份笨拙的心意，真的有被好好地珍視著啊...）
@@ -284,7 +258,6 @@ const storyChapters = [
 ];
 
 // Gardening Diary Data
-// UPDATED: Cindy = Right (Purple), Kuroo = Left (Black)
 const gardenEntries = [
     {
         id: 'g1',
@@ -493,7 +466,6 @@ const gardenEntries = [
 ];
 
 /* --- INTERVIEW DATA SERIES --- */
-// UPDATED: Cindy = Right (Purple), Kuroo = Left (Black)
 const interviewSeries = [
     {
         id: 'ep1',
@@ -501,7 +473,7 @@ const interviewSeries = [
         content: `
             <div class="interview-scene">
                 <div class="host-box" role="group"><span class="host-icon">🎤</span><span>主持人：請問，シンデイ，妳對黑尾學長的第一印象是什麼呢？</span></div>
-                <div class="narrative-action">聽到這個問題，シンデイ的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起...</div>
+                <div class="narrative-action">*聽到這個問題，Cindy的臉頰瞬間爆紅。她腦海立刻浮現：夕陽灑落的排球館裡，汗水淋漓的少年在球網前高高躍起……*</div>
                 <div class="inner-monologue"><span class="inner-label">Cindy內心獨白</span>「糟糕……學長一定知道我那時候都在偷看他。要怎麼回答才自然一點...」</div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
@@ -509,7 +481,7 @@ const interviewSeries = [
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「在排球場上的時候...學長簡直像變了一個人...」</div>
+                    <div class="dialogue-bubble cindy-style">「在排球場上的時候……學長簡直像變了一個人...」</div>
                 </div>
                 <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「噗嗤，看來我在她心裡的分數一直很高。」</div>
                 
@@ -526,7 +498,7 @@ const interviewSeries = [
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「妳不是經常躲在排球館二樓嗎？傻瓜，妳那麼明顯...要看不見，那才是真有問題吧？」</div>
                 </div>
-                <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「只是那時候我不知道，這個小傻瓜會變成現在這麼讓我上心的存在。」</div>
+                <div class="inner-monologue"><span class="inner-label">黑尾內心獨白</span>「只是那時候我不知道，這個小東西會變成現在這麼讓我上心的存在。」</div>
             </div>
         `
     },
@@ -535,10 +507,10 @@ const interviewSeries = [
         title: "第二回：興趣與愛好",
         content: `
             <div class="interview-scene">
-                <div class="host-box"><span class="host-icon">🎤</span><span>主持人：哇，黑尾君原來早就知道了啊！那請問兩位，平時除了學習之外，有什麼特別的興趣嗎？</span></div>
+                <div class="host-box"><span class="host-icon">🎤</span><span>主持人：哇，學長原來早就知道了啊！那請問兩位，平時除了學習之外，有什麼特別的興趣嗎？</span></div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「我喜歡看書，還有照顧家裡的植物。嗯，還有傻瓜關注排球比賽的日程和消息。」</div>
+                    <div class="dialogue-bubble cindy-style">「我喜歡看書，還有照顧家裡的植物。嗯，還有……關注排球的比賽日程和消息。」</div>
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
@@ -546,91 +518,37 @@ const interviewSeries = [
                 </div>
                 <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble kuroo-style">「我的興趣嘛...除了排球和讀書之外...」</div>
+                    <div class="dialogue-bubble kuroo-style">「我的興趣嘛……除了排球和讀書之外……」</div>
                 </div>
-                <div class="narrative-action">他眼神意味深長地瞟了一眼シンデイ。</div>
+                <div class="narrative-action">*他眼神意味深長地瞟了一眼シンデイ。*</div>
                 <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
                     <div class="dialogue-bubble kuroo-style">「研究生物的行為模式。」</div>
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「？」</div>
+                    <div class="dialogue-bubble cindy-style">「？。」</div>
                 </div>
             </div>
         `
     },
     {
-id: 'ep3',
-title: "第三回：形容對方",
-content: `
-    <div class="interview-scene">
-        <div class="host-box">
-            <span class="host-icon">🎤</span>
-            <span>主持人：哈哈，這個回答真是出人意料。那麼接下來是簡短的提問：請用一個詞來形容對方吧！</span>
-        </div>
-
-        <div class="dialogue-wrapper right">
-            <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-            <div class="dialogue-bubble cindy-style">「安心感！學長對我來說就是『安心感』。不論發生什麼事，只要有學長在，我就會覺得很踏實。」</div>
-        </div>
-        <div class="narrative-action">她回答這句話時，眼睛裡閃爍著真誠的光芒，語氣裡沒有絲毫猶豫。</div>
-        
-        <div class="narrative-action">黑尾聞言，嘴角勾起一抹滿意又略帶得意的弧度。他修長的手指輕點著下巴，目光玩味地投向對面的シンディ。</div>
-
-        <div class="dialogue-wrapper">
-            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-            <div class="dialogue-bubble kuroo-style">「一個詞來形容シンディ嗎……這可難倒我了。迷糊、愛操心、天然呆、笨拙……還有……」</div>
-        </div>
-        <div class="dialogue-wrapper">
-            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-            <div class="dialogue-bubble kuroo-style">「嗯，還是用這個吧——『有趣』。」</div>
-        </div>
-
-        <div class="dialogue-wrapper right">
-            <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-            <div class="dialogue-bubble cindy-style">「……咦？有趣？」</div>
-        </div>
-
-        <div class="dialogue-wrapper">
-            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-            <div class="dialogue-bubble kuroo-style">「是啊，有趣。妳想想看……」</div>
-        </div>
-        <div class="dialogue-wrapper">
-            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-            <div class="dialogue-bubble kuroo-style">「除了妳，還有誰能憑藉著『過剩的愛心』，把以生命力頑強著稱的仙人掌給活活『淹死』？這種才能，我還真沒見過第二個。」</div>
-        </div>
-        
-        <div class="narrative-action">他每舉一個例子，シンディ的臉就更紅一分。那些在她看來想立刻銷毀的「黑歷史」，從他嘴裡說出來，卻彷彿變成了值得珍藏的可愛回憶。</div>
-        
-        <div class="dialogue-wrapper">
-            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-            <div class="dialogue-bubble kuroo-style">「這些難道不『有趣』嗎？妳就像一個……我永遠預測不到下一秒會做出什麼驚人之舉的寶藏。」</div>
-        </div>
-        <div class="dialogue-wrapper">
-            <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-            <div class="dialogue-bubble kuroo-style">「觀察妳的這些反應，比研究任何複雜的化學反應式都還要讓我著迷。所以，シンディ，妳對我而言，是獨一無二的『有趣』。」</div>
-        </div>
-    </div>
-        
-    },
-    {
-        id: 'ep4',
-        title: "第四回：未來的夢想",
+        id: 'ep3',
+        title: "第三回：未來的夢想",
         content: `
             <div class="interview-scene">
                 <div class="host-box"><span class="host-icon">🎤</span><span>主持人：最後一個問題，兩位未來的夢想是什麼呢？</span></div>
                 <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble kuroo-style">「希望能繼續從事排球相關的工作，讓更多人體會到這項運動的樂趣，把這份熱情傳遞給更多人。」</div>
+                    <div class="dialogue-bubble kuroo-style">「希望能繼續從事排球相關的工作，把這份熱情傳遞給更多人。」</div>
                 </div>
                 <div class="dialogue-wrapper right">
                     <div class="char-avatar-small"><img src="img/CindyQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的小店，或許是咖啡廳吧……還有，如果可以的話，希望能一直陪在學長身邊，支持著他的夢想，看著他閃閃發光的樣子。」</div>
+                    <div class="dialogue-bubble cindy-style">「我希望能開一家溫馨的花店...如果可以的話，也想一直支持著學長的夢想。」</div>
                 </div>
                  <div class="dialogue-wrapper">
                     <div class="char-avatar-small"><img src="img/KurooQQ(Transparent).png"></div>
-                    <div class="dialogue-bubble kuroo-style">「哈哈，那我就放心了。以後請多指教囉，黒尾鉄朗的贊助商。」</div>
+                    <div class="dialogue-bubble kuroo-style">「哈哈，那就拜託妳了，最強的贊助商。」</div>
                 </div>
             </div>
         `
@@ -643,27 +561,34 @@ let currentInterviewIndex = 0;
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- IMAGE PROTECTION ---
-    // Prevent right-clicking on any <img> element
     document.addEventListener('contextmenu', function(e) {
         if (e.target.tagName === 'IMG') {
             e.preventDefault();
         }
     });
 
-    // Prevent dragging on any <img> element
     document.addEventListener('dragstart', function(e) {
         if (e.target.tagName === 'IMG') {
             e.preventDefault();
         }
     });
-    // ------------------------------------
 
     renderChapters();
     renderGardenEntries();
-    // initPhotobook(); // REMOVED
     initInterviews();       
     initScrollAnimations(); 
     
+    // Check URL parameters for specific tab
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam) {
+        // Allow a small delay to ensure DOM is ready and transitions work
+        setTimeout(() => {
+            switchTabAndScroll(tabParam);
+        }, 100);
+    }
+    
+    // Event listener for timeline buttons
     document.querySelectorAll('.read-story-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const eventElement = e.target.closest('.timeline-event');
@@ -679,10 +604,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('scroll', () => {
         const btn = document.getElementById('scrollTopBtn');
-        if (window.scrollY > 300) {
-            btn.classList.add('visible');
-        } else {
-            btn.classList.remove('visible');
+        if (btn) {
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
         }
     });
 });
@@ -692,35 +619,42 @@ function switchTopTab(tabId) {
     document.querySelectorAll('.top-tab-content').forEach(content => {
         content.classList.remove('active');
     });
-    document.getElementById('btn-top-video').classList.remove('active');
-    document.getElementById('btn-top-relationship').classList.remove('active');
-    document.getElementById(tabId).classList.add('active');
-    if (tabId === 'top-tab-video') {
-        document.getElementById('btn-top-video').classList.add('active');
-    } else {
-        document.getElementById('btn-top-relationship').classList.add('active');
+    // Remove active from all relationship/intro buttons if you have more in future
+    const btnRelationship = document.getElementById('btn-top-relationship');
+    if(btnRelationship) btnRelationship.classList.remove('active');
+
+    const targetContent = document.getElementById(tabId);
+    if(targetContent) targetContent.classList.add('active');
+
+    // Re-highlight the button
+    if (tabId === 'top-tab-relationship' && btnRelationship) {
+        btnRelationship.classList.add('active');
     }
 }
 
 function toggleTab(tabId) {
+    // 1. Hide all tab sections
     document.querySelectorAll('.tab-section').forEach(section => {
         section.classList.remove('active');
     });
+    
+    // 2. Remove active class from filter buttons
     document.querySelectorAll('#filter-bar-anchor .filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
 
+    // 3. Show the target section
     const target = document.getElementById(tabId);
     if(target) {
         target.classList.add('active');
     }
     
+    // 4. Highlight the correct button
     const btnMap = {
         'interview-zone': 'btn-interview',
         'storybook-zone': 'btn-storybook',
         'timeline-zone': 'btn-timeline',
-        'garden-zone': 'btn-garden',
-        'profile-zone': 'btn-profile' 
+        'garden-zone': 'btn-garden'
     };
     if (btnMap[tabId]) {
         const btn = document.getElementById(btnMap[tabId]);
@@ -756,6 +690,7 @@ function toggleDarkMode() {
 
 function updateDarkModeIcon() {
     const icon = document.getElementById('darkModeIcon');
+    if(!icon) return;
     if (document.body.classList.contains('dark-mode')) {
         icon.textContent = '☀️';
     } else {
@@ -776,6 +711,7 @@ function openGardenModal(entryData) {
 
 function fillModalContent(title, date, content, footerText) {
     const modalBody = document.getElementById('modalBody');
+    if(!modalBody) return;
     modalBody.innerHTML = `
         <div class="story-header">
             <h2 class="story-chapter-title">${title}</h2>
@@ -784,11 +720,13 @@ function fillModalContent(title, date, content, footerText) {
         ${content}
         <div class="story-timestamp">${footerText}</div>
     `;
-    document.getElementById('eventModal').classList.add('active');
+    const modal = document.getElementById('eventModal');
+    if(modal) modal.classList.add('active');
 }
 
 function closeModal() {
-    document.getElementById('eventModal').classList.remove('active');
+    const modal = document.getElementById('eventModal');
+    if(modal) modal.classList.remove('active');
 }
 
 window.onclick = function(event) {
@@ -848,8 +786,11 @@ function updateReaderContent() {
     document.getElementById('reader-date').textContent = chapter.date;
     document.getElementById('reader-content').innerHTML = chapter.content;
     document.getElementById('reader-progress').textContent = `${currentChapterIndex + 1} / ${storyChapters.length}`;
-    document.getElementById('reader-prev-btn').disabled = (currentChapterIndex === 0);
-    document.getElementById('reader-next-btn').disabled = (currentChapterIndex === storyChapters.length - 1);
+    
+    const prevBtn = document.getElementById('reader-prev-btn');
+    const nextBtn = document.getElementById('reader-next-btn');
+    if(prevBtn) prevBtn.disabled = (currentChapterIndex === 0);
+    if(nextBtn) nextBtn.disabled = (currentChapterIndex === storyChapters.length - 1);
 }
 
 function renderGardenEntries() {
@@ -902,6 +843,8 @@ function loadInterview(index) {
     
     // 1. Update Content with Fade Effect
     const container = document.getElementById('interview-dynamic-content');
+    if(!container) return;
+    
     container.style.opacity = '0';
     
     setTimeout(() => {
@@ -927,7 +870,7 @@ function loadInterview(index) {
         nextBtn.disabled = (index === interviewSeries.length - 1);
         
         if(index < interviewSeries.length - 1) {
-            nextBtn.innerHTML = `下一篇 <i class="fas fa-arrow-right"></i>`;
+            nextBtn.innerHTML = `下一篇 <i class="fas fa-chevron-right"></i>`;
         } else {
             nextBtn.innerHTML = `End <i class="fas fa-check"></i>`;
         }
@@ -941,12 +884,15 @@ function changeInterview(direction) {
 
 /* --- SCROLL ANIMATION FUNCTIONS --- */
 function initScrollAnimations() {
-    const interviewElements = document.querySelectorAll(
+    // Basic Intersection Observer for pop-in elements
+    const elements = document.querySelectorAll(
         '.interview-scene .host-box, ' +
         '.interview-scene .narrative-action, ' +
         '.interview-scene .inner-monologue, ' +
         '.interview-scene .dialogue-wrapper'
     );
+    
+    if(elements.length === 0) return;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -961,16 +907,19 @@ function initScrollAnimations() {
         rootMargin: "0px 0px -50px 0px"
     });
 
-    interviewElements.forEach(el => observer.observe(el));
+    elements.forEach(el => observer.observe(el));
 }
 
 function observeInterviewElements() {
+    // Re-run observer for dynamically loaded interview content
     const elements = document.querySelectorAll(
         '.interview-scene .host-box, ' +
         '.interview-scene .narrative-action, ' +
         '.interview-scene .inner-monologue, ' +
         '.interview-scene .dialogue-wrapper'
     );
+    
+    if(elements.length === 0) return;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -983,4 +932,26 @@ function observeInterviewElements() {
     }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
     elements.forEach(el => observer.observe(el));
+}
+
+// In index.html there is a function toggleCategory defined inline.
+// You can include it here if you want to clean up index.html, 
+// otherwise keep it in index.html as is.
+function toggleCategory(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector('.category-icon');
+    const isActive = content.classList.contains('active');
+    
+    document.querySelectorAll('.category-content-styled').forEach(c => {
+        c.classList.remove('active');
+    });
+    
+    document.querySelectorAll('.category-icon').forEach(i => {
+        i.style.transform = 'rotate(0deg)';
+    });
+    
+    if (!isActive) {
+        content.classList.add('active');
+        icon.style.transform = 'rotate(180deg)';
+    }
 }
